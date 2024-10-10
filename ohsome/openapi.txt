@@ -1,0 +1,1 @@
+Swagger UI available at: https://api.ohsome.org/v1/swagger-ui.html
