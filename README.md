@@ -1,5 +1,5 @@
 # PRAB
-Public REST API Benchmark (PRAB). This GitHub repository contains the OpenAPI documentation for various REST APIs.
+Public REST API Benchmark (PRAB). This GitHub repository contains the OpenAPI Specification (OAS) of various REST APIs.
 
 ## Main Goal
 The main goal of this repository is to provide a public benchmark of REST APIs, for the evaluation of research related to REST APIs. For instance, a new testing tool can leverage the OpenAPI specifications provided in this repository.
