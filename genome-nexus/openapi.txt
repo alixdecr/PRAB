@@ -1,1 +1,0 @@
-Swagger UI available at: https://www.genomenexus.org/swagger-ui.html
