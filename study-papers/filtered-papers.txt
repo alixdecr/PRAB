@@ -1,0 +1,203 @@
+---------
+KEYWORDS: "(rest OR restful) api (test OR testing OR specification OR documentation OR openapi OR swagger) (set OR benchmark OR evaluation)"
+---------
+
+RESTful API testing methodologies: Rationale, challenges, and solution directions | REJECTED | PAPER IS A SURVEY/REVIEW
+
+Combinatorial testing of restful apis | ACCEPTED
+
+Resttestgen: automated black-box testing of restful apis | REJECTED | API SET IS TOO BROAD
+
+RESTful API automated test case generation with EvoMaster | ACCEPTED
+
+Testing restful apis: A survey | REJECTED | PAPER IS A SURVEY/REVIEW
+
+QuickREST: Property-based test generation of OpenAPI-described RESTful APIs | REJECTED | API SET IS TOO COMPLEX
+
+Restler: Stateful rest api fuzzing | REJECTED | API SET IS TOO COMPLEX
+
+Automatic generation of test cases for REST APIs: A specification-based approach | REJECTED | API SET IS TOO BROAD
+
+RESTful API automated test case generation | ACCEPTED
+
+Automated test generation for rest apis: No time to rest yet | ACCEPTED
+
+Empirical comparison of black-box test case generation tools for RESTful APIs | REJECTED | PAPER IS NOT ACCESSIBLE
+
+Restats: A test coverage tool for RESTful APIs | REJECTED | PAPER IS NOT ACCESSIBLE
+
+REST API modeling languages-a developer's perspective | REJECTED | NO API SET
+
+REST API composition for effectively testing the Cloud | REJECTED | NO API SET
+
+RESTful Api Design | REJECTED | PAPER IS A BOOK
+
+Morest: Model-based RESTful API testing with execution feedback | ACCEPTED
+
+Fulfilling a RESTful Commitment: Test-Suite Generation for Swagger-based REST APIs | REJECTED | PAPER IS A MASTER THESIS
+
+RESTest: automated black-box testing of RESTful web APIs | ACCEPTED
+
+Rest-ler: automatic intelligent rest api fuzzing | REJECTED | API SET IS TOO COMPLEX
+
+A framework for the structural analysis of REST APIs | REJECTED | no api set
+
+Model-driven testing of restful apis | rejected | no api set
+
+Automated black-and white-box testing of restful apis with evomaster | rejected | paper is not accessible
+
+An analysis of public REST web service APIs | rejected | paper is a survey/review
+
+Online testing of RESTful APIs: Promises and challenges | accepted
+
+Test coverage criteria for RESTful web APIs | accepted
+
+RESTest: Black-box constraint-based testing of RESTful web APIs | accepted
+
+Differential regression testing for REST APIs | rejected | api set is too complex
+
+On the faults found in REST APIs by automated test generation | accepted
+
+Enhancing rest api testing with nlp techniques | accepted
+
+Performance testing REST APIs | rejected | paper is a master thesis
+
+API governance support through the structural analysis of REST APIs | rejected | api set is too complex
+
+Automated specification-based testing of REST APIs | accepted
+
+A study of the effectiveness of usage examples in REST API documentation | rejected | paper is not accessible
+
+Open problems in fuzzing restful apis: A comparison of tools | accepted
+
+Automated black‐box testing of nominal and error scenarios in RESTful APIs | accepted
+
+Automated example oriented REST API documentation at Cisco | rejected | api set is too complex
+
+REST API AND DOCUMENTATION USING SWAGGER | rejected | paper is not accessible
+
+Black-box and white-box test case generation for RESTful APIs: Enemies or allies? | accepted
+
+Starting a New REST API Project? A Performance Benchmark of Frameworks and Execution Environments | rejected | no api set
+
+Generating REST API Specifications through Static Analysis | accepted
+
+Evaluating fuzzing tools for automated testing of REST APIs using OpenAPI specification | rejected | paper is a master thesis
+
+Automated generation of REST API specification from plain HTML documentation | accepted
+
+Developing a RESTful API for a Web Accessibility Evaluation Tool | rejected | no api set
+
+Collecting service-based maintainability metrics from RESTful API descriptions: static analysis and threshold derivation | rejected | api set is too complex
+
+SpyREST in action: An automated RESTful API documentation tool | rejected | no api set
+
+Undisturbed REST: A guide to designing the perfect API | rejected | paper is a book
+
+Principles of securing RESTful API web services developed with python frameworks | rejected | no api set
+
+Leveraging large language models to improve REST API testing | accepted
+
+Morest: industry practice of automatic restful API testing | rejected | api set is too broad
+
+A Recommendation Model of REST API Testing Framework based on Resource Utilization of ISO/IEC 25010 | rejected | paper is not accessible
+
+REST API fuzzing by coverage level guided blackbox testing | rejected | paper is not accessible
+
+Deep learning-based prediction of test input validity for restful apis | rejected | paper is not accessible
+
+API features individualizing of web services: REST and SOAP | rejected | no api set
+
+Evaluating graphql and rest api services performance in a massive and intensive accessible information system | rejected | no api set
+
+Spyrest: Automated restful api documentation using an http proxy server (n) | accepted
+
+Quantitative security assurance metrics: REST API case studies | accepted
+
+Example-driven web api specification discovery | accepted
+
+Automated API testing | rejected | paper is not accessible
+
+A discrete dynamic artificial bee colony with hyper-scout for RESTful web service API test suite generation | accepted
+
+You Can REST Now: Automated Specification Inference and Black-Box Testing of RESTful APIs with Large Language Models | accepted
+
+AGORA: automated generation of test oracles for REST APIs | accepted
+
+Exploring behaviours of RESTful APIs in an industrial setting | accepted
+
+Modern restful api dls and frameworks for restful web services api schema modeling, documenting, visualizing | rejected | no api set
+
+Intelligent REST API data fuzzing | rejected | api set is too complex
+
+FUZZ TESTING OF REST API | rejected | paper is a master thesis
+
+Comparing Spring REST API test frameworks: A Comparison Study | rejected | paper is a master thesis
+
+Compatibility Modeling and Testing of REST API based on REST Chart | rejected | no api set
+
+Tapis api development with python: best practices in scientific rest api implementation: experience implementing a distributed stream api | rejected | api set is too complex
+
+Improving performance through rest open api grouping for wireless sensor network | rejected | no api set
+
+Automated generation of test oracles for RESTful APIs | accepted
+
+Improving test case generation for rest apis through hierarchical clustering | rejected | paper is not accessible
+
+A semantic IoT framework to support RESTful devices' API interoperability | rejected | no api set
+
+Automatic Test Generation of REST APIs | rejected | paper is a master thesis
+
+REST API design rulebook | rejected | paper is a book
+
+Design patterns and extensibility of REST API for networking applications | rejected | no api set
+
+Testing RESTful APIs–Use Case: RESTful API for Solving Multidimensional Time–Independent Schrödinger Equation | rejected | no api set
+
+Resttestgen: An extensible framework for automated black-box testing of restful apis | rejected | api set is too complex
+
+Model-driven development of RESTful APIs | rejected | no api set
+
+COTS: Connected OpenAPI Test Synthesis for RESTful Applications | accepted
+
+Design and describe REST API without violating REST: A Petri net based approach | rejected | paper is not accessible
+
+REST API Security: Testing and Analysis | rejected | paper is a master thesis
+
+REST API & Mobile Application | rejected | paper is a master thesis
+
+Rest api changes analysis and impact on client applications | rejected | paper is a master thesis
+
+REST API design patterns for SDN northbound API | rejected | paper is not accessible
+
+Automated example oriented REST API documentation | rejected | paper is a master thesis
+
+Kaang: a RESTful API generator for the modern web | rejected | no api set
+
+Evaluation of the t-wise Approach for Testing REST APIs | rejected | paper is a master thesis
+
+Towards a Scalable and Unified REST API for Cloud Data Stores | rejected | no api set
+
+RESTful Web API Design with Node.js | rejected | paper is a book
+
+Preliminary analysis of REST API style guidelines | rejected | no api set
+
+An analysis of RESTful APIs offerings in the industry | rejected | api set is too broad
+
+Hands-On RESTful Web Services with TypeScript 3: Design and Develop Scalable RESTful APIs for Your Applications | rejected | paper is a book
+
+Security Testing of RESTful APIs With Test Case Mutation | accepted
+
+Which restful api design rules are important and how do they improve software quality? a delphi study with industry experts | rejected | paper is not accessible
+
+Providing Security Properties of Cloud Service by Using REST APIs | rejected | paper is not accessible
+
+Rest api | rejected | paper is a master thesis
+
+Improving REST API robustness through continuous fuzzing: A case study | rejected | paper is a master thesis
+
+Do RESTful API design rules have an impact on the understandability of Web APIs? | accepted
+
+RESTRuler: Towards Automatically Identifying Violations of RESTful Design Rules in Web APIs | rejected | no api set
+
+Implementation of RESTful API Web Services Architecture in Takeaway Application Development | rejected | paper is not available
