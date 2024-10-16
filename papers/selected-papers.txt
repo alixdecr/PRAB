@@ -1,0 +1,18 @@
+Combinatorial Testing of RESTful APIs | H Wu, L Xu, X Niu, C Nie | RESTful API, Combinatorial Testing, Test Case Generation | ICSE
+
+RESTful API Automated Test Case Generation with EvoMaster | A Arcuri | Software Engineering, REST, Web Service, Testing | TOSEM
+
+Automated Test Generation for REST APIs: No Time to Rest Yet | M Kim, Q Xin, S Sinha, A Orso | Automated Software Testing, RESTful APIs | ISSTA
+
+Empirical Comparison of Black-box Test Case Generation Tools for RESTful APIs | D Corradini, A Zampieri, M Pasqua, M Ceccato | REST API, Test Coverage, Black-box Testing, Automated Software Testing, Experimental Comparison | SCAM
+
+Restats: A Test Coverage Tool for RESTful APIs | D Corradini, A Zampieri, M Pasqua, M Ceccato | REST API, Test Coverage, Software Testing | ICSME
+
+Morest: Model-based RESTful API Testing with Execution Feedback | Y Liu, Y Li, G Deng, Y Liu, R Wan, R Wu, D Ji, S Xu, M Bao | RESTful Service, model-based testing | ICSE
+
+RESTest: automated black-box testing of RESTful web APIs | A Martin-Lopez, S Segura, A Ruiz-Cortés | REST, black-box testing, web APIs | ISSTA
+
+Online testing of RESTful APIs: Promises and challenges | A Martin-Lopez, S Segura, A Ruiz-Cortés | REST, web API, bot, black-box testing, online testing | ESEC/FSE
+
+Test coverage criteria for RESTful web APIs | A Martin-Lopez, S Segura, A Ruiz-Cortés | REST, testing, web services, coverage criteria | A-TEST
+
