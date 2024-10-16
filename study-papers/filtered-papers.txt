@@ -2,7 +2,7 @@
 KEYWORDS: "(rest OR restful) api (test OR testing OR specification OR documentation OR openapi OR swagger) (set OR benchmark OR evaluation)"
 ---------
 
-RESTful API testing methodologies: Rationale, challenges, and solution directions | REJECTED | PAPER IS A SURVEY/REVIEW
+RESTful API testing methodologies: Rationale, challenges, and solution directions | rejected | no api set
 
 Combinatorial testing of restful apis | ACCEPTED
 
@@ -10,7 +10,7 @@ Resttestgen: automated black-box testing of restful apis | REJECTED | API SET IS
 
 RESTful API automated test case generation with EvoMaster | ACCEPTED
 
-Testing restful apis: A survey | REJECTED | PAPER IS A SURVEY/REVIEW
+Testing restful apis: A survey | REJECTED | NO API SET
 
 QuickREST: Property-based test generation of OpenAPI-described RESTful APIs | REJECTED | API SET IS TOO COMPLEX
 
@@ -22,9 +22,9 @@ RESTful API automated test case generation | ACCEPTED
 
 Automated test generation for rest apis: No time to rest yet | ACCEPTED
 
-Empirical comparison of black-box test case generation tools for RESTful APIs | REJECTED | PAPER IS NOT ACCESSIBLE
+Empirical comparison of black-box test case generation tools for RESTful APIs | ACCEPTED
 
-Restats: A test coverage tool for RESTful APIs | REJECTED | PAPER IS NOT ACCESSIBLE
+Restats: A test coverage tool for RESTful APIs | ACCEPTED
 
 REST API modeling languages-a developer's perspective | REJECTED | NO API SET
 
@@ -44,9 +44,9 @@ A framework for the structural analysis of REST APIs | REJECTED | no api set
 
 Model-driven testing of restful apis | rejected | no api set
 
-Automated black-and white-box testing of restful apis with evomaster | rejected | paper is not accessible
+Automated black-and white-box testing of restful apis with evomaster | accepted
 
-An analysis of public REST web service APIs | rejected | paper is a survey/review
+An analysis of public REST web service APIs | ACCEPTED
 
 Online testing of RESTful APIs: Promises and challenges | accepted
 
@@ -66,7 +66,7 @@ API governance support through the structural analysis of REST APIs | rejected |
 
 Automated specification-based testing of REST APIs | accepted
 
-A study of the effectiveness of usage examples in REST API documentation | rejected | paper is not accessible
+A study of the effectiveness of usage examples in REST API documentation | rejected | no api set
 
 Open problems in fuzzing restful apis: A comparison of tools | accepted
 
@@ -102,9 +102,9 @@ Morest: industry practice of automatic restful API testing | rejected | api set 
 
 A Recommendation Model of REST API Testing Framework based on Resource Utilization of ISO/IEC 25010 | rejected | paper is not accessible
 
-REST API fuzzing by coverage level guided blackbox testing | rejected | paper is not accessible
+REST API fuzzing by coverage level guided blackbox testing | rejected | api set is too complex
 
-Deep learning-based prediction of test input validity for restful apis | rejected | paper is not accessible
+Deep learning-based prediction of test input validity for restful apis | accepted
 
 API features individualizing of web services: REST and SOAP | rejected | no api set
 
@@ -142,7 +142,7 @@ Improving performance through rest open api grouping for wireless sensor network
 
 Automated generation of test oracles for RESTful APIs | accepted
 
-Improving test case generation for rest apis through hierarchical clustering | rejected | paper is not accessible
+Improving test case generation for rest apis through hierarchical clustering | accepted
 
 A semantic IoT framework to support RESTful devices' API interoperability | rejected | no api set
 
@@ -200,4 +200,4 @@ Do RESTful API design rules have an impact on the understandability of Web APIs?
 
 RESTRuler: Towards Automatically Identifying Violations of RESTful Design Rules in Web APIs | rejected | no api set
 
-Implementation of RESTful API Web Services Architecture in Takeaway Application Development | rejected | paper is not available
+Implementation of RESTful API Web Services Architecture in Takeaway Application Development | rejected | no api set
