@@ -35,12 +35,12 @@ Google Maps | [10]
 Gravitee.io | [12]
 Ind0 | [9][11]
 Kafka REST Proxy | [12]
-LanguageTool | [3][4][6][11][13][18][20][24]
+LanguageTool | [3][4][6][11][13][18][20][24][26]
 Magento | [4]
 Marvel | [6][17]
 Management API for Apache Cassandra | [12]
 OCVN | [3][11][12][13][18][25]
-Ohsome | [6][12][13]
+Ohsome | [6][12][13][26]
 OMDb | [6][13][14][16][17][19]
 Open Brewery DB | [16]
 Openverse | [20]
@@ -58,7 +58,7 @@ Random User Generator | [16]
 Realworld App | [11][22]
 Refuge Restrooms | [14]
 ReqRes | [16]
-REST Countries | [3][6][11][12][13][16][20]
+REST Countries | [3][6][11][12][13][16][20][26]
 REST Faults | [11]
 REST Market | [3]
 REST NCS | [3][9][11][15][18][25]
@@ -79,7 +79,7 @@ User Management | [3]
 UsersRegistry | [20]
 Ur-Codebin | [12]
 Yelp | [5][6][8][10][17][19][24]
-YouTube | [5][6][8][13][17][19][24]
+YouTube | [5][6][8][13][17][19][24][26]
 
 -----
 Used:
@@ -109,3 +109,5 @@ Used:
 [23] Restats: A test coverage tool for RESTful APIs
 [24] Deep learning-based prediction of test input validity for restful apis
 [25] Improving test case generation for rest apis through hierarchical clustering
+[26] Black-box and white-box test case generation for RESTful APIs: Enemies or allies?
+[27] Automated specification-based testing of REST APIs -> NO APIS SELECTED AS THEY ONLY OCCUR IN THIS PAPER

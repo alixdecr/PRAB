@@ -4,49 +4,49 @@ KEYWORDS: "(rest OR restful) api (test OR testing OR specification OR documentat
 
 RESTful API testing methodologies: Rationale, challenges, and solution directions | rejected | no api set
 
-Combinatorial testing of restful apis | ACCEPTED
+Combinatorial testing of restful apis | accepted
 
-Resttestgen: automated black-box testing of restful apis | REJECTED | API SET IS TOO BROAD
+Resttestgen: automated black-box testing of restful apis | rejected | API SET IS TOO BROAD
 
-RESTful API automated test case generation with EvoMaster | ACCEPTED
+RESTful API automated test case generation with EvoMaster | accepted
 
-Testing restful apis: A survey | REJECTED | NO API SET
+Testing restful apis: A survey | rejected | NO API SET
 
-QuickREST: Property-based test generation of OpenAPI-described RESTful APIs | REJECTED | API SET IS TOO COMPLEX
+QuickREST: Property-based test generation of OpenAPI-described RESTful APIs | rejected | API SET IS TOO COMPLEX
 
-Restler: Stateful rest api fuzzing | REJECTED | API SET IS TOO COMPLEX
+Restler: Stateful rest api fuzzing | rejected | API SET IS TOO COMPLEX
 
-Automatic generation of test cases for REST APIs: A specification-based approach | REJECTED | API SET IS TOO BROAD
+Automatic generation of test cases for REST APIs: A specification-based approach | rejected | API SET IS TOO BROAD
 
-RESTful API automated test case generation | ACCEPTED
+RESTful API automated test case generation | rejected | duplicate/similar paper
 
-Automated test generation for rest apis: No time to rest yet | ACCEPTED
+Automated test generation for rest apis: No time to rest yet | accepted
 
-Empirical comparison of black-box test case generation tools for RESTful APIs | ACCEPTED
+Empirical comparison of black-box test case generation tools for RESTful APIs | accepted
 
-Restats: A test coverage tool for RESTful APIs | ACCEPTED
+Restats: A test coverage tool for RESTful APIs | accepted
 
-REST API modeling languages-a developer's perspective | REJECTED | NO API SET
+REST API modeling languages-a developer's perspective | rejected | NO API SET
 
-REST API composition for effectively testing the Cloud | REJECTED | NO API SET
+REST API composition for effectively testing the Cloud | rejected | NO API SET
 
-RESTful Api Design | REJECTED | PAPER IS A BOOK
+RESTful Api Design | rejected | PAPER IS A BOOK
 
-Morest: Model-based RESTful API testing with execution feedback | ACCEPTED
+Morest: Model-based RESTful API testing with execution feedback | accepted
 
-Fulfilling a RESTful Commitment: Test-Suite Generation for Swagger-based REST APIs | REJECTED | PAPER IS A MASTER THESIS
+Fulfilling a RESTful Commitment: Test-Suite Generation for Swagger-based REST APIs | rejected | PAPER IS A MASTER THESIS
 
-RESTest: automated black-box testing of RESTful web APIs | ACCEPTED
+RESTest: automated black-box testing of RESTful web APIs | accepted
 
-Rest-ler: automatic intelligent rest api fuzzing | REJECTED | API SET IS TOO COMPLEX
+Rest-ler: automatic intelligent rest api fuzzing | rejected | API SET IS TOO COMPLEX
 
-A framework for the structural analysis of REST APIs | REJECTED | no api set
+A framework for the structural analysis of REST APIs | rejected | no api set
 
 Model-driven testing of restful apis | rejected | no api set
 
-Automated black-and white-box testing of restful apis with evomaster | accepted
+Automated black-and white-box testing of restful apis with evomaster | rejected | paper is not accessible
 
-An analysis of public REST web service APIs | ACCEPTED
+An analysis of public REST web service APIs | rejected | api set is too broad
 
 Online testing of RESTful APIs: Promises and challenges | accepted
 
@@ -70,7 +70,7 @@ A study of the effectiveness of usage examples in REST API documentation | rejec
 
 Open problems in fuzzing restful apis: A comparison of tools | accepted
 
-Automated black‐box testing of nominal and error scenarios in RESTful APIs | accepted
+Automated black‐box testing of nominal and error scenarios in RESTful APIs | rejected | api set is too broad
 
 Automated example oriented REST API documentation at Cisco | rejected | api set is too complex
 
@@ -84,7 +84,7 @@ Generating REST API Specifications through Static Analysis | accepted
 
 Evaluating fuzzing tools for automated testing of REST APIs using OpenAPI specification | rejected | paper is a master thesis
 
-Automated generation of REST API specification from plain HTML documentation | accepted
+Automated generation of REST API specification from plain HTML documentation | rejected | paper is not accessible
 
 Developing a RESTful API for a Web Accessibility Evaluation Tool | rejected | no api set
 
@@ -110,9 +110,9 @@ API features individualizing of web services: REST and SOAP | rejected | no api 
 
 Evaluating graphql and rest api services performance in a massive and intensive accessible information system | rejected | no api set
 
-Spyrest: Automated restful api documentation using an http proxy server (n) | accepted
+Spyrest: Automated restful api documentation using an http proxy server (n) | rejected | api set is too complex
 
-Quantitative security assurance metrics: REST API case studies | accepted
+Quantitative security assurance metrics: REST API case studies | rejected | api set is too complex
 
 Example-driven web api specification discovery | accepted
 
@@ -196,7 +196,7 @@ Rest api | rejected | paper is a master thesis
 
 Improving REST API robustness through continuous fuzzing: A case study | rejected | paper is a master thesis
 
-Do RESTful API design rules have an impact on the understandability of Web APIs? | accepted
+Do RESTful API design rules have an impact on the understandability of Web APIs? | rejected | api set is too complex
 
 RESTRuler: Towards Automatically Identifying Violations of RESTful Design Rules in Web APIs | rejected | no api set
 
