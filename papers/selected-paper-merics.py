@@ -23,10 +23,12 @@ with open("papers/selected-papers.txt", "r", encoding="utf-8") as file:
             data["published"][published] += 1
 
             for k in keywords:
-                if k not in data["keywords"]:
-                    data["keywords"][k] = 0
+                ks = k.split(" ")
+                for s in ks:
+                    if s not in data["keywords"]:
+                        data["keywords"][s] = 0
 
-                data["keywords"][k] += 1
+                    data["keywords"][s] += 1
 
             for a in authors:
                 if a not in data["authors"]:
