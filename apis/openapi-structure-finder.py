@@ -1,6 +1,6 @@
 import json
 
-with open("apis/spotify/spotify-openapi.json", "r", encoding="utf-8") as openfile:
+with open("apis/petstore/petstore-openapi.json", "r", encoding="utf-8") as openfile:
     dic = json.load(openfile)
 
 structureDict = {
@@ -8,26 +8,6 @@ structureDict = {
         "list": [],
         "total": 0,
         "http-methods": {}
-    },
-    "get": {
-        "list": [],
-        "total": 0
-    },
-    "post": {
-        "list": [],
-        "total": 0
-    },
-    "patch": {
-        "list": [],
-        "total": 0
-    },
-    "put": {
-        "list": [],
-        "total": 0
-    },
-    "delete": {
-        "list": [],
-        "total": 0
     },
     "parameters": {
         "list": [],
@@ -43,11 +23,13 @@ for route in structureDict["routes"]["list"]:
 
     for method in dic["paths"][route]:
         structureDict["routes"]["http-methods"][route].append(method)
+        if method not in structureDict:
+            structureDict[method] = {"list": [], "total": 0}
         structureDict[method]["list"].append(route)
         structureDict[method]["total"] += 1
         if "parameters" in dic["paths"][route][method]:
             for param in dic["paths"][route][method]["parameters"]:
-                if param["name"] not in structureDict["parameters"]["list"]:
+                if param["name"] not in structureDict["parameters"]["list"] and param["in"] == "query":
                     structureDict["parameters"]["list"].append(param["name"])
                     structureDict["parameters"]["total"] += 1
 
