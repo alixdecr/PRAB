@@ -1,0 +1,3419 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "REST Petclinic backend Api Documentation",
+      "description": "This is REST API documentation of the Spring Petclinic backend. If authentication is enabled, when calling the APIs use admin/admin",
+      "termsOfService": "Petclinic backend terms of service",
+      "contact": {
+        "name": "Vitaliy Fedoriv",
+        "url": "https://github.com/spring-petclinic/spring-petclinic-rest",
+        "email": "vitaliy.fedoriv@gmail.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0"
+      },
+      "version": "1.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:9966/petclinic",
+        "description": "Generated server url"
+      }
+    ],
+    "tags": [
+      {
+        "name": "pettypes",
+        "description": "Endpoints related to pet types."
+      },
+      {
+        "name": "users",
+        "description": "Endpoints related to users."
+      },
+      {
+        "name": "vets",
+        "description": "Endpoints related to vets."
+      },
+      {
+        "name": "owners",
+        "description": "Endpoints related to pet owners."
+      },
+      {
+        "name": "pets",
+        "description": "Endpoints related to pets."
+      },
+      {
+        "name": "specialties",
+        "description": "Endpoints related to vet specialties."
+      },
+      {
+        "name": "visits",
+        "description": "Endpoints related to vet visits."
+      }
+    ],
+    "paths": {
+      "/api/visits/{visitId}": {
+        "get": {
+          "tags": [
+            "visits",
+            "visit"
+          ],
+          "summary": "Get a visit by ID",
+          "description": "Returns the visit or a 404 error.",
+          "operationId": "getVisit",
+          "parameters": [
+            {
+              "name": "visitId",
+              "in": "path",
+              "description": "The ID of the visit.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Visit details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Visit"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Visit"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Visit not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "visits",
+            "visit"
+          ],
+          "summary": "Update a visit by ID",
+          "description": "Returns the visit or a 404 error.",
+          "operationId": "updateVisit",
+          "parameters": [
+            {
+              "name": "visitId",
+              "in": "path",
+              "description": "The ID of the visit.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Visit"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Visit details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Visit"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Visit"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Visit not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "visits",
+            "visit"
+          ],
+          "summary": "Delete a visit by ID",
+          "description": "Returns the visit or a 404 error.",
+          "operationId": "deleteVisit",
+          "parameters": [
+            {
+              "name": "visitId",
+              "in": "path",
+              "description": "The ID of the visit.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Visit details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Visit"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Visit"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Visit not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/vets/{vetId}": {
+        "get": {
+          "tags": [
+            "vet",
+            "vets"
+          ],
+          "summary": "Get a vet by ID",
+          "description": "Returns the vet or a 404 error.",
+          "operationId": "getVet",
+          "parameters": [
+            {
+              "name": "vetId",
+              "in": "path",
+              "description": "The ID of the vet.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Vet details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Vet"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Vet"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Vet not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "vet",
+            "vets"
+          ],
+          "summary": "Update a vet  by ID",
+          "description": "Returns the vet or a 404 error.",
+          "operationId": "updateVet",
+          "parameters": [
+            {
+              "name": "vetId",
+              "in": "path",
+              "description": "The ID of the vet.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vet"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Pet type details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Vet"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Vet"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Vet not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "vet",
+            "vets"
+          ],
+          "summary": "Delete a vet by ID",
+          "description": "Returns the vet or a 404 error.",
+          "operationId": "deleteVet",
+          "parameters": [
+            {
+              "name": "vetId",
+              "in": "path",
+              "description": "The ID of the vet.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Vet details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Vet"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Vet"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Vet not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/specialties/{specialtyId}": {
+        "get": {
+          "tags": [
+            "specialty",
+            "specialties"
+          ],
+          "summary": "Get a specialty by ID",
+          "description": "Returns the specialty or a 404 error.",
+          "operationId": "getSpecialty",
+          "parameters": [
+            {
+              "name": "specialtyId",
+              "in": "path",
+              "description": "The ID of the speciality.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Specialty details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Specialty"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Specialty"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Specialty not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "specialty",
+            "specialties"
+          ],
+          "summary": "Update a specialty by ID",
+          "description": "Returns the specialty or a 404 error.",
+          "operationId": "updateSpecialty",
+          "parameters": [
+            {
+              "name": "specialtyId",
+              "in": "path",
+              "description": "The ID of the specialty.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Specialty"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Specialty details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Specialty"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Specialty"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Specialty not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "specialty",
+            "specialties"
+          ],
+          "summary": "Delete a specialty by ID",
+          "description": "Returns the specialty or a 404 error.",
+          "operationId": "deleteSpecialty",
+          "parameters": [
+            {
+              "name": "specialtyId",
+              "in": "path",
+              "description": "The ID of the specialty.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Specialty details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Specialty"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Specialty"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Specialty not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/pettypes/{petTypeId}": {
+        "get": {
+          "tags": [
+            "pettypes"
+          ],
+          "summary": "Get a pet type by ID",
+          "description": "Returns the pet type or a 404 error.",
+          "operationId": "getPetType",
+          "parameters": [
+            {
+              "name": "petTypeId",
+              "in": "path",
+              "description": "The ID of the pet type.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Pet type details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PetType"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PetType"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Pet Type not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "pettypes"
+          ],
+          "summary": "Update a pet type by ID",
+          "description": "Returns the pet type or a 404 error.",
+          "operationId": "updatePetType",
+          "parameters": [
+            {
+              "name": "petTypeId",
+              "in": "path",
+              "description": "The ID of the pet type.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetType"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Pet type details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PetType"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PetType"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Pet Type not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "pettypes"
+          ],
+          "summary": "Delete a pet type by ID",
+          "description": "Returns the pet type or a 404 error.",
+          "operationId": "deletePetType",
+          "parameters": [
+            {
+              "name": "petTypeId",
+              "in": "path",
+              "description": "The ID of the pet type.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Pet type details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PetType"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PetType"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Pet type not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/pets/{petId}": {
+        "get": {
+          "tags": [
+            "pets",
+            "pet"
+          ],
+          "summary": "Get a pet by ID",
+          "description": "Returns the pet  or a 404 error.",
+          "operationId": "getPet",
+          "parameters": [
+            {
+              "name": "petId",
+              "in": "path",
+              "description": "The ID of the pet.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Pet details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Pet not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "pets",
+            "pet"
+          ],
+          "summary": "Update a pet by ID",
+          "description": "Returns the pet or a 404 error.",
+          "operationId": "updatePet",
+          "parameters": [
+            {
+              "name": "petId",
+              "in": "path",
+              "description": "The ID of the pet.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pet"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Pet details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Pet not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "pets",
+            "pet"
+          ],
+          "summary": "Delete a pet by ID",
+          "description": "Returns the pet or a 404 error.",
+          "operationId": "deletePet",
+          "parameters": [
+            {
+              "name": "petId",
+              "in": "path",
+              "description": "The ID of the pet.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Pet details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Pet not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/owners/{ownerId}": {
+        "get": {
+          "tags": [
+            "owner",
+            "owners"
+          ],
+          "summary": "Get a pet owner by ID",
+          "description": "Returns the pet owner or a 404 error.",
+          "operationId": "getOwner",
+          "parameters": [
+            {
+              "name": "ownerId",
+              "in": "path",
+              "description": "The ID of the pet owner.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Owner details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Owner"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Owner"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Owner not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "owner",
+            "owners"
+          ],
+          "summary": "Update a pet owner's details",
+          "description": "Updates the pet owner record with the specified details.",
+          "operationId": "updateOwner",
+          "parameters": [
+            {
+              "name": "ownerId",
+              "in": "path",
+              "description": "The ID of the pet owner.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OwnerFields"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Update successful.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Owner"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Owner not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "owner",
+            "owners"
+          ],
+          "summary": "Delete an owner by ID",
+          "description": "Returns the owner or a 404 error.",
+          "operationId": "deleteOwner",
+          "parameters": [
+            {
+              "name": "ownerId",
+              "in": "path",
+              "description": "The ID of the owner.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Owner details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Owner"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Owner"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Owner  not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/owners/{ownerId}/pets/{petId}": {
+        "get": {
+          "tags": [
+            "owners",
+            "pet"
+          ],
+          "summary": "Get a pet by ID",
+          "description": "Returns the pet or a 404 error.",
+          "operationId": "getOwnersPet",
+          "parameters": [
+            {
+              "name": "ownerId",
+              "in": "path",
+              "description": "The ID of the pet owner.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "petId",
+              "in": "path",
+              "description": "The ID of the pet.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Pet details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Pet not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "owners",
+            "pet"
+          ],
+          "summary": "Update a pet's details",
+          "description": "Updates the pet record with the specified details.",
+          "operationId": "updateOwnersPet",
+          "parameters": [
+            {
+              "name": "ownerId",
+              "in": "path",
+              "description": "The ID of the pet owner.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "petId",
+              "in": "path",
+              "description": "The ID of the pet.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetFields"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "204": {
+              "description": "Update successful."
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Pet not found for this owner.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/visits": {
+        "get": {
+          "tags": [
+            "visits",
+            "visit"
+          ],
+          "summary": "Lists visits",
+          "description": "Returns an array of visit .",
+          "operationId": "listVisits",
+          "responses": {
+            "200": {
+              "description": "visits found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Visit"
+                    }
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Visit"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "visits",
+            "visit"
+          ],
+          "summary": "Create a visit",
+          "description": "Creates a visit.",
+          "operationId": "addVisit",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Visit"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "visit created successfully.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Visit"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Visit"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Visit not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/vets": {
+        "get": {
+          "tags": [
+            "vet",
+            "vets"
+          ],
+          "summary": "Lists vets",
+          "description": "Returns an array of vets.",
+          "operationId": "listVets",
+          "responses": {
+            "200": {
+              "description": "Vets found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Vet"
+                    }
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Vet"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "vet",
+            "vets"
+          ],
+          "summary": "Create a Vet",
+          "description": "Creates a vet .",
+          "operationId": "addVet",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vet"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Vet created successfully.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Vet"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Vet"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Vet not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/users": {
+        "post": {
+          "tags": [
+            "user",
+            "users"
+          ],
+          "summary": "Create a user",
+          "description": "Creates a user.",
+          "operationId": "addUser",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "User created successfully.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "User not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/specialties": {
+        "get": {
+          "tags": [
+            "specialty",
+            "specialties"
+          ],
+          "summary": "Lists specialties",
+          "description": "Returns an array of specialty .",
+          "operationId": "listSpecialties",
+          "responses": {
+            "200": {
+              "description": "Specialties found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Specialty"
+                    }
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Specialty"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "specialty",
+            "specialties"
+          ],
+          "summary": "Create a specialty",
+          "description": "Creates a specialty .",
+          "operationId": "addSpecialty",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Specialty"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Specialty created successfully.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Specialty"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Specialty"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Specialty not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/pettypes": {
+        "get": {
+          "tags": [
+            "pettypes"
+          ],
+          "summary": "Lists pet types",
+          "description": "Returns an array of pet types.",
+          "operationId": "listPetTypes",
+          "responses": {
+            "200": {
+              "description": "Pet types found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PetType"
+                    }
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PetType"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "pettypes"
+          ],
+          "summary": "Create a pet type",
+          "description": "Creates a pet type .",
+          "operationId": "addPetType",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetTypeFields"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Pet type created successfully.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PetType"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PetType"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Pet Type not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/pets": {
+        "get": {
+          "tags": [
+            "pets",
+            "pet"
+          ],
+          "summary": "Lists pet",
+          "description": "Returns an array of pet .",
+          "operationId": "listPets",
+          "responses": {
+            "200": {
+              "description": "Pet types found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Pet"
+                    }
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Pet"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "pets",
+            "pet"
+          ],
+          "summary": "Create a pet",
+          "description": "Creates a pet .",
+          "operationId": "addPet",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pet"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Pet type created successfully.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Pet not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/owners": {
+        "get": {
+          "tags": [
+            "owner",
+            "owners"
+          ],
+          "summary": "Lists pet owners",
+          "description": "Returns an array of pet owners.",
+          "operationId": "listOwners",
+          "parameters": [
+            {
+              "name": "lastName",
+              "in": "query",
+              "description": "Last name.",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Owner details found and returned.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Owner"
+                    }
+                  }
+                }
+              }
+            },
+            "304": {
+              "description": "Not modified.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Owner"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "owner",
+            "owners"
+          ],
+          "summary": "Adds a pet owner",
+          "description": "Records the details of a new pet owner.",
+          "operationId": "addOwner",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OwnerFields"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "201": {
+              "description": "The pet owner was successfully added.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Owner"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/owners/{ownerId}/pets": {
+        "post": {
+          "tags": [
+            "owners",
+            "pet"
+          ],
+          "summary": "Adds a pet to an owner",
+          "description": "Records the details of a new pet.",
+          "operationId": "addPetToOwner",
+          "parameters": [
+            {
+              "name": "ownerId",
+              "in": "path",
+              "description": "The ID of the pet owner.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetFields"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "201": {
+              "description": "The pet was successfully added.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Pet or Owner not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/owners/{ownerId}/pets/{petId}/visits": {
+        "post": {
+          "tags": [
+            "owners",
+            "visit"
+          ],
+          "summary": "Adds a vet visit",
+          "description": "Records the details of a new vet visit.",
+          "operationId": "addVisitToOwner",
+          "parameters": [
+            {
+              "name": "ownerId",
+              "in": "path",
+              "description": "The ID of the pet owner.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "petId",
+              "in": "path",
+              "description": "The ID of the pet.",
+              "required": true,
+              "schema": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VisitFields"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "201": {
+              "description": "The vet visit was successfully added.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Visit"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Pet not found for this owner.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RestError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/": {
+        "get": {
+          "tags": [
+            "root-rest-controller"
+          ],
+          "operationId": "redirectToSwagger",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "root-rest-controller"
+          ],
+          "operationId": "redirectToSwagger_3",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "root-rest-controller"
+          ],
+          "operationId": "redirectToSwagger_2",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "root-rest-controller"
+          ],
+          "operationId": "redirectToSwagger_5",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "options": {
+          "tags": [
+            "root-rest-controller"
+          ],
+          "operationId": "redirectToSwagger_6",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "head": {
+          "tags": [
+            "root-rest-controller"
+          ],
+          "operationId": "redirectToSwagger_1",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "root-rest-controller"
+          ],
+          "operationId": "redirectToSwagger_4",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorInfo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "ErrorInfo": {
+          "type": "object",
+          "properties": {
+            "className": {
+              "type": "string"
+            },
+            "exMessage": {
+              "type": "string"
+            }
+          }
+        },
+        "Visit": {
+          "required": [
+            "description",
+            "id"
+          ],
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "description": "The date of the visit.",
+              "format": "date"
+            },
+            "description": {
+              "maxLength": 255,
+              "minLength": 1,
+              "type": "string",
+              "description": "The description for the visit.",
+              "example": "rabies shot"
+            },
+            "id": {
+              "minimum": 0,
+              "type": "integer",
+              "description": "The ID of the visit.",
+              "format": "int32",
+              "readOnly": true,
+              "example": 1
+            },
+            "petId": {
+              "minimum": 0,
+              "type": "integer",
+              "description": "The ID of the pet.",
+              "format": "int32",
+              "readOnly": true,
+              "example": 1
+            }
+          },
+          "description": "A booking for a vet visit.",
+          "readOnly": true
+        },
+        "RestError": {
+          "required": [
+            "error",
+            "message",
+            "path",
+            "schemaValidationErrors",
+            "status",
+            "timestamp"
+          ],
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "integer",
+              "description": "The HTTP status code.",
+              "format": "int32",
+              "readOnly": true,
+              "example": 400
+            },
+            "error": {
+              "type": "string",
+              "description": "The short error message.",
+              "readOnly": true,
+              "example": "Bad Request"
+            },
+            "path": {
+              "type": "string",
+              "description": "The path of the URL for this request.",
+              "format": "uri",
+              "readOnly": true,
+              "example": "/api/owners"
+            },
+            "timestamp": {
+              "type": "string",
+              "description": "The time the error occurred.",
+              "format": "date-time",
+              "readOnly": true
+            },
+            "message": {
+              "type": "string",
+              "description": "The long error message.",
+              "readOnly": true,
+              "example": "Request failed schema validation"
+            },
+            "schemaValidationErrors": {
+              "type": "array",
+              "description": "Validation errors against the OpenAPI schema.",
+              "items": {
+                "$ref": "#/components/schemas/ValidationMessage"
+              }
+            },
+            "trace": {
+              "type": "string",
+              "description": "The stacktrace for this error.",
+              "readOnly": true,
+              "example": "com.atlassian.oai.validator.springmvc.InvalidRequestException: ..."
+            }
+          },
+          "description": "The schema for all error responses."
+        },
+        "ValidationMessage": {
+          "required": [
+            "message"
+          ],
+          "type": "object",
+          "properties": {
+            "empty": {
+              "type": "boolean"
+            },
+            "message": {
+              "type": "string",
+              "description": "The validation message.",
+              "readOnly": true,
+              "example": "[Path '/lastName'] Instance type (null) does not match any allowed primitive type (allowed: [\"string\"])"
+            }
+          },
+          "additionalProperties": {
+            "type": "object",
+            "description": "Messages describing a validation error."
+          },
+          "description": "Messages describing a validation error."
+        },
+        "Specialty": {
+          "required": [
+            "id",
+            "name"
+          ],
+          "type": "object",
+          "properties": {
+            "id": {
+              "minimum": 0,
+              "type": "integer",
+              "description": "The ID of the specialty.",
+              "format": "int32",
+              "readOnly": true,
+              "example": 1
+            },
+            "name": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string",
+              "description": "The name of the specialty.",
+              "example": "radiology"
+            }
+          },
+          "description": "Fields of specialty of vets."
+        },
+        "Vet": {
+          "required": [
+            "firstName",
+            "id",
+            "lastName",
+            "specialties"
+          ],
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "maxLength": 30,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z]*$",
+              "type": "string",
+              "description": "The first name of the vet.",
+              "example": "James"
+            },
+            "lastName": {
+              "maxLength": 30,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z]*$",
+              "type": "string",
+              "description": "The last name of the vet.",
+              "example": "Carter"
+            },
+            "specialties": {
+              "type": "array",
+              "description": "The specialties of the vet.",
+              "items": {
+                "$ref": "#/components/schemas/Specialty"
+              }
+            },
+            "id": {
+              "minimum": 0,
+              "type": "integer",
+              "description": "The ID of the vet.",
+              "format": "int32",
+              "readOnly": true,
+              "example": 1
+            }
+          },
+          "description": "A veterinarian."
+        },
+        "PetType": {
+          "required": [
+            "id",
+            "name"
+          ],
+          "type": "object",
+          "properties": {
+            "name": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string",
+              "description": "The name of the pet type.",
+              "example": "cat"
+            },
+            "id": {
+              "minimum": 0,
+              "type": "integer",
+              "description": "The ID of the pet type.",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          "description": "A pet type."
+        },
+        "Pet": {
+          "required": [
+            "birthDate",
+            "id",
+            "name",
+            "type",
+            "visits"
+          ],
+          "type": "object",
+          "properties": {
+            "name": {
+              "maxLength": 30,
+              "minLength": 0,
+              "type": "string",
+              "description": "The name of the pet.",
+              "example": "Leo"
+            },
+            "birthDate": {
+              "type": "string",
+              "description": "The date of birth of the pet.",
+              "format": "date"
+            },
+            "type": {
+              "$ref": "#/components/schemas/PetType"
+            },
+            "id": {
+              "minimum": 0,
+              "type": "integer",
+              "description": "The ID of the pet.",
+              "format": "int32",
+              "readOnly": true,
+              "example": 1
+            },
+            "ownerId": {
+              "minimum": 0,
+              "type": "integer",
+              "description": "The ID of the pet's owner.",
+              "format": "int32",
+              "readOnly": true,
+              "example": 1
+            },
+            "visits": {
+              "type": "array",
+              "description": "Vet visit bookings for this pet.",
+              "readOnly": true,
+              "items": {
+                "$ref": "#/components/schemas/Visit"
+              }
+            }
+          },
+          "description": "A pet.",
+          "readOnly": true
+        },
+        "Owner": {
+          "required": [
+            "address",
+            "city",
+            "firstName",
+            "lastName",
+            "pets",
+            "telephone"
+          ],
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "maxLength": 30,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z]*$",
+              "type": "string",
+              "description": "The first name of the pet owner.",
+              "example": "George"
+            },
+            "lastName": {
+              "maxLength": 30,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z]*$",
+              "type": "string",
+              "description": "The last name of the pet owner.",
+              "example": "Franklin"
+            },
+            "address": {
+              "maxLength": 255,
+              "minLength": 1,
+              "type": "string",
+              "description": "The postal address of the pet owner.",
+              "example": "110 W. Liberty St."
+            },
+            "city": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string",
+              "description": "The city of the pet owner.",
+              "example": "Madison"
+            },
+            "telephone": {
+              "maxLength": 20,
+              "minLength": 1,
+              "pattern": "^[0-9]*$",
+              "type": "string",
+              "description": "The telephone number of the pet owner.",
+              "example": "6085551023"
+            },
+            "id": {
+              "minimum": 0,
+              "type": "integer",
+              "description": "The ID of the pet owner.",
+              "format": "int32",
+              "readOnly": true,
+              "example": 1
+            },
+            "pets": {
+              "type": "array",
+              "description": "The pets owned by this individual including any booked vet visits.",
+              "readOnly": true,
+              "items": {
+                "$ref": "#/components/schemas/Pet"
+              }
+            }
+          },
+          "description": "A pet owner."
+        },
+        "OwnerFields": {
+          "required": [
+            "address",
+            "city",
+            "firstName",
+            "lastName",
+            "telephone"
+          ],
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "maxLength": 30,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z]*$",
+              "type": "string",
+              "description": "The first name of the pet owner.",
+              "example": "George"
+            },
+            "lastName": {
+              "maxLength": 30,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z]*$",
+              "type": "string",
+              "description": "The last name of the pet owner.",
+              "example": "Franklin"
+            },
+            "address": {
+              "maxLength": 255,
+              "minLength": 1,
+              "type": "string",
+              "description": "The postal address of the pet owner.",
+              "example": "110 W. Liberty St."
+            },
+            "city": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string",
+              "description": "The city of the pet owner.",
+              "example": "Madison"
+            },
+            "telephone": {
+              "maxLength": 20,
+              "minLength": 1,
+              "pattern": "^[0-9]*$",
+              "type": "string",
+              "description": "The telephone number of the pet owner.",
+              "example": "6085551023"
+            }
+          },
+          "description": "The pet owner"
+        },
+        "PetFields": {
+          "required": [
+            "birthDate",
+            "name",
+            "type"
+          ],
+          "type": "object",
+          "properties": {
+            "name": {
+              "maxLength": 30,
+              "minLength": 0,
+              "type": "string",
+              "description": "The name of the pet.",
+              "example": "Leo"
+            },
+            "birthDate": {
+              "type": "string",
+              "description": "The date of birth of the pet.",
+              "format": "date"
+            },
+            "type": {
+              "$ref": "#/components/schemas/PetType"
+            }
+          },
+          "description": "The details of the new pet."
+        },
+        "Role": {
+          "required": [
+            "name"
+          ],
+          "type": "object",
+          "properties": {
+            "name": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string",
+              "description": "The role's name",
+              "example": "admin"
+            }
+          },
+          "description": "A role."
+        },
+        "User": {
+          "required": [
+            "username"
+          ],
+          "type": "object",
+          "properties": {
+            "username": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string",
+              "description": "The username",
+              "example": "john.doe"
+            },
+            "password": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string",
+              "description": "The password",
+              "example": "1234abc"
+            },
+            "enabled": {
+              "type": "boolean",
+              "description": "Indicates if the user is enabled",
+              "example": true
+            },
+            "roles": {
+              "type": "array",
+              "description": "The roles of an user",
+              "items": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          },
+          "description": "The user"
+        },
+        "PetTypeFields": {
+          "required": [
+            "name"
+          ],
+          "type": "object",
+          "properties": {
+            "name": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string",
+              "description": "The name of the pet type.",
+              "example": "cat"
+            }
+          },
+          "description": "The pet type"
+        },
+        "VisitFields": {
+          "required": [
+            "description"
+          ],
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "description": "The date of the visit.",
+              "format": "date"
+            },
+            "description": {
+              "maxLength": 255,
+              "minLength": 1,
+              "type": "string",
+              "description": "The description for the visit.",
+              "example": "rabies shot"
+            }
+          },
+          "description": "The details of the new vet visit."
+        }
+      }
+    }
+  }
