@@ -1,6 +1,6 @@
 import json
 
-with open("apis/petstore/petstore-openapi.json", "r", encoding="utf-8") as openfile:
+with open("apis/fdic/fdic-openapi.json", "r", encoding="utf-8-sig") as openfile:
     dic = json.load(openfile)
 
 structureDict = {
@@ -29,8 +29,9 @@ for route in structureDict["routes"]["list"]:
         structureDict[method]["total"] += 1
         if "parameters" in dic["paths"][route][method]:
             for param in dic["paths"][route][method]["parameters"]:
-                if param["name"] not in structureDict["parameters"]["list"] and param["in"] == "query":
-                    structureDict["parameters"]["list"].append(param["name"])
-                    structureDict["parameters"]["total"] += 1
+                if "name" in param and "in" in param:
+                    if param["name"] not in structureDict["parameters"]["list"] and param["in"] == "query":
+                        structureDict["parameters"]["list"].append(param["name"])
+                        structureDict["parameters"]["total"] += 1
 
 print(json.dumps(structureDict, indent=4))
