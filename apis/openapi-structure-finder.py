@@ -1,6 +1,6 @@
 import json
 
-with open("apis/features-service/features-service-openapi.json", "r", encoding="utf-8-sig") as openfile:
+with open("apis/marvel/marvel-openapi.json", "r", encoding="utf-8") as openfile:
     dic = json.load(openfile)
 
 structureDict = {
