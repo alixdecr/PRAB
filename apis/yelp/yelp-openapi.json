@@ -1,0 +1,188 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Yelp V3",
+      "description": "Yelp's Fusion API allows you to get the best local business information and user reviews of over million businesses in 32 countries Contact Support:\n Name: No Contact\n Email: email@example.com",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://{{baseurl}}"
+      }
+    ],
+    "tags": [
+      {
+        "name": "businesses"
+      },
+      {
+        "name": "businesses > search"
+      },
+      {
+        "name": "businesses > {id}"
+      }
+    ],
+    "paths": {
+      "/businesses/search": {
+        "get": {
+          "tags": [
+            "businesses > search"
+          ],
+          "summary": "Get Businesses Search",
+          "description": "Get businesses search.",
+          "parameters": [
+            {
+              "name": "term",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/businesses/search/phone": {
+        "get": {
+          "tags": [
+            "businesses > search"
+          ],
+          "summary": "Get Businesses Search Phone",
+          "description": "Get businesses search phone.",
+          "parameters": [
+            {
+              "name": "phone",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/businesses/{id}": {
+        "get": {
+          "tags": [
+            "businesses > {id}"
+          ],
+          "summary": "Get Businesses",
+          "description": "Get businesses.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": {
+                "content": "",
+                "type": "text/plain"
+              },
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/businesses/{id}/reviews": {
+        "get": {
+          "tags": [
+            "businesses > {id}"
+          ],
+          "summary": "Get Businesses Reviews",
+          "description": "Get businesses reviews.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": {
+                "content": "",
+                "type": "text/plain"
+              },
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/autocomplete": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Autocomplete",
+          "description": "Get autocomplete.",
+          "parameters": [
+            {
+              "name": "text",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/transactions/delivery/search": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Transactions Delivery Search",
+          "description": "Get transactions delivery search.",
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }

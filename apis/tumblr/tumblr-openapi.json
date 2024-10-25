@@ -1,0 +1,837 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Tumblr",
+      "description": "ntShare photos, mobile apps, and social network using Tumblr's API's.n    \n\nContact Support:\n Name: No Contact\n Email: email@example.com",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://{{baseurl}}"
+      }
+    ],
+    "tags": [
+      {
+        "name": "blog/{base-hostname}"
+      },
+      {
+        "name": "blog/{base-hostname} > posts"
+      },    
+      {
+        "name": "blog/{base-hostname} > post"
+      },
+      {
+        "name": "user"
+      }
+    ],
+    "paths": {
+      "/blog/{base-hostname}/posts/{type}": {
+        "get": {
+          "tags": [
+            "blog/{base-hostname} > posts"
+          ],
+          "summary": "Get Blog Base Hostname Adds Type",
+          "description": "Retrieves published posts.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A specific post ID. Returns the single post specified or (if not found) a 404 error.",
+              "example": "<>"
+            },
+            {
+              "name": "tag",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Limits the response to posts with the specified tag",
+              "example": "<>"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The number of results to return: 1???20, inclusive",
+              "example": "<>"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Result to start at.",
+              "example": "<>"
+            },
+            {
+              "name": "reblog_info",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Indicates whether to return reblog information (specify true or false). Returns the various reblogged_ fields.",
+              "example": "<>"
+            },
+            {
+              "name": "notes_info",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Indicates whether to return notes information (specify true or false). Returns note count and note metadata.",
+              "example": "<>"
+            },
+            {
+              "name": "format",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Specifies the post format to return, other than HTML.",
+              "example": "<>"
+            },
+            {
+              "name": "base-hostname",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true
+            },
+            {
+              "name": "type",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": "The type of post to return. Specify one of the following:    text, quote, link, answer, video, audio, photo. By default, all types are returned",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/blog/{base-hostname}/posts/queue": {
+        "get": {
+          "tags": [
+            "blog/{base-hostname} > posts"
+          ],
+          "summary": "Get Blog Base Hostname Adds Queue",
+          "description": "Retrieves queued posts.",
+          "parameters": [
+            {
+              "name": "base-hostname",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/blog/{base-hostname}/posts/draft": {
+        "get": {
+          "tags": [
+            "blog/{base-hostname} > posts"
+          ],
+          "summary": "Get Blog Base Hostname Adds Draft",
+          "description": "Retrieves draft posts.",
+          "parameters": [
+            {
+              "name": "base-hostname",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/blog/{base-hostname}/posts/submission": {
+        "get": {
+          "tags": [
+            "blog/{base-hostname} > posts"
+          ],
+          "summary": "Get Blog Base Hostname Adds Submission",
+          "description": "Retrieves submission posts.",
+          "parameters": [
+            {
+              "name": "base-hostname",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/blog/{base-hostname}/post": {
+        "post": {
+          "tags": [
+            "blog/{base-hostname} > post"
+          ],
+          "summary": "Add Blog Base Hostname Add",
+          "description": "Creates a new video blog post.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "type",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The type of post to create.",
+              "example": "<>"
+            },
+            {
+              "name": "tags",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Comma-separated tags for this post.",
+              "example": "<>"
+            },
+            {
+              "name": "tweet",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet",
+              "example": "<>"
+            },
+            {
+              "name": "date",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The GMT date and time of the post, as a string. Default is the date and time of the POST request.",
+              "example": "<>"
+            },
+            {
+              "name": "markdown",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Indicates whether the post uses markdown syntax.",
+              "example": "<>"
+            },
+            {
+              "name": "caption",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The user-supplied caption.",
+              "example": "<>"
+            },
+            {
+              "name": "embed",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "HTML embed code for the video. Either the embed or data parameter is required.",
+              "example": "<>"
+            },
+            {
+              "name": "data",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A video file, as URL-encoded binary. Either the embed or data parameter is required.",
+              "example": "<>"
+            },
+            {
+              "name": "base-hostname",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/blog/{base-hostname}/post/edit": {
+        "post": {
+          "tags": [
+            "blog/{base-hostname} > post"
+          ],
+          "summary": "Add Blog Base Hostname Add Edit",
+          "description": "Edits a blog post.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "type",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The type of post to create.",
+              "example": "<>"
+            },
+            {
+              "name": "tags",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Comma-separated tags for this post.",
+              "example": "<>"
+            },
+            {
+              "name": "tweet",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet",
+              "example": "<>"
+            },
+            {
+              "name": "date",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The GMT date and time of the post, as a string. Default is the date and time of the POST request.",
+              "example": "<>"
+            },
+            {
+              "name": "markdown",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Indicates whether the post uses markdown syntax.",
+              "example": "<>"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A specific post ID. Returns the single post specified or (if not found) a 404 error.",
+              "example": "<>"
+            },
+            {
+              "name": "base-hostname",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/blog/{base-hostname}/post/reblog": {
+        "post": {
+          "tags": [
+            "blog/{base-hostname} > post"
+          ],
+          "summary": "Add Blog Base Hostname Add Reblog",
+          "description": "Reblogs a post.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "type",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The type of post to create.",
+              "example": "<>"
+            },
+            {
+              "name": "tags",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Comma-separated tags for this post.",
+              "example": "<>"
+            },
+            {
+              "name": "tweet",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet",
+              "example": "<>"
+            },
+            {
+              "name": "date",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The GMT date and time of the post, as a string. Default is the date and time of the POST request.",
+              "example": "<>"
+            },
+            {
+              "name": "markdown",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Indicates whether the post uses markdown syntax.",
+              "example": "<>"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A specific post ID. Returns the single post specified or (if not found) a 404 error.",
+              "example": "<>"
+            },
+            {
+              "name": "reblog_key",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The reblog key for the reblogged post ??? get the reblog key with a /posts request",
+              "example": "<>"
+            },
+            {
+              "name": "comment",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A comment added to the reblogged post.",
+              "example": "<>"
+            },
+            {
+              "name": "base-hostname",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/blog/{base-hostname}/post/delete": {
+        "post": {
+          "tags": [
+            "blog/{base-hostname} > post"
+          ],
+          "summary": "Add Blog Base Hostname Add Delete",
+          "description": "Deletes a post.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A specific post ID. Returns the single post specified or (if not found) a 404 error.",
+              "example": "<>"
+            },
+            {
+              "name": "base-hostname",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/blog/{base-hostname}/info": {
+        "get": {
+          "tags": [
+            "blog/{base-hostname}"
+          ],
+          "summary": "Get Blog Base Hostname Info",
+          "description": "This method returns general information about the blog, such as the title, number of posts, and other high-level data.",
+          "parameters": [
+            {
+              "name": "base-hostname",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/blog/{base-hostname}/avatar/{size}": {
+        "get": {
+          "tags": [
+            "blog/{base-hostname}"
+          ],
+          "summary": "Get Blog Base Hostname Avatar Size",
+          "description": "Retrieves a blog's avatar in one of 9 different sizes.",
+          "parameters": [
+            {
+              "name": "base-hostname",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true
+            },
+            {
+              "name": "size",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": "The size of the avatar (square, one value for both length and width). Must be one of the values: 16, 24, 30, 40, 48, 64, 96, 128, 512",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/blog/{base-hostname}/followers": {
+        "get": {
+          "tags": [
+            "blog/{base-hostname}"
+          ],
+          "summary": "Get Blog Base Hostname Followers",
+          "description": "Retrieves a blog's followers.",
+          "parameters": [
+            {
+              "name": "limit",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The number of results to return: 1???20, inclusive",
+              "example": "<>"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Result to start at.",
+              "example": "<>"
+            },
+            {
+              "name": "base-hostname",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/user/dashboard": {
+        "get": {
+          "tags": [
+            "user"
+          ],
+          "summary": "Get User Dashboard",
+          "description": "Use this method to retrieve the dashboard that matches the OAuth credentials submitted with the request.",
+          "parameters": [
+            {
+              "name": "limit",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The number of results to return: 1???20, inclusive",
+              "example": "<>"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Result to start at.",
+              "example": "<>"
+            },
+            {
+              "name": "type",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The type of post to create.",
+              "example": "<>"
+            },
+            {
+              "name": "since_id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Return posts that have appeared after this ID. Use this parameter to page through the results: first get a set of posts, and then get posts since the last ID of the previous set.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/user/likes": {
+        "get": {
+          "tags": [
+            "user"
+          ],
+          "summary": "Get User Likes",
+          "description": "Use this method to retrieve the liked posts that match the OAuth credentials submitted with the request.",
+          "parameters": [
+            {
+              "name": "limit",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The number of results to return: 1???20, inclusive",
+              "example": "<>"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Result to start at.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/user/following": {
+        "get": {
+          "tags": [
+            "user"
+          ],
+          "summary": "Get User Following",
+          "description": "Use this method to retrieve the blogs followed by the user whose OAuth credentials are submitted with the request.",
+          "parameters": [
+            {
+              "name": "limit",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The number of results to return: 1???20, inclusive",
+              "example": "<>"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Result to start at.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/user/follow": {
+        "post": {
+          "tags": [
+            "user"
+          ],
+          "summary": "Add User Follow",
+          "description": "Follow a blog.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "url",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The URL of the blog to follow.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/user/unfollow": {
+        "post": {
+          "tags": [
+            "user"
+          ],
+          "summary": "Add User Unfollow",
+          "description": "Unfollow a blog.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "url",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The URL of the blog to follow.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
