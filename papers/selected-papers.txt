@@ -51,3 +51,7 @@ Improving test case generation for rest apis through hierarchical clustering | D
 COTS: Connected OpenAPI Test Synthesis for RESTful Applications | CB Burlo, A Francalanza, A Scalas, E Tuosto | none | COORDINATION
 
 Security Testing of RESTful APIs With Test Case Mutation | S Salva, J Sue | RESTful APIs, Security, Test Case Generation, Test Case Mutation | arXiv
+
+Evaluating fuzzing tools for automated testing of REST APIs using OpenAPI specification | A Tokos | none | Master's Thesis
+
+Automatic Test Generation of REST APIs | A Karlsson | none | Master's Thesis

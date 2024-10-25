@@ -14,6 +14,7 @@ CoinCap | [16]
 CWA Verification Server | [3][11][12]
 Cyclotron | [11]
 Datamuse | [16]
+Demo Blog Server | [28]
 DigDag | [12]
 Disease SH | [11]
 DHL | [6]
@@ -46,7 +47,7 @@ Open Brewery DB | [16]
 Openverse | [20]
 Password Utility | [14]
 PayPal | [10]
-PetStore | [4][14][20][23]
+PetStore | [4][14][20][23][28][29]
 PetClinic | [16][20][22]
 Person Controller | [3]
 PiggyMetric | [21]
@@ -111,3 +112,5 @@ Used:
 [25] Improving test case generation for rest apis through hierarchical clustering
 [26] Black-box and white-box test case generation for RESTful APIs: Enemies or allies?
 [27] Automated specification-based testing of REST APIs -> NO APIS SELECTED AS THEY ONLY OCCUR IN THIS PAPER
+[28] Evaluating fuzzing tools for automated testing of REST APIs using OpenAPI specification
+[29] Automatic Test Generation of REST APIs
