@@ -34,7 +34,7 @@ RESTful Api Design | rejected | PAPER IS A BOOK
 
 Morest: Model-based RESTful API testing with execution feedback | accepted
 
-Fulfilling a RESTful Commitment: Test-Suite Generation for Swagger-based REST APIs | rejected | PAPER IS A MASTER THESIS
+Fulfilling a RESTful Commitment: Test-Suite Generation for Swagger-based REST APIs | rejected | no api set
 
 RESTest: automated black-box testing of RESTful web APIs | accepted
 
@@ -60,7 +60,7 @@ On the faults found in REST APIs by automated test generation | accepted
 
 Enhancing rest api testing with nlp techniques | accepted
 
-Performance testing REST APIs | rejected | paper is a master thesis
+Performance testing REST APIs | rejected | no api set
 
 API governance support through the structural analysis of REST APIs | rejected | api set is too complex
 
@@ -82,7 +82,7 @@ Starting a New REST API Project? A Performance Benchmark of Frameworks and Execu
 
 Generating REST API Specifications through Static Analysis | accepted
 
-Evaluating fuzzing tools for automated testing of REST APIs using OpenAPI specification | rejected | paper is a master thesis
+Evaluating fuzzing tools for automated testing of REST APIs using OpenAPI specification | accepted
 
 Automated generation of REST API specification from plain HTML documentation | rejected | paper is not accessible
 
@@ -130,9 +130,9 @@ Modern restful api dls and frameworks for restful web services api schema modeli
 
 Intelligent REST API data fuzzing | rejected | api set is too complex
 
-FUZZ TESTING OF REST API | rejected | paper is a master thesis
+FUZZ TESTING OF REST API | rejected | invalid api set
 
-Comparing Spring REST API test frameworks: A Comparison Study | rejected | paper is a master thesis
+Comparing Spring REST API test frameworks: A Comparison Study | rejected | no api set
 
 Compatibility Modeling and Testing of REST API based on REST Chart | rejected | no api set
 
@@ -146,7 +146,7 @@ Improving test case generation for rest apis through hierarchical clustering | a
 
 A semantic IoT framework to support RESTful devices' API interoperability | rejected | no api set
 
-Automatic Test Generation of REST APIs | rejected | paper is a master thesis
+Automatic Test Generation of REST APIs | accepted
 
 REST API design rulebook | rejected | paper is a book
 
@@ -162,19 +162,19 @@ COTS: Connected OpenAPI Test Synthesis for RESTful Applications | accepted
 
 Design and describe REST API without violating REST: A Petri net based approach | rejected | paper is not accessible
 
-REST API Security: Testing and Analysis | rejected | paper is a master thesis
+REST API Security: Testing and Analysis | rejected | no api set
 
-REST API & Mobile Application | rejected | paper is a master thesis
+REST API & Mobile Application | rejected | invalid api set
 
-Rest api changes analysis and impact on client applications | rejected | paper is a master thesis
+Rest api changes analysis and impact on client applications | rejected | invalid api set
 
 REST API design patterns for SDN northbound API | rejected | paper is not accessible
 
-Automated example oriented REST API documentation | rejected | paper is a master thesis
+Automated example oriented REST API documentation | rejected | paper is a duplicate
 
 Kaang: a RESTful API generator for the modern web | rejected | no api set
 
-Evaluation of the t-wise Approach for Testing REST APIs | rejected | paper is a master thesis
+Evaluation of the t-wise Approach for Testing REST APIs | rejected | no api set
 
 Towards a Scalable and Unified REST API for Cloud Data Stores | rejected | no api set
 
@@ -192,9 +192,9 @@ Which restful api design rules are important and how do they improve software qu
 
 Providing Security Properties of Cloud Service by Using REST APIs | rejected | paper is not accessible
 
-Rest api | rejected | paper is a master thesis
+Rest api | rejected | no api set
 
-Improving REST API robustness through continuous fuzzing: A case study | rejected | paper is a master thesis
+Improving REST API robustness through continuous fuzzing: A case study | rejected | no api set
 
 Do RESTful API design rules have an impact on the understandability of Web APIs? | rejected | api set is too complex
 
