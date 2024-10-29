@@ -1,0 +1,207 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "OpenBreweryDB",
+      "description": "![Open Brewery DB Logo](https://github.com/cipherwizard9/openbrewerydb/raw/master/obdb-logo-md.jpg)\n\nThis is the postman collection for [Open Brewery DB API](https://www.openbrewerydb.org/) which is served by a [REST API built with Ruby on Rails](https://github.com/chrisjm/openbrewerydb-rails-api)\n\n## About Open Brewery DB\nOpen Brewery DB is a free dataset and API with public information on breweries, cideries, brewpubs, and bottleshops. The goal of Open Brewery DB is to maintain an open-source, community-driven dataset and provide a public API. It is our belief that public information should be freely accessible for the betterment of the beer community and the happiness of web developers and data analysts.",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://{{openbrewerydb_host}}"
+      }
+    ],
+    "tags": [
+      {
+        "name": "List Breweries",
+        "description": "Returns a list of breweries.\n\n**Note:** For the parameters, you can use underscores or url encoding for spaces."
+      },
+      {
+        "name": "Get Brewery",
+        "description": "Get a single brewery.\n\n**Note:** For the parameters, you can use underscores or url encoding for spaces."
+      },
+      {
+        "name": "Search Breweries",
+        "description": "Search for breweries based on a search term\n\n**Note:** For the parameters, you can use underscores or url encoding for spaces."
+      },
+      {
+        "name": "Autocomplete",
+        "description": "Return a list of names and ids of breweries based on a search term. This endpoint is typically used for a drop-down selection.\n\n**Note:** For the parameters, you can use underscores or url encoding for spaces."
+      },
+      {
+        "name": "Random Brewery"
+      }
+    ],
+    "paths": {
+      "/breweries": {
+        "get": {
+          "tags": [
+            "List Breweries"
+          ],
+          "summary": "with all query params",
+          "parameters": [
+            {
+              "name": "by_city",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "example": "san diego"
+            },
+            {
+              "name": "by_dist",
+              "in": "query",
+              "schema": {
+                "type": "number"
+              },
+              "example": "-117.129593,32.714813"
+            },
+            {
+              "name": "by_name",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "example": "10 Barrel Brewing Co"
+            },
+            {
+              "name": "by_postal",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "example": "92101-6618"
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "schema": {
+                "type": "integer"
+              },
+              "example": "1"
+            },
+            {
+              "name": "per_page",
+              "in": "query",
+              "schema": {
+                "type": "integer"
+              },
+              "example": "10"
+            },
+            {
+              "name": "sort",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "example": "name:desc"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/breweries/{id}": {
+        "get": {
+          "tags": [
+            "Get Brewery"
+          ],
+          "summary": "get a single brewery",
+          "description": "Provide the uuid for id path parameter for example ```modern-times-beer-san-diego```",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": "Enter the brewery uuid",
+              "example": "modern-times-beer-san-diego"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/breweries/search": {
+        "get": {
+          "tags": [
+            "Search Breweries"
+          ],
+          "summary": "search breweries",
+          "parameters": [
+            {
+              "name": "query",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "example": "dog"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/breweries/autocomplete": {
+        "get": {
+          "tags": [
+            "Autocomplete"
+          ],
+          "summary": "autocomplete",
+          "parameters": [
+            {
+              "name": "query",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "example": "dog"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/breweries/random": {
+        "get": {
+          "tags": [
+            "Random Brewery"
+          ],
+          "summary": "random",
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
