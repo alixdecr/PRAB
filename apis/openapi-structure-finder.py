@@ -1,6 +1,6 @@
 import json
 
-with open("apis/cyclotron/cyclotron-openapi.json", "r", encoding="utf-8") as openfile:
+with open("apis/disease-sh/disease-sh-openapi.json", "r", encoding="utf-8") as openfile:
     dic = json.load(openfile)
 
 structureDict = {
