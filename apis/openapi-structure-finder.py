@@ -35,3 +35,16 @@ for route in structureDict["routes"]["list"]:
                         structureDict["parameters"]["total"] += 1
 
 print(json.dumps(structureDict, indent=4))
+
+print(f"No. Routes: {structureDict['routes']['total']}")
+print(f"No. Query Parameters: {structureDict['parameters']['total']}")
+if "get" in structureDict:
+    print(f"No. GET: {structureDict['get']['total']}")
+if "post" in structureDict:
+    print(f"No. POST: {structureDict['post']['total']}")
+if "put" in structureDict:
+    print(f"No. PUT: {structureDict['put']['total']}")
+if "delete" in structureDict:
+    print(f"No. DELETE: {structureDict['delete']['total']}")
+if "patch" in structureDict:
+    print(f"No. PATCH: {structureDict['patch']['total']}")
