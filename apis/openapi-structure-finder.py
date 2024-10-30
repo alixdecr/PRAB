@@ -1,6 +1,6 @@
 import json
 
-with open("apis/magento/magento-openapi.json", "r", encoding="utf-8") as openfile:
+with open("apis/management-apache-cassandra/management-apache-cassandra-openapi.json", "r", encoding="utf-8") as openfile:
     dic = json.load(openfile)
 
 structureDict = {
