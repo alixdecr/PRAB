@@ -1,0 +1,243 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Random User Generator API",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://{{baseurl}}"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Overview",
+        "description": "The Random User Generator API provides a free service to generate random user data for application testing. With random user data crafted for diverse use cases, you can test better with ready-made user data across your project.\n\n## Who is the Random User Generator API for\n\nThe audience for [https://randomuser.me/](https://randomuser.me/) is developers, data analysts, and researchers who need a quick and easy way to generate realistic mock user data for their applications or studies. This API generates random user profiles with diverse personal information, including name, gender, location, email address, and profile picture. It may also apply to UI/UX designers for placeholder data in designing user interfaces."
+      },
+      {
+        "name": "Overview > Authentication",
+        "description": "Authorization (authentication) is not required to use the Random User Generator API."
+      },
+      {
+        "name": "Overview > Base URL",
+        "description": "```\nhttps://randomuser.me/\n\n```"
+      },
+      {
+        "name": "Overview > Support",
+        "description": "If you encounter any errors when using the API, please reach us at [support@randomuser.me](mailto:support@randomuser.me) with the error details, including the HTTP status code and error message. We'll do our best to resolve the issue as quickly as possible.\n\nFor questions/feedback or would like to get in touch with us, tweet us [@randomapi](https://twitter.com/randomapi)\n\nFound a bug or have an idea?  \nContribute to randomuser.me's database on our [Github Repo](https://github.com/RandomAPI/Randomuser.me-Node)."
+      },
+      {
+        "name": "Overview > Issues",
+        "description": "These are some of the current issues with the Random User API\n\n- The endpoint is just one - /api\\*\n- The reason we can’t precisely specify the exact location when calling the API is that the data of users are random. So you will always get a random location regardless of the one you specify.  \n    (The only way around this is to specify nationality.)"
+      },
+      {
+        "name": "Endpoints",
+        "description": "Only `GET` requests are allowed now."
+      },
+      {
+        "name": "HTTP and Error Codes",
+        "description": "The Random API returns HTTP status code and error code messages.\n\n| HTTP Code | Message | Description |\n| --- | --- | --- |\n| 200 | OK | The request was successful |\n| 400 | Bad Request | The request was invalid or missing a required parameter. |\n| 404 | Not Found | The requested resource not found. |\n| 500 | Internal Server Error | An error occurred on the server |"
+      },
+      {
+        "name": "Random API Flags",
+        "description": "## List and explanation of the flags\n\nThe Random User Generator API ([https://randomuser.me/](https://randomuser.me/)) is a free, open-source API that provides randomly generated user data. Here are the flags you can use with the API:"
+      }
+    ],
+    "paths": {
+      "/api": {
+        "get": {
+          "tags": [
+            "Endpoints"
+          ],
+          "summary": "Get complete data of any user",
+          "description": "Access any user data",
+          "parameters": [
+            {
+              "name": "Accept",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "example": "application/json"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": {
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Fri, 10 Mar 2023 11:10:48 GMT"
+                  }
+                },
+                "Content-Type": {
+                  "schema": {
+                    "type": "string",
+                    "example": "application/json; charset=utf-8"
+                  }
+                },
+                "Transfer-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "chunked"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "X-Powered-By": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Express"
+                  }
+                },
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "example": "no-cache"
+                  }
+                },
+                "ETag": {
+                  "schema": {
+                    "type": "string",
+                    "example": "W/\"46c-gO+A1AkhPOK8MAOCxXcoBEMrsb4\""
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "DYNAMIC"
+                  }
+                },
+                "Report-To": {
+                  "schema": {
+                    "type": "string",
+                    "example": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=QOFgbpqTJHWVGvjkFEsz8hPCDsEWWuCBt9BUi3pOya5SevtnIXSjaXrgOkmEv2qURWDiW6AbqX2nZfDpWa2raX6HckKzZfNoManm9xMPkh1TSt4EED8YgOpnbkdBnMwP\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+                  }
+                },
+                "NEL": {
+                  "schema": {
+                    "type": "string",
+                    "example": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                },
+                "CF-RAY": {
+                  "schema": {
+                    "type": "string",
+                    "example": "7a5b1cff8cc6397a-IAD"
+                  }
+                },
+                "Content-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "br"
+                  }
+                },
+                "alt-svc": {
+                  "schema": {
+                    "type": "string",
+                    "example": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "example": {
+                    "results": [
+                      {
+                        "gender": "female",
+                        "name": {
+                          "title": "Ms",
+                          "first": "Nalan",
+                          "last": "Tunçeri"
+                        },
+                        "location": {
+                          "street": {
+                            "number": 5182,
+                            "name": "Kushimoto Sk"
+                          },
+                          "city": "Kars",
+                          "state": "Edirne",
+                          "country": "Turkey",
+                          "postcode": 28472,
+                          "coordinates": {
+                            "latitude": "66.2873",
+                            "longitude": "53.4476"
+                          },
+                          "timezone": {
+                            "offset": "-9:00",
+                            "description": "Alaska"
+                          }
+                        },
+                        "email": "nalan.tunceri@example.com",
+                        "login": {
+                          "uuid": "bcf18374-37b2-46b8-bb39-419ce6418645",
+                          "username": "purpleelephant172",
+                          "password": "catwoman",
+                          "salt": "ERixTGDQ",
+                          "md5": "aa559725ceacffa5eaa05ac0b951b018",
+                          "sha1": "1b38c29aa17df3b1ec6c7ee924bcd838d7a8a08b",
+                          "sha256": "fede49a2da294c50da23901618274c1bdf4305db7ec6f5d6adff8effa36de8b2"
+                        },
+                        "dob": {
+                          "date": "1977-02-11T14:22:18.796Z",
+                          "age": 46
+                        },
+                        "registered": {
+                          "date": "2017-09-06T10:08:03.064Z",
+                          "age": 5
+                        },
+                        "phone": "(321)-542-3575",
+                        "cell": "(063)-492-9707",
+                        "id": {
+                          "name": "",
+                          "value": null
+                        },
+                        "picture": {
+                          "large": "https://randomuser.me/api/portraits/women/89.jpg",
+                          "medium": "https://randomuser.me/api/portraits/med/women/89.jpg",
+                          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/89.jpg"
+                        },
+                        "nat": "TR"
+                      }
+                    ],
+                    "info": {
+                      "seed": "c2f2b9ea70089b8b",
+                      "results": 1,
+                      "page": 1,
+                      "version": "1.4"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

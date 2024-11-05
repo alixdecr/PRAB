@@ -1,6 +1,6 @@
 import json
 
-with open("apis/piggy-metrics/piggy-metrics-openapi.json", "r", encoding="utf-8") as openfile:
+with open("apis/ur-codebin/ur-codebin-openapi.json", "r", encoding="utf-8") as openfile:
     dic = json.load(openfile)
 
 structureDict = {

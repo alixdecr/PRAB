@@ -1,0 +1,1808 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "r/SpaceX API V4",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.spacexdata.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "apikeyAuth": {
+        "type": "http",
+        "scheme": "apikey"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Capsules"
+    },
+    {
+      "name": "Company Info"
+    },
+    {
+      "name": "Cores"
+    },
+    {
+      "name": "Crew"
+    },
+    {
+      "name": "Dragons"
+    },
+    {
+      "name": "Landpads"
+    },
+    {
+      "name": "Launches"
+    },
+    {
+      "name": "Launchpads"
+    },
+    {
+      "name": "Payloads"
+    },
+    {
+      "name": "Roadster Info"
+    },
+    {
+      "name": "Rockets"
+    },
+    {
+      "name": "Ships"
+    },
+    {
+      "name": "Starlink"
+    }
+  ],
+  "paths": {
+    "/v4/capsules": {
+      "get": {
+        "tags": [
+          "Capsules"
+        ],
+        "summary": "Get all capsules",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Capsules"
+        ],
+        "summary": "Create a capsule",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/capsules/{capsuleID}": {
+      "get": {
+        "tags": [
+          "Capsules"
+        ],
+        "summary": "Get one capsule",
+        "parameters": [
+          {
+            "name": "capsuleID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Capsules"
+        ],
+        "summary": "Update a capsule",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "capsuleID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Capsules"
+        ],
+        "summary": "Delete a capsule",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "capsuleID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/capsules/query": {
+      "post": {
+        "tags": [
+          "Capsules"
+        ],
+        "summary": "Query capsules",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/company": {
+      "get": {
+        "tags": [
+          "Company Info"
+        ],
+        "summary": "Get Company Info",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/company/{infoID}": {
+      "patch": {
+        "tags": [
+          "Company Info"
+        ],
+        "summary": "Update Company Info",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "infoID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/cores": {
+      "get": {
+        "tags": [
+          "Cores"
+        ],
+        "summary": "Get all Cores",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Cores"
+        ],
+        "summary": "Create a Core",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/cores/{coreID}": {
+      "get": {
+        "tags": [
+          "Cores"
+        ],
+        "summary": "Get one Core",
+        "parameters": [
+          {
+            "name": "coreID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Cores"
+        ],
+        "summary": "Update a Core",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "coreID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Cores"
+        ],
+        "summary": "Delete a Core",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "coreID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/cores/query": {
+      "post": {
+        "tags": [
+          "Cores"
+        ],
+        "summary": "Query Cores",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/crew": {
+      "get": {
+        "tags": [
+          "Crew"
+        ],
+        "summary": "Get all Crew",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Crew"
+        ],
+        "summary": "Create Crew Member",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/crew/{id}": {
+      "get": {
+        "tags": [
+          "Crew"
+        ],
+        "summary": "Get one Crew Member",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Crew"
+        ],
+        "summary": "Update Crew Member",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Crew"
+        ],
+        "summary": "Delete Crew Member",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/crew/query": {
+      "post": {
+        "tags": [
+          "Crew"
+        ],
+        "summary": "Query Crew Members",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/dragons": {
+      "get": {
+        "tags": [
+          "Dragons"
+        ],
+        "summary": "Get all Dragons",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Dragons"
+        ],
+        "summary": "Create Dragon",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/dragons/{id}": {
+      "get": {
+        "tags": [
+          "Dragons"
+        ],
+        "summary": "Get one Dragon",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Dragons"
+        ],
+        "summary": "Update Dragon",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Dragons"
+        ],
+        "summary": "Delete Dragon",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/dragons/query": {
+      "post": {
+        "tags": [
+          "Dragons"
+        ],
+        "summary": "Query Dragons",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/landpads": {
+      "get": {
+        "tags": [
+          "Landpads"
+        ],
+        "summary": "Get all Landpads",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Landpads"
+        ],
+        "summary": "Create Landpad",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/landpads{id}": {
+      "get": {
+        "tags": [
+          "Landpads"
+        ],
+        "summary": "Get one Landpad",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Landpads"
+        ],
+        "summary": "Update Landpads",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Landpads"
+        ],
+        "summary": "Delete Landpads",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/landpads/query": {
+      "post": {
+        "tags": [
+          "Landpads"
+        ],
+        "summary": "Query Landpads",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/launches": {
+      "get": {
+        "tags": [
+          "Launches"
+        ],
+        "summary": "Get all Launches",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Launches"
+        ],
+        "summary": "Create a Launch",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/launches{id}": {
+      "get": {
+        "tags": [
+          "Launches"
+        ],
+        "summary": "Get one Launch",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Launches"
+        ],
+        "summary": "Update a Launch",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Launches"
+        ],
+        "summary": "Delete a Launch",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/launches/query": {
+      "post": {
+        "tags": [
+          "Launches"
+        ],
+        "summary": "Query Launches",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/launches/past": {
+      "get": {
+        "tags": [
+          "Launches"
+        ],
+        "summary": "Get past Launches",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/launches/upcoming": {
+      "get": {
+        "tags": [
+          "Launches"
+        ],
+        "summary": "Get upcoming Launches",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/launches/latest": {
+      "get": {
+        "tags": [
+          "Launches"
+        ],
+        "summary": "Get latest Launch",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/launches/next": {
+      "get": {
+        "tags": [
+          "Launches"
+        ],
+        "summary": "Get next Launch",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/launchpads": {
+      "get": {
+        "tags": [
+          "Launchpads"
+        ],
+        "summary": "Get all Launchpads",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Launchpads"
+        ],
+        "summary": "Create Launchpad",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/launchpads/{id}": {
+      "get": {
+        "tags": [
+          "Launchpads"
+        ],
+        "summary": "Get one Launchpad",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Launchpads"
+        ],
+        "summary": "Update Launchpad",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Launchpads"
+        ],
+        "summary": "Delete Launchpad",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/launchpads/query": {
+      "post": {
+        "tags": [
+          "Launchpads"
+        ],
+        "summary": "Query Launchpads",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/payloads": {
+      "get": {
+        "tags": [
+          "Payloads"
+        ],
+        "summary": "Get all Payloads",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Payloads"
+        ],
+        "summary": "Create Payload",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/payloads/{id}": {
+      "get": {
+        "tags": [
+          "Payloads"
+        ],
+        "summary": "Get one Payload",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Payloads"
+        ],
+        "summary": "Update Payload",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Payloads"
+        ],
+        "summary": "Delete Payload",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/payloads/query": {
+      "post": {
+        "tags": [
+          "Payloads"
+        ],
+        "summary": "Query Payloads",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/roadster": {
+      "get": {
+        "tags": [
+          "Roadster Info"
+        ],
+        "summary": "Get Roadster Info",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/roadster/{id}": {
+      "patch": {
+        "tags": [
+          "Roadster Info"
+        ],
+        "summary": "Update Roadster Info",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/rockets": {
+      "get": {
+        "tags": [
+          "Rockets"
+        ],
+        "summary": "Get all Rockets",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Rockets"
+        ],
+        "summary": "Create Rocket",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/rockets/{id}": {
+      "get": {
+        "tags": [
+          "Rockets"
+        ],
+        "summary": "Get one Rocket",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Rockets"
+        ],
+        "summary": "Update Rocket",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Rockets"
+        ],
+        "summary": "Delete Rocket",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/rockets/query": {
+      "post": {
+        "tags": [
+          "Rockets"
+        ],
+        "summary": "Query Rockets",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/ships": {
+      "get": {
+        "tags": [
+          "Ships"
+        ],
+        "summary": "Get all Ships",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Ships"
+        ],
+        "summary": "Create Ship",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/ships/{id}": {
+      "get": {
+        "tags": [
+          "Ships"
+        ],
+        "summary": "Get one Ship",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Ships"
+        ],
+        "summary": "Update Ship",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Ships"
+        ],
+        "summary": "Delete Ship",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/ships/query": {
+      "get": {
+        "tags": [
+          "Ships"
+        ],
+        "summary": "Query Ships",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/starlink": {
+      "get": {
+        "tags": [
+          "Starlink"
+        ],
+        "summary": "Get all Starlink sats",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Starlink"
+        ],
+        "summary": "Create Starlink sat",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/starlink/{id}": {
+      "get": {
+        "tags": [
+          "Starlink"
+        ],
+        "summary": "Get one Starlink sat",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Starlink"
+        ],
+        "summary": "Update Starlink sat",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Starlink"
+        ],
+        "summary": "Delete Starlink sat",
+        "security": [
+          {
+            "apikeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v4/starlink/query": {
+      "post": {
+        "tags": [
+          "Starlink"
+        ],
+        "summary": "Query Starlink sats",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

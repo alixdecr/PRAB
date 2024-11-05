@@ -1,0 +1,513 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "User Management",
+      "description": "# Introduction\nThis API will have 4 endpoints as Registration, Login, Update, and List of users. \n\n# Overview\nInformation will be stored in the MongoDB database and Flask API will be used to act as an intermediator which will perform the following tasks-\n\n1. Store the information in the database given by the user.\n2. Retrieve the information.\n3. Update the information.\n4. List out all the users.\n5. Search for a user.\n6. Apply filters while listing users.\n\nEnd Points present in the API -\n\n1. Registration endpoint - This endpoint will allow a new user to register and save the user details in the user's collection in the database.\nIn this, we will create a POST request to send the registration information of the user in the json format.\n\n2. Login endpoint: This endpoint will allow a registered user to login.\nIn this, we will be creating a POST request that will be sending the login information of the user in the json format and in the response, if the user exists and credentials are correct then login will be successful.\n\n3. Update endpoint: This endpoint will help in updating the user details except for the _id field.\nIn this, we will be creating a POST request to send the updated information of the user in the json format and in response info will be updated.\n\n4. List user's endpoint: In this endpoint, we will list all the users that are currently present in the user's collection. Listing of the users will be done as per the pagination logic (5 users on each page), filter functionality.\nIn this, we will create a GET request and in response, we will get the required information in the json format.\nIn filter, we can list user by month and by company and also we can check for age where user list will be returned greater than that age.\n\n\n# Authentication\n1. Login and Password will be used for authentication.\n2. OAuth authentication.\n\n# Possible Errors\n1. Invalid API Request.\n2. Invalid email format.\n3. All required fields not filled.\n\na) Registration End Point : \nUser ID already exists.\n\nb) Login End Point : \nIf User Id not found.\n\nWrong Password.\n\nc) Update End Point : \nUser not logged In.\n\nTries to update User Id.\n\nd) List End Point : \nUser not logged In.",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://{{base_url}}"
+      },
+      {
+        "url": "http://0.0.0.0:5200"
+      }
+    ],
+    "paths": {
+      "/register": {
+        "post": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Register",
+          "description": "This endpoint will allow a new user to register and save the user details in the user's collection in the database. In this, we will create a POST request to send the registration information of the user in the json format.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "email_id": "anushkadwivedi@gmail.com",
+                    "name": "Anushka Dwivedi",
+                    "age": 21,
+                    "mobile": 6264242903,
+                    "password": "addf120b430021c36c232c99ef8d926aea2acd6b",
+                    "company_name": "Exportify Technologies"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "202": {
+              "description": "Accepted",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "example": "User Registered"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/login": {
+        "post": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Login",
+          "description": "This endpoint will allow a registered user to login. In this, we will be creating a POST request that will be sending the login information of the user in the json format and in the response, if the user exists and credentials are correct then login will be successful.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "email_id": "nayanarora@gmail.com",
+                    "password": "addf120b430021c36c232c99ef8d926aea2acd6b"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": {
+                "Content-Type": {
+                  "schema": {
+                    "type": "string",
+                    "example": "application/json"
+                  }
+                },
+                "Content-Length": {
+                  "schema": {
+                    "type": "integer",
+                    "example": "192"
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "number",
+                    "example": "Werkzeug/2.0.1 Python/3.9.5"
+                  }
+                },
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Mon, 26 Jul 2021 10:14:45 GMT"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "example": {
+                    "message": "Login Successful",
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoieW9vMUBtYWlsLmNvbSIsImV4cCI6MTYyNzMxNDU4NX0.9hgPClEZIS68bcvIsoenfQeAEzFWerb3yjKP6qOTblg"
+                  }
+                }
+              }
+            },
+            "202": {
+              "description": "Accepted",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "example": "User Logged In"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/update": {
+        "post": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Update",
+          "description": "This endpoint will help in updating the user details except for the _id field. In this, we will be creating a PUT request to send the updated information of the user in the json format and in response info will be updated.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "name": "Nayan Arora"
+                  }
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "name": "TOKEN",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibmF5YW5hcm9yYUBnbWFpbC5jb20iLCJleHAiOjE2MjgwMTMxMzl9.xkx54HmHOnnbSbngkUKIjPHDanIJVqWs6dXbAaEf6sY"
+            }
+          ],
+          "responses": {
+            "undefined": {
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "example": "Info Updated"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/listuser": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "List User",
+          "description": "In this endpoint, we will list all the users that are currently present in the user's collection. Listing of the users will be done as per the pagination logic (5 users on each page), filter functionality, search user as per the name, email, company name. In this, we will create a GET request and in response, we will get the required information in the json format.",
+          "parameters": [
+            {
+              "name": "TOKEN",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibmF5YW5hcm9yYUBnbWFpbC5jb20iLCJleHAiOjE2MjgwNDc1NTZ9.ZxAxbJetGjm-iCPx0AqNPHM85DVTDNxiv-dVgzFqhIk"
+            },
+            {
+              "name": "offset",
+              "in": "header",
+              "schema": {
+                "type": "integer"
+              },
+              "example": "10"
+            },
+            {
+              "name": "company",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "age",
+              "in": "query",
+              "schema": {
+                "type": "integer"
+              },
+              "example": "20"
+            }
+          ],
+          "responses": {
+            "undefined": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "example": [
+                    {
+                      "email_id": "anushka@gmail.com",
+                      "name": "Anushka Dwivedi",
+                      "age": 20,
+                      "mobile": 9000090000,
+                      "password": "addf120b430021c36c232c99ef8d926aea2acd6b",
+                      "company_name": "Xportify Technologies Private Limited"
+                    },
+                    {
+                      "email_id": "a@gmail.com",
+                      "name": "Abc",
+                      "age": 20,
+                      "mobile": 8000090000,
+                      "password": "addf120b430021c36c232c99ef8d926aea2acd6b",
+                      "company_name": "A Technologies Private Limited"
+                    },
+                    {
+                      "_id": "b@gmail.com",
+                      "name": "Bcd",
+                      "age": 20,
+                      "mobile": 7000090000,
+                      "password": "addf120b430021c36c232c99ef8d926aea2acd6b",
+                      "company_name": "B Technologies Private Limited"
+                    },
+                    {
+                      "email_id": "c@gmail.com",
+                      "name": "Cde",
+                      "age": 20,
+                      "mobile": 6000090000,
+                      "password": "addf120b430021c36c232c99ef8d926aea2acd6b",
+                      "company_name": "C Technologies Private Limited"
+                    },
+                    {
+                      "_id": "d@gmail.com",
+                      "name": "Def",
+                      "age": 20,
+                      "mobile": 5000090000,
+                      "password": "addf120b430021c36c232c99ef8d926aea2acd6b",
+                      "company_name": "D Technologies Private Limited"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "/inventory/inventory-records/get": {
+        "post": {
+          "tags": [
+            "default"
+          ],
+          "summary": "inventory records",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "email": "utkarsh.dhawan@exportify.in",
+                    "location_id": "test_location_2_1627882290",
+                    "shipping_line_id": "COSCO1568289813",
+                    "origin_port": {
+                      "port_code": "INMUN",
+                      "port_name": "Mundra"
+                    },
+                    "destination_ports": [
+                      {
+                        "port_code": "ITGOA",
+                        "port_name": "Genoa"
+                      },
+                      {
+                        "port_name": "Hamburg",
+                        "port_code": "DEHAM"
+                      },
+                      {
+                        "port_name": "Naples",
+                        "port_code": "ITNAP"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "name": "X-HTTP-ACCESS-TOKEN",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXRrYXJzaC5kaGF3YW5AZXhwb3J0aWZ5LmluIn0.UA4YnRZhdYOBaWhM1VlKoCRX7_5Oe7XzKJRHw4_wIW8"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/inventory/cntr-aggregations/get": {
+        "post": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Inventory Aggregation",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "email": "utkarsh.dhawan@exportify.in",
+                    "module": "selected_inventory",
+                    "location_id": "test_location_1_1627882290",
+                    "origin_port": {
+                      "port_name": "Nhava Sheva",
+                      "port_code": "INNSA"
+                    },
+                    "destination_ports": [
+                      {
+                        "port_name": "Jebel Ali",
+                        "port_code": "AEJEA"
+                      },
+                      {
+                        "port_name": "Colombo",
+                        "port_code": "LKCMB"
+                      }
+                    ],
+                    "shipping_line_id": "CMA1568281434"
+                  }
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "name": "X-HTTP-ACCESS-TOKEN",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXRrYXJzaC5kaGF3YW5AZXhwb3J0aWZ5LmluIn0.UA4YnRZhdYOBaWhM1VlKoCRX7_5Oe7XzKJRHw4_wIW8"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/inventory-lots/get": {
+        "post": {
+          "tags": [
+            "default"
+          ],
+          "summary": "list_inventory_lots",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "email": "utkarsh.dhawan@exportify.in",
+                    "filter_details": {
+                      "lot_no": "",
+                      "inventory_location": "",
+                      "shipping_line_id": "",
+                      "container_type": "",
+                      "expiry_date": ""
+                    },
+                    "sort_by": "",
+                    "sort_order": "",
+                    "offset": 3,
+                    "limit": 1
+                  }
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "name": "X-HTTP-ACCESS-TOKEN",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXRrYXJzaC5kaGF3YW5AZXhwb3J0aWZ5LmluIn0.UA4YnRZhdYOBaWhM1VlKoCRX7_5Oe7XzKJRHw4_wIW8"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/inventory-schedules/details/get": {
+        "post": {
+          "tags": [
+            "default"
+          ],
+          "summary": "inventory schedule details",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "email": "utkarsh.dhawan@exportify.in",
+                    "schedules": [
+                      "1",
+                      "2",
+                      "3"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "name": "X-HTTP-ACCESS-TOKEN",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXRrYXJzaC5kaGF3YW5AZXhwb3J0aWZ5LmluIn0.UA4YnRZhdYOBaWhM1VlKoCRX7_5Oe7XzKJRHw4_wIW8"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/inventory-schedules/delete/undo": {
+        "post": {
+          "tags": [
+            "default"
+          ],
+          "summary": "inventory undo delete schedule",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "email": "utkarsh.dhawan@exportify.in"
+                  }
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "name": "X-HTTP-ACCESS-TOKEN",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXRrYXJzaC5kaGF3YW5AZXhwb3J0aWZ5LmluIn0.UA4YnRZhdYOBaWhM1VlKoCRX7_5Oe7XzKJRHw4_wIW8"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
