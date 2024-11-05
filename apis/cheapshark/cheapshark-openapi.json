@@ -1,0 +1,1205 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "CheapShark API",
+      "description": "[CheapShark](https://www.cheapshark.com/) is a price comparison website for digital PC Games. We keep track of prices across multiple stores including Steam, GreenManGaming, Fanatical, and many others.\n\nWe offer a fully documented public API for developers to use CheapShark pricing data on their own app or website.\n\n## 📌 Important Usage Notes\n\nThe API is completely free, the only condition being that you **use CheapShark links when sending users to deals** (see details in **Deals** section below). This is how we pay for hosting and development! 😉\n\nWhile not required, it is always appreciated if you mention somewhere that your app or site is making use of the CheapShark API.\n\n## 🔑 Authorization & Rate Limiting\n\nTwo of the most common questions we see are regarding API Keys and Rate Limits. The API is completely public, **no authorization or API Key is needed**. You can get started right away!\n\nTo ensure server performance, we rate limit API calls. If you make too many requests in too short of time, you will receive a `429` HTTP response status code and be _**temporarily**_ blocked. The ban will be automatically lifted after it expires. All API clients are subject to the same limits. For this reason, during development you may wish to create and use a Mock API instead ([Postman offers this feature](https://www.postman.com/features/mock-api/)).\n\nIn general the API is designed to be called directly in response to user input / queries in your application. For example, a user searching for a particular game or browsing through pages of deals. Excessive automated requests to build a cached catalog of data **will run into rate limiting issues** and should be avoided.\n\nThe API fully supports [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), so requests should come directly from the user's browser or app (whenever possible). This will help avoid most rate limiting issues.\n\n## 🙋‍♂️Help & Support\n\nFor some real-world examples of this API in action, we suggest you check out the [CheapShark](https://www.cheapshark.com/) website itself. Using your browser's [DevTools](https://developer.chrome.com/docs/devtools/), you can inspect how various pages and interactions use the API.\n\nIf you run into any issues, need help with your implementation, or just want to share what you'll be using the API for, feel free to get in touch with us anytime!\n\nWe're always happy to help on our [Discord](https://discord.gg/cheapshark)'s dedicated **#api-help** channel or via email - [admin@cheapshark.com](mailto:admin@cheapshark.com?subject=API%20Help).\n\n## 📢Updates\n\nWe'll occasionally share important changes or news regarding the API via the **#api-announcements** channel on our [Discord](https://discord.gg/cheapshark) server. Be sure to right-click and set \"Notification Settings\" to \"All Messages\" on the channel if you'd like to stay informed!",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://{{host}}"
+      }
+    ],
+    "tags": [
+      {
+        "name": "💲 Deals",
+        "description": "Each deal is the price (and metadata) for a game at a particular store. For example: if a game is available on 3 stores, it will have 3 separate deal entries, one for each store the game is listed on. For reference, deal entries still exist even when the game is at full price.\n\nOn your website or app, you will use the CheapShark redirect page to link users to a specific deal:\n\n`https://www.cheapshark.com/redirect?dealID={id}`\n\n**📌 Important Note**: The redirect page is _not_ an API endpoint and will **block** automated access. It is designed only to link and send your users to deals. If your use-case _requires_ automation, please get in touch for options!\n\n---\n\nIn general, pricing information is updated from stores about once per hour. However this can fluctuate depending on a number of factors.\n\nThe deal rating property provides a quick way to compare how 'good' a deal is. It is normalized on a scale from 0 to 10.\n\nPricing data is always in **USD**. All date fields (releaseDate, lastChange, etc.) are returned in [Unix Timestamp](https://www.unixtimestamp.com/) format, in seconds. Boolean flags are a `0` or a `1`."
+      },
+      {
+        "name": "🎮 Games",
+        "description": "Games are the parent for deals, they are grouped by their name. They have one or more deals associated with them.\n\nThe Games endpoint can be useful when you need to search by title and present which Games are available (before drilling down into deals)."
+      },
+      {
+        "name": "🛒 Stores",
+        "description": "Information and logos for stores that we track."
+      },
+      {
+        "name": "📧 Alerts",
+        "description": "Price alerts are a combination of email address, gameID, and price.\r\n\r\nEmails are sent when any deal for the game reaches (or drops below) the desired price."
+      }
+    ],
+    "paths": {
+      "/api/1.0/deals": {
+        "get": {
+          "tags": [
+            "💲 Deals"
+          ],
+          "summary": "Deal Lookup",
+          "description": "Get info for a specific deal. Response includes game info, any cheaper current deals, and the cheapest historical price. As elsewhere, dealID is encoded",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "`(required, string)`\n\n An Encoded Deal ID",
+              "example": "X8sebHhbc1Ga0dTkgg59WgyM506af9oNZZJLU9uSrX8="
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": {
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Mon, 19 Jun 2023 17:29:08 GMT"
+                  }
+                },
+                "Content-Type": {
+                  "schema": {
+                    "type": "string",
+                    "example": "application/json"
+                  }
+                },
+                "Transfer-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "chunked"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "CF-Ray": {
+                  "schema": {
+                    "type": "string",
+                    "example": "7d9d7e10a8c90609-IAD"
+                  }
+                },
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "EXPIRED"
+                  }
+                },
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "example": "max-age=300, public"
+                  }
+                },
+                "Last-Modified": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Mon, 19 Jun 2023 16:57:22 GMT"
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "access-control-allow-headers": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "access-control-allow-methods": {
+                  "schema": {
+                    "type": "string",
+                    "example": "GET, HEAD, OPTIONS"
+                  }
+                },
+                "access-control-expose-headers": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Content-Encoding, X-Total-Page-Count"
+                  }
+                },
+                "cdn-cache-control": {
+                  "schema": {
+                    "type": "string",
+                    "example": "max-age=600, stale-while-revalidate=60, stale-if-error=432000, public"
+                  }
+                },
+                "php-cache": {
+                  "schema": {
+                    "type": "string",
+                    "example": "EXPIRED"
+                  }
+                },
+                "php-cache-age": {
+                  "schema": {
+                    "type": "integer",
+                    "example": "0"
+                  }
+                },
+                "php-cache-key": {
+                  "schema": {
+                    "type": "string",
+                    "example": "aae404cb474f2d477a63e317d23562f85ee18898"
+                  }
+                },
+                "php-cache-max-age": {
+                  "schema": {
+                    "type": "integer",
+                    "example": "300"
+                  }
+                },
+                "x-powered-by": {
+                  "schema": {
+                    "type": "string",
+                    "example": "The love of games, an addiction to deals, and a bit of code! :)"
+                  }
+                },
+                "Report-To": {
+                  "schema": {
+                    "type": "string",
+                    "example": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=cJgNqKZXYSX5R%2BzyXGlqNwYtvburCiDhSCeluo9TfK%2BxsNduoIqUoOhKr51gcjwYn1aUwOIz89nMXuEiNapNSOkj5l2HGDLlP%2F96vr8lRrwI0gvjrM5ZqYQmOZGEAI59U49IoA%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+                  }
+                },
+                "NEL": {
+                  "schema": {
+                    "type": "string",
+                    "example": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                },
+                "Content-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "br"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "example": {
+                    "gameInfo": {
+                      "storeID": "1",
+                      "gameID": "93503",
+                      "name": "BioShock Infinite",
+                      "steamAppID": "8870",
+                      "salePrice": "29.99",
+                      "retailPrice": "29.99",
+                      "steamRatingText": "Very Positive",
+                      "steamRatingPercent": "93",
+                      "steamRatingCount": "98477",
+                      "metacriticScore": "94",
+                      "metacriticLink": "/game/pc/bioshock-infinite",
+                      "releaseDate": 1364169600,
+                      "publisher": "N/A",
+                      "steamworks": "1",
+                      "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/8870/capsule_sm_120.jpg?t=1602794480"
+                    },
+                    "cheaperStores": [
+                      {
+                        "dealID": "vb3EqB4KpKbSyV83DXQYAZCSBS60LaOMgLCXSt8pQxw%3D",
+                        "storeID": "23",
+                        "salePrice": "5.89",
+                        "retailPrice": "29.99"
+                      },
+                      {
+                        "dealID": "boC2N0Q7SMCKxv6UKjRw%2BLFY6%2BNLEeWM2Bf1i80clx0%3D",
+                        "storeID": "21",
+                        "salePrice": "5.99",
+                        "retailPrice": "29.99"
+                      },
+                      {
+                        "dealID": "tbqfs8HsmHWn0mMk2QRCPd7KWLidkHrIYZX3FbYCyk0%3D",
+                        "storeID": "30",
+                        "salePrice": "7.19",
+                        "retailPrice": "29.99"
+                      },
+                      {
+                        "dealID": "r%2FGHYdW6GKpZfaqR4DQrjKD7vBoWiFPP7npVpVw4350%3D",
+                        "storeID": "34",
+                        "salePrice": "7.20",
+                        "retailPrice": "29.99"
+                      },
+                      {
+                        "dealID": "OVrkWmI7sl5RN61pxpA44euybrH826w%2FjvlV%2BYKc2oA%3D",
+                        "storeID": "2",
+                        "salePrice": "7.49",
+                        "retailPrice": "29.99"
+                      },
+                      {
+                        "dealID": "5ptxhcM1fatjVrZSnNNpbSz6okheevZEhcBAZm4AUfU%3D",
+                        "storeID": "35",
+                        "salePrice": "7.50",
+                        "retailPrice": "29.99"
+                      },
+                      {
+                        "dealID": "DQ%2BYLI9do4mm0H2%2BDUd6npgoQoK8bseNvyjJe%2B%2F3dEo%3D",
+                        "storeID": "15",
+                        "salePrice": "26.28",
+                        "retailPrice": "29.99"
+                      },
+                      {
+                        "dealID": "kj2H%2FvwfkyU40jW9s2g88CAW4PuR0etKlYvkQLitgvQ%3D",
+                        "storeID": "29",
+                        "salePrice": "26.99",
+                        "retailPrice": "29.99"
+                      },
+                      {
+                        "dealID": "fq0cNHiR3Z4TpZyV7WH865C1%2BCBlmufYUc%2Bu2HqyUHE%3D",
+                        "storeID": "27",
+                        "salePrice": "26.99",
+                        "retailPrice": "29.99"
+                      }
+                    ],
+                    "cheapestPrice": {
+                      "price": "4.49",
+                      "date": 1682548425
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/1.0/games": {
+        "get": {
+          "tags": [
+            "🎮 Games"
+          ],
+          "summary": "Multiple Game Lookup",
+          "description": "Allows lookup of a list of games. Includes list of all deals for each game. Maximum of 25 games.",
+          "parameters": [
+            {
+              "name": "ids",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "`(required, string)`\n\nA comma separated list of GameID's",
+              "example": "128,129,130"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": {
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Mon, 19 Jun 2023 17:33:56 GMT"
+                  }
+                },
+                "Content-Type": {
+                  "schema": {
+                    "type": "string",
+                    "example": "application/json"
+                  }
+                },
+                "Transfer-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "chunked"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "CF-Ray": {
+                  "schema": {
+                    "type": "string",
+                    "example": "7d9d851b7e2b0609-IAD"
+                  }
+                },
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "MISS"
+                  }
+                },
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "example": "max-age=300, public"
+                  }
+                },
+                "Last-Modified": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Mon, 19 Jun 2023 17:33:56 GMT"
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "access-control-allow-headers": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "access-control-allow-methods": {
+                  "schema": {
+                    "type": "string",
+                    "example": "GET, HEAD, OPTIONS"
+                  }
+                },
+                "access-control-expose-headers": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Content-Encoding, X-Total-Page-Count"
+                  }
+                },
+                "cdn-cache-control": {
+                  "schema": {
+                    "type": "string",
+                    "example": "max-age=600, stale-while-revalidate=60, stale-if-error=432000, public"
+                  }
+                },
+                "php-cache": {
+                  "schema": {
+                    "type": "string",
+                    "example": "EXPIRED"
+                  }
+                },
+                "php-cache-age": {
+                  "schema": {
+                    "type": "integer",
+                    "example": "0"
+                  }
+                },
+                "php-cache-key": {
+                  "schema": {
+                    "type": "string",
+                    "example": "a67d02f69f3b5fea4ce31322b97a29df8e645d75"
+                  }
+                },
+                "php-cache-max-age": {
+                  "schema": {
+                    "type": "integer",
+                    "example": "300"
+                  }
+                },
+                "x-powered-by": {
+                  "schema": {
+                    "type": "string",
+                    "example": "The love of games, an addiction to deals, and a bit of code! :)"
+                  }
+                },
+                "Report-To": {
+                  "schema": {
+                    "type": "string",
+                    "example": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=%2Bu3GmZsrhpr%2FdxUzfoyMrlEKf0kQmpz3Zxrs9Q9F8rhFhOLF4h2UR9ZjdlhyAeIKA6Tj3PFtpiQTMLiqztCCgBVx88WyBEBNBa46aWX8ik%2B4bBASxwgRRhE6TuMNio1HZzsCLg%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+                  }
+                },
+                "NEL": {
+                  "schema": {
+                    "type": "string",
+                    "example": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                },
+                "Content-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "br"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "examples": {
+                    "example-0": {
+                      "summary": "Multiple Game Lookup",
+                      "value": {
+                        "128": {
+                          "info": {
+                            "title": "BioShock",
+                            "steamAppID": null,
+                            "thumb": "https://gamersgatep.imgix.net/0/a/8/be6da04fc36b9995a78d20d319b638d8fad9d8a0.jpg?auto=&w="
+                          },
+                          "cheapestPriceEver": {
+                            "price": "4.60",
+                            "date": 1494806794
+                          },
+                          "deals": [
+                            {
+                              "storeID": "23",
+                              "dealID": "et8hm7BwoAPZnyJpSAAehTMKS7M1aPlbLKSZDWmUtEo%3D",
+                              "price": "16.79",
+                              "retailPrice": "19.99",
+                              "savings": "16.008004"
+                            },
+                            {
+                              "storeID": "15",
+                              "dealID": "oWyPURCZyImGfRbhD2zT0IhdZ4Z8WoFzQzTrQ8t23GQ%3D",
+                              "price": "17.48",
+                              "retailPrice": "19.99",
+                              "savings": "12.556278"
+                            },
+                            {
+                              "storeID": "11",
+                              "dealID": "IoCZ9drtueLEcHjcGtR%2BgdXUX9GnXHQ2tLL86zjlM90%3D",
+                              "price": "19.98",
+                              "retailPrice": "19.98",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "2",
+                              "dealID": "DlT5IxXbqt4KI7VAOZVcrt1u%2BS9qYZQ16IY4cory4Cg%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "30",
+                              "dealID": "r%2BKA9VEbC%2FlmDsUc30ISRH%2B56sfy2jV%2Fs%2Fzm38ySxFk%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "24",
+                              "dealID": "dPB13v%2FMykCkRy39LDryRmCgCc6G6rXN0h1mPvXbQyk%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "34",
+                              "dealID": "QXFi%2FEUKKTtf86zeNbkc0%2F6MTZ8ZQd5MYJdTw%2BXkdwk%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "33",
+                              "dealID": "dMKdFSJ01mPBfcmjCGS0q1pFjSNf44uPI6WP9XrvNME%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "29",
+                              "dealID": "cLKxizhmpyEkhGp0fZnFSXhRgU382U5iTkluKEwAizw%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "35",
+                              "dealID": "ZYfDUcVNcGrJrdPtndBWjWul8RlfuCZi6lriNsze6gk%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            }
+                          ]
+                        },
+                        "129": {
+                          "info": {
+                            "title": "Red Orchestra 2: Heroes of Stalingrad",
+                            "steamAppID": null,
+                            "thumb": "https://gamersgatep.imgix.net/c/7/3/ba988a3021dc7056b9e89f17dc8e32edc59b737c.jpg?auto=&w="
+                          },
+                          "cheapestPriceEver": {
+                            "price": "1.86",
+                            "date": 1629066371
+                          },
+                          "deals": [
+                            {
+                              "storeID": "2",
+                              "dealID": "gQ%2BvhhK8ajVFYxHIo0%2B12qoX3nUJNwWS5LgqSnfS4AI%3D",
+                              "price": "9.95",
+                              "retailPrice": "9.95",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "3",
+                              "dealID": "uJDIXwUve0nH2n4ToaL%2FLi71X4cT1XqHuqYfxaDDHN0%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            }
+                          ]
+                        },
+                        "130": {
+                          "info": {
+                            "title": "Renegade Ops",
+                            "steamAppID": "99300",
+                            "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/99300/capsule_sm_120.jpg?t=1614779423"
+                          },
+                          "cheapestPriceEver": {
+                            "price": "2.25",
+                            "date": 1569868411
+                          },
+                          "deals": [
+                            {
+                              "storeID": "1",
+                              "dealID": "YVakQjhMcizSIK2lDWVgW5zXo35ZV63u7u%2BXazw%2Bfm4%3D",
+                              "price": "15.00",
+                              "retailPrice": "15.00",
+                              "savings": "0.000000"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "example-1": {
+                      "summary": "Multiple Game Lookup - Array Format",
+                      "value": [
+                        {
+                          "info": {
+                            "gameID": "128",
+                            "title": "BioShock",
+                            "steamAppID": null,
+                            "thumb": "https://gamersgatep.imgix.net/0/a/8/be6da04fc36b9995a78d20d319b638d8fad9d8a0.jpg?auto=&w="
+                          },
+                          "cheapestPriceEver": {
+                            "price": "4.60",
+                            "date": 1494806794
+                          },
+                          "deals": [
+                            {
+                              "storeID": "11",
+                              "dealID": "IoCZ9drtueLEcHjcGtR%2BgdXUX9GnXHQ2tLL86zjlM90%3D",
+                              "price": "4.99",
+                              "retailPrice": "19.98",
+                              "savings": "75.025025"
+                            },
+                            {
+                              "storeID": "23",
+                              "dealID": "et8hm7BwoAPZnyJpSAAehTMKS7M1aPlbLKSZDWmUtEo%3D",
+                              "price": "16.79",
+                              "retailPrice": "19.99",
+                              "savings": "16.008004"
+                            },
+                            {
+                              "storeID": "15",
+                              "dealID": "oWyPURCZyImGfRbhD2zT0IhdZ4Z8WoFzQzTrQ8t23GQ%3D",
+                              "price": "17.48",
+                              "retailPrice": "19.99",
+                              "savings": "12.556278"
+                            },
+                            {
+                              "storeID": "2",
+                              "dealID": "DlT5IxXbqt4KI7VAOZVcrt1u%2BS9qYZQ16IY4cory4Cg%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "30",
+                              "dealID": "mmN9g5a3OJzlYAZS5Y7CnbKT5fVk3RyUGKQv%2BbfJTHA%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "24",
+                              "dealID": "dPB13v%2FMykCkRy39LDryRmCgCc6G6rXN0h1mPvXbQyk%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "34",
+                              "dealID": "QXFi%2FEUKKTtf86zeNbkc0%2F6MTZ8ZQd5MYJdTw%2BXkdwk%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "33",
+                              "dealID": "dMKdFSJ01mPBfcmjCGS0q1pFjSNf44uPI6WP9XrvNME%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "29",
+                              "dealID": "cLKxizhmpyEkhGp0fZnFSXhRgU382U5iTkluKEwAizw%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            },
+                            {
+                              "storeID": "35",
+                              "dealID": "ZYfDUcVNcGrJrdPtndBWjWul8RlfuCZi6lriNsze6gk%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            }
+                          ]
+                        },
+                        {
+                          "info": {
+                            "gameID": "129",
+                            "title": "Red Orchestra 2: Heroes of Stalingrad",
+                            "steamAppID": null,
+                            "thumb": "https://gamersgatep.imgix.net/c/7/3/ba988a3021dc7056b9e89f17dc8e32edc59b737c.jpg?auto=&w="
+                          },
+                          "cheapestPriceEver": {
+                            "price": "1.86",
+                            "date": 1629066371
+                          },
+                          "deals": [
+                            {
+                              "storeID": "2",
+                              "dealID": "gQ%2BvhhK8ajVFYxHIo0%2B12qoX3nUJNwWS5LgqSnfS4AI%3D",
+                              "price": "1.86",
+                              "retailPrice": "9.95",
+                              "savings": "81.306533"
+                            },
+                            {
+                              "storeID": "3",
+                              "dealID": "uJDIXwUve0nH2n4ToaL%2FLi71X4cT1XqHuqYfxaDDHN0%3D",
+                              "price": "19.99",
+                              "retailPrice": "19.99",
+                              "savings": "0.000000"
+                            }
+                          ]
+                        },
+                        {
+                          "info": {
+                            "gameID": "130",
+                            "title": "Renegade Ops",
+                            "steamAppID": "99300",
+                            "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/99300/capsule_sm_120.jpg?t=1614779423"
+                          },
+                          "cheapestPriceEver": {
+                            "price": "2.25",
+                            "date": 1569868411
+                          },
+                          "deals": [
+                            {
+                              "storeID": "1",
+                              "dealID": "YVakQjhMcizSIK2lDWVgW5zXo35ZV63u7u%2BXazw%2Bfm4%3D",
+                              "price": "15.00",
+                              "retailPrice": "15.00",
+                              "savings": "0.000000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/1.0/stores": {
+        "get": {
+          "tags": [
+            "🛒 Stores"
+          ],
+          "summary": "Stores Last Change",
+          "description": "Including the `lastChange` parameter on the Stores endpoint will return an object with a mapping of `storeIDs` to the last update / change time for that store (in Unix Timestamp format).\n\nThis can be useful to know for reducing the number of API requests for deals or games.",
+          "parameters": [
+            {
+              "name": "lastChange",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": {
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Mon, 19 Jun 2023 17:34:52 GMT"
+                  }
+                },
+                "Content-Type": {
+                  "schema": {
+                    "type": "string",
+                    "example": "application/json"
+                  }
+                },
+                "Transfer-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "chunked"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "CF-Ray": {
+                  "schema": {
+                    "type": "string",
+                    "example": "7d9d8678bb760609-IAD"
+                  }
+                },
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "HIT"
+                  }
+                },
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "example": "max-age=300, public"
+                  }
+                },
+                "Last-Modified": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Mon, 19 Jun 2023 17:29:39 GMT"
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "access-control-allow-headers": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "access-control-allow-methods": {
+                  "schema": {
+                    "type": "string",
+                    "example": "GET, HEAD, OPTIONS"
+                  }
+                },
+                "access-control-expose-headers": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Content-Encoding, X-Total-Page-Count"
+                  }
+                },
+                "cdn-cache-control": {
+                  "schema": {
+                    "type": "string",
+                    "example": "max-age=600, stale-while-revalidate=60, stale-if-error=432000, public"
+                  }
+                },
+                "php-cache": {
+                  "schema": {
+                    "type": "string",
+                    "example": "EXPIRED"
+                  }
+                },
+                "php-cache-age": {
+                  "schema": {
+                    "type": "integer",
+                    "example": "0"
+                  }
+                },
+                "php-cache-key": {
+                  "schema": {
+                    "type": "string",
+                    "example": "d6981218b5fee59e36a453b6bab8de29f0688214"
+                  }
+                },
+                "php-cache-max-age": {
+                  "schema": {
+                    "type": "integer",
+                    "example": "300"
+                  }
+                },
+                "x-powered-by": {
+                  "schema": {
+                    "type": "string",
+                    "example": "The love of games, an addiction to deals, and a bit of code! :)"
+                  }
+                },
+                "Report-To": {
+                  "schema": {
+                    "type": "string",
+                    "example": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=Ges2ACFdIssFrWlxlvGH6q6IxKjG7mi69kS8v%2BgBerA0kzk7zxr6jXTb8Sq3ftgcQxOygasEbG8gxP1llgKLKJvoErJt0Coxe4XhNzT3tpCtFSEyWymibcKLTC%2BtRcpVAa1OyA%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+                  }
+                },
+                "NEL": {
+                  "schema": {
+                    "type": "string",
+                    "example": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                },
+                "Content-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "br"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "example": {
+                    "1": "1687194696",
+                    "2": "1687192946",
+                    "3": "1687195550",
+                    "7": "1687194216",
+                    "8": "1687192703",
+                    "11": "1687192630",
+                    "13": "1687192395",
+                    "15": "1687194986",
+                    "21": "1687195460",
+                    "23": "1687195017",
+                    "24": "1687195029",
+                    "25": "1687193047",
+                    "27": "1687194841",
+                    "28": "1687195460",
+                    "29": "1687195267",
+                    "30": "1687193808",
+                    "31": "1687192468",
+                    "33": "1687195753",
+                    "34": "1687195631",
+                    "35": "1687195735"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/1.0/alerts": {
+        "get": {
+          "tags": [
+            "📧 Alerts"
+          ],
+          "summary": "Get Alerts",
+          "description": "This endpoint will return all your existing alerts. It requires a `key`which you can retrieve from the link sent to your email when using the `Manage Alerts` endpoint.",
+          "parameters": [
+            {
+              "name": "action",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "`(required, string)`\nThe action to take on the price alert",
+              "example": "get"
+            },
+            {
+              "name": "key",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "`(required, string)`\nThe key parameter from your manage link (received via email)",
+              "example": "example-key-value"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": {
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Fri, 23 Aug 2024 13:11:32 GMT"
+                  }
+                },
+                "Content-Type": {
+                  "schema": {
+                    "type": "string",
+                    "example": "application/json"
+                  }
+                },
+                "Content-Length": {
+                  "schema": {
+                    "type": "integer",
+                    "example": "276"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "CF-Ray": {
+                  "schema": {
+                    "type": "string",
+                    "example": "8b7b5958dce9c938-IAD"
+                  }
+                },
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "BYPASS"
+                  }
+                },
+                "Accept-Ranges": {
+                  "schema": {
+                    "type": "string",
+                    "example": "bytes"
+                  }
+                },
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "example": "max-age=0, private, no-store"
+                  }
+                },
+                "Content-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "gzip"
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "access-control-allow-headers": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "access-control-allow-methods": {
+                  "schema": {
+                    "type": "string",
+                    "example": "GET, HEAD, OPTIONS"
+                  }
+                },
+                "access-control-expose-headers": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Content-Encoding, X-Total-Page-Count"
+                  }
+                },
+                "x-powered-by": {
+                  "schema": {
+                    "type": "string",
+                    "example": "The love of games, an addiction to deals, and a bit of code! :)"
+                  }
+                },
+                "Report-To": {
+                  "schema": {
+                    "type": "string",
+                    "example": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=7IXWpYZpR8jPbkK36KZR3GAi4HAOVnzvzKDC011LlEE%2F7nBa5snJq5WWENw1%2FRvnibYArwYBw3YX8ClCeBPIHj3jVMqCbRRsdGm464Rr45qs2hWW86KqLX2yWm%2BVcy5MiRQbZg%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+                  }
+                },
+                "NEL": {
+                  "schema": {
+                    "type": "string",
+                    "example": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "example": [
+                    {
+                      "price": "20.00",
+                      "game": "Cyberpunk 2077: Phantom Liberty",
+                      "gameID": "264414"
+                    },
+                    {
+                      "price": "15.00",
+                      "game": "Moss: Book II",
+                      "gameID": "252354"
+                    },
+                    {
+                      "price": "5.00",
+                      "game": "The Talos Principle",
+                      "gameID": "135790"
+                    },
+                    {
+                      "price": "15.00",
+                      "game": "Total War: PHARAOH",
+                      "gameID": "261052"
+                    }
+                  ]
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "headers": {
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Fri, 23 Aug 2024 13:06:44 GMT"
+                  }
+                },
+                "Content-Type": {
+                  "schema": {
+                    "type": "string",
+                    "example": "application/json"
+                  }
+                },
+                "Transfer-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "chunked"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "CF-Ray": {
+                  "schema": {
+                    "type": "string",
+                    "example": "8b7b5254b85dc938-IAD"
+                  }
+                },
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "BYPASS"
+                  }
+                },
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "example": "max-age=0, private, no-store"
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "access-control-allow-headers": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "access-control-allow-methods": {
+                  "schema": {
+                    "type": "string",
+                    "example": "GET, HEAD, OPTIONS"
+                  }
+                },
+                "access-control-expose-headers": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Content-Encoding, X-Total-Page-Count"
+                  }
+                },
+                "x-powered-by": {
+                  "schema": {
+                    "type": "string",
+                    "example": "The love of games, an addiction to deals, and a bit of code! :)"
+                  }
+                },
+                "Report-To": {
+                  "schema": {
+                    "type": "string",
+                    "example": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=x%2B6daSdCe6wkgeD0n5OrnP7s0qIB%2FTCxeq0ahwM87tY%2B6GWUiS3RBXqW3ti7qHxpi40PFU3aft5bz2DlWlzSilAwlTHzpeH9gi7%2BVkU4DSoS1GJFXGeuDDJZ%2FT3rQfd%2BzyJi8A%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+                  }
+                },
+                "NEL": {
+                  "schema": {
+                    "type": "string",
+                    "example": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "example": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

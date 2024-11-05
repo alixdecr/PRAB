@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "6f75c0d5-1bec-46ab-961b-9e0bb0cb0f70",
+		"name": "balldontlie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31389332",
+		"_collection_link": "https://www.postman.com/warped-desert-16844/reasonkxx/collection/cqr6ao9/balldontlie?action=share&source=collection_link&creator=31389332"
+	},
+	"item": [
+		{
+			"name": "players",
+			"item": [
+				{
+					"name": "all players",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/players",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"players"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all players (search)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/players?search=lebron",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"players"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "lebron"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specific player",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/players/237",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"players",
+								"237"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teams",
+			"item": [
+				{
+					"name": "all teams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/teams",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specific team",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/teams/1",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"teams",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "games",
+			"item": [
+				{
+					"name": "all games",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/games",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"games"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all games (example parameters)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/games?seasons[]=2018&seasons[]=2017&team_ids[]=1",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"games"
+							],
+							"query": [
+								{
+									"key": "seasons[]",
+									"value": "2018"
+								},
+								{
+									"key": "seasons[]",
+									"value": "2017"
+								},
+								{
+									"key": "team_ids[]",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specific game",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/games/32881",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"games",
+								"32881"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "stats",
+			"item": [
+				{
+					"name": "all stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/stats",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all stats (example parameters)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/stats?season[]=2018&player_ids[]=237",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"stats"
+							],
+							"query": [
+								{
+									"key": "season[]",
+									"value": "2018"
+								},
+								{
+									"key": "player_ids[]",
+									"value": "237"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

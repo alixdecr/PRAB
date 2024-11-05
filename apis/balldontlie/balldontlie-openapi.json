@@ -1,0 +1,242 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "balldontlie",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://balldontlie.io"
+    }
+  ],
+  "tags": [
+    {
+      "name": "players"
+    },
+    {
+      "name": "teams"
+    },
+    {
+      "name": "games"
+    },
+    {
+      "name": "stats"
+    }
+  ],
+  "paths": {
+    "/api/v1/players": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "all players (search)",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "lebron"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/players/237": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "specific player",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/players/9999": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "specific player invalid id",
+        "responses": {
+          "404": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/teams": {
+      "get": {
+        "tags": [
+          "teams"
+        ],
+        "summary": "all teams",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/teams/1": {
+      "get": {
+        "tags": [
+          "teams"
+        ],
+        "summary": "specific team",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/teams/9999": {
+      "get": {
+        "tags": [
+          "teams"
+        ],
+        "summary": "specific team invalid id",
+        "responses": {
+          "404": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/games": {
+      "get": {
+        "tags": [
+          "games"
+        ],
+        "summary": "all games (example parameters)",
+        "parameters": [
+          {
+            "name": "seasons[]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "2018"
+          },
+          {
+            "name": "seasons[]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "2017"
+          },
+          {
+            "name": "team_ids[]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/games/32881": {
+      "get": {
+        "tags": [
+          "games"
+        ],
+        "summary": "specific game",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/games/99999": {
+      "get": {
+        "tags": [
+          "games"
+        ],
+        "summary": "specific game invalid id",
+        "responses": {
+          "404": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/stats": {
+      "get": {
+        "tags": [
+          "stats"
+        ],
+        "summary": "all stats (example parameters)",
+        "parameters": [
+          {
+            "name": "season[]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "2018"
+          },
+          {
+            "name": "player_ids[]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "237"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

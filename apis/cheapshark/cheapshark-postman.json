@@ -1,0 +1,2056 @@
+{
+	"info": {
+		"_postman_id": "334a254b-aae7-4450-a352-b573b31403fe",
+		"name": "CheapShark API",
+		"description": "[CheapShark](https://www.cheapshark.com/) is a price comparison website for digital PC Games. We keep track of prices across multiple stores including Steam, GreenManGaming, Fanatical, and many others.\n\nWe offer a fully documented public API for developers to use CheapShark pricing data on their own app or website.\n\n## 📌 Important Usage Notes\n\nThe API is completely free, the only condition being that you **use CheapShark links when sending users to deals** (see details in **Deals** section below). This is how we pay for hosting and development! 😉\n\nWhile not required, it is always appreciated if you mention somewhere that your app or site is making use of the CheapShark API.\n\n## 🔑 Authorization & Rate Limiting\n\nTwo of the most common questions we see are regarding API Keys and Rate Limits. The API is completely public, **no authorization or API Key is needed**. You can get started right away!\n\nTo ensure server performance, we rate limit API calls. If you make too many requests in too short of time, you will receive a `429` HTTP response status code and be _**temporarily**_ blocked. The ban will be automatically lifted after it expires. All API clients are subject to the same limits. For this reason, during development you may wish to create and use a Mock API instead ([Postman offers this feature](https://www.postman.com/features/mock-api/)).\n\nIn general the API is designed to be called directly in response to user input / queries in your application. For example, a user searching for a particular game or browsing through pages of deals. Excessive automated requests to build a cached catalog of data **will run into rate limiting issues** and should be avoided.\n\nThe API fully supports [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), so requests should come directly from the user's browser or app (whenever possible). This will help avoid most rate limiting issues.\n\n## 🙋‍♂️Help & Support\n\nFor some real-world examples of this API in action, we suggest you check out the [CheapShark](https://www.cheapshark.com/) website itself. Using your browser's [DevTools](https://developer.chrome.com/docs/devtools/), you can inspect how various pages and interactions use the API.\n\nIf you run into any issues, need help with your implementation, or just want to share what you'll be using the API for, feel free to get in touch with us anytime!\n\nWe're always happy to help on our [Discord](https://discord.gg/cheapshark)'s dedicated **#api-help** channel or via email - [admin@cheapshark.com](mailto:admin@cheapshark.com?subject=API%20Help).\n\n## 📢Updates\n\nWe'll occasionally share important changes or news regarding the API via the **#api-announcements** channel on our [Discord](https://discord.gg/cheapshark) server. Be sure to right-click and set \"Notification Settings\" to \"All Messages\" on the channel if you'd like to stay informed!",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31389332",
+		"_collection_link": "https://www.postman.com/cheapshark/cheapshark-s-public-workspace/collection/7h22uhl/cheapshark-api?action=share&source=collection_link&creator=31389332"
+	},
+	"item": [
+		{
+			"name": "💲 Deals",
+			"item": [
+				{
+					"name": "List of Deals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/1.0/deals?storeID=1&upperPrice=15",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"1.0",
+								"deals"
+							],
+							"query": [
+								{
+									"key": "storeID",
+									"value": "1",
+									"description": "`(optional, string)`\n\nComma separated list of store ID's to filter on. If not set, all stores will be shown."
+								},
+								{
+									"key": "pageNumber",
+									"value": "",
+									"description": "`(optional, integer)` Default `0`\n\nThe requested page number, value is 0 indexed.\n\nThe `X-Total-Page-Count` HTTP header on the response will give you the max value for this parameter.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "",
+									"description": "`(optional, integer)` Default `60`\n\nThe number of deals per page, max value of `60`",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "",
+									"description": "`(optional, string)` Default `DealRating`\n\nCriteria to sort the list by, possible values -\n`DealRating`, `Title`, `Savings`, `Price`, `Metacritic`, `Reviews`, `Release`, `Store`, `Recent`",
+									"disabled": true
+								},
+								{
+									"key": "desc",
+									"value": "",
+									"description": "`(optional, boolean)` Default `0`\n\nDetermines sort direction",
+									"disabled": true
+								},
+								{
+									"key": "lowerPrice",
+									"value": "",
+									"description": "`(optional, integer)` Default `0`\n\nOnly returns deals with a price _greater than_ this value",
+									"disabled": true
+								},
+								{
+									"key": "upperPrice",
+									"value": "15",
+									"description": "`(optional, integer)`\n\nOnly returns deals with a price _less than or equal_ to this value (`50` acts the same as no limit)"
+								},
+								{
+									"key": "metacritic",
+									"value": "",
+									"description": "`(optional, integer)`\n\nMinimum Metacritic rating for a game",
+									"disabled": true
+								},
+								{
+									"key": "steamRating",
+									"value": "",
+									"description": "`(optional, integer)`\n\nMinimum Steam reviews rating for a game",
+									"disabled": true
+								},
+								{
+									"key": "maxAge",
+									"value": "",
+									"description": "`(optional, integer)`\n\nFilters to deals found within the specified number of hours (value between `1` and `2500`)",
+									"disabled": true
+								},
+								{
+									"key": "steamAppID",
+									"value": "",
+									"description": "`(optional, string)`\n\nLook for deals on specific games, comma separated list of Steam App ID (still bound by `pageSize`)",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "",
+									"description": "`(optional, string)`\n\nLooks for the string contained anywhere in the game name",
+									"disabled": true
+								},
+								{
+									"key": "exact",
+									"value": "",
+									"description": "`(optional, boolean)` Default `0`\n\nFlag to allow only exact string match for `title` parameter",
+									"disabled": true
+								},
+								{
+									"key": "AAA",
+									"value": "",
+									"description": "`(optional, boolean)` Default `0`\n\nFlag to include only deals with retail price `> $29`",
+									"disabled": true
+								},
+								{
+									"key": "steamworks",
+									"value": "",
+									"description": "`(optional, boolean)` Default `0`\n\nFlag to include only deals that redeem on Steam (best guess, depends on store support)",
+									"disabled": true
+								},
+								{
+									"key": "onSale",
+									"value": "",
+									"description": "`(optional, boolean)` Default `0`\n\nFlag to include only games that are currently on sale",
+									"disabled": true
+								},
+								{
+									"key": "output",
+									"value": "",
+									"description": "`(optional, string)`\n\nOption to output deals in `RSS` format (overrides page number/size to `0/100`)",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get a paged list of deals matching any number of criteria, all the following filtering parameters are optional."
+					},
+					"response": [
+						{
+							"name": "List of Deals",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/1.0/deals?storeID=1&upperPrice=15",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"deals"
+									],
+									"query": [
+										{
+											"key": "storeID",
+											"value": "1"
+										},
+										{
+											"key": "upperPrice",
+											"value": "15"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 23 May 2021 14:10:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "653ede20ba573dfd-EWR"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=300, s-maxage=600, stale-while-revalidate=30, stale-if-error=60, public"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "MISS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "0a3b29287100003dfdc3049000000001"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "PHP-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "The love of games, an addiction to deals, and a bit of code! :)"
+								},
+								{
+									"key": "X-Total-Page-Count",
+									"value": "558"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=6C6jlEHH%2F8eyPePKWn09SGPVWC%2FS0yfeRN1n5%2BcGUg58hAoZDkVTxGre9BLaeE%2FjSgrCIcOYXteIFcQW7E7Z9JkQVTNRQXuF7%2BZ22nfVCPcWHdA%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"internalName\": \"DEUSEXHUMANREVOLUTIONDIRECTORSCUT\",\n        \"title\": \"Deus Ex: Human Revolution - Director's Cut\",\n        \"metacriticLink\": \"/game/pc/deus-ex-human-revolution---directors-cut\",\n        \"dealID\": \"HhzMJAgQYGZ%2B%2BFPpBG%2BRFcuUQZJO3KXvlnyYYGwGUfU%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"102249\",\n        \"salePrice\": \"2.99\",\n        \"normalPrice\": \"19.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.042521\",\n        \"metacriticScore\": \"91\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"92\",\n        \"steamRatingCount\": \"17993\",\n        \"steamAppID\": \"238010\",\n        \"releaseDate\": 1382400000,\n        \"lastChange\": 1621536418,\n        \"dealRating\": \"9.6\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/238010/capsule_sm_120.jpg?t=1619788192\"\n    },\n    {\n        \"internalName\": \"THIEFDEADLYSHADOWS\",\n        \"title\": \"Thief: Deadly Shadows\",\n        \"metacriticLink\": \"/game/pc/thief-deadly-shadows\",\n        \"dealID\": \"EX0oH20b7A1H2YiVjvVx5A0HH%2F4etw3x%2F6YMGVPpKbA%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"396\",\n        \"salePrice\": \"0.98\",\n        \"normalPrice\": \"8.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"89.098999\",\n        \"metacriticScore\": \"85\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"81\",\n        \"steamRatingCount\": \"1670\",\n        \"steamAppID\": \"6980\",\n        \"releaseDate\": 1085443200,\n        \"lastChange\": 1621540561,\n        \"dealRating\": \"9.4\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/6980/capsule_sm_120.jpg?t=1592493801\"\n    },\n    {\n        \"internalName\": \"JUSTCAUSE2\",\n        \"title\": \"Just Cause 2\",\n        \"metacriticLink\": \"/game/pc/just-cause-2\",\n        \"dealID\": \"z4El8C19yCEHrk1%2ByEedebThQVbblI7H0Z%2BAmxgZiS8%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"180\",\n        \"salePrice\": \"1.49\",\n        \"normalPrice\": \"14.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.060040\",\n        \"metacriticScore\": \"84\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"90\",\n        \"steamRatingCount\": \"35296\",\n        \"steamAppID\": \"8190\",\n        \"releaseDate\": 1269302400,\n        \"lastChange\": 1621536477,\n        \"dealRating\": \"9.4\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/8190/capsule_sm_120.jpg?t=1593180404\"\n    },\n    {\n        \"internalName\": \"THIEFIITHEMETALAGE\",\n        \"title\": \"Thief II: The Metal Age\",\n        \"metacriticLink\": \"/game/pc/thief-ii-the-metal-age\",\n        \"dealID\": \"TlzUCY9p3Sq1bY%2Br4aGWO5Cs2UxE1lYnuQD05gxNwIM%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"87640\",\n        \"salePrice\": \"0.97\",\n        \"normalPrice\": \"6.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"86.123033\",\n        \"metacriticScore\": \"87\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"93\",\n        \"steamRatingCount\": \"1189\",\n        \"steamAppID\": \"211740\",\n        \"releaseDate\": 953769600,\n        \"lastChange\": 1621540630,\n        \"dealRating\": \"9.4\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/211740/capsule_sm_120.jpg?t=1592493747\"\n    },\n    {\n        \"internalName\": \"DUNGEONSIEGE\",\n        \"title\": \"Dungeon Siege\",\n        \"metacriticLink\": \"/game/pc/dungeon-siege\",\n        \"dealID\": \"Hli8KbDatTjYjj%2BjpnfUuVKjxPwQPmblW1llCXyMMmU%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"192\",\n        \"salePrice\": \"0.97\",\n        \"normalPrice\": \"6.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"86.123033\",\n        \"metacriticScore\": \"86\",\n        \"steamRatingText\": \"Mostly Positive\",\n        \"steamRatingPercent\": \"78\",\n        \"steamRatingCount\": \"2394\",\n        \"steamAppID\": \"39190\",\n        \"releaseDate\": 1017532800,\n        \"lastChange\": 1621540893,\n        \"dealRating\": \"9.3\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/39190/capsule_sm_120.jpg?t=1592491243\"\n    },\n    {\n        \"internalName\": \"TOMBRAIDERANNIVERSARY\",\n        \"title\": \"Tomb Raider: Anniversary\",\n        \"metacriticLink\": \"/game/pc/tomb-raider-anniversary\",\n        \"dealID\": \"ryaV37fbWkAIG6ZLy%2FtViuEGOIShgUVV7kpgbYlDqQk%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"456\",\n        \"salePrice\": \"0.98\",\n        \"normalPrice\": \"8.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"89.098999\",\n        \"metacriticScore\": \"83\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"82\",\n        \"steamRatingCount\": \"3621\",\n        \"steamAppID\": \"8000\",\n        \"releaseDate\": 1181001600,\n        \"lastChange\": 1621540355,\n        \"dealRating\": \"9.3\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/8000/capsule_sm_120.jpg?t=1592494287\"\n    },\n    {\n        \"internalName\": \"TOMBRAIDER\",\n        \"title\": \"Tomb Raider\",\n        \"metacriticLink\": \"/game/pc/tomb-raider\",\n        \"dealID\": \"kWwtV4oy9hfOjwLK521is0GJsspEXRq8K6pQKH6xvI0%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"87392\",\n        \"salePrice\": \"2.24\",\n        \"normalPrice\": \"14.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.056704\",\n        \"metacriticScore\": \"86\",\n        \"steamRatingText\": \"Overwhelmingly Positive\",\n        \"steamRatingPercent\": \"96\",\n        \"steamRatingCount\": \"113310\",\n        \"steamAppID\": \"203160\",\n        \"releaseDate\": 1362355200,\n        \"lastChange\": 1621536141,\n        \"dealRating\": \"9.2\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/203160/capsule_sm_120.jpg?t=1617888669\"\n    },\n    {\n        \"internalName\": \"F12020\",\n        \"title\": \"F1 2020\",\n        \"metacriticLink\": \"/game/pc/f1-2020\",\n        \"dealID\": \"l0PK4iJqTcB%2FhSle7RF7n7NGkOhHslBSff8Umv%2BzSeY%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"213774\",\n        \"salePrice\": \"14.99\",\n        \"normalPrice\": \"59.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"75.012502\",\n        \"metacriticScore\": \"88\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"93\",\n        \"steamRatingCount\": \"28641\",\n        \"steamAppID\": \"1080110\",\n        \"releaseDate\": 1594252800,\n        \"lastChange\": 1621535931,\n        \"dealRating\": \"9.1\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/1080110/capsule_sm_120.jpg?t=1621526432\"\n    },\n    {\n        \"internalName\": \"TOMBRAIDERUNDERWORLD\",\n        \"title\": \"Tomb Raider: Underworld\",\n        \"metacriticLink\": \"/game/pc/tomb-raider-underworld\",\n        \"dealID\": \"XhdaphoqPFV2dl6MtPYcKItazwVt9ldkx4ybvnmPfZ0%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"643\",\n        \"salePrice\": \"0.98\",\n        \"normalPrice\": \"8.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"89.098999\",\n        \"metacriticScore\": \"80\",\n        \"steamRatingText\": \"Mostly Positive\",\n        \"steamRatingPercent\": \"76\",\n        \"steamRatingCount\": \"3549\",\n        \"steamAppID\": \"8140\",\n        \"releaseDate\": 1226966400,\n        \"lastChange\": 1621540596,\n        \"dealRating\": \"9.1\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/8140/capsule_sm_120.jpg?t=1592494880\"\n    },\n    {\n        \"internalName\": \"CYBERNETICAFINAL\",\n        \"title\": \"Cybernetica: Final\",\n        \"metacriticLink\": \"/game/pc/cybernetica-final\",\n        \"dealID\": \"YAm7vyXnmK5YWsFyTy22SFn5p%2F4Lrpu2eCCrrfvNO44%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"226893\",\n        \"salePrice\": \"1.89\",\n        \"normalPrice\": \"18.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.047393\",\n        \"metacriticScore\": \"0\",\n        \"steamRatingText\": null,\n        \"steamRatingPercent\": \"0\",\n        \"steamRatingCount\": \"0\",\n        \"steamAppID\": \"1549710\",\n        \"releaseDate\": 1614643200,\n        \"lastChange\": 1621359373,\n        \"dealRating\": \"9.1\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/1549710/capsule_sm_120.jpg?t=1614708882\"\n    },\n    {\n        \"internalName\": \"THEWITCHER2ASSASSINSOFKINGSENHANCEDEDITION\",\n        \"title\": \"The Witcher 2: Assassins of Kings Enhanced Edition\",\n        \"metacriticLink\": \"/game/pc/the-witcher-2-assassins-of-kings\",\n        \"dealID\": \"8JWQ51DVapSJnGVviMI0Hgu4YFqxme2sBdLD3vh6dZw%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"5572\",\n        \"salePrice\": \"2.99\",\n        \"normalPrice\": \"19.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.042521\",\n        \"metacriticScore\": \"88\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"90\",\n        \"steamRatingCount\": \"57076\",\n        \"steamAppID\": \"20920\",\n        \"releaseDate\": 1305590400,\n        \"lastChange\": 1621366129,\n        \"dealRating\": \"9.0\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/20920/capsule_sm_120.jpg?t=1598536335\"\n    },\n    {\n        \"internalName\": \"TOMBRAIDERLEGEND\",\n        \"title\": \"Tomb Raider: Legend\",\n        \"metacriticLink\": \"/game/pc/tomb-raider-legend\",\n        \"dealID\": \"aM%2FwlRYvYES0Xzqw%2BxWNDihJpcSrvzKTx8jmQzisauQ%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"502\",\n        \"salePrice\": \"0.97\",\n        \"normalPrice\": \"6.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"86.123033\",\n        \"metacriticScore\": \"82\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"88\",\n        \"steamRatingCount\": \"2893\",\n        \"steamAppID\": \"7000\",\n        \"releaseDate\": 1144713600,\n        \"lastChange\": 1621540479,\n        \"dealRating\": \"9.0\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/7000/capsule_sm_120.jpg?t=1592494347\"\n    },\n    {\n        \"internalName\": \"THEWITCHER3WILDHUNT\",\n        \"title\": \"The Witcher 3: Wild Hunt\",\n        \"metacriticLink\": \"/game/pc/the-witcher-3-wild-hunt\",\n        \"dealID\": \"zm2ORJ1RIWrq7UFFCs9J4ps4rgsNUV7FTSnWxzxxj8Q%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"112330\",\n        \"salePrice\": \"7.99\",\n        \"normalPrice\": \"39.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"80.020005\",\n        \"metacriticScore\": \"93\",\n        \"steamRatingText\": \"Overwhelmingly Positive\",\n        \"steamRatingPercent\": \"97\",\n        \"steamRatingCount\": \"465499\",\n        \"steamAppID\": \"292030\",\n        \"releaseDate\": 1431907200,\n        \"lastChange\": 1621365983,\n        \"dealRating\": \"9.0\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/292030/capsule_sm_120.jpg?t=1607418742\"\n    },\n    {\n        \"internalName\": \"QUANTUMCONUNDRUM\",\n        \"title\": \"Quantum Conundrum\",\n        \"metacriticLink\": \"/game/pc/quantum-conundrum\",\n        \"dealID\": \"gqc27BiFr8jCzKle49%2BRbgB4sb7q2qXsRGkYztk2%2Bpg%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"88139\",\n        \"salePrice\": \"0.98\",\n        \"normalPrice\": \"8.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"89.098999\",\n        \"metacriticScore\": \"77\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"84\",\n        \"steamRatingCount\": \"1411\",\n        \"steamAppID\": \"200010\",\n        \"releaseDate\": 1340236800,\n        \"lastChange\": 1621541030,\n        \"dealRating\": \"8.9\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/200010/capsule_sm_120.jpg?t=1576110892\"\n    },\n    {\n        \"internalName\": \"THEWITCHERENHANCEDEDITIONDIRECTORSCUT\",\n        \"title\": \"The Witcher: Enhanced Edition Director's Cut\",\n        \"metacriticLink\": \"/game/pc/the-witcher-enhanced-edition\",\n        \"dealID\": \"XvdAVEU9b7gYQqsNjJB6TCQtxN8qpubzIpJWMLvEVsQ%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"188\",\n        \"salePrice\": \"1.49\",\n        \"normalPrice\": \"9.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.085085\",\n        \"metacriticScore\": \"86\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"88\",\n        \"steamRatingCount\": \"53428\",\n        \"steamAppID\": \"20900\",\n        \"releaseDate\": 1221523200,\n        \"lastChange\": 1621366237,\n        \"dealRating\": \"8.9\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/20900/capsule_sm_120.jpg?t=1602591705\"\n    },\n    {\n        \"internalName\": \"LARACROFTANDTHEGUARDIANOFLIGHT\",\n        \"title\": \"Lara Croft and the Guardian of Light\",\n        \"metacriticLink\": \"/game/pc/lara-croft-and-the-guardian-of-light\",\n        \"dealID\": \"T51u9WVOmHHnOMf5%2B5rneO0MopDsUPrUa5nrFVFAoMM%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"362\",\n        \"salePrice\": \"1.49\",\n        \"normalPrice\": \"9.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.085085\",\n        \"metacriticScore\": \"82\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"91\",\n        \"steamRatingCount\": \"2677\",\n        \"steamAppID\": \"35130\",\n        \"releaseDate\": 1285632000,\n        \"lastChange\": 1621536540,\n        \"dealRating\": \"8.9\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/35130/capsule_sm_120.jpg?t=1616009927\"\n    },\n    {\n        \"internalName\": \"DARKSPOT\",\n        \"title\": \"Dark spot\",\n        \"metacriticLink\": \"/game/pc/dark-spot\",\n        \"dealID\": \"LsTgvw51bI4FcKrlOjUzuQPQnhjwr5R75taWx%2FYawHE%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"225284\",\n        \"salePrice\": \"1.89\",\n        \"normalPrice\": \"18.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.047393\",\n        \"metacriticScore\": \"0\",\n        \"steamRatingText\": null,\n        \"steamRatingPercent\": \"0\",\n        \"steamRatingCount\": \"0\",\n        \"steamAppID\": \"1511620\",\n        \"releaseDate\": 1611100800,\n        \"lastChange\": 1621360488,\n        \"dealRating\": \"8.9\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/1511620/capsule_sm_120.jpg?t=1611158960\"\n    },\n    {\n        \"internalName\": \"VECTORRACE\",\n        \"title\": \"Vector Race\",\n        \"metacriticLink\": \"/game/pc/vector-race\",\n        \"dealID\": \"etdv1Ih%2FZDL9fjxvuPpLnlQNRZn397CZqO%2FhEE3Juz8%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"225287\",\n        \"salePrice\": \"1.89\",\n        \"normalPrice\": \"18.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.047393\",\n        \"metacriticScore\": \"0\",\n        \"steamRatingText\": null,\n        \"steamRatingPercent\": \"0\",\n        \"steamRatingCount\": \"0\",\n        \"steamAppID\": \"1511250\",\n        \"releaseDate\": 1611100800,\n        \"lastChange\": 1621359778,\n        \"dealRating\": \"8.9\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/1511250/capsule_sm_120.jpg?t=1611158911\"\n    },\n    {\n        \"internalName\": \"DEUSEXINVISIBLEWAR\",\n        \"title\": \"Deus Ex: Invisible War\",\n        \"metacriticLink\": \"/game/pc/deus-ex-invisible-war\",\n        \"dealID\": \"ud3%2B6C779GBiodfzckSgNCsSfdahl4XAurSJXT0aNyM%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"569\",\n        \"salePrice\": \"0.97\",\n        \"normalPrice\": \"6.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"86.123033\",\n        \"metacriticScore\": \"80\",\n        \"steamRatingText\": \"Mixed\",\n        \"steamRatingPercent\": \"57\",\n        \"steamRatingCount\": \"1386\",\n        \"steamAppID\": \"6920\",\n        \"releaseDate\": 1070323200,\n        \"lastChange\": 1621540954,\n        \"dealRating\": \"8.9\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/6920/capsule_sm_120.jpg?t=1593593178\"\n    },\n    {\n        \"internalName\": \"DUNGEONSIEGEII\",\n        \"title\": \"Dungeon Siege II\",\n        \"metacriticLink\": \"/game/pc/dungeon-siege-ii\",\n        \"dealID\": \"yump1xHYf6GNwK9HJJSKDUPFFSFDetGTtptGxualJZ4%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"305\",\n        \"salePrice\": \"0.97\",\n        \"normalPrice\": \"6.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"86.123033\",\n        \"metacriticScore\": \"80\",\n        \"steamRatingText\": \"Mostly Positive\",\n        \"steamRatingPercent\": \"71\",\n        \"steamRatingCount\": \"1617\",\n        \"steamAppID\": \"39200\",\n        \"releaseDate\": 1124150400,\n        \"lastChange\": 1621540944,\n        \"dealRating\": \"8.9\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/39200/capsule_sm_120.jpg?t=1592491309\"\n    },\n    {\n        \"internalName\": \"MACROGOLF\",\n        \"title\": \"Macro golf\",\n        \"metacriticLink\": \"/game/pc/macro-golf\",\n        \"dealID\": \"9Pqb7mrsh5lL5QRtvabuNx9r1lY23HI3Z1ZO5QVRh5c%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"224117\",\n        \"salePrice\": \"1.89\",\n        \"normalPrice\": \"18.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.047393\",\n        \"metacriticScore\": \"0\",\n        \"steamRatingText\": null,\n        \"steamRatingPercent\": \"0\",\n        \"steamRatingCount\": \"0\",\n        \"steamAppID\": \"1472260\",\n        \"releaseDate\": 1607904000,\n        \"lastChange\": 1621416869,\n        \"dealRating\": \"8.9\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/1472260/capsule_sm_120.jpg?t=1607935627\"\n    },\n    {\n        \"internalName\": \"SLEEPINGDOGS\",\n        \"title\": \"Sleeping Dogs\",\n        \"metacriticLink\": \"/game/pc/sleeping-dogs\",\n        \"dealID\": \"Q43%2FC3udAPUI8e41Xl%2FLlOBFFbhCb8GU2f3zrEy252A%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"225921\",\n        \"salePrice\": \"2.99\",\n        \"normalPrice\": \"19.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.042521\",\n        \"metacriticScore\": \"80\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"93\",\n        \"steamRatingCount\": \"9702\",\n        \"steamAppID\": \"202170\",\n        \"releaseDate\": 1344816000,\n        \"lastChange\": 1621558374,\n        \"dealRating\": \"8.8\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/202170/capsule_sm_120.jpg?t=1592493319\"\n    },\n    {\n        \"internalName\": \"DEUSEXMANKINDDIVIDED\",\n        \"title\": \"Deus Ex: Mankind Divided\",\n        \"metacriticLink\": \"/game/pc/deus-ex-mankind-divided\",\n        \"dealID\": \"Ppi1hduzzSTTcVfyap53KkMwyHbwS8In80ZKCDLt3I4%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"143165\",\n        \"salePrice\": \"4.49\",\n        \"normalPrice\": \"29.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.028343\",\n        \"metacriticScore\": \"83\",\n        \"steamRatingText\": \"Mostly Positive\",\n        \"steamRatingPercent\": \"74\",\n        \"steamRatingCount\": \"23598\",\n        \"steamAppID\": \"337000\",\n        \"releaseDate\": 1471910400,\n        \"lastChange\": 1621536170,\n        \"dealRating\": \"8.8\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/337000/capsule_sm_120.jpg?t=1593165236\"\n    },\n    {\n        \"internalName\": \"THEALMOSTGONE\",\n        \"title\": \"The Almost Gone\",\n        \"metacriticLink\": \"/game/pc/the-almost-gone\",\n        \"dealID\": \"EiV9hijg%2FXBBwgGhkFVe7h39p2IPIp6SnQzTlBis5Ho%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"217485\",\n        \"salePrice\": \"1.99\",\n        \"normalPrice\": \"9.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"80.080080\",\n        \"metacriticScore\": \"67\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"86\",\n        \"steamRatingCount\": \"249\",\n        \"steamAppID\": \"1115780\",\n        \"releaseDate\": 1593043200,\n        \"lastChange\": 1621519989,\n        \"dealRating\": \"8.8\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/1115780/capsule_sm_120.jpg?t=1612815026\"\n    },\n    {\n        \"internalName\": \"SUPREMECOMMANDER\",\n        \"title\": \"Supreme Commander\",\n        \"metacriticLink\": \"/game/pc/supreme-commander\",\n        \"dealID\": \"PiIIJF7zgluX9sg6FU3E%2FiWkuyRxcPENcN4YIusyWOU%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"102\",\n        \"salePrice\": \"2.59\",\n        \"normalPrice\": \"12.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"80.061586\",\n        \"metacriticScore\": \"86\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"88\",\n        \"steamRatingCount\": \"1351\",\n        \"steamAppID\": \"9350\",\n        \"releaseDate\": 1171929600,\n        \"lastChange\": 1621536482,\n        \"dealRating\": \"8.8\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/9350/capsule_sm_120.jpg?t=1592493393\"\n    },\n    {\n        \"internalName\": \"THENIGHTOFTHERABBIT\",\n        \"title\": \"The Night of the Rabbit\",\n        \"metacriticLink\": \"/game/pc/the-night-of-the-rabbit\",\n        \"dealID\": \"o9Rx7JRHuFZuU59Iias%2BcEDCPAdM94bFsX1flJqGg58%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"97671\",\n        \"salePrice\": \"3.99\",\n        \"normalPrice\": \"39.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.022506\",\n        \"metacriticScore\": \"75\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"90\",\n        \"steamRatingCount\": \"1985\",\n        \"steamAppID\": \"230820\",\n        \"releaseDate\": 1369699200,\n        \"lastChange\": 1621520624,\n        \"dealRating\": \"8.8\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/230820/capsule_sm_120.jpg?t=1578499642\"\n    },\n    {\n        \"internalName\": \"LEGACYOFKAINSOULREAVER2\",\n        \"title\": \"Legacy of Kain: Soul Reaver 2\",\n        \"metacriticLink\": \"/game/pc/legacy-of-kain-soul-reaver-2\",\n        \"dealID\": \"j8q7crc53WZzX7SoT8YthpLrwgYk4te6WrUJ9Vp3vas%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"88292\",\n        \"salePrice\": \"0.97\",\n        \"normalPrice\": \"6.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"86.123033\",\n        \"metacriticScore\": \"77\",\n        \"steamRatingText\": \"Mixed\",\n        \"steamRatingPercent\": \"68\",\n        \"steamRatingCount\": \"548\",\n        \"steamAppID\": \"224940\",\n        \"releaseDate\": 1006214400,\n        \"lastChange\": 1621541187,\n        \"dealRating\": \"8.7\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/224940/capsule_sm_120.jpg?t=1592492360\"\n    },\n    {\n        \"internalName\": \"ANACHRONOX\",\n        \"title\": \"Anachronox\",\n        \"metacriticLink\": \"/game/pc/anachronox\",\n        \"dealID\": \"Wm5ixfZbwwOipKl68nV285QtdWkimjwiWHWNqNGFdsA%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"87210\",\n        \"salePrice\": \"0.97\",\n        \"normalPrice\": \"6.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"86.123033\",\n        \"metacriticScore\": \"77\",\n        \"steamRatingText\": \"Mostly Positive\",\n        \"steamRatingPercent\": \"75\",\n        \"steamRatingCount\": \"268\",\n        \"steamAppID\": \"242940\",\n        \"releaseDate\": 993600000,\n        \"lastChange\": 1621541702,\n        \"dealRating\": \"8.7\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/242940/capsule_sm_120.jpg?t=1592490066\"\n    },\n    {\n        \"internalName\": \"BATTLESTATIONSMIDWAY\",\n        \"title\": \"Battlestations: Midway\",\n        \"metacriticLink\": \"/game/pc/battlestations-midway\",\n        \"dealID\": \"sUJsVIOun4HDA5vNHXYuz3ZnDXFoksRDD1TgYUWYnvQ%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"757\",\n        \"salePrice\": \"0.97\",\n        \"normalPrice\": \"6.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"86.123033\",\n        \"metacriticScore\": \"76\",\n        \"steamRatingText\": \"Mostly Positive\",\n        \"steamRatingPercent\": \"75\",\n        \"steamRatingCount\": \"576\",\n        \"steamAppID\": \"6870\",\n        \"releaseDate\": 1170115200,\n        \"lastChange\": 1621541102,\n        \"dealRating\": \"8.7\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/6870/capsule_sm_120.jpg?t=1592490116\"\n    },\n    {\n        \"internalName\": \"HOLYPOTATOESAWEAPONSHOP\",\n        \"title\": \"Holy Potatoes! A Weapon Shop?!\",\n        \"metacriticLink\": \"/game/pc/holy-potatoes!-a-weapon-shop!\",\n        \"dealID\": \"8Qubu0dkEUuvUGaDYbxXIgPXpf1E7CVy6IIzQTsvlfI%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"144875\",\n        \"salePrice\": \"0.99\",\n        \"normalPrice\": \"9.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.090090\",\n        \"metacriticScore\": \"69\",\n        \"steamRatingText\": \"Mostly Positive\",\n        \"steamRatingPercent\": \"72\",\n        \"steamRatingCount\": \"968\",\n        \"steamAppID\": \"363600\",\n        \"releaseDate\": 1436745600,\n        \"lastChange\": 1621540980,\n        \"dealRating\": \"8.6\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/363600/capsule_sm_120.jpg?t=1569148228\"\n    },\n    {\n        \"internalName\": \"THEGIRLOFGLASSASUMMERBIRDSTALE\",\n        \"title\": \"The Girl of Glass: A Summer Birds Tale\",\n        \"metacriticLink\": \"/game/pc/the-girl-of-glass-a-summer-birds-tale\",\n        \"dealID\": \"CK4BpMMyf%2BfFEnJgINJ2Lyqg0%2BMEc4HiNfhYR1FCei4%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"220753\",\n        \"salePrice\": \"3.74\",\n        \"normalPrice\": \"14.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"75.050033\",\n        \"metacriticScore\": \"74\",\n        \"steamRatingText\": \"Mostly Positive\",\n        \"steamRatingPercent\": \"79\",\n        \"steamRatingCount\": \"29\",\n        \"steamAppID\": \"1203750\",\n        \"releaseDate\": 1600732800,\n        \"lastChange\": 1621282236,\n        \"dealRating\": \"8.6\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/1203750/capsule_sm_120.jpg?t=1603631875\"\n    },\n    {\n        \"internalName\": \"DOORKICKERS\",\n        \"title\": \"Door Kickers\",\n        \"metacriticLink\": \"/game/pc/door-kickers\",\n        \"dealID\": \"Ag5ntcKmi1Iih%2FgiSbn45z%2BBdchiBCri6L82VjGeFU8%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"101459\",\n        \"salePrice\": \"3.99\",\n        \"normalPrice\": \"19.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"80.040020\",\n        \"metacriticScore\": \"83\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"94\",\n        \"steamRatingCount\": \"6858\",\n        \"steamAppID\": \"248610\",\n        \"releaseDate\": 1413763200,\n        \"lastChange\": 1621637137,\n        \"dealRating\": \"8.6\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/248610/capsule_sm_120.jpg?t=1611394211\"\n    },\n    {\n        \"internalName\": \"RISEOFTHETOMBRAIDER\",\n        \"title\": \"Rise of the Tomb Raider\",\n        \"metacriticLink\": \"/game/pc/rise-of-the-tomb-raider\",\n        \"dealID\": \"JLFqGNvtew3enSlgxRtAZBJ3GeU4Rd0XYhGePiQcaI8%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"145517\",\n        \"salePrice\": \"5.99\",\n        \"normalPrice\": \"29.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"80.026676\",\n        \"metacriticScore\": \"86\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"93\",\n        \"steamRatingCount\": \"76587\",\n        \"steamAppID\": \"391220\",\n        \"releaseDate\": 1453939200,\n        \"lastChange\": 1621536032,\n        \"dealRating\": \"8.6\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/391220/capsule_sm_120.jpg?t=1617888747\"\n    },\n    {\n        \"internalName\": \"EUROPAUNIVERSALISIV\",\n        \"title\": \"Europa Universalis IV\",\n        \"metacriticLink\": \"/game/pc/europa-universalis-iv\",\n        \"dealID\": \"vL71CK2%2FNgPmTBqXjYF5%2FVAHB6DCrQlEfO3HmfpDjQU%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"98151\",\n        \"salePrice\": \"7.99\",\n        \"normalPrice\": \"39.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"80.020005\",\n        \"metacriticScore\": \"87\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"85\",\n        \"steamRatingCount\": \"63937\",\n        \"steamAppID\": \"236850\",\n        \"releaseDate\": 1376352000,\n        \"lastChange\": 1621535903,\n        \"dealRating\": \"8.6\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/236850/capsule_sm_120.jpg?t=1621601455\"\n    },\n    {\n        \"internalName\": \"JUSTCAUSE\",\n        \"title\": \"Just Cause\",\n        \"metacriticLink\": \"/game/pc/just-cause\",\n        \"dealID\": \"wefWa0f%2FDzhCeF5vT2iNlMdiO3XVMXtuRbr49HWF9wk%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"1368\",\n        \"salePrice\": \"0.97\",\n        \"normalPrice\": \"6.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"86.123033\",\n        \"metacriticScore\": \"75\",\n        \"steamRatingText\": \"Mixed\",\n        \"steamRatingPercent\": \"66\",\n        \"steamRatingCount\": \"3049\",\n        \"steamAppID\": \"6880\",\n        \"releaseDate\": 1159315200,\n        \"lastChange\": 1621541171,\n        \"dealRating\": \"8.6\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/6880/capsule_sm_120.jpg?t=1593180235\"\n    },\n    {\n        \"internalName\": \"PROJECTSNOWBLIND\",\n        \"title\": \"Project: Snowblind\",\n        \"metacriticLink\": \"/game/pc/project-snowblind\",\n        \"dealID\": \"JfRgVz7xYBAPYR3rU%2F2nN5gYeX%2Fv%2BdsGRPDkltIxvSE%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"1197\",\n        \"salePrice\": \"0.89\",\n        \"normalPrice\": \"5.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.141903\",\n        \"metacriticScore\": \"76\",\n        \"steamRatingText\": \"Mostly Positive\",\n        \"steamRatingPercent\": \"73\",\n        \"steamRatingCount\": \"396\",\n        \"steamAppID\": \"7010\",\n        \"releaseDate\": 1110844800,\n        \"lastChange\": 1621542001,\n        \"dealRating\": \"8.6\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/7010/capsule_sm_120.jpg?t=1592493169\"\n    },\n    {\n        \"internalName\": \"CYBERNETICAFALLENCITY\",\n        \"title\": \"Cybernetica: fallen city\",\n        \"metacriticLink\": \"/game/pc/cybernetica-fallen-city\",\n        \"dealID\": \"WkSGEGRH70uyeAJGnCS46WORlJG%2FIqOWWhCLdp%2Fa9iM%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"221372\",\n        \"salePrice\": \"1.89\",\n        \"normalPrice\": \"18.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.047393\",\n        \"metacriticScore\": \"0\",\n        \"steamRatingText\": null,\n        \"steamRatingPercent\": \"0\",\n        \"steamRatingCount\": \"0\",\n        \"steamAppID\": \"1432930\",\n        \"releaseDate\": 1602460800,\n        \"lastChange\": 1621448489,\n        \"dealRating\": \"8.6\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/1432930/capsule_sm_120.jpg?t=1602564604\"\n    },\n    {\n        \"internalName\": \"CITIESSKYLINES\",\n        \"title\": \"Cities: Skylines\",\n        \"metacriticLink\": \"/game/pc/cities-skylines\",\n        \"dealID\": \"TfTep583ZMI472sk%2BOo9w%2F%2BpETwB7QmLkuMKV4WORMQ%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"141534\",\n        \"salePrice\": \"5.99\",\n        \"normalPrice\": \"29.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"80.026676\",\n        \"metacriticScore\": \"85\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"93\",\n        \"steamRatingCount\": \"159996\",\n        \"steamAppID\": \"255710\",\n        \"releaseDate\": 1425945600,\n        \"lastChange\": 1621535891,\n        \"dealRating\": \"8.5\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/255710/capsule_sm_120_alt_assets_0.jpg?t=1621621159\"\n    },\n    {\n        \"internalName\": \"KANEANDLYNCH2DOGDAYS\",\n        \"title\": \"Kane and Lynch 2: Dog Days\",\n        \"metacriticLink\": \"/game/pc/kane-lynch-2-dog-days\",\n        \"dealID\": \"J4NjFfnzKO5P3TLf3ZjQrE73e10JObKHstDkTn5TEpc%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"3992\",\n        \"salePrice\": \"0.99\",\n        \"normalPrice\": \"9.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.090090\",\n        \"metacriticScore\": \"66\",\n        \"steamRatingText\": \"Mixed\",\n        \"steamRatingPercent\": \"61\",\n        \"steamRatingCount\": \"4419\",\n        \"steamAppID\": \"28000\",\n        \"releaseDate\": 1282003200,\n        \"lastChange\": 1621540987,\n        \"dealRating\": \"8.5\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/28000/capsule_sm_120.jpg?t=1592492023\"\n    },\n    {\n        \"internalName\": \"HOLYPOTATOESWEREINSPACE\",\n        \"title\": \"Holy Potatoes! Were in Space?!\",\n        \"metacriticLink\": \"/game/pc/holy-potatoes!-were-in-space!\",\n        \"dealID\": \"e2oPVjhhY9cEvvCDVSRT7a3rVhE2fTBCDp39gl0l9Tk%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"165716\",\n        \"salePrice\": \"0.99\",\n        \"normalPrice\": \"9.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.090090\",\n        \"metacriticScore\": \"66\",\n        \"steamRatingText\": \"Mostly Positive\",\n        \"steamRatingPercent\": \"72\",\n        \"steamRatingCount\": \"371\",\n        \"steamAppID\": \"505730\",\n        \"releaseDate\": 1487030400,\n        \"lastChange\": 1621520737,\n        \"dealRating\": \"8.5\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/505730/capsule_sm_120.jpg?t=1569143225\"\n    },\n    {\n        \"internalName\": \"AGEOFWONDERSSHADOWMAGIC\",\n        \"title\": \"Age of Wonders Shadow Magic\",\n        \"metacriticLink\": \"/game/pc/age-of-wonders-shadow-magic\",\n        \"dealID\": \"YhNhR4gcCDHTAyVGnWD1fuHoPAQrOApCnMh1gyPoInc%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"391\",\n        \"salePrice\": \"1.99\",\n        \"normalPrice\": \"9.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"80.080080\",\n        \"metacriticScore\": \"82\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"90\",\n        \"steamRatingCount\": \"351\",\n        \"steamAppID\": \"61520\",\n        \"releaseDate\": 1059091200,\n        \"lastChange\": 1621541719,\n        \"dealRating\": \"8.5\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/61520/capsule_sm_120.jpg?t=1504268411\"\n    },\n    {\n        \"internalName\": \"SAINTSROWIV\",\n        \"title\": \"Saints Row IV\",\n        \"metacriticLink\": \"/game/pc/saints-row-iv\",\n        \"dealID\": \"P%2FV0aU8xwK1BFytpsx73GZKUvO2oGXBh6m4m%2FLfECFs%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"98304\",\n        \"salePrice\": \"3.74\",\n        \"normalPrice\": \"14.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"75.050033\",\n        \"metacriticScore\": \"86\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"90\",\n        \"steamRatingCount\": \"51023\",\n        \"steamAppID\": \"206420\",\n        \"releaseDate\": 1376870400,\n        \"lastChange\": 1621637036,\n        \"dealRating\": \"8.5\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/206420/capsule_sm_120.jpg?t=1620658883\"\n    },\n    {\n        \"internalName\": \"ALLOTROPY\",\n        \"title\": \"Allotropy\",\n        \"metacriticLink\": \"/game/pc/allotropy\",\n        \"dealID\": \"1XfGfY%2FSdRmhMe69WDLGhFnJnMhZMt5cuPxKd6N2zbo%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"222246\",\n        \"salePrice\": \"1.99\",\n        \"normalPrice\": \"19.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.045023\",\n        \"metacriticScore\": \"0\",\n        \"steamRatingText\": null,\n        \"steamRatingPercent\": \"0\",\n        \"steamRatingCount\": \"0\",\n        \"steamAppID\": \"1450530\",\n        \"releaseDate\": 1603929600,\n        \"lastChange\": 1621360549,\n        \"dealRating\": \"8.5\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/1450530/capsule_sm_120.jpg?t=1603963408\"\n    },\n    {\n        \"internalName\": \"MINININJAS\",\n        \"title\": \"Mini Ninjas\",\n        \"metacriticLink\": \"/game/pc/mini-ninjas\",\n        \"dealID\": \"F4iSlLjwMCr0OcdjIGIHErdjlQDvjAWoOIkI7DXTXD8%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"1140\",\n        \"salePrice\": \"1.49\",\n        \"normalPrice\": \"9.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.085085\",\n        \"metacriticScore\": \"74\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"89\",\n        \"steamRatingCount\": \"2284\",\n        \"steamAppID\": \"35000\",\n        \"releaseDate\": 1252368000,\n        \"lastChange\": 1621540469,\n        \"dealRating\": \"8.5\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/35000/capsule_sm_120.jpg?t=1592492627\"\n    },\n    {\n        \"internalName\": \"SHADOWRUNDRAGONFALLDIRECTORSCUT\",\n        \"title\": \"Shadowrun: Dragonfall - Director's Cut\",\n        \"metacriticLink\": \"/game/pc/shadowrun-dragonfall---directors-cut\",\n        \"dealID\": \"3h8Q9xkKseH4c9gtYRBnRVW1CHg7SX2uXyE2gwHSZ78%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"128800\",\n        \"salePrice\": \"3.74\",\n        \"normalPrice\": \"14.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"75.050033\",\n        \"metacriticScore\": \"87\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"89\",\n        \"steamRatingCount\": \"4253\",\n        \"steamAppID\": \"300550\",\n        \"releaseDate\": 1410998400,\n        \"lastChange\": 1621536508,\n        \"dealRating\": \"8.4\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/300550/capsule_sm_120.jpg?t=1615974138\"\n    },\n    {\n        \"internalName\": \"CYBERCUBEBATTLE\",\n        \"title\": \"Cybercube battle\",\n        \"metacriticLink\": \"/game/pc/cybercube-battle\",\n        \"dealID\": \"UC2%2B7pGYFjhTRIc4xYJ%2Fcc8onUeN1uZ7lQ%2Fn1bPAZOA%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"221551\",\n        \"salePrice\": \"1.99\",\n        \"normalPrice\": \"19.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.045023\",\n        \"metacriticScore\": \"0\",\n        \"steamRatingText\": null,\n        \"steamRatingPercent\": \"0\",\n        \"steamRatingCount\": \"0\",\n        \"steamAppID\": \"1431620\",\n        \"releaseDate\": 1602806400,\n        \"lastChange\": 1621362504,\n        \"dealRating\": \"8.4\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/1431620/capsule_sm_120.jpg?t=1602834314\"\n    },\n    {\n        \"internalName\": \"CRYPTOFTHENECRODANCER\",\n        \"title\": \"Crypt of the NecroDancer\",\n        \"metacriticLink\": \"/game/pc/crypt-of-the-necrodancer\",\n        \"dealID\": \"5Aiw0UGtePMGhVWUzvhkvd8VLBIn9OJEJ3%2BD4SSwr0k%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"119755\",\n        \"salePrice\": \"2.99\",\n        \"normalPrice\": \"14.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"80.053369\",\n        \"metacriticScore\": \"87\",\n        \"steamRatingText\": \"Overwhelmingly Positive\",\n        \"steamRatingPercent\": \"96\",\n        \"steamRatingCount\": \"17733\",\n        \"steamAppID\": \"247080\",\n        \"releaseDate\": 1429747200,\n        \"lastChange\": 1621280458,\n        \"dealRating\": \"8.4\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/247080/capsule_sm_120.jpg?t=1621545126\"\n    },\n    {\n        \"internalName\": \"AGEOFWONDERSIITHEWIZARDSTHRONE\",\n        \"title\": \"Age of Wonders II: The Wizard's Throne\",\n        \"metacriticLink\": \"/game/pc/age-of-wonders-ii-the-wizards-throne\",\n        \"dealID\": \"iYmdvrNE1WGflZ%2Bsy8UMA9h0mj%2BIa%2Bx4PUfycUf6eW8%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"281\",\n        \"salePrice\": \"2.49\",\n        \"normalPrice\": \"9.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"75.075075\",\n        \"metacriticScore\": \"86\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"82\",\n        \"steamRatingCount\": \"169\",\n        \"steamAppID\": \"61510\",\n        \"releaseDate\": 1023840000,\n        \"lastChange\": 1621541699,\n        \"dealRating\": \"8.4\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/61510/capsule_sm_120.jpg?t=1589900679\"\n    },\n    {\n        \"internalName\": \"SUPREMECOMMANDERFORGEDALLIANCE\",\n        \"title\": \"Supreme Commander: Forged Alliance\",\n        \"metacriticLink\": \"/game/pc/supreme-commander-forged-alliance\",\n        \"dealID\": \"oF8uCwjMqAyxhFpIWY%2Ff%2B2Z1hb2hHdMoUM6jLBrRH7o%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"141\",\n        \"salePrice\": \"2.59\",\n        \"normalPrice\": \"12.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"80.061586\",\n        \"metacriticScore\": \"81\",\n        \"steamRatingText\": \"Overwhelmingly Positive\",\n        \"steamRatingPercent\": \"96\",\n        \"steamRatingCount\": \"5969\",\n        \"steamAppID\": \"9420\",\n        \"releaseDate\": 1194307200,\n        \"lastChange\": 1621536363,\n        \"dealRating\": \"8.4\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/9420/capsule_sm_120.jpg?t=1592488757\"\n    },\n    {\n        \"internalName\": \"SAINTSROWTHETHIRD\",\n        \"title\": \"Saints Row: The Third\",\n        \"metacriticLink\": \"/game/pc/saints-row-the-third\",\n        \"dealID\": \"IFN5NbpTgE5uvtlaFQHHJXSY9EfIxhs8H2pMcw8Oli0%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"19\",\n        \"salePrice\": \"2.49\",\n        \"normalPrice\": \"9.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"75.075075\",\n        \"metacriticScore\": \"84\",\n        \"steamRatingText\": \"Overwhelmingly Positive\",\n        \"steamRatingPercent\": \"96\",\n        \"steamRatingCount\": \"41953\",\n        \"steamAppID\": \"55230\",\n        \"releaseDate\": 1321228800,\n        \"lastChange\": 1621637049,\n        \"dealRating\": \"8.4\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/55230/capsule_sm_120.jpg?t=1620658766\"\n    },\n    {\n        \"internalName\": \"JUSTCAUSE3\",\n        \"title\": \"Just Cause 3\",\n        \"metacriticLink\": \"/game/pc/just-cause-3\",\n        \"dealID\": \"l1AMpNpIOvx2XyCI%2BMosGbz5da3QsuSNGcYENFXOmx4%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"137357\",\n        \"salePrice\": \"2.99\",\n        \"normalPrice\": \"19.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.042521\",\n        \"metacriticScore\": \"74\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"81\",\n        \"steamRatingCount\": \"67830\",\n        \"steamAppID\": \"225540\",\n        \"releaseDate\": 1448841600,\n        \"lastChange\": 1621536075,\n        \"dealRating\": \"8.4\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/225540/capsule_sm_120.jpg?t=1612807713\"\n    },\n    {\n        \"internalName\": \"LEGACYOFKAINDEFIANCE\",\n        \"title\": \"Legacy of Kain: Defiance\",\n        \"metacriticLink\": \"/game/pc/legacy-of-kain-defiance\",\n        \"dealID\": \"ujh2lwyxA7S4C2qu%2BomOsKCuubBVIIBqdal%2FNxZEa98%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"88868\",\n        \"salePrice\": \"0.97\",\n        \"normalPrice\": \"6.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"86.123033\",\n        \"metacriticScore\": \"70\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"86\",\n        \"steamRatingCount\": \"638\",\n        \"steamAppID\": \"224300\",\n        \"releaseDate\": 1071619200,\n        \"lastChange\": 1621540893,\n        \"dealRating\": \"8.4\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/224300/capsule_sm_120.jpg?t=1592492274\"\n    },\n    {\n        \"internalName\": \"LARACROFTANDTHETEMPLEOFOSIRIS\",\n        \"title\": \"Lara Croft and the Temple of Osiris\",\n        \"metacriticLink\": \"/game/pc/lara-croft-and-the-temple-of-osiris\",\n        \"dealID\": \"CEjewbldwM8WWItN4nHw7se13GDRXBtnaWQNgoMu%2FmE%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"112359\",\n        \"salePrice\": \"2.99\",\n        \"normalPrice\": \"19.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.042521\",\n        \"metacriticScore\": \"73\",\n        \"steamRatingText\": \"Mixed\",\n        \"steamRatingPercent\": \"64\",\n        \"steamRatingCount\": \"924\",\n        \"steamAppID\": \"289690\",\n        \"releaseDate\": 1417996800,\n        \"lastChange\": 1621536499,\n        \"dealRating\": \"8.3\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/289690/capsule_sm_120.jpg?t=1616009802\"\n    },\n    {\n        \"internalName\": \"KELVINANDTHEINFAMOUSMACHINE\",\n        \"title\": \"Kelvin and the Infamous Machine\",\n        \"metacriticLink\": \"/game/pc/kelvin-and-the-infamous-machine\",\n        \"dealID\": \"GFC9%2F%2FiEoj6Pis0DZ5wo4MP9N2eVstrp6iHGPRsiTpk%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"150791\",\n        \"salePrice\": \"1.49\",\n        \"normalPrice\": \"9.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.085085\",\n        \"metacriticScore\": \"79\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"89\",\n        \"steamRatingCount\": \"609\",\n        \"steamAppID\": \"376520\",\n        \"releaseDate\": 1469059200,\n        \"lastChange\": 1621282054,\n        \"dealRating\": \"8.3\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/376520/capsule_sm_120.jpg?t=1586284366\"\n    },\n    {\n        \"internalName\": \"MURDEREDSOULSUSPECT\",\n        \"title\": \"Murdered: Soul Suspect\",\n        \"metacriticLink\": \"/game/pc/murdered-soul-suspect\",\n        \"dealID\": \"JOWU6CyVCp9aSCXx81oxKbvOK0I%2FwnVsj%2FQCHrnGzrc%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"95943\",\n        \"salePrice\": \"1.99\",\n        \"normalPrice\": \"19.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.045023\",\n        \"metacriticScore\": \"59\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"86\",\n        \"steamRatingCount\": \"8758\",\n        \"steamAppID\": \"233290\",\n        \"releaseDate\": 1401753600,\n        \"lastChange\": 1621540735,\n        \"dealRating\": \"8.3\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/233290/capsule_sm_120.jpg?t=1503075903\"\n    },\n    {\n        \"internalName\": \"CUBEMAN\",\n        \"title\": \"Cube Man\",\n        \"metacriticLink\": \"/game/pc/cube-man\",\n        \"dealID\": \"cHfn4y0G%2BzGCzT47HODdfB7wvrcZbSQTuBTq1O7hU54%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"219341\",\n        \"salePrice\": \"1.99\",\n        \"normalPrice\": \"19.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.045023\",\n        \"metacriticScore\": \"0\",\n        \"steamRatingText\": null,\n        \"steamRatingPercent\": \"0\",\n        \"steamRatingCount\": \"0\",\n        \"steamAppID\": \"1019910\",\n        \"releaseDate\": 1597363200,\n        \"lastChange\": 1621449322,\n        \"dealRating\": \"8.3\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/1019910/capsule_sm_120.jpg?t=1604530555\"\n    },\n    {\n        \"internalName\": \"PLANARCONQUEST\",\n        \"title\": \"Planar Conquest\",\n        \"metacriticLink\": \"/game/pc/planar-conquest\",\n        \"dealID\": \"aenQmFSWrJ4cuJPa54GJscB42hmhIk0p8gW5i3Qs7x8%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"153168\",\n        \"salePrice\": \"1.99\",\n        \"normalPrice\": \"19.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.045023\",\n        \"metacriticScore\": \"53\",\n        \"steamRatingText\": \"Mixed\",\n        \"steamRatingPercent\": \"51\",\n        \"steamRatingCount\": \"273\",\n        \"steamAppID\": \"449300\",\n        \"releaseDate\": 1464566400,\n        \"lastChange\": 1621559519,\n        \"dealRating\": \"8.3\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/449300/capsule_sm_120.jpg?t=1573155421\"\n    },\n    {\n        \"internalName\": \"ORDEROFWAR\",\n        \"title\": \"Order of War\",\n        \"metacriticLink\": \"/game/pc/order-of-war\",\n        \"dealID\": \"EbfZSSWInAx13eoImnccs8ocjGLEATE9K9lmTzy8R4E%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"874\",\n        \"salePrice\": \"1.19\",\n        \"normalPrice\": \"7.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.106383\",\n        \"metacriticScore\": \"69\",\n        \"steamRatingText\": \"Mixed\",\n        \"steamRatingPercent\": \"68\",\n        \"steamRatingCount\": \"304\",\n        \"steamAppID\": \"34600\",\n        \"releaseDate\": 1253577600,\n        \"lastChange\": 1621542595,\n        \"dealRating\": \"8.3\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/34600/capsule_sm_120.jpg?t=1592493041\"\n    },\n    {\n        \"internalName\": \"ALICEVR\",\n        \"title\": \"ALICE VR\",\n        \"metacriticLink\": \"/game/pc/alice-vr\",\n        \"dealID\": \"tYZtBOSA2ppfqntLVnJ0LCI8yfwclJfKcBLUJ0QZW0c%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"161113\",\n        \"salePrice\": \"0.99\",\n        \"normalPrice\": \"9.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"90.090090\",\n        \"metacriticScore\": \"55\",\n        \"steamRatingText\": \"Mixed\",\n        \"steamRatingPercent\": \"40\",\n        \"steamRatingCount\": \"132\",\n        \"steamAppID\": \"513320\",\n        \"releaseDate\": 1477526400,\n        \"lastChange\": 1621542541,\n        \"dealRating\": \"8.2\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/513320/capsule_sm_120.jpg?t=1594211671\"\n    },\n    {\n        \"internalName\": \"THIEF\",\n        \"title\": \"Thief\",\n        \"metacriticLink\": \"/game/pc/thief\",\n        \"dealID\": \"K9OYz%2Fzeuv7oEsSmVicqubx0I6IgaGzObAGGoR6LRqw%3D\",\n        \"storeID\": \"1\",\n        \"gameID\": \"95945\",\n        \"salePrice\": \"2.99\",\n        \"normalPrice\": \"19.99\",\n        \"isOnSale\": \"1\",\n        \"savings\": \"85.042521\",\n        \"metacriticScore\": \"70\",\n        \"steamRatingText\": \"Mostly Positive\",\n        \"steamRatingPercent\": \"73\",\n        \"steamRatingCount\": \"13534\",\n        \"steamAppID\": \"239160\",\n        \"releaseDate\": 1393286400,\n        \"lastChange\": 1621536338,\n        \"dealRating\": \"8.2\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/239160/capsule_sm_120.jpg?t=1592493618\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Deal Lookup",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/1.0/deals?id=X8sebHhbc1Ga0dTkgg59WgyM506af9oNZZJLU9uSrX8%3D",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"1.0",
+								"deals"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "X8sebHhbc1Ga0dTkgg59WgyM506af9oNZZJLU9uSrX8%3D",
+									"description": "`(required, string)`\n\n An Encoded Deal ID"
+								}
+							]
+						},
+						"description": "Get info for a specific deal. Response includes game info, any cheaper current deals, and the cheapest historical price. As elsewhere, dealID is encoded"
+					},
+					"response": [
+						{
+							"name": "Deal Lookup",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/1.0/deals?id=X8sebHhbc1Ga0dTkgg59WgyM506af9oNZZJLU9uSrX8%3D",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"deals"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "X8sebHhbc1Ga0dTkgg59WgyM506af9oNZZJLU9uSrX8%3D",
+											"description": "`(required, string)`\n\n An Encoded Deal ID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 19 Jun 2023 17:29:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "7d9d7e10a8c90609-IAD"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "EXPIRED"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=300, public"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Mon, 19 Jun 2023 16:57:22 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "access-control-allow-headers",
+									"value": "*"
+								},
+								{
+									"key": "access-control-allow-methods",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "Content-Encoding, X-Total-Page-Count"
+								},
+								{
+									"key": "cdn-cache-control",
+									"value": "max-age=600, stale-while-revalidate=60, stale-if-error=432000, public"
+								},
+								{
+									"key": "php-cache",
+									"value": "EXPIRED"
+								},
+								{
+									"key": "php-cache-age",
+									"value": "0"
+								},
+								{
+									"key": "php-cache-key",
+									"value": "aae404cb474f2d477a63e317d23562f85ee18898"
+								},
+								{
+									"key": "php-cache-max-age",
+									"value": "300"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "The love of games, an addiction to deals, and a bit of code! :)"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=cJgNqKZXYSX5R%2BzyXGlqNwYtvburCiDhSCeluo9TfK%2BxsNduoIqUoOhKr51gcjwYn1aUwOIz89nMXuEiNapNSOkj5l2HGDLlP%2F96vr8lRrwI0gvjrM5ZqYQmOZGEAI59U49IoA%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"gameInfo\": {\n        \"storeID\": \"1\",\n        \"gameID\": \"93503\",\n        \"name\": \"BioShock Infinite\",\n        \"steamAppID\": \"8870\",\n        \"salePrice\": \"29.99\",\n        \"retailPrice\": \"29.99\",\n        \"steamRatingText\": \"Very Positive\",\n        \"steamRatingPercent\": \"93\",\n        \"steamRatingCount\": \"98477\",\n        \"metacriticScore\": \"94\",\n        \"metacriticLink\": \"/game/pc/bioshock-infinite\",\n        \"releaseDate\": 1364169600,\n        \"publisher\": \"N/A\",\n        \"steamworks\": \"1\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/8870/capsule_sm_120.jpg?t=1602794480\"\n    },\n    \"cheaperStores\": [\n        {\n            \"dealID\": \"vb3EqB4KpKbSyV83DXQYAZCSBS60LaOMgLCXSt8pQxw%3D\",\n            \"storeID\": \"23\",\n            \"salePrice\": \"5.89\",\n            \"retailPrice\": \"29.99\"\n        },\n        {\n            \"dealID\": \"boC2N0Q7SMCKxv6UKjRw%2BLFY6%2BNLEeWM2Bf1i80clx0%3D\",\n            \"storeID\": \"21\",\n            \"salePrice\": \"5.99\",\n            \"retailPrice\": \"29.99\"\n        },\n        {\n            \"dealID\": \"tbqfs8HsmHWn0mMk2QRCPd7KWLidkHrIYZX3FbYCyk0%3D\",\n            \"storeID\": \"30\",\n            \"salePrice\": \"7.19\",\n            \"retailPrice\": \"29.99\"\n        },\n        {\n            \"dealID\": \"r%2FGHYdW6GKpZfaqR4DQrjKD7vBoWiFPP7npVpVw4350%3D\",\n            \"storeID\": \"34\",\n            \"salePrice\": \"7.20\",\n            \"retailPrice\": \"29.99\"\n        },\n        {\n            \"dealID\": \"OVrkWmI7sl5RN61pxpA44euybrH826w%2FjvlV%2BYKc2oA%3D\",\n            \"storeID\": \"2\",\n            \"salePrice\": \"7.49\",\n            \"retailPrice\": \"29.99\"\n        },\n        {\n            \"dealID\": \"5ptxhcM1fatjVrZSnNNpbSz6okheevZEhcBAZm4AUfU%3D\",\n            \"storeID\": \"35\",\n            \"salePrice\": \"7.50\",\n            \"retailPrice\": \"29.99\"\n        },\n        {\n            \"dealID\": \"DQ%2BYLI9do4mm0H2%2BDUd6npgoQoK8bseNvyjJe%2B%2F3dEo%3D\",\n            \"storeID\": \"15\",\n            \"salePrice\": \"26.28\",\n            \"retailPrice\": \"29.99\"\n        },\n        {\n            \"dealID\": \"kj2H%2FvwfkyU40jW9s2g88CAW4PuR0etKlYvkQLitgvQ%3D\",\n            \"storeID\": \"29\",\n            \"salePrice\": \"26.99\",\n            \"retailPrice\": \"29.99\"\n        },\n        {\n            \"dealID\": \"fq0cNHiR3Z4TpZyV7WH865C1%2BCBlmufYUc%2Bu2HqyUHE%3D\",\n            \"storeID\": \"27\",\n            \"salePrice\": \"26.99\",\n            \"retailPrice\": \"29.99\"\n        }\n    ],\n    \"cheapestPrice\": {\n        \"price\": \"4.49\",\n        \"date\": 1682548425\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "Each deal is the price (and metadata) for a game at a particular store. For example: if a game is available on 3 stores, it will have 3 separate deal entries, one for each store the game is listed on. For reference, deal entries still exist even when the game is at full price.\n\nOn your website or app, you will use the CheapShark redirect page to link users to a specific deal:\n\n`https://www.cheapshark.com/redirect?dealID={id}`\n\n**📌 Important Note**: The redirect page is _not_ an API endpoint and will **block** automated access. It is designed only to link and send your users to deals. If your use-case _requires_ automation, please get in touch for options!\n\n---\n\nIn general, pricing information is updated from stores about once per hour. However this can fluctuate depending on a number of factors.\n\nThe deal rating property provides a quick way to compare how 'good' a deal is. It is normalized on a scale from 0 to 10.\n\nPricing data is always in **USD**. All date fields (releaseDate, lastChange, etc.) are returned in [Unix Timestamp](https://www.unixtimestamp.com/) format, in seconds. Boolean flags are a `0` or a `1`.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "🎮 Games",
+			"item": [
+				{
+					"name": "List of Games",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/1.0/games?title=batman",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"1.0",
+								"games"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "batman",
+									"description": "`(required, string)` \n\nSearch for a game by title, case insensitive (required when not specifying `steamAppID`)"
+								},
+								{
+									"key": "steamAppID",
+									"value": "35140",
+									"description": "`(optional, integer)`\n\nInstead of using `title`, you can search for a game by Steam’s AppID - e.g. http://store.steampowered.com/app/35140/",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "60",
+									"description": "`(optional, integer)` Default `60`\n\nThe maximum number of games to return, up to `60`",
+									"disabled": true
+								},
+								{
+									"key": "exact",
+									"value": "0",
+									"description": "`(optional, boolean)` Default `0`\n\nFlag to allow only exact string match for `title` parameter",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get a list of games that contain a given title or match a steamAppID. Response includes the cheapest current deal for each game.\n\n**📌 Note**: At least one search criteria must be set to receive a response."
+					},
+					"response": [
+						{
+							"name": "List of Games",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/1.0/games?title=batman",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"games"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "batman",
+											"description": "`(required, string)` \n\nSearch for a game by title, case insensitive (required when not specifying `steamAppID`)"
+										},
+										{
+											"key": "steamAppID",
+											"value": "35140",
+											"description": "`(optional, integer)`\n\nInstead of using `title`, you can search for a game by Steam’s AppID - e.g. http://store.steampowered.com/app/35140/",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "60",
+											"description": "`(optional, integer)` Default `60`\n\nThe maximum number of games to return, up to `60`",
+											"disabled": true
+										},
+										{
+											"key": "exact",
+											"value": "0",
+											"description": "`(optional, boolean)` Default `0`\n\nFlag to allow only exact string match for `title` parameter",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 19 Jun 2023 17:31:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "7d9d815d9a680609-IAD"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "EXPIRED"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=300, public"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Sun, 18 Jun 2023 23:12:49 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "access-control-allow-headers",
+									"value": "*"
+								},
+								{
+									"key": "access-control-allow-methods",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "Content-Encoding, X-Total-Page-Count"
+								},
+								{
+									"key": "cdn-cache-control",
+									"value": "max-age=600, stale-while-revalidate=60, stale-if-error=432000, public"
+								},
+								{
+									"key": "php-cache",
+									"value": "EXPIRED"
+								},
+								{
+									"key": "php-cache-age",
+									"value": "0"
+								},
+								{
+									"key": "php-cache-key",
+									"value": "472d58453f63088b5ad9ed46708590d966b751e4"
+								},
+								{
+									"key": "php-cache-max-age",
+									"value": "300"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "The love of games, an addiction to deals, and a bit of code! :)"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=HBkXLw5oBtopEX3LhDSrjcPku8INyYf8i3MPj1Tq1OX8LKguo6xJ2Fwbw%2BFz1CJVzho%2Fr0mGvhBxxMsAKl%2Bu7G%2BRwafjBCzw9BJ9ydvN2MOjyeh%2FBD7fxydaeUvJTD027jZYaA%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"gameID\": \"612\",\n        \"steamAppID\": null,\n        \"cheapest\": \"15.95\",\n        \"cheapestDealID\": \"0f%2B4gT2VVUn4UcmFzPxXnuqoXKAOYoJ5mpFZRWNyohc%3D\",\n        \"external\": \"LEGO Batman\",\n        \"internalName\": \"LEGOBATMAN\",\n        \"thumb\": \"https://cdn.fanatical.com/production/product/400x225/105f34ca-7757-47ad-953e-7df7f016741e.jpeg\"\n    },\n    {\n        \"gameID\": \"167613\",\n        \"steamAppID\": null,\n        \"cheapest\": \"15.95\",\n        \"cheapestDealID\": \"2XSMlnYtPjLoKI9g2vhZch9deHZ%2BE%2BpL7IoBprkWtgM%3D\",\n        \"external\": \"LEGO Batman 2\",\n        \"internalName\": \"LEGOBATMAN2\",\n        \"thumb\": \"https://cdn.fanatical.com/production/product/400x225/4cf0701e-77bf-4539-bda7-129ab3e81f8b.jpeg\"\n    },\n    {\n        \"gameID\": \"167910\",\n        \"steamAppID\": \"502820\",\n        \"cheapest\": \"4.99\",\n        \"cheapestDealID\": \"Vv2BkWU%2FEoIlHNbYtLBFjLJP8noeCUodfp1IXbQJZ6w%3D\",\n        \"external\": \"Batman: Arkham VR\",\n        \"internalName\": \"BATMANARKHAMVR\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/502820/capsule_sm_120.jpg?t=1684483128\"\n    },\n    {\n        \"gameID\": \"136751\",\n        \"steamAppID\": null,\n        \"cheapest\": \"49.99\",\n        \"cheapestDealID\": \"tWdHYhBxTi%2Boen9dGX6I0I%2BfklTJOHB0SykaLcbpsqk%3D\",\n        \"external\": \"LEGO Batman Trilogy\",\n        \"internalName\": \"LEGOBATMANTRILOGY\",\n        \"thumb\": \"https://hb.imgix.net/fec566de2b11fbe22a542086fb3758652f790551.jpg?auto=compress,format&fit=crop&h=84&w=135&s=1159b53389e7c72d23ef72b5c883d725\"\n    },\n    {\n        \"gameID\": \"107598\",\n        \"steamAppID\": \"208650\",\n        \"cheapest\": \"3.99\",\n        \"cheapestDealID\": \"%2BRR8iNYa2ZB%2FIhfZml8B1USYGhQVeYAv0Tl8JPkZ8UM%3D\",\n        \"external\": \"Batman: Arkham Knight\",\n        \"internalName\": \"BATMANARKHAMKNIGHT\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/208650/capsule_sm_120.jpg?t=1681938976\"\n    },\n    {\n        \"gameID\": \"97941\",\n        \"steamAppID\": \"209000\",\n        \"cheapest\": \"3.90\",\n        \"cheapestDealID\": \"%2B4P5nvsf0iNcJc19j5zuZXfuvO49dRypeuXXzmxG19M%3D\",\n        \"external\": \"Batman: Arkham Origins\",\n        \"internalName\": \"BATMANARKHAMORIGINS\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/209000/capsule_sm_120.jpg?t=1681234740\"\n    },\n    {\n        \"gameID\": \"198190\",\n        \"steamAppID\": null,\n        \"cheapest\": \"15.99\",\n        \"cheapestDealID\": \"DnVEZriqpYWyJoC4CN2%2Fe07Su8RZ61DATyjmfNk%2FwKI%3D\",\n        \"external\": \"Batman Arkham City GOTY\",\n        \"internalName\": \"BATMANARKHAMCITYGOTY\",\n        \"thumb\": \"https://us.gamesplanet.com/acache/15/46/1/us/packshot-92b3116edd0584b61a131fa716d0a766.jpg\"\n    },\n    {\n        \"gameID\": \"198317\",\n        \"steamAppID\": \"320795\",\n        \"cheapest\": \"8.99\",\n        \"cheapestDealID\": \"g5zcqhDot%2FhT5s%2BIfHgygYaagbxBH09cSgR5xdyVS5g%3D\",\n        \"external\": \"Batman: Arkham Collection\",\n        \"internalName\": \"BATMANARKHAMCOLLECTION\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/subs/320795/capsule_sm_120.jpg?t=1636658684\"\n    },\n    {\n        \"gameID\": \"2425\",\n        \"steamAppID\": \"21000\",\n        \"cheapest\": \"3.74\",\n        \"cheapestDealID\": \"lPNogo5qKWCOD%2FkWwvBGHDC43qC46sn%2FeoyGoa4z8xI%3D\",\n        \"external\": \"LEGO Batman: The Videogame\",\n        \"internalName\": \"LEGOBATMANTHEVIDEOGAME\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/21000/capsule_sm_120.jpg?t=1681923978\"\n    },\n    {\n        \"gameID\": \"126255\",\n        \"steamAppID\": \"313690\",\n        \"cheapest\": \"4.99\",\n        \"cheapestDealID\": \"tQfqjocc0Gu6bk6V297xfHLJDukTApKhJNV7HNlw%2Fvo%3D\",\n        \"external\": \"LEGO Batman 3: Beyond Gotham\",\n        \"internalName\": \"LEGOBATMAN3BEYONDGOTHAM\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/313690/capsule_sm_120.jpg?t=1573510385\"\n    },\n    {\n        \"gameID\": \"199261\",\n        \"steamAppID\": null,\n        \"cheapest\": \"39.98\",\n        \"cheapestDealID\": \"vVlFdl8%2BVYZuEwKlNPy7iUrK49IXdqtNSKDgTrhw4sM%3D\",\n        \"external\": \"Batman Game of the Year Pack\",\n        \"internalName\": \"BATMANGAMEOFTHEYEARPACK\",\n        \"thumb\": \"https://images.greenmangaming.com/9c282eceace145df99f76f0d08febdfe/1fbba96f5f8a4ffbb135e320bcc2346c.jpg\"\n    },\n    {\n        \"gameID\": \"155074\",\n        \"steamAppID\": \"498240\",\n        \"cheapest\": \"5.99\",\n        \"cheapestDealID\": \"uSsyxlu%2BfwGY%2FuhQ813YGUsHJmjOSI%2B7wANjAMlsbtw%3D\",\n        \"external\": \"Batman - The Telltale Series\",\n        \"internalName\": \"BATMANTHETELLTALESERIES\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/498240/capsule_sm_120.jpg?t=1686747257\"\n    },\n    {\n        \"gameID\": \"88269\",\n        \"steamAppID\": \"213330\",\n        \"cheapest\": \"3.99\",\n        \"cheapestDealID\": \"wxkjCBTqcqgpCr%2BaDuG6cl24oD9YoV19NFHq0dlM0Uk%3D\",\n        \"external\": \"LEGO Batman 2: DC Super Heroes\",\n        \"internalName\": \"LEGOBATMAN2DCSUPERHEROES\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/213330/capsule_sm_120.jpg?t=1681923916\"\n    },\n    {\n        \"gameID\": \"262248\",\n        \"steamAppID\": null,\n        \"cheapest\": \"14.99\",\n        \"cheapestDealID\": \"OKARgK1wBMW6W6Mod6tfJ%2FS582x6mmaZzcsrhKNN9zw%3D\",\n        \"external\": \"HOT WHEELS - Batman Expansion\",\n        \"internalName\": \"HOTWHEELSBATMANEXPANSION\",\n        \"thumb\": \"https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_HOTWHEELSBatmanExpansion_MilestoneSrl_DLC_S2_1200x1600-eb509c7f016c85c206fb702fe7483ebf\"\n    },\n    {\n        \"gameID\": \"214905\",\n        \"steamAppID\": null,\n        \"cheapest\": \"2.49\",\n        \"cheapestDealID\": \"OTJxScRuO1D3hoLSFDjrWKZKm%2FrcXvSACoDDGijZjrY%3D\",\n        \"external\": \"Telltale Batman Shadows Mode\",\n        \"internalName\": \"TELLTALEBATMANSHADOWSMODE\",\n        \"thumb\": \"https://images-3.gog-statics.com/e60c4596e9f9a74ca587efcb561b94d0e61e80648bd478a7e74ec8f6cd93c44a_196.jpg\"\n    },\n    {\n        \"gameID\": \"89107\",\n        \"steamAppID\": null,\n        \"cheapest\": \"19.99\",\n        \"cheapestDealID\": \"yPE8bI5eH%2FFwI0L7KaEUTfOzYmWLPj%2F76DHrJEnFWeY%3D\",\n        \"external\": \"Batman: Arkham City GOTY Edition\",\n        \"internalName\": \"BATMANARKHAMCITYGOTYEDITION\",\n        \"thumb\": \"https://hb.imgix.net/08abd0c1b25f2ffc652ae7d6537443cee7eccf94.jpg?auto=compress,format&fit=crop&h=84&w=135&s=6ae6339224425ee6e7b7e48ddea68e1d\"\n    },\n    {\n        \"gameID\": \"143771\",\n        \"steamAppID\": null,\n        \"cheapest\": \"4.99\",\n        \"cheapestDealID\": \"8yLtJICeHHeytlzNdkCDEh8laYiZ7TLQoGlJBRkJpMM%3D\",\n        \"external\": \"Batman: Arkham Knight - Season Pass\",\n        \"internalName\": \"BATMANARKHAMKNIGHTSEASONPASS\",\n        \"thumb\": \"https://gamersgatep.imgix.net/5/3/c/4e1ffbac131e5f3599463e11377e24b6cfb67c35.jpg?auto=&w=\"\n    },\n    {\n        \"gameID\": \"214906\",\n        \"steamAppID\": null,\n        \"cheapest\": \"14.98\",\n        \"cheapestDealID\": \"A3hjhaYvTj0ZcYKpdslQ4PASVGEwe0Zwfrd61gkWLXE%3D\",\n        \"external\": \"Telltale Batman Shadows Edition\",\n        \"internalName\": \"TELLTALEBATMANSHADOWSEDITION\",\n        \"thumb\": \"https://images.greenmangaming.com/bb1f86edd3be41e3bb8948c00523e5ef/bd6b538c1a7b4f138b862d3c825ff005.jpg\"\n    },\n    {\n        \"gameID\": \"87778\",\n        \"steamAppID\": null,\n        \"cheapest\": \"16.99\",\n        \"cheapestDealID\": \"uppD8xHMJiqlB88HAnAVeVuInMdQh8eIXN0r2eaC6VI%3D\",\n        \"external\": \"Batman Arkham Asylum GOTY Edition\",\n        \"internalName\": \"BATMANARKHAMASYLUMGOTYEDITION\",\n        \"thumb\": \"https://hb.imgix.net/2a07e9e90c9af53c5120151c9ff4e0aa3771ce99.jpeg?auto=compress,format&fit=crop&h=84&w=135&s=0f42069b4949098d7d589d28a9f66311\"\n    },\n    {\n        \"gameID\": \"246183\",\n        \"steamAppID\": null,\n        \"cheapest\": \"19.99\",\n        \"cheapestDealID\": \"3VlwNpcd%2FDMETYgzpXd1WDzLWBTn9qHFBhtkSUbnCMs%3D\",\n        \"external\": \"Batman Arkham City: Game of the Year\",\n        \"internalName\": \"BATMANARKHAMCITYGAMEOFTHEYEAR\",\n        \"thumb\": \"https://images.greenmangaming.com/3e529338224949f280276fa6a5b75fec/933b9d36ea2d49b4b389899814729378.jpg\"\n    },\n    {\n        \"gameID\": \"102510\",\n        \"steamAppID\": null,\n        \"cheapest\": \"4.99\",\n        \"cheapestDealID\": \"gN0K1nX4QGvIgFQcYzTLeLon8fOHW7tMMPTo7lNZch0%3D\",\n        \"external\": \"Batman Arkham Origins Season Pass\",\n        \"internalName\": \"BATMANARKHAMORIGINSSEASONPASS\",\n        \"thumb\": \"https://images.greenmangaming.com/1c43fd1ff43744c08e854d6ff963c91d/2c8b09a294f4401ab3747b99b6d828f1.jpg\"\n    },\n    {\n        \"gameID\": \"246576\",\n        \"steamAppID\": null,\n        \"cheapest\": \"29.99\",\n        \"cheapestDealID\": \"Fi5iMIssmS3PtiA3m42zXTR22B9GvIcr2NE8Csb5kFw%3D\",\n        \"external\": \"The Telltale Batman Shadows Edition\",\n        \"internalName\": \"THETELLTALEBATMANSHADOWSEDITION\",\n        \"thumb\": \"https://cdn1.epicgames.com/f2bfff793b224f6190a394f461c9a4b8/offer/TheTelltaleBatmanShadowsEdition-2560x1440-1ababb36a948b5c732ab85a330787e85.jpg\"\n    },\n    {\n        \"gameID\": \"225758\",\n        \"steamAppID\": null,\n        \"cheapest\": \"4.99\",\n        \"cheapestDealID\": \"PUPfxJiMyt4dbcslwvOVad0v%2BgtknEhy8c90qOpVp9w%3D\",\n        \"external\": \"Telltale Batman Shadows Mode Bundle\",\n        \"internalName\": \"TELLTALEBATMANSHADOWSMODEBUNDLE\",\n        \"thumb\": \"https://hb.imgix.net/bcd6694f5442c730d3b16bdb07e956e52fe17b32.png?auto=compress,format&fit=crop&h=84&w=135&s=748daa2aa04096c42a24db2baf8320ff\"\n    },\n    {\n        \"gameID\": \"250727\",\n        \"steamAppID\": null,\n        \"cheapest\": \"19.99\",\n        \"cheapestDealID\": \"WT%2FMFjw1bIOhh5gs6slTqvwUdrGR2W4wEwyYGlT1G98%3D\",\n        \"external\": \"Batman: Arkham Asylum Game of the Year\",\n        \"internalName\": \"BATMANARKHAMASYLUMGAMEOFTHEYEAR\",\n        \"thumb\": \"https://images.greenmangaming.com/0c2b457baa0a4e778c31771ead715300/88c9e725b8ff4610a2e1970e0f4a08f1.jpg\"\n    },\n    {\n        \"gameID\": \"214907\",\n        \"steamAppID\": null,\n        \"cheapest\": \"2.49\",\n        \"cheapestDealID\": \"lBW7zyO4rDYgP9peypdBSZC%2B6dp8bUJMtwXlUVt9ghY%3D\",\n        \"external\": \"Batman Shadows Mode: The Enemy Within\",\n        \"internalName\": \"BATMANSHADOWSMODETHEENEMYWITHIN\",\n        \"thumb\": \"https://images-4.gog-statics.com/70d653226ede85bb70a8d4022a2d02b6c2e2bb9775e87b6a9ca5c30d6ac7f815_196.jpg\"\n    },\n    {\n        \"gameID\": \"221906\",\n        \"steamAppID\": null,\n        \"cheapest\": \"2.50\",\n        \"cheapestDealID\": \"E7P6Oz50WDEWzQZZjj8b1l6e7C3S0sr43hOQnoDCtqk%3D\",\n        \"external\": \"Batman - The Enemy Within Shadows Mode\",\n        \"internalName\": \"BATMANTHEENEMYWITHINSHADOWSMODE\",\n        \"thumb\": \"https://images.greenmangaming.com/85ad7081bac34a3cb4151daeb6540b50/9e93071c54604454974132c72bab146f.jpg\"\n    },\n    {\n        \"gameID\": \"108605\",\n        \"steamAppID\": null,\n        \"cheapest\": \"8.49\",\n        \"cheapestDealID\": \"1kwCcJiqxMJJyas58G3FQ4Od%2BbujQrxSF19FRSAmcPE%3D\",\n        \"external\": \"Batman: Arkham Origins - Cold, Cold Heart\",\n        \"internalName\": \"BATMANARKHAMORIGINSCOLDCOLDHEART\",\n        \"thumb\": \"https://images.greenmangaming.com/ba8d4cd6e14e40fca132f346e2d0d3b4/44f1b54092f3498f88b3d7c1df88451b.jpg\"\n    },\n    {\n        \"gameID\": \"143817\",\n        \"steamAppID\": null,\n        \"cheapest\": \"7.99\",\n        \"cheapestDealID\": \"iv85kB4pumkpz3mSNXMCCEGq2w5wVQQ%2B%2BHhsU9RFnM0%3D\",\n        \"external\": \"Batman: Arkham Knight - Premium Edition\",\n        \"internalName\": \"BATMANARKHAMKNIGHTPREMIUMEDITION\",\n        \"thumb\": \"https://images.greenmangaming.com/b47c3b1bc8a5468ab3ada8832be8355c/4de3b472f988463abf6a869bcdda44d7.jpg\"\n    },\n    {\n        \"gameID\": \"136749\",\n        \"steamAppID\": null,\n        \"cheapest\": \"2.99\",\n        \"cheapestDealID\": \"jMXTnnT6oYt8%2FTcje4PFO9eGQ17gR6wCc367p2E9z9Q%3D\",\n        \"external\": \"LEGO Batman 3: Beyond Gotham Season Pass\",\n        \"internalName\": \"LEGOBATMAN3BEYONDGOTHAMSEASONPASS\",\n        \"thumb\": \"https://images.greenmangaming.com/0bb738257d294d47b3d753bd1c71d8d1/a65732c381de41dcbb6a77639d97fe2d.jpg\"\n    },\n    {\n        \"gameID\": \"221904\",\n        \"steamAppID\": null,\n        \"cheapest\": \"2.50\",\n        \"cheapestDealID\": \"oWzY%2BWDZExyELDQrL4xy3kd6P1p%2BOQMQ%2FIOeMaN0QaU%3D\",\n        \"external\": \"Batman - The Telltale Series Shadows Mode\",\n        \"internalName\": \"BATMANTHETELLTALESERIESSHADOWSMODE\",\n        \"thumb\": \"https://images.greenmangaming.com/9cc80f2eb57e4588b159b818fed76288/7afd0ac5cde2472b8fde02a4720dc0ad.jpg\"\n    },\n    {\n        \"gameID\": \"89095\",\n        \"steamAppID\": \"200260\",\n        \"cheapest\": \"4.99\",\n        \"cheapestDealID\": \"RPqJV%2BI3Cw5NOoq%2B89MzssePMS%2BQgv2M1OnDzsdR0Jo%3D\",\n        \"external\": \"Batman Arkham City Game of the Year Edition\",\n        \"internalName\": \"BATMANARKHAMCITYGAMEOFTHEYEAREDITION\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/200260/capsule_sm_120.jpg?t=1681938743\"\n    },\n    {\n        \"gameID\": \"178376\",\n        \"steamAppID\": null,\n        \"cheapest\": \"8.74\",\n        \"cheapestDealID\": \"41mAGTAdx1PqUUhubQ9kg%2BSgVFqd%2BDWDj5yAbB%2BGSJE%3D\",\n        \"external\": \"LEGO Batman 3: Beyond Gotham Premium Edition\",\n        \"internalName\": \"LEGOBATMAN3BEYONDGOTHAMPREMIUMEDITION\",\n        \"thumb\": \"https://images-4.gog-statics.com/0d81cdadc840148cbd6e1f1a6897bdf9d38994b3045c7a394f8426a82775b9f4_196.jpg\"\n    },\n    {\n        \"gameID\": \"171102\",\n        \"steamAppID\": \"675260\",\n        \"cheapest\": \"5.99\",\n        \"cheapestDealID\": \"O3R9Lb8H5%2FOde%2BYxvObV4bHESrZT7WooRK6Re4QKtLw%3D\",\n        \"external\": \"Batman: The Enemy Within - The Telltale Series\",\n        \"internalName\": \"BATMANTHEENEMYWITHINTHETELLTALESERIES\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/675260/capsule_sm_120.jpg?t=1686747613\"\n    },\n    {\n        \"gameID\": \"146\",\n        \"steamAppID\": \"35140\",\n        \"cheapest\": \"4.99\",\n        \"cheapestDealID\": \"HR5V6hEl39sGwYodeqwwWuo8dKtKukteV0W9we9pI7I%3D\",\n        \"external\": \"Batman: Arkham Asylum Game of the Year Edition\",\n        \"internalName\": \"BATMANARKHAMASYLUMGAMEOFTHEYEAREDITION\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/35140/capsule_sm_120.jpg?t=1681938587\"\n    },\n    {\n        \"gameID\": \"107869\",\n        \"steamAppID\": \"267490\",\n        \"cheapest\": \"4.99\",\n        \"cheapestDealID\": \"6aW%2BsA5i2cZ8pb2wvI0kuSfspYxuaeFKWl2iWWoCU7k%3D\",\n        \"external\": \"Batman: Arkham Origins Blackgate - Deluxe Edition\",\n        \"internalName\": \"BATMANARKHAMORIGINSBLACKGATEDELUXEEDITION\",\n        \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/267490/capsule_sm_120.jpg?t=1651865751\"\n    },\n    {\n        \"gameID\": \"250195\",\n        \"steamAppID\": null,\n        \"cheapest\": \"0.74\",\n        \"cheapestDealID\": \"A2XgGTglsm6iTyN%2BzxnWqIrErGb1uxYlGt4vUZyeG0k%3D\",\n        \"external\": \"LEGO DC Super-Villains Batman: The Animated Series Level Pack\",\n        \"internalName\": \"LEGODCSUPERVILLAINSBATMANTHEANIMATEDSERIESLEVELPACK\",\n        \"thumb\": \"https://images-4.gog-statics.com/7b55f49b5d2898986176e45d97391b263cc46b804ce7e8dc81ecb242c72f1e7d_196.jpg\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Game Lookup",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/1.0/games?id=612",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"1.0",
+								"games"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "612",
+									"description": "`(requied, integer)`\n\nAn existing gameID"
+								}
+							]
+						},
+						"description": "Gets info for a specific game. Response includes a list of all deals associated with the game."
+					},
+					"response": [
+						{
+							"name": "Game Lookup",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/1.0/games?id=612",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"games"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "612",
+											"description": "`(requied, integer)`\n\nAn existing gameID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 20:46:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "597962fe992103ac-ORD"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=300, s-maxage=600, stale-while-revalidate=30, stale-if-error=60, public"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "MISS"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "PHP-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "The love of games, an addiction to deals, and a bit of code! :)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PleskLin"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02dfbc331f000003acee362200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"info\": {\n        \"title\": \"LEGO Batman\",\n        \"steamAppID\": \"21000\",\n        \"thumb\": \"https://originassets.akamaized.net/origin-com-store-final-assets-prod/195763/142.0x200.0/1040463_MB_142x200_en_US_^_2017-09-08-15-21-36_d7034d41216b6dc201fb20e0cee37c1e66190a11.jpg\"\n    },\n    \"cheapestPriceEver\": {\n        \"price\": \"3.99\",\n        \"date\": 1543028665\n    },\n    \"deals\": [\n        {\n            \"storeID\": \"23\",\n            \"dealID\": \"tyTH88J0PXRvYALBjV3cNHd5Juq1qKcu4tG4lBiUCt4%3D\",\n            \"price\": \"4.23\",\n            \"retailPrice\": \"19.99\",\n            \"savings\": \"78.839420\"\n        },\n        {\n            \"storeID\": \"21\",\n            \"dealID\": \"Dtzv5PHBf71720cIYjxx3oHvvZK3iHUbQjv6fWLVpd8%3D\",\n            \"price\": \"4.59\",\n            \"retailPrice\": \"19.99\",\n            \"savings\": \"77.038519\"\n        },\n        {\n            \"storeID\": \"28\",\n            \"dealID\": \"atibivJQyXsOousolMoHm2iwPKyZaYMxbJ0sR0030M4%3D\",\n            \"price\": \"5.00\",\n            \"retailPrice\": \"19.99\",\n            \"savings\": \"74.987494\"\n        },\n        {\n            \"storeID\": \"24\",\n            \"dealID\": \"gxfmQjEJ%2Fk7JylG%2FKYHcmK4RcZY51YLVWfGF4CRkPIY%3D\",\n            \"price\": \"17.99\",\n            \"retailPrice\": \"19.99\",\n            \"savings\": \"10.005003\"\n        },\n        {\n            \"storeID\": \"15\",\n            \"dealID\": \"2G7cvZxDvSCoqSOpvARBvMXuwrA70L3j1%2FelPGxhddw%3D\",\n            \"price\": \"19.99\",\n            \"retailPrice\": \"19.99\",\n            \"savings\": \"0.000000\"\n        },\n        {\n            \"storeID\": \"8\",\n            \"dealID\": \"S8sC6rS2qZS5e0tROfV8hBgYeJPbG1T61BNmcz5Z%2BwE%3D\",\n            \"price\": \"19.99\",\n            \"retailPrice\": \"19.99\",\n            \"savings\": \"0.000000\"\n        },\n        {\n            \"storeID\": \"29\",\n            \"dealID\": \"%2B7VX8im%2FkdTZIoOpHzeQ0X3roxf655hXC6oq6iruQCM%3D\",\n            \"price\": \"19.99\",\n            \"retailPrice\": \"19.99\",\n            \"savings\": \"0.000000\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Multiple Game Lookup",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/1.0/games?ids=128,129,130",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"1.0",
+								"games"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "128,129,130",
+									"description": "`(required, string)`\n\nA comma separated list of GameID's"
+								},
+								{
+									"key": "format",
+									"value": "array",
+									"description": "`(optional, string)`\n\nSet a value of `array` if you prefer the response in array format (instead of key-value object)",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Allows lookup of a list of games. Includes list of all deals for each game. Maximum of 25 games."
+					},
+					"response": [
+						{
+							"name": "Multiple Game Lookup",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/1.0/games?ids=128,129,130",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"games"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "128,129,130",
+											"description": "`(required, string)`\n\nA comma seperated list of GameID's"
+										},
+										{
+											"key": "format",
+											"value": "array",
+											"description": "`(optional, string)`\n\nSet a value of `array` if you prefer the response in array format (instead of key-value object)",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 19 Jun 2023 17:33:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "7d9d851b7e2b0609-IAD"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "MISS"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=300, public"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Mon, 19 Jun 2023 17:33:56 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "access-control-allow-headers",
+									"value": "*"
+								},
+								{
+									"key": "access-control-allow-methods",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "Content-Encoding, X-Total-Page-Count"
+								},
+								{
+									"key": "cdn-cache-control",
+									"value": "max-age=600, stale-while-revalidate=60, stale-if-error=432000, public"
+								},
+								{
+									"key": "php-cache",
+									"value": "EXPIRED"
+								},
+								{
+									"key": "php-cache-age",
+									"value": "0"
+								},
+								{
+									"key": "php-cache-key",
+									"value": "a67d02f69f3b5fea4ce31322b97a29df8e645d75"
+								},
+								{
+									"key": "php-cache-max-age",
+									"value": "300"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "The love of games, an addiction to deals, and a bit of code! :)"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=%2Bu3GmZsrhpr%2FdxUzfoyMrlEKf0kQmpz3Zxrs9Q9F8rhFhOLF4h2UR9ZjdlhyAeIKA6Tj3PFtpiQTMLiqztCCgBVx88WyBEBNBa46aWX8ik%2B4bBASxwgRRhE6TuMNio1HZzsCLg%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"128\": {\n        \"info\": {\n            \"title\": \"BioShock\",\n            \"steamAppID\": null,\n            \"thumb\": \"https://gamersgatep.imgix.net/0/a/8/be6da04fc36b9995a78d20d319b638d8fad9d8a0.jpg?auto=&w=\"\n        },\n        \"cheapestPriceEver\": {\n            \"price\": \"4.60\",\n            \"date\": 1494806794\n        },\n        \"deals\": [\n            {\n                \"storeID\": \"23\",\n                \"dealID\": \"et8hm7BwoAPZnyJpSAAehTMKS7M1aPlbLKSZDWmUtEo%3D\",\n                \"price\": \"16.79\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"16.008004\"\n            },\n            {\n                \"storeID\": \"15\",\n                \"dealID\": \"oWyPURCZyImGfRbhD2zT0IhdZ4Z8WoFzQzTrQ8t23GQ%3D\",\n                \"price\": \"17.48\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"12.556278\"\n            },\n            {\n                \"storeID\": \"11\",\n                \"dealID\": \"IoCZ9drtueLEcHjcGtR%2BgdXUX9GnXHQ2tLL86zjlM90%3D\",\n                \"price\": \"19.98\",\n                \"retailPrice\": \"19.98\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"2\",\n                \"dealID\": \"DlT5IxXbqt4KI7VAOZVcrt1u%2BS9qYZQ16IY4cory4Cg%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"30\",\n                \"dealID\": \"r%2BKA9VEbC%2FlmDsUc30ISRH%2B56sfy2jV%2Fs%2Fzm38ySxFk%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"24\",\n                \"dealID\": \"dPB13v%2FMykCkRy39LDryRmCgCc6G6rXN0h1mPvXbQyk%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"34\",\n                \"dealID\": \"QXFi%2FEUKKTtf86zeNbkc0%2F6MTZ8ZQd5MYJdTw%2BXkdwk%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"33\",\n                \"dealID\": \"dMKdFSJ01mPBfcmjCGS0q1pFjSNf44uPI6WP9XrvNME%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"29\",\n                \"dealID\": \"cLKxizhmpyEkhGp0fZnFSXhRgU382U5iTkluKEwAizw%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"35\",\n                \"dealID\": \"ZYfDUcVNcGrJrdPtndBWjWul8RlfuCZi6lriNsze6gk%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            }\n        ]\n    },\n    \"129\": {\n        \"info\": {\n            \"title\": \"Red Orchestra 2: Heroes of Stalingrad\",\n            \"steamAppID\": null,\n            \"thumb\": \"https://gamersgatep.imgix.net/c/7/3/ba988a3021dc7056b9e89f17dc8e32edc59b737c.jpg?auto=&w=\"\n        },\n        \"cheapestPriceEver\": {\n            \"price\": \"1.86\",\n            \"date\": 1629066371\n        },\n        \"deals\": [\n            {\n                \"storeID\": \"2\",\n                \"dealID\": \"gQ%2BvhhK8ajVFYxHIo0%2B12qoX3nUJNwWS5LgqSnfS4AI%3D\",\n                \"price\": \"9.95\",\n                \"retailPrice\": \"9.95\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"3\",\n                \"dealID\": \"uJDIXwUve0nH2n4ToaL%2FLi71X4cT1XqHuqYfxaDDHN0%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            }\n        ]\n    },\n    \"130\": {\n        \"info\": {\n            \"title\": \"Renegade Ops\",\n            \"steamAppID\": \"99300\",\n            \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/99300/capsule_sm_120.jpg?t=1614779423\"\n        },\n        \"cheapestPriceEver\": {\n            \"price\": \"2.25\",\n            \"date\": 1569868411\n        },\n        \"deals\": [\n            {\n                \"storeID\": \"1\",\n                \"dealID\": \"YVakQjhMcizSIK2lDWVgW5zXo35ZV63u7u%2BXazw%2Bfm4%3D\",\n                \"price\": \"15.00\",\n                \"retailPrice\": \"15.00\",\n                \"savings\": \"0.000000\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Multiple Game Lookup - Array Format",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/1.0/games?ids=128,129,130&format=array",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"games"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "128,129,130",
+											"description": "`(required, string)`\n\nA comma seperated list of GameID's"
+										},
+										{
+											"key": "format",
+											"value": "array",
+											"description": "`(optional, string)`\n\nResponse format modifier that will return the games in an array (instead of a key-value object)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 25 Mar 2023 18:23:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "7ad92ef84d6b207c-IAD"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Age",
+									"value": "9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=300, public"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Sat, 25 Mar 2023 17:55:26 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "HIT"
+								},
+								{
+									"key": "access-control-allow-headers",
+									"value": "*"
+								},
+								{
+									"key": "access-control-allow-methods",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "Content-Encoding, X-Total-Page-Count"
+								},
+								{
+									"key": "cdn-cache-control",
+									"value": "max-age=600, stale-while-revalidate=60, stale-if-error=86400, public"
+								},
+								{
+									"key": "php-cache",
+									"value": "EXPIRED"
+								},
+								{
+									"key": "php-cache-age",
+									"value": "0"
+								},
+								{
+									"key": "php-cache-key",
+									"value": "2bc58b74793fe54ce3ceead3658d4bc2329d0b99"
+								},
+								{
+									"key": "php-cache-max-age",
+									"value": "300"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "The love of games, an addiction to deals, and a bit of code! :)"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=gj2c%2BmbMENrhilevqO%2F8yDcJmAw0nDQ4RvA8M0HWwvI%2BzAFJn1a0uUaG1k5Ua%2BtDuK5EBsuBuQPr7%2BHduflcPksrO65VGe3DVHDfzkg0WjZexJMO0XMuqgf6A0RHGYjiMC13fQ%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"info\": {\n            \"gameID\": \"128\",\n            \"title\": \"BioShock\",\n            \"steamAppID\": null,\n            \"thumb\": \"https://gamersgatep.imgix.net/0/a/8/be6da04fc36b9995a78d20d319b638d8fad9d8a0.jpg?auto=&w=\"\n        },\n        \"cheapestPriceEver\": {\n            \"price\": \"4.60\",\n            \"date\": 1494806794\n        },\n        \"deals\": [\n            {\n                \"storeID\": \"11\",\n                \"dealID\": \"IoCZ9drtueLEcHjcGtR%2BgdXUX9GnXHQ2tLL86zjlM90%3D\",\n                \"price\": \"4.99\",\n                \"retailPrice\": \"19.98\",\n                \"savings\": \"75.025025\"\n            },\n            {\n                \"storeID\": \"23\",\n                \"dealID\": \"et8hm7BwoAPZnyJpSAAehTMKS7M1aPlbLKSZDWmUtEo%3D\",\n                \"price\": \"16.79\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"16.008004\"\n            },\n            {\n                \"storeID\": \"15\",\n                \"dealID\": \"oWyPURCZyImGfRbhD2zT0IhdZ4Z8WoFzQzTrQ8t23GQ%3D\",\n                \"price\": \"17.48\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"12.556278\"\n            },\n            {\n                \"storeID\": \"2\",\n                \"dealID\": \"DlT5IxXbqt4KI7VAOZVcrt1u%2BS9qYZQ16IY4cory4Cg%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"30\",\n                \"dealID\": \"mmN9g5a3OJzlYAZS5Y7CnbKT5fVk3RyUGKQv%2BbfJTHA%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"24\",\n                \"dealID\": \"dPB13v%2FMykCkRy39LDryRmCgCc6G6rXN0h1mPvXbQyk%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"34\",\n                \"dealID\": \"QXFi%2FEUKKTtf86zeNbkc0%2F6MTZ8ZQd5MYJdTw%2BXkdwk%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"33\",\n                \"dealID\": \"dMKdFSJ01mPBfcmjCGS0q1pFjSNf44uPI6WP9XrvNME%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"29\",\n                \"dealID\": \"cLKxizhmpyEkhGp0fZnFSXhRgU382U5iTkluKEwAizw%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            },\n            {\n                \"storeID\": \"35\",\n                \"dealID\": \"ZYfDUcVNcGrJrdPtndBWjWul8RlfuCZi6lriNsze6gk%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            }\n        ]\n    },\n    {\n        \"info\": {\n            \"gameID\": \"129\",\n            \"title\": \"Red Orchestra 2: Heroes of Stalingrad\",\n            \"steamAppID\": null,\n            \"thumb\": \"https://gamersgatep.imgix.net/c/7/3/ba988a3021dc7056b9e89f17dc8e32edc59b737c.jpg?auto=&w=\"\n        },\n        \"cheapestPriceEver\": {\n            \"price\": \"1.86\",\n            \"date\": 1629066371\n        },\n        \"deals\": [\n            {\n                \"storeID\": \"2\",\n                \"dealID\": \"gQ%2BvhhK8ajVFYxHIo0%2B12qoX3nUJNwWS5LgqSnfS4AI%3D\",\n                \"price\": \"1.86\",\n                \"retailPrice\": \"9.95\",\n                \"savings\": \"81.306533\"\n            },\n            {\n                \"storeID\": \"3\",\n                \"dealID\": \"uJDIXwUve0nH2n4ToaL%2FLi71X4cT1XqHuqYfxaDDHN0%3D\",\n                \"price\": \"19.99\",\n                \"retailPrice\": \"19.99\",\n                \"savings\": \"0.000000\"\n            }\n        ]\n    },\n    {\n        \"info\": {\n            \"gameID\": \"130\",\n            \"title\": \"Renegade Ops\",\n            \"steamAppID\": \"99300\",\n            \"thumb\": \"https://cdn.cloudflare.steamstatic.com/steam/apps/99300/capsule_sm_120.jpg?t=1614779423\"\n        },\n        \"cheapestPriceEver\": {\n            \"price\": \"2.25\",\n            \"date\": 1569868411\n        },\n        \"deals\": [\n            {\n                \"storeID\": \"1\",\n                \"dealID\": \"YVakQjhMcizSIK2lDWVgW5zXo35ZV63u7u%2BXazw%2Bfm4%3D\",\n                \"price\": \"15.00\",\n                \"retailPrice\": \"15.00\",\n                \"savings\": \"0.000000\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "Games are the parent for deals, they are grouped by their name. They have one or more deals associated with them.\n\nThe Games endpoint can be useful when you need to search by title and present which Games are available (before drilling down into deals)."
+		},
+		{
+			"name": "🛒 Stores",
+			"item": [
+				{
+					"name": "Stores Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/1.0/stores",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"1.0",
+								"stores"
+							]
+						},
+						"description": "Returns a full list of store IDs, names, and a flag specifying if store is active.\n\nResponse also includes an collection of banner / logo / icon image URLs for each store.\n\n📌 Note: These URLs are relative, and should be appended to the CheapShark domain, for example -\n\n`https://www.cheapshark.com{path-to-image}`"
+					},
+					"response": [
+						{
+							"name": "Stores Info",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/1.0/stores",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"stores"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 19 Jun 2023 17:34:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "7d9d863f081d0609-IAD"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "HIT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Age",
+									"value": "9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=300, public"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Mon, 19 Jun 2023 17:33:55 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "access-control-allow-headers",
+									"value": "*"
+								},
+								{
+									"key": "access-control-allow-methods",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "Content-Encoding, X-Total-Page-Count"
+								},
+								{
+									"key": "cdn-cache-control",
+									"value": "max-age=600, stale-while-revalidate=60, stale-if-error=432000, public"
+								},
+								{
+									"key": "php-cache",
+									"value": "EXPIRED"
+								},
+								{
+									"key": "php-cache-age",
+									"value": "0"
+								},
+								{
+									"key": "php-cache-key",
+									"value": "dacb690e0119aefb226458ad2f9421669613b747"
+								},
+								{
+									"key": "php-cache-max-age",
+									"value": "300"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "The love of games, an addiction to deals, and a bit of code! :)"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=%2BA8YBQDPXSsCgxkjlxXA0LJium23eRlKT7S5T3jwCmc5DWLYiCmY2bKy2%2Bvyyv2Yp3C3%2FzBdcutm7AKMLoeC4QoTcxfm0mT89MluaMr0mjKiULHpBZvhvwVfe26XThYanYk4qQ%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"storeID\": \"1\",\n        \"storeName\": \"Steam\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/0.png\",\n            \"logo\": \"/img/stores/logos/0.png\",\n            \"icon\": \"/img/stores/icons/0.png\"\n        }\n    },\n    {\n        \"storeID\": \"2\",\n        \"storeName\": \"GamersGate\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/1.png\",\n            \"logo\": \"/img/stores/logos/1.png\",\n            \"icon\": \"/img/stores/icons/1.png\"\n        }\n    },\n    {\n        \"storeID\": \"3\",\n        \"storeName\": \"GreenManGaming\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/2.png\",\n            \"logo\": \"/img/stores/logos/2.png\",\n            \"icon\": \"/img/stores/icons/2.png\"\n        }\n    },\n    {\n        \"storeID\": \"4\",\n        \"storeName\": \"Amazon\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/3.png\",\n            \"logo\": \"/img/stores/logos/3.png\",\n            \"icon\": \"/img/stores/icons/3.png\"\n        }\n    },\n    {\n        \"storeID\": \"5\",\n        \"storeName\": \"GameStop\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/4.png\",\n            \"logo\": \"/img/stores/logos/4.png\",\n            \"icon\": \"/img/stores/icons/4.png\"\n        }\n    },\n    {\n        \"storeID\": \"6\",\n        \"storeName\": \"Direct2Drive\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/5.png\",\n            \"logo\": \"/img/stores/logos/5.png\",\n            \"icon\": \"/img/stores/icons/5.png\"\n        }\n    },\n    {\n        \"storeID\": \"7\",\n        \"storeName\": \"GOG\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/6.png\",\n            \"logo\": \"/img/stores/logos/6.png\",\n            \"icon\": \"/img/stores/icons/6.png\"\n        }\n    },\n    {\n        \"storeID\": \"8\",\n        \"storeName\": \"Origin\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/7.png\",\n            \"logo\": \"/img/stores/logos/7.png\",\n            \"icon\": \"/img/stores/icons/7.png\"\n        }\n    },\n    {\n        \"storeID\": \"9\",\n        \"storeName\": \"Get Games\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/8.png\",\n            \"logo\": \"/img/stores/logos/8.png\",\n            \"icon\": \"/img/stores/icons/8.png\"\n        }\n    },\n    {\n        \"storeID\": \"10\",\n        \"storeName\": \"Shiny Loot\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/9.png\",\n            \"logo\": \"/img/stores/logos/9.png\",\n            \"icon\": \"/img/stores/icons/9.png\"\n        }\n    },\n    {\n        \"storeID\": \"11\",\n        \"storeName\": \"Humble Store\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/10.png\",\n            \"logo\": \"/img/stores/logos/10.png\",\n            \"icon\": \"/img/stores/icons/10.png\"\n        }\n    },\n    {\n        \"storeID\": \"12\",\n        \"storeName\": \"Desura\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/11.png\",\n            \"logo\": \"/img/stores/logos/11.png\",\n            \"icon\": \"/img/stores/icons/11.png\"\n        }\n    },\n    {\n        \"storeID\": \"13\",\n        \"storeName\": \"Uplay\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/12.png\",\n            \"logo\": \"/img/stores/logos/12.png\",\n            \"icon\": \"/img/stores/icons/12.png\"\n        }\n    },\n    {\n        \"storeID\": \"14\",\n        \"storeName\": \"IndieGameStand\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/13.png\",\n            \"logo\": \"/img/stores/logos/13.png\",\n            \"icon\": \"/img/stores/icons/13.png\"\n        }\n    },\n    {\n        \"storeID\": \"15\",\n        \"storeName\": \"Fanatical\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/14.png\",\n            \"logo\": \"/img/stores/logos/14.png\",\n            \"icon\": \"/img/stores/icons/14.png\"\n        }\n    },\n    {\n        \"storeID\": \"16\",\n        \"storeName\": \"Gamesrocket\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/15.png\",\n            \"logo\": \"/img/stores/logos/15.png\",\n            \"icon\": \"/img/stores/icons/15.png\"\n        }\n    },\n    {\n        \"storeID\": \"17\",\n        \"storeName\": \"Games Republic\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/16.png\",\n            \"logo\": \"/img/stores/logos/16.png\",\n            \"icon\": \"/img/stores/icons/16.png\"\n        }\n    },\n    {\n        \"storeID\": \"18\",\n        \"storeName\": \"SilaGames\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/17.png\",\n            \"logo\": \"/img/stores/logos/17.png\",\n            \"icon\": \"/img/stores/icons/17.png\"\n        }\n    },\n    {\n        \"storeID\": \"19\",\n        \"storeName\": \"Playfield\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/18.png\",\n            \"logo\": \"/img/stores/logos/18.png\",\n            \"icon\": \"/img/stores/icons/18.png\"\n        }\n    },\n    {\n        \"storeID\": \"20\",\n        \"storeName\": \"ImperialGames\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/19.png\",\n            \"logo\": \"/img/stores/logos/19.png\",\n            \"icon\": \"/img/stores/icons/19.png\"\n        }\n    },\n    {\n        \"storeID\": \"21\",\n        \"storeName\": \"WinGameStore\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/20.png\",\n            \"logo\": \"/img/stores/logos/20.png\",\n            \"icon\": \"/img/stores/icons/20.png\"\n        }\n    },\n    {\n        \"storeID\": \"22\",\n        \"storeName\": \"FunStockDigital\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/21.png\",\n            \"logo\": \"/img/stores/logos/21.png\",\n            \"icon\": \"/img/stores/icons/21.png\"\n        }\n    },\n    {\n        \"storeID\": \"23\",\n        \"storeName\": \"GameBillet\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/22.png\",\n            \"logo\": \"/img/stores/logos/22.png\",\n            \"icon\": \"/img/stores/icons/22.png\"\n        }\n    },\n    {\n        \"storeID\": \"24\",\n        \"storeName\": \"Voidu\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/23.png\",\n            \"logo\": \"/img/stores/logos/23.png\",\n            \"icon\": \"/img/stores/icons/23.png\"\n        }\n    },\n    {\n        \"storeID\": \"25\",\n        \"storeName\": \"Epic Games Store\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/24.png\",\n            \"logo\": \"/img/stores/logos/24.png\",\n            \"icon\": \"/img/stores/icons/24.png\"\n        }\n    },\n    {\n        \"storeID\": \"26\",\n        \"storeName\": \"Razer Game Store\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/25.png\",\n            \"logo\": \"/img/stores/logos/25.png\",\n            \"icon\": \"/img/stores/icons/25.png\"\n        }\n    },\n    {\n        \"storeID\": \"27\",\n        \"storeName\": \"Gamesplanet\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/26.png\",\n            \"logo\": \"/img/stores/logos/26.png\",\n            \"icon\": \"/img/stores/icons/26.png\"\n        }\n    },\n    {\n        \"storeID\": \"28\",\n        \"storeName\": \"Gamesload\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/27.png\",\n            \"logo\": \"/img/stores/logos/27.png\",\n            \"icon\": \"/img/stores/icons/27.png\"\n        }\n    },\n    {\n        \"storeID\": \"29\",\n        \"storeName\": \"2Game\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/28.png\",\n            \"logo\": \"/img/stores/logos/28.png\",\n            \"icon\": \"/img/stores/icons/28.png\"\n        }\n    },\n    {\n        \"storeID\": \"30\",\n        \"storeName\": \"IndieGala\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/29.png\",\n            \"logo\": \"/img/stores/logos/29.png\",\n            \"icon\": \"/img/stores/icons/29.png\"\n        }\n    },\n    {\n        \"storeID\": \"31\",\n        \"storeName\": \"Blizzard Shop\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/30.png\",\n            \"logo\": \"/img/stores/logos/30.png\",\n            \"icon\": \"/img/stores/icons/30.png\"\n        }\n    },\n    {\n        \"storeID\": \"32\",\n        \"storeName\": \"AllYouPlay\",\n        \"isActive\": 0,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/31.png\",\n            \"logo\": \"/img/stores/logos/31.png\",\n            \"icon\": \"/img/stores/icons/31.png\"\n        }\n    },\n    {\n        \"storeID\": \"33\",\n        \"storeName\": \"DLGamer\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/32.png\",\n            \"logo\": \"/img/stores/logos/32.png\",\n            \"icon\": \"/img/stores/icons/32.png\"\n        }\n    },\n    {\n        \"storeID\": \"34\",\n        \"storeName\": \"Noctre\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/33.png\",\n            \"logo\": \"/img/stores/logos/33.png\",\n            \"icon\": \"/img/stores/icons/33.png\"\n        }\n    },\n    {\n        \"storeID\": \"35\",\n        \"storeName\": \"DreamGame\",\n        \"isActive\": 1,\n        \"images\": {\n            \"banner\": \"/img/stores/banners/34.png\",\n            \"logo\": \"/img/stores/logos/34.png\",\n            \"icon\": \"/img/stores/icons/34.png\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Stores Last Change",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/1.0/stores?lastChange=",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"1.0",
+								"stores"
+							],
+							"query": [
+								{
+									"key": "lastChange",
+									"value": ""
+								}
+							]
+						},
+						"description": "Including the `lastChange` parameter on the Stores endpoint will return an object with a mapping of `storeIDs` to the last update / change time for that store (in Unix Timestamp format).\n\nThis can be useful to know for reducing the number of API requests for deals or games."
+					},
+					"response": [
+						{
+							"name": "Stores Last Change",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/1.0/stores?lastChange=",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"stores"
+									],
+									"query": [
+										{
+											"key": "lastChange",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 19 Jun 2023 17:34:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "7d9d8678bb760609-IAD"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "HIT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=300, public"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Mon, 19 Jun 2023 17:29:39 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "access-control-allow-headers",
+									"value": "*"
+								},
+								{
+									"key": "access-control-allow-methods",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "Content-Encoding, X-Total-Page-Count"
+								},
+								{
+									"key": "cdn-cache-control",
+									"value": "max-age=600, stale-while-revalidate=60, stale-if-error=432000, public"
+								},
+								{
+									"key": "php-cache",
+									"value": "EXPIRED"
+								},
+								{
+									"key": "php-cache-age",
+									"value": "0"
+								},
+								{
+									"key": "php-cache-key",
+									"value": "d6981218b5fee59e36a453b6bab8de29f0688214"
+								},
+								{
+									"key": "php-cache-max-age",
+									"value": "300"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "The love of games, an addiction to deals, and a bit of code! :)"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=Ges2ACFdIssFrWlxlvGH6q6IxKjG7mi69kS8v%2BgBerA0kzk7zxr6jXTb8Sq3ftgcQxOygasEbG8gxP1llgKLKJvoErJt0Coxe4XhNzT3tpCtFSEyWymibcKLTC%2BtRcpVAa1OyA%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"1\": \"1687194696\",\n    \"2\": \"1687192946\",\n    \"3\": \"1687195550\",\n    \"7\": \"1687194216\",\n    \"8\": \"1687192703\",\n    \"11\": \"1687192630\",\n    \"13\": \"1687192395\",\n    \"15\": \"1687194986\",\n    \"21\": \"1687195460\",\n    \"23\": \"1687195017\",\n    \"24\": \"1687195029\",\n    \"25\": \"1687193047\",\n    \"27\": \"1687194841\",\n    \"28\": \"1687195460\",\n    \"29\": \"1687195267\",\n    \"30\": \"1687193808\",\n    \"31\": \"1687192468\",\n    \"33\": \"1687195753\",\n    \"34\": \"1687195631\",\n    \"35\": \"1687195735\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Information and logos for stores that we track."
+		},
+		{
+			"name": "📧 Alerts",
+			"item": [
+				{
+					"name": "Edit Alert",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/1.0/alerts?action=set&email=someone@example.org&gameID=59&price=14.99",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"1.0",
+								"alerts"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "set",
+									"description": "`(required, string)`\n\nThe action to take on the price alert (`set` or `delete`)"
+								},
+								{
+									"key": "email",
+									"value": "someone@example.org",
+									"description": "`(required, string)`\n\nAny valid email address"
+								},
+								{
+									"key": "gameID",
+									"value": "59",
+									"description": "`(required, integer)`\n\nAn existing gameID"
+								},
+								{
+									"key": "price",
+									"value": "14.99",
+									"description": "`(required, decimal)`\n\nThe price to wait for, only required when using `set` value for `action` parameter"
+								}
+							]
+						},
+						"description": "Set or deletes a price alert.\r\n\r\nWhen setting, returns `true` for valid email / gameID / price, otherwise `false`.\r\n\r\nWhen deleting, returns `true` for valid email / gameID, otherwise `false`."
+					},
+					"response": [
+						{
+							"name": "Edit Alert",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{host}}/api/1.0/alerts?action=set&email=someone@example.org&gameID=59&price=14.99",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"alerts"
+									],
+									"query": [
+										{
+											"key": "action",
+											"value": "set",
+											"description": "`(required, string)`\n\nThe action to take on the price alert"
+										},
+										{
+											"key": "email",
+											"value": "someone@example.org",
+											"description": "`(required, string)`\n\nAny valid email address"
+										},
+										{
+											"key": "gameID",
+											"value": "59",
+											"description": "`(required, integer)`\n\nAn existing gameID"
+										},
+										{
+											"key": "price",
+											"value": "14.99",
+											"description": "`(required, decimal)`\n\nThe price to wait for, only required when using `set` value for `action` parameter"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "CF-RAY",
+									"value": "450a6d4b7ce97197-ORD",
+									"description": "Custom header"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=UTF-8",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 27 Aug 2018 00:29:59 GMT",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+									"description": "Custom header"
+								},
+								{
+									"key": "MS-Author-Via",
+									"value": "DAV",
+									"description": "Custom header"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Sun Aug 25 2019 23:40:14 GMT+0200 (Central European Summer Time)",
+									"httpOnly": true,
+									"domain": "cheapshark.com",
+									"path": "/",
+									"secure": false,
+									"value": "d2cabf0b57ad6d1b3a70d950f454136ac1535233214",
+									"key": "__cfduid"
+								}
+							],
+							"body": "true"
+						},
+						{
+							"name": "Delete Alert",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{host}}/api/1.0/alerts?action=delete&email=someone@example.org&gameID=59",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"alerts"
+									],
+									"query": [
+										{
+											"key": "action",
+											"value": "delete",
+											"description": "`(required, string)`\n\nThe action to take on the price alert"
+										},
+										{
+											"key": "email",
+											"value": "someone@example.org",
+											"description": "`(required, string)`\n\nAny valid email address"
+										},
+										{
+											"key": "gameID",
+											"value": "59",
+											"description": "`(required, integer)`\n\nAn existing gameID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "CF-RAY",
+									"value": "450a6d4b7ce97197-ORD",
+									"description": "Custom header"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=UTF-8",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 27 Aug 2018 00:29:59 GMT",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+									"description": "Custom header"
+								},
+								{
+									"key": "MS-Author-Via",
+									"value": "DAV",
+									"description": "Custom header"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Sun Aug 25 2019 23:40:14 GMT+0200 (Central European Summer Time)",
+									"httpOnly": true,
+									"domain": "cheapshark.com",
+									"path": "/",
+									"secure": false,
+									"value": "d2cabf0b57ad6d1b3a70d950f454136ac1535233214",
+									"key": "__cfduid"
+								}
+							],
+							"body": "true"
+						}
+					]
+				},
+				{
+					"name": "Manage Alerts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/1.0/alerts?action=manage&email=address-with-alerts@example.org",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"1.0",
+								"alerts"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "manage",
+									"description": "`(required, string)`\n\nThe action to take on the price alert"
+								},
+								{
+									"key": "email",
+									"value": "address-with-alerts@example.org",
+									"description": "`(required, string)`\n\nAny valid email address with existing alerts"
+								}
+							]
+						},
+						"description": "Send an email containing a link to manage your alerts."
+					},
+					"response": [
+						{
+							"name": "Manage Alerts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/1.0/alerts?action=manage&email=valid-address-with-alerts@example.org",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"alerts"
+									],
+									"query": [
+										{
+											"key": "action",
+											"value": "manage",
+											"description": "`(required, string)`\n\nThe action to take on the price alert"
+										},
+										{
+											"key": "email",
+											"value": "valid-address-with-alerts@example.org",
+											"description": "`(required, string)`\n\nAny valid email address"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 07 Jan 2020 02:13:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.14"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, no-store"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "18"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=UTF-8"
+								}
+							],
+							"cookie": [],
+							"body": "Link sent to email"
+						},
+						{
+							"name": "Manage Alerts (Address without Alerts)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/1.0/alerts?action=manage&email=address-without-alerts@example.org",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"alerts"
+									],
+									"query": [
+										{
+											"key": "action",
+											"value": "manage",
+											"description": "`(required, string)`\n\nThe action to take on the price alert"
+										},
+										{
+											"key": "email",
+											"value": "address-without-alerts@example.org",
+											"description": "`(required, string)`\n\nAny valid email address"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 07 Jan 2020 02:11:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.14"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, no-store"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "25"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=UTF-8"
+								}
+							],
+							"cookie": [],
+							"body": "No alerts found for email"
+						}
+					]
+				},
+				{
+					"name": "Get Alerts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/1.0/alerts?action=get&key=example-key-value",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"1.0",
+								"alerts"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "get",
+									"description": "`(required, string)`\nThe action to take on the price alert"
+								},
+								{
+									"key": "key",
+									"value": "example-key-value",
+									"description": "`(required, string)`\nThe key parameter from your manage link (received via email)"
+								}
+							]
+						},
+						"description": "This endpoint will return all your existing alerts. It requires a `key`which you can retrieve from the link sent to your email when using the `Manage Alerts` endpoint."
+					},
+					"response": [
+						{
+							"name": "Key w/ Alerts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/1.0/alerts?action=get&key=valid-key-with-alerts",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"alerts"
+									],
+									"query": [
+										{
+											"key": "action",
+											"value": "get",
+											"description": "`(required, string)`\nThe action to take on the price alert"
+										},
+										{
+											"key": "key",
+											"value": "valid-key-with-alerts",
+											"description": "`(required, string)`\nThe key parameter from your manage link (received via email)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 23 Aug 2024 13:11:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "276"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "8b7b5958dce9c938-IAD"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "BYPASS"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, no-store"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "access-control-allow-headers",
+									"value": "*"
+								},
+								{
+									"key": "access-control-allow-methods",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "Content-Encoding, X-Total-Page-Count"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "The love of games, an addiction to deals, and a bit of code! :)"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=7IXWpYZpR8jPbkK36KZR3GAi4HAOVnzvzKDC011LlEE%2F7nBa5snJq5WWENw1%2FRvnibYArwYBw3YX8ClCeBPIHj3jVMqCbRRsdGm464Rr45qs2hWW86KqLX2yWm%2BVcy5MiRQbZg%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"price\": \"20.00\",\n        \"game\": \"Cyberpunk 2077: Phantom Liberty\",\n        \"gameID\": \"264414\"\n    },\n    {\n        \"price\": \"15.00\",\n        \"game\": \"Moss: Book II\",\n        \"gameID\": \"252354\"\n    },\n    {\n        \"price\": \"5.00\",\n        \"game\": \"The Talos Principle\",\n        \"gameID\": \"135790\"\n    },\n    {\n        \"price\": \"15.00\",\n        \"game\": \"Total War: PHARAOH\",\n        \"gameID\": \"261052\"\n    }\n]"
+						},
+						{
+							"name": "Invalid Key",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/1.0/alerts?action=get&key=invalid-key-value",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"1.0",
+										"alerts"
+									],
+									"query": [
+										{
+											"key": "action",
+											"value": "get",
+											"description": "`(required, string)`\nThe action to take on the price alert"
+										},
+										{
+											"key": "key",
+											"value": "invalid-key-value",
+											"description": "`(required, string)`\nThe key parameter from your manage link (received via email)"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 23 Aug 2024 13:06:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "8b7b5254b85dc938-IAD"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "BYPASS"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, no-store"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "access-control-allow-headers",
+									"value": "*"
+								},
+								{
+									"key": "access-control-allow-methods",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "Content-Encoding, X-Total-Page-Count"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "The love of games, an addiction to deals, and a bit of code! :)"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=x%2B6daSdCe6wkgeD0n5OrnP7s0qIB%2FTCxeq0ahwM87tY%2B6GWUiS3RBXqW3ti7qHxpi40PFU3aft5bz2DlWlzSilAwlTHzpeH9gi7%2BVkU4DSoS1GJFXGeuDDJZ%2FT3rQfd%2BzyJi8A%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						}
+					]
+				}
+			],
+			"description": "Price alerts are a combination of email address, gameID, and price.\r\n\r\nEmails are sent when any deal for the game reaches (or drops below) the desired price."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://www.cheapshark.com",
+			"type": "string"
+		}
+	]
+}
