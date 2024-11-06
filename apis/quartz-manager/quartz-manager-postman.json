@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "77b89e2b-f1d0-4a76-9e82-bf4cfdebf7f4",
+		"name": "Quartz-Scheduler",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE A MAIL SCHEDULE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"Dear Friend, <br> <br> <font color=red><b><i>Most coders think debugging software is about fixing a mistake, but that’s bull****. Debugging’s actually all about finding the bug, about understanding why the bug was there to begin with, about knowing that its existence was no accident. It came to you to deliver a message, like an unconscious bubble floating to the surface, popping with a revelation you’ve secretly known all along </i></b></font> <br> <br> Cheers,<br>Pranay.\",\n    \"scheduledTime\": \"2021-04-24T19:55:00.931Z\",\n    \"subject\": \"The Bug [RED]\",\n    \"toEmail\": \"codevampire007@gmail.com\",\n    \"username\": \"pranaybathini\",\n    \"zoneId\": \"Asia/Kolkata\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/quartz/mail/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quartz",
+						"mail",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE A MAIL SCHEDULE",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/quartz/mail/delete/{id}?id=7&username=pranaybathini",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quartz",
+						"mail",
+						"delete",
+						"{id}"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "7"
+						},
+						{
+							"key": "username",
+							"value": "pranaybathini"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL MAIL SCHEDULES CREATED BY USER",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/quartz/mail/list?page=0&size=1000&username=pranaybathini",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quartz",
+						"mail",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "1000"
+						},
+						{
+							"key": "username",
+							"value": "pranaybathini"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET MAIL SCHEDULE BY ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/quartz/mail/list/{id}?id=9&username=pranaybathini",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quartz",
+						"mail",
+						"list",
+						"{id}"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "9"
+						},
+						{
+							"key": "username",
+							"value": "pranaybathini"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE MAIL SCHEDULE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"scheduleId\": 21, \"message\": \"Dear Friend, <br> <br> <font color=red><b><i>Most coders think debugging software is about fixing a mistake, but that’s bull****. Debugging’s actually all about finding the bug, about understanding why the bug was there to begin with, about knowing that its existence was no accident. It came to you to deliver a message, like an unconscious bubble floating to the surface, popping with a revelation you’ve secretly known all along </i></b></font> <br> <br> Cheers,<br>Pranay.\", \"scheduledTime\": \"2021-04-26T19:56:00.931Z\", \"subject\": \"The Bug [RED]\", \"toEmail\": \"codevampire007@gmail.com\", \"username\": \"pranaybathini\", \"zoneId\": \"Asia/Kolkata\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/quartz/mail/update/{id}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quartz",
+						"mail",
+						"update",
+						"{id}"
+					]
+				},
+				"description": "http://localhost:8080/quartz/mail/update/{id}"
+			},
+			"response": []
+		}
+	]
+}
