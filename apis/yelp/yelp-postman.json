@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "54c585cc-5535-47af-8984-c6e2941e05ca",
+		"name": "Yelp V3",
+		"description": "Yelp's Fusion API allows you to get the best local business information and user reviews of over million businesses in 32 countries\n\nContact Support:\n Name: No Contact\n Email: email@example.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31389332",
+		"_collection_link": "https://www.postman.com/api-evangelist/yelp/collection/27ym6ew/yelp-v3?action=share&source=collection_link&creator=31389332"
+	},
+	"item": [
+		{
+			"name": "businesses",
+			"item": [
+				{
+					"name": "search",
+					"item": [
+						{
+							"name": "Get Businesses Search",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/businesses/search?term=<>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businesses",
+										"search"
+									],
+									"query": [
+										{
+											"key": "term",
+											"value": "<>"
+										}
+									]
+								},
+								"description": "Get businesses search."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Businesses Search Phone",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/businesses/search/phone?phone=<>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businesses",
+										"search",
+										"phone"
+									],
+									"query": [
+										{
+											"key": "phone",
+											"value": "<>"
+										}
+									]
+								},
+								"description": "Get businesses search phone."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get Businesses",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/businesses/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businesses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<>",
+											"type": "string",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										}
+									]
+								},
+								"description": "Get businesses."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Businesses Reviews",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/businesses/:id/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businesses",
+										":id",
+										"reviews"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<>",
+											"type": "string",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										}
+									]
+								},
+								"description": "Get businesses reviews."
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Get Autocomplete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/autocomplete?text=<>",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"autocomplete"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "<>"
+						}
+					]
+				},
+				"description": "Get autocomplete."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transactions Delivery Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/transactions/delivery/search",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"transactions",
+						"delivery",
+						"search"
+					]
+				},
+				"description": "Get transactions delivery search."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "httpsapi.yelp.com/v3",
+			"type": "string"
+		}
+	]
+}
