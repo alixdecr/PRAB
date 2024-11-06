@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "6f75c0d5-1bec-46ab-961b-9e0bb0cb0f70",
+		"_postman_id": "e583ca7c-5eac-4ba5-b812-540e097b3b82",
 		"name": "balldontlie",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "31389332",
-		"_collection_link": "https://www.postman.com/warped-desert-16844/reasonkxx/collection/cqr6ao9/balldontlie?action=share&source=collection_link&creator=31389332"
+		"_exporter_id": "31389332"
 	},
 	"item": [
 		{
@@ -12,6 +11,19 @@
 			"item": [
 				{
 					"name": "all players",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -33,6 +45,19 @@
 				},
 				{
 					"name": "all players (search)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -60,6 +85,30 @@
 				},
 				{
 					"name": "specific player",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"",
+									"pm.test(\"ID and Name are correct\", function() {",
+									"    const expected = {",
+									"        \"id\":237,",
+									"        \"first_name\": \"LeBron\",",
+									"        \"last_name\": \"James\"",
+									"    }",
+									"    pm.expect(pm.response.json()).to.deep.include(expected)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -79,6 +128,41 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "specific player invalid id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/players/9999",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"players",
+								"9999"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -87,6 +171,19 @@
 			"item": [
 				{
 					"name": "all teams",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -108,6 +205,19 @@
 				},
 				{
 					"name": "specific team",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -127,6 +237,41 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "specific team invalid id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/teams/9999",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"teams",
+								"9999"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -135,6 +280,19 @@
 			"item": [
 				{
 					"name": "all games",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -156,6 +314,19 @@
 				},
 				{
 					"name": "all games (example parameters)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -191,6 +362,31 @@
 				},
 				{
 					"name": "specific game",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Game structure an data are correct\", function() {",
+									"    const expected = {",
+									"        \"id\":32881,",
+									"        \"period\": 4,",
+									"        \"postseason\": false,",
+									"        \"season\": 2017,",
+									"        \"status\": \"Final\",",
+									"    }",
+									"    pm.expect(pm.response.json()).to.deep.include(expected)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -210,6 +406,41 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "specific game invalid id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://balldontlie.io/api/v1/games/99999",
+							"protocol": "https",
+							"host": [
+								"balldontlie",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"games",
+								"99999"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -218,6 +449,19 @@
 			"item": [
 				{
 					"name": "all stats",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -239,6 +483,19 @@
 				},
 				{
 					"name": "all stats (example parameters)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
