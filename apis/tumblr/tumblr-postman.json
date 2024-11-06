@@ -1,0 +1,694 @@
+{
+	"info": {
+		"_postman_id": "78c0dc33-e726-4d39-9b71-5a066250bed7",
+		"name": "Tumblr",
+		"description": "ntShare photos, mobile apps, and social network using Tumblr's API's.n    \n\nContact Support:\n Name: No Contact\n Email: email@example.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31389332",
+		"_collection_link": "https://www.postman.com/api-evangelist/tumblr/collection/wa7adwz/tumblr?action=share&source=collection_link&creator=31389332"
+	},
+	"item": [
+		{
+			"name": "blog/{base-hostname}",
+			"item": [
+				{
+					"name": "posts",
+					"item": [
+						{
+							"name": "Get Blog Base Hostname Adds Type",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/blog/:base-hostname/posts/:type?id=<>&tag=<>&limit=<>&offset=<>&reblog_info=<>&notes_info=<>&format=<>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"blog",
+										":base-hostname",
+										"posts",
+										":type"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "<>",
+											"description": "A specific post ID. Returns the single post specified or (if not found) a 404 error."
+										},
+										{
+											"key": "tag",
+											"value": "<>",
+											"description": "Limits the response to posts with the specified tag"
+										},
+										{
+											"key": "limit",
+											"value": "<>",
+											"description": "The number of results to return: 1???20, inclusive"
+										},
+										{
+											"key": "offset",
+											"value": "<>",
+											"description": "Result to start at."
+										},
+										{
+											"key": "reblog_info",
+											"value": "<>",
+											"description": "Indicates whether to return reblog information (specify true or false). Returns the various reblogged_ fields."
+										},
+										{
+											"key": "notes_info",
+											"value": "<>",
+											"description": "Indicates whether to return notes information (specify true or false). Returns note count and note metadata."
+										},
+										{
+											"key": "format",
+											"value": "<>",
+											"description": "Specifies the post format to return, other than HTML."
+										}
+									],
+									"variable": [
+										{
+											"key": "base",
+											"value": "<>",
+											"type": "string",
+											"description": "The unique hostname of the blog."
+										},
+										{
+											"key": "type",
+											"value": "<>",
+											"type": "string",
+											"description": "The type of post to return. Specify one of the following:    text, quote, link, answer, video, audio, photo. By default, all types are returned"
+										}
+									]
+								},
+								"description": "Retrieves published posts."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Blog Base Hostname Adds Queue",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/blog/:base-hostname/posts/queue",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"blog",
+										":base-hostname",
+										"posts",
+										"queue"
+									],
+									"variable": [
+										{
+											"key": "base",
+											"value": "<>",
+											"type": "string",
+											"description": "The unique hostname of the blog."
+										}
+									]
+								},
+								"description": "Retrieves queued posts."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Blog Base Hostname Adds Draft",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/blog/:base-hostname/posts/draft",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"blog",
+										":base-hostname",
+										"posts",
+										"draft"
+									],
+									"variable": [
+										{
+											"key": "base",
+											"value": "<>",
+											"type": "string",
+											"description": "The unique hostname of the blog."
+										}
+									]
+								},
+								"description": "Retrieves draft posts."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Blog Base Hostname Adds Submission",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/blog/:base-hostname/posts/submission",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"blog",
+										":base-hostname",
+										"posts",
+										"submission"
+									],
+									"variable": [
+										{
+											"key": "base",
+											"value": "<>",
+											"type": "string",
+											"description": "The unique hostname of the blog."
+										}
+									]
+								},
+								"description": "Retrieves submission posts."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "post",
+					"item": [
+						{
+							"name": "Add Blog Base Hostname Add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/blog/:base-hostname/post?type=<>&tags=<>&tweet=<>&date=<>&markdown=<>&caption=<>&embed=<>&data=<>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"blog",
+										":base-hostname",
+										"post"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "<>",
+											"description": "The type of post to create."
+										},
+										{
+											"key": "tags",
+											"value": "<>",
+											"description": "Comma-separated tags for this post."
+										},
+										{
+											"key": "tweet",
+											"value": "<>",
+											"description": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+										},
+										{
+											"key": "date",
+											"value": "<>",
+											"description": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+										},
+										{
+											"key": "markdown",
+											"value": "<>",
+											"description": "Indicates whether the post uses markdown syntax."
+										},
+										{
+											"key": "caption",
+											"value": "<>",
+											"description": "The user-supplied caption."
+										},
+										{
+											"key": "embed",
+											"value": "<>",
+											"description": "HTML embed code for the video. Either the embed or data parameter is required."
+										},
+										{
+											"key": "data",
+											"value": "<>",
+											"description": "A video file, as URL-encoded binary. Either the embed or data parameter is required."
+										}
+									],
+									"variable": [
+										{
+											"key": "base",
+											"value": "<>",
+											"type": "string",
+											"description": "The unique hostname of the blog."
+										}
+									]
+								},
+								"description": "Creates a new video blog post."
+							},
+							"response": []
+						},
+						{
+							"name": "Add Blog Base Hostname Add Edit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/blog/:base-hostname/post/edit?type=<>&tags=<>&tweet=<>&date=<>&markdown=<>&id=<>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"blog",
+										":base-hostname",
+										"post",
+										"edit"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "<>",
+											"description": "The type of post to create."
+										},
+										{
+											"key": "tags",
+											"value": "<>",
+											"description": "Comma-separated tags for this post."
+										},
+										{
+											"key": "tweet",
+											"value": "<>",
+											"description": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+										},
+										{
+											"key": "date",
+											"value": "<>",
+											"description": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+										},
+										{
+											"key": "markdown",
+											"value": "<>",
+											"description": "Indicates whether the post uses markdown syntax."
+										},
+										{
+											"key": "id",
+											"value": "<>",
+											"description": "A specific post ID. Returns the single post specified or (if not found) a 404 error."
+										}
+									],
+									"variable": [
+										{
+											"key": "base",
+											"value": "<>",
+											"type": "string",
+											"description": "The unique hostname of the blog."
+										}
+									]
+								},
+								"description": "Edits a blog post."
+							},
+							"response": []
+						},
+						{
+							"name": "Add Blog Base Hostname Add Reblog",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/blog/:base-hostname/post/reblog?type=<>&tags=<>&tweet=<>&date=<>&markdown=<>&id=<>&reblog_key=<>&comment=<>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"blog",
+										":base-hostname",
+										"post",
+										"reblog"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "<>",
+											"description": "The type of post to create."
+										},
+										{
+											"key": "tags",
+											"value": "<>",
+											"description": "Comma-separated tags for this post."
+										},
+										{
+											"key": "tweet",
+											"value": "<>",
+											"description": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+										},
+										{
+											"key": "date",
+											"value": "<>",
+											"description": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+										},
+										{
+											"key": "markdown",
+											"value": "<>",
+											"description": "Indicates whether the post uses markdown syntax."
+										},
+										{
+											"key": "id",
+											"value": "<>",
+											"description": "A specific post ID. Returns the single post specified or (if not found) a 404 error."
+										},
+										{
+											"key": "reblog_key",
+											"value": "<>",
+											"description": "The reblog key for the reblogged post ??? get the reblog key with a /posts request"
+										},
+										{
+											"key": "comment",
+											"value": "<>",
+											"description": "A comment added to the reblogged post."
+										}
+									],
+									"variable": [
+										{
+											"key": "base",
+											"value": "<>",
+											"type": "string",
+											"description": "The unique hostname of the blog."
+										}
+									]
+								},
+								"description": "Reblogs a post."
+							},
+							"response": []
+						},
+						{
+							"name": "Add Blog Base Hostname Add Delete",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/blog/:base-hostname/post/delete?id=<>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"blog",
+										":base-hostname",
+										"post",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "<>",
+											"description": "A specific post ID. Returns the single post specified or (if not found) a 404 error."
+										}
+									],
+									"variable": [
+										{
+											"key": "base",
+											"value": "<>",
+											"type": "string",
+											"description": "The unique hostname of the blog."
+										}
+									]
+								},
+								"description": "Deletes a post."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Blog Base Hostname Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/blog/:base-hostname/info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blog",
+								":base-hostname",
+								"info"
+							],
+							"variable": [
+								{
+									"key": "base",
+									"value": "<>",
+									"type": "string",
+									"description": "The unique hostname of the blog."
+								}
+							]
+						},
+						"description": "This method returns general information about the blog, such as the title, number of posts, and other high-level data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Blog Base Hostname Avatar Size",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/blog/:base-hostname/avatar/:size",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blog",
+								":base-hostname",
+								"avatar",
+								":size"
+							],
+							"variable": [
+								{
+									"key": "base",
+									"value": "<>",
+									"type": "string",
+									"description": "The unique hostname of the blog."
+								},
+								{
+									"key": "size",
+									"value": "<>",
+									"type": "string",
+									"description": "The size of the avatar (square, one value for both length and width). Must be one of the values: 16, 24, 30, 40, 48, 64, 96, 128, 512"
+								}
+							]
+						},
+						"description": "Retrieves a blog's avatar in one of 9 different sizes."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Blog Base Hostname Followers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/blog/:base-hostname/followers?limit=<>&offset=<>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blog",
+								":base-hostname",
+								"followers"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<>",
+									"description": "The number of results to return: 1???20, inclusive"
+								},
+								{
+									"key": "offset",
+									"value": "<>",
+									"description": "Result to start at."
+								}
+							],
+							"variable": [
+								{
+									"key": "base",
+									"value": "<>",
+									"type": "string",
+									"description": "The unique hostname of the blog."
+								}
+							]
+						},
+						"description": "Retrieves a blog's followers."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Get User Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/dashboard?limit=<>&offset=<>&type=<>&since_id=<>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"dashboard"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<>",
+									"description": "The number of results to return: 1???20, inclusive"
+								},
+								{
+									"key": "offset",
+									"value": "<>",
+									"description": "Result to start at."
+								},
+								{
+									"key": "type",
+									"value": "<>",
+									"description": "The type of post to create."
+								},
+								{
+									"key": "since_id",
+									"value": "<>",
+									"description": "Return posts that have appeared after this ID. Use this parameter to page through the results: first get a set of posts, and then get posts since the last ID of the previous set."
+								}
+							]
+						},
+						"description": "Use this method to retrieve the dashboard that matches the OAuth credentials submitted with the request."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Likes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/likes?limit=<>&offset=<>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"likes"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<>",
+									"description": "The number of results to return: 1???20, inclusive"
+								},
+								{
+									"key": "offset",
+									"value": "<>",
+									"description": "Result to start at."
+								}
+							]
+						},
+						"description": "Use this method to retrieve the liked posts that match the OAuth credentials submitted with the request."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Following",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/following?limit=<>&offset=<>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"following"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<>",
+									"description": "The number of results to return: 1???20, inclusive"
+								},
+								{
+									"key": "offset",
+									"value": "<>",
+									"description": "Result to start at."
+								}
+							]
+						},
+						"description": "Use this method to retrieve the blogs followed by the user whose OAuth credentials are submitted with the request."
+					},
+					"response": []
+				},
+				{
+					"name": "Add User Follow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/follow?url=<>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"follow"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "<>",
+									"description": "The URL of the blog to follow."
+								}
+							]
+						},
+						"description": "Follow a blog."
+					},
+					"response": []
+				},
+				{
+					"name": "Add User Unfollow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/unfollow?url=<>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"unfollow"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "<>",
+									"description": "The URL of the blog to follow."
+								}
+							]
+						},
+						"description": "Unfollow a blog."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "httpsapi.tumblr.com/v2/",
+			"type": "string"
+		}
+	]
+}
