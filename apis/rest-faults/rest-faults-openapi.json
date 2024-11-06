@@ -1,0 +1,205 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "OpenAPI definition",
+      "version": "v0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8080",
+        "description": "Generated server url"
+      }
+    ],
+    "paths": {
+      "/z": {
+        "get": {
+          "tags": [
+            "endpoints"
+          ],
+          "operationId": "getZ",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "endpoints"
+          ],
+          "operationId": "putZ",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/k": {
+        "get": {
+          "tags": [
+            "endpoints"
+          ],
+          "operationId": "getK",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/FooDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "endpoints"
+          ],
+          "operationId": "putK",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FooDto"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/y": {
+        "get": {
+          "tags": [
+            "endpoints"
+          ],
+          "operationId": "getY",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/FooDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "endpoints"
+          ],
+          "operationId": "postY",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FooDto"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "201": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "endpoints"
+          ],
+          "operationId": "deleteY",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/x": {
+        "get": {
+          "tags": [
+            "endpoints"
+          ],
+          "operationId": "getX",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "FooDto": {
+          "type": "object",
+          "properties": {
+            "i": {
+              "type": "integer",
+              "format": "int32",
+              "maximum": 100
+            },
+            "b": {
+              "type": "boolean"
+            },
+            "s": {
+              "type": "string",
+              "enum": [
+                "FOO",
+                "BAR"
+              ]
+            }
+          },
+          "required": [
+            "b"
+          ]
+        }
+      }
+    }
+  }
