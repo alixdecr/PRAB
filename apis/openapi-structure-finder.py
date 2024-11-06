@@ -1,6 +1,6 @@
 import json
 
-with open("apis/rest-faults/rest-faults-openapi.json", "r", encoding="utf-8") as openfile:
+with open("apis/youtube/youtube-openapi.json", "r", encoding="utf-8") as openfile:
     dic = json.load(openfile)
 
 structureDict = {

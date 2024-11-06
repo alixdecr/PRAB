@@ -1,0 +1,2616 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "YouTube",
+      "description": "YouTube allows users to upload, view, rate, share, add to favorites, report, comment on videos, and subscribe to other users. It offers a wide variety of user-generated and corporate media videos. Available content includes video clips, TV show clips, music videos, short and documentary films, audio recordings, movie trailers, live streams, and other content such as video blogging, short original videos, and educational videos. Most of the content on YouTube is uploaded by individuals, but media corporations including CBS, the BBC, Vevo, and Hulu offer some of their material via YouTube as part of the YouTube partnership program. Unregistered users can only watch videos on the site, while registered users are permitted to upload an unlimited number of videos and add comments to videos.\n\nContact Support:\n Name: No Contact\n Email: email@example.com",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://{{baseurl}}"
+      }
+    ],
+    "tags": [
+      {
+        "name": "v1"
+      },
+      {
+        "name": "v1 > jobs"
+      },
+      {
+        "name": "v1 > jobs > {job Id}"
+      },
+      {
+        "name": "v1 > jobs > {job Id} > reports"
+      },
+      {
+        "name": "captions"
+      },
+      {
+        "name": "comments"
+      },
+      {
+        "name": "live Broadcasts"
+      },
+      {
+        "name": "live Chat"
+      },
+      {
+        "name": "videos"
+      },
+      {
+        "name": "watermarks"
+      }
+    ],
+    "paths": {
+      "/v1/jobs/{jobId}/reports": {
+        "get": {
+          "tags": [
+            "v1 > jobs > {job Id} > reports"
+          ],
+          "summary": "Get Jobs Job Reports",
+          "description": "Lists reports created by a specific job.nReturns NOT_FOUND if the job does not exist.",
+          "parameters": [
+            {
+              "name": "createdAfter",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "If set, only reports created after the specified date/time are returned.",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Requested page size. Server may return fewer jobs than requested.nIf unspecified, server will pick an appropriate default.",
+              "example": "<>"
+            },
+            {
+              "name": "pageToken",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A token identifying a page of results the server should return. Typically,nthis is the value ofnListReportTypesResponse.next_page_tokennreturned in response to the previous call to the `ListJobs` method.",
+              "example": "<>"
+            },
+            {
+              "name": "startTimeAtOrAfter",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "If set, only reports whose start time is greater than or equal thenspecified date/time are returned.",
+              "example": "<>"
+            },
+            {
+              "name": "startTimeBefore",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "If set, only reports whose start time is smaller than the specifiedndate/time are returned.",
+              "example": "<>"
+            },
+            {
+              "name": "jobId",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": "The ID of the job to delete.",
+              "example": "<parameters>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/v1/jobs/{jobId}/reports/{reportId}": {
+        "get": {
+          "tags": [
+            "v1 > jobs > {job Id} > reports"
+          ],
+          "summary": "Get Jobs Job Reports Report",
+          "description": "Gets the metadata of a specific report.",
+          "parameters": [
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "jobId",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": "The ID of the job to delete.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "reportId",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": "The ID of the report to retrieve.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/v1/jobs/{jobId}": {
+        "delete": {
+          "tags": [
+            "v1 > jobs > {job Id}"
+          ],
+          "summary": "Delete Jobs Job",
+          "description": "Delete v1 jobs job",
+          "parameters": [
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "jobId",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": "The ID of the job to delete.",
+              "example": "<parameters>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/v1/jobs": {
+        "get": {
+          "tags": [
+            "v1 > jobs"
+          ],
+          "summary": "Get Jobs",
+          "description": "Lists jobs.",
+          "parameters": [
+            {
+              "name": "includeSystemManaged",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "If set to true, also system-managed jobs will be returned; otherwise onlynuser-created jobs will be returned. System-managed jobs can neither benmodified nor deleted.",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Requested page size. Server may return fewer jobs than requested.nIf unspecified, server will pick an appropriate default.",
+              "example": "<>"
+            },
+            {
+              "name": "pageToken",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A token identifying a page of results the server should return. Typically,nthis is the value ofnListReportTypesResponse.next_page_tokennreturned in response to the previous call to the `ListJobs` method.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/v1/media/{resourceName}": {
+        "get": {
+          "tags": [
+            "v1"
+          ],
+          "summary": "Get Media Resource Name",
+          "description": "Method for media download. Download is supportednon the URI `/v1/media/{+name}?alt=media`.",
+          "parameters": [
+            {
+              "name": "resourceName",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": "Name of the media that is being downloaded.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/v1/reportTypes": {
+        "get": {
+          "tags": [
+            "v1"
+          ],
+          "summary": "Get Reporttypes",
+          "description": "Lists report types.",
+          "parameters": [
+            {
+              "name": "includeSystemManaged",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "If set to true, also system-managed jobs will be returned; otherwise onlynuser-created jobs will be returned. System-managed jobs can neither benmodified nor deleted.",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Requested page size. Server may return fewer jobs than requested.nIf unspecified, server will pick an appropriate default.",
+              "example": "<>"
+            },
+            {
+              "name": "pageToken",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A token identifying a page of results the server should return. Typically,nthis is the value ofnListReportTypesResponse.next_page_tokennreturned in response to the previous call to the `ListJobs` method.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/captions": {
+        "delete": {
+          "tags": [
+            "captions"
+          ],
+          "summary": "Delete Captions",
+          "description": "Deletes a specified caption track.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "onBehalfOf",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "ID of the Google+ Page for the channel that the request is be on behalf of",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/captions/{id}": {
+        "get": {
+          "tags": [
+            "captions"
+          ],
+          "summary": "Get Captions",
+          "description": "Downloads a caption track. The caption track is returned in its original format unless the request specifies a value for the tfmt parameter and in its original language unless the request specifies a value for the tlang parameter.",
+          "parameters": [
+            {
+              "name": "onBehalfOf",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "ID of the Google+ Page for the channel that the request is be on behalf of",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "tfmt",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The tfmt parameter specifies that the caption track should be returned in a specific format. If the parameter is not included in the request, the track is returned in its original format.",
+              "example": "<>"
+            },
+            {
+              "name": "tlang",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The tlang parameter specifies that the API response should return a translation of the specified caption track. The parameter value is an ISO 639-1 two-letter language code that identifies the desired caption language. The translation is generated by using machine translation, such as Google Translate.",
+              "example": "<>"
+            },
+            {
+              "name": "id",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": "The id parameter identifies the caption track that is being retrieved. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/comments": {
+        "delete": {
+          "tags": [
+            "comments"
+          ],
+          "summary": "Delete Comments",
+          "description": "Deletes a comment.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/comments/markAsSpam": {
+        "post": {
+          "tags": [
+            "comments"
+          ],
+          "summary": "Add Comments Mark as SPAM",
+          "description": "Expresses the caller's opinion that one or more comments should be flagged as spam.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/comments/setModerationStatus": {
+        "post": {
+          "tags": [
+            "comments"
+          ],
+          "summary": "Add Comments Set Moderation Status",
+          "description": "Sets the moderation status of one or more comments. The API request must be authorized by the owner of the channel or video associated with the comments.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "banAuthor",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The banAuthor parameter lets you indicate that you want to automatically reject any additional comments written by the comment's author. Set the parameter value to true to ban the author.nnNote: This parameter is only valid if the moderationStatus parameter is also set to rejected.",
+              "example": "<>"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "moderationStatus",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Set this parameter to limit the returned comment threads to a particular moderation state.nnNote: This parameter is not supported for use in conjunction with the id parameter.",
+              "example": "<post>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/liveBroadcasts": {
+        "delete": {
+          "tags": [
+            "live Broadcasts"
+          ],
+          "summary": "Delete Live Broadcasts",
+          "description": "Delete livebroadcasts",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwnerChannel",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.nnThe onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/liveBroadcasts/bind": {
+        "post": {
+          "tags": [
+            "live Broadcasts"
+          ],
+          "summary": "Add Live Broadcasts Bind",
+          "description": "Binds a YouTube broadcast to a stream or removes an existing binding between a broadcast and a stream. A broadcast can only be bound to one video stream, though a video stream may be bound to more than one broadcast.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwnerChannel",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.nnThe onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is",
+              "example": "<>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            },
+            {
+              "name": "streamId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The streamId parameter specifies the unique ID of the video stream that is being bound to a broadcast. If this parameter is omitted, the API will remove any existing binding between the broadcast and a video stream.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/liveBroadcasts/control": {
+        "post": {
+          "tags": [
+            "live Broadcasts"
+          ],
+          "summary": "Add Live Broadcasts Control",
+          "description": "Controls the settings for a slate that can be displayed in the broadcast stream.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "displaySlate",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The displaySlate parameter specifies whether the slate is being enabled or disabled.",
+              "example": "<>"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "offsetTimeMs",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The offsetTimeMs parameter specifies a positive time offset when the specified slate change will occur. The value is measured in milliseconds from the beginning of the broadcast's monitor stream, which is the time that the testing phase for the broadcast began. Even though it is specified in milliseconds, the value is actually an approximation, and YouTube completes the requested action as closely as possible to that time.nnIf you do not specify a value for this parameter, then YouTube performs ",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwnerChannel",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.nnThe onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is",
+              "example": "<>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            },
+            {
+              "name": "walltime",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The walltime parameter specifies the wall clock time at which the specified slate change will occur. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sssZ) format.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/liveBroadcasts/transition": {
+        "post": {
+          "tags": [
+            "live Broadcasts"
+          ],
+          "summary": "Add Live Broadcasts Transition",
+          "description": "Changes the status of a YouTube live broadcast and initiates any processes associated with the new status. For example, when you transition a broadcast's status to testing, YouTube starts to transmit video to that broadcast's monitor stream. Before calling this method, you should confirm that the value of the status.streamStatus property for the stream bound to your broadcast is active.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "broadcastStatus",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The broadcastStatus parameter filters the API response to only include broadcasts with the specified status.",
+              "example": "<>"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwnerChannel",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.nnThe onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is",
+              "example": "<>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/liveChat/bans": {
+        "delete": {
+          "tags": [
+            "live Chat"
+          ],
+          "summary": "Delete Live Chat Bans",
+          "description": "Delete livechat bans",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/liveChat/messages": {
+        "delete": {
+          "tags": [
+            "live Chat"
+          ],
+          "summary": "Delete Live Chat Messages",
+          "description": "Delete livechat messages",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/liveChat/moderators": {
+        "delete": {
+          "tags": [
+            "live Chat"
+          ],
+          "summary": "Delete Live Chat Moderators",
+          "description": "Delete livechat moderators",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/videos": {
+        "delete": {
+          "tags": [
+            "videos"
+          ],
+          "summary": "Delete Videos",
+          "description": "Deletes a YouTube video.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/videos/getRating": {
+        "get": {
+          "tags": [
+            "videos"
+          ],
+          "summary": "Get Videos Get Rating",
+          "description": "Retrieves the ratings that the authorized user gave to a list of specified videos.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/videos/rate": {
+        "post": {
+          "tags": [
+            "videos"
+          ],
+          "summary": "Add Videos Rate",
+          "description": "Add a like or dislike rating to a video or remove a rating from a video.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "rating",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Specifies the rating to record.",
+              "example": "<post>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/videos/reportAbuse": {
+        "post": {
+          "tags": [
+            "videos"
+          ],
+          "summary": "Add Videos Report Abuse",
+          "description": "Report abuse for a video.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/watermarks/set": {
+        "post": {
+          "tags": [
+            "watermarks"
+          ],
+          "summary": "Add Watermarks Set",
+          "description": "Uploads a watermark image to YouTube and sets it for a channel.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "channelId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The channelId parameter specifies a unique YouTube channel ID. The API will then return a list of that channel's activities.",
+              "example": "<post>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/watermarks/unset": {
+        "post": {
+          "tags": [
+            "watermarks"
+          ],
+          "summary": "Add Watermarks Unset",
+          "description": "Deletes a channel's watermark image.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "channelId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The channelId parameter specifies a unique YouTube channel ID. The API will then return a list of that channel's activities.",
+              "example": "<post>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/activities": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Activities",
+          "description": "Returns a list of channel activity events that match the request criteria. For example, you can retrieve events associated with a particular channel, events associated with the user's subscriptions and Google+ friends, or the YouTube home page feed, which is customized for each user.",
+          "parameters": [
+            {
+              "name": "channelId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The channelId parameter specifies a unique YouTube channel ID. The API will then return a list of that channel's activities.",
+              "example": "<post>"
+            },
+            {
+              "name": "home",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Set this parameter's value to true to retrieve the activity feed that displays on the YouTube home page for the currently authenticated user.",
+              "example": "<>"
+            },
+            {
+              "name": "maxResults",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The maxResults parameter specifies the maximum number of items that should be returned in the result set.",
+              "example": "<>"
+            },
+            {
+              "name": "mine",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Set this parameter's value to true to retrieve a feed of the authenticated user's activities.",
+              "example": "<>"
+            },
+            {
+              "name": "pageToken",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A token identifying a page of results the server should return. Typically,nthis is the value ofnListReportTypesResponse.next_page_tokennreturned in response to the previous call to the `ListJobs` method.",
+              "example": "<>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            },
+            {
+              "name": "publishedAfter",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The publishedAfter parameter specifies the earliest date and time that an activity could have occurred for that activity to be included in the API response. If the parameter value specifies a day, but not a time, then any activities that occurred that day will be included in the result set. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.",
+              "example": "<>"
+            },
+            {
+              "name": "publishedBefore",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The publishedBefore parameter specifies the date and time before which an activity must have occurred for that activity to be included in the API response. If the parameter value specifies a day, but not a time, then any activities that occurred that day will be excluded from the result set. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.",
+              "example": "<>"
+            },
+            {
+              "name": "regionCode",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The regionCode parameter instructs the API to return results for the specified country. The parameter value is an ISO 3166-1 alpha-2 country code. YouTube uses this value when the authorized user's previous activity on YouTube does not provide enough information to generate the activity feed.",
+              "example": "<post>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/channelBanners/insert": {
+        "post": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Add Channel Banners Insert",
+          "description": "Uploads a channel banner image to YouTube. This method represents the first two steps in a three-step process to update the banner image for a channel:nn- Call the channelBanners.insert method to upload the binary image data to YouTube. The image must have a 16:9 aspect ratio and be at least 2120x1192 pixels.n- Extract the url property's value from the response that the API returns for step 1.n- Call the channels.update method to update the channel's branding settings. Set the brandingSettings.i",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "channelId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The channelId parameter specifies a unique YouTube channel ID. The API will then return a list of that channel's activities.",
+              "example": "<post>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/channelSections": {
+        "delete": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Delete Channel Sections",
+          "description": "Deletes a channelSection.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/channels": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Channels",
+          "description": "Returns a collection of zero or more channel resources that match the request criteria.",
+          "parameters": [
+            {
+              "name": "categoryId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The categoryId parameter specifies a YouTube guide category, thereby requesting YouTube channels associated with that category.",
+              "example": "<post>"
+            },
+            {
+              "name": "forUsername",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The forUsername parameter specifies a YouTube username, thereby requesting the channel associated with that username.",
+              "example": "<>"
+            },
+            {
+              "name": "hl",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The hl parameter indicates that the snippet.localized property values in the returned channelSection resources should be in the specified language if localized values for that language are available. For example, if the API request specifies hl=de, the snippet.localized properties in the API response will contain German titles if German titles are available. Channel owners can provide localized channel section titles using either the channelSections.insert or channelSections.update method.",
+              "example": "<post>"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "managedByMe",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Note: This parameter is intended exclusively for YouTube content partners.nnSet this parameter's value to true to instruct the API to only return channels managed by the content owner that the onBehalfOfContentOwner parameter specifies. The user must be authenticated as a CMS account linked to the specified content owner and onBehalfOfContentOwner must be provided.",
+              "example": "<>"
+            },
+            {
+              "name": "maxResults",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The maxResults parameter specifies the maximum number of items that should be returned in the result set.",
+              "example": "<>"
+            },
+            {
+              "name": "mine",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Set this parameter's value to true to retrieve a feed of the authenticated user's activities.",
+              "example": "<>"
+            },
+            {
+              "name": "mySubscribers",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Use the subscriptions.list method and its mySubscribers parameter to retrieve a list of subscribers to the authenticated user's channel.",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "pageToken",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A token identifying a page of results the server should return. Typically,nthis is the value ofnListReportTypesResponse.next_page_tokennreturned in response to the previous call to the `ListJobs` method.",
+              "example": "<>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/commentThreads": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Comment Threads",
+          "description": "Returns a list of comment threads that match the API request parameters.",
+          "parameters": [
+            {
+              "name": "allThreadsRelatedToChannelId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The allThreadsRelatedToChannelId parameter instructs the API to return all comment threads associated with the specified channel. The response can include comments about the channel or about the channel's videos.",
+              "example": "<>"
+            },
+            {
+              "name": "channelId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The channelId parameter specifies a unique YouTube channel ID. The API will then return a list of that channel's activities.",
+              "example": "<post>"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "maxResults",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The maxResults parameter specifies the maximum number of items that should be returned in the result set.",
+              "example": "<>"
+            },
+            {
+              "name": "moderationStatus",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Set this parameter to limit the returned comment threads to a particular moderation state.nnNote: This parameter is not supported for use in conjunction with the id parameter.",
+              "example": "<post>"
+            },
+            {
+              "name": "order",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The order parameter specifies the order in which the API response should list comment threads. Valid values are: n- time - Comment threads are ordered by time. This is the default behavior.n- relevance - Comment threads are ordered by relevance.Note: This parameter is not supported for use in conjunction with the id parameter.",
+              "example": "<>"
+            },
+            {
+              "name": "pageToken",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A token identifying a page of results the server should return. Typically,nthis is the value ofnListReportTypesResponse.next_page_tokennreturned in response to the previous call to the `ListJobs` method.",
+              "example": "<>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            },
+            {
+              "name": "searchTerms",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The searchTerms parameter instructs the API to limit the API response to only contain comments that contain the specified search terms.nnNote: This parameter is not supported for use in conjunction with the id parameter.",
+              "example": "<>"
+            },
+            {
+              "name": "textFormat",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Set this parameter's value to html or plainText to instruct the API to return the comments left by users in html formatted or in plain text.",
+              "example": "<>"
+            },
+            {
+              "name": "videoId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The videoId parameter specifies the YouTube video ID of the video for which the API should return caption tracks.",
+              "example": "<post>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/fanFundingEvents": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Fanfundingevents",
+          "description": "Lists fan funding events for a channel.",
+          "parameters": [
+            {
+              "name": "hl",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The hl parameter indicates that the snippet.localized property values in the returned channelSection resources should be in the specified language if localized values for that language are available. For example, if the API request specifies hl=de, the snippet.localized properties in the API response will contain German titles if German titles are available. Channel owners can provide localized channel section titles using either the channelSections.insert or channelSections.update method.",
+              "example": "<post>"
+            },
+            {
+              "name": "maxResults",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The maxResults parameter specifies the maximum number of items that should be returned in the result set.",
+              "example": "<>"
+            },
+            {
+              "name": "pageToken",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A token identifying a page of results the server should return. Typically,nthis is the value ofnListReportTypesResponse.next_page_tokennreturned in response to the previous call to the `ListJobs` method.",
+              "example": "<>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/guideCategories": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Guecategories",
+          "description": "Returns a list of categories that can be associated with YouTube channels.",
+          "parameters": [
+            {
+              "name": "hl",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The hl parameter indicates that the snippet.localized property values in the returned channelSection resources should be in the specified language if localized values for that language are available. For example, if the API request specifies hl=de, the snippet.localized properties in the API response will contain German titles if German titles are available. Channel owners can provide localized channel section titles using either the channelSections.insert or channelSections.update method.",
+              "example": "<post>"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            },
+            {
+              "name": "regionCode",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The regionCode parameter instructs the API to return results for the specified country. The parameter value is an ISO 3166-1 alpha-2 country code. YouTube uses this value when the authorized user's previous activity on YouTube does not provide enough information to generate the activity feed.",
+              "example": "<post>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/i18nLanguages": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Languages",
+          "description": "Returns a list of application languages that the YouTube website supports.",
+          "parameters": [
+            {
+              "name": "hl",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The hl parameter indicates that the snippet.localized property values in the returned channelSection resources should be in the specified language if localized values for that language are available. For example, if the API request specifies hl=de, the snippet.localized properties in the API response will contain German titles if German titles are available. Channel owners can provide localized channel section titles using either the channelSections.insert or channelSections.update method.",
+              "example": "<post>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/i18nRegions": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Regions",
+          "description": "Returns a list of content regions that the YouTube website supports.",
+          "parameters": [
+            {
+              "name": "hl",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The hl parameter indicates that the snippet.localized property values in the returned channelSection resources should be in the specified language if localized values for that language are available. For example, if the API request specifies hl=de, the snippet.localized properties in the API response will contain German titles if German titles are available. Channel owners can provide localized channel section titles using either the channelSections.insert or channelSections.update method.",
+              "example": "<post>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/liveStreams": {
+        "delete": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Delete Livestreams",
+          "description": "Deletes a video stream.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwnerChannel",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.nnThe onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/playlistItems": {
+        "delete": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Delete Play List Items",
+          "description": "Deletes a playlist item.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/playlists": {
+        "delete": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Delete Playlists",
+          "description": "Deletes a playlist.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/search": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Search",
+          "description": "Returns a collection of search results that match the query parameters specified in the API request. By default, a search result set identifies matching video, channel, and playlist resources, but you can also configure queries to only retrieve a specific type of resource.",
+          "parameters": [
+            {
+              "name": "channelId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The channelId parameter specifies a unique YouTube channel ID. The API will then return a list of that channel's activities.",
+              "example": "<post>"
+            },
+            {
+              "name": "channelType",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The channelType parameter lets you restrict a search to a particular type of channel.",
+              "example": "<>"
+            },
+            {
+              "name": "eventType",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The eventType parameter restricts a search to broadcast events. If you specify a value for this parameter, you must also set the type parameter's value to video.",
+              "example": "<>"
+            },
+            {
+              "name": "forContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Note: This parameter is intended exclusively for YouTube content partners.nnThe forContentOwner parameter restricts the search to only retrieve resources owned by the content owner specified by the onBehalfOfContentOwner parameter. The user must be authenticated using a CMS account linked to the specified content owner and onBehalfOfContentOwner must be provided.",
+              "example": "<>"
+            },
+            {
+              "name": "forDeveloper",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The forDeveloper parameter restricts the search to only retrieve videos uploaded via the developer's application or website. The API server uses the request's authorization credentials to identify the developer. Therefore, a developer can restrict results to videos uploaded through the developer's own app or website but not to videos uploaded through other apps or sites.",
+              "example": "<>"
+            },
+            {
+              "name": "forMine",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The forMine parameter restricts the search to only retrieve videos owned by the authenticated user. If you set this parameter to true, then the type parameter's value must also be set to video.",
+              "example": "<>"
+            },
+            {
+              "name": "location",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The location parameter, in conjunction with the locationRadius parameter, defines a circular geographic area and also restricts a search to videos that specify, in their metadata, a geographic location that falls within that area. The parameter value is a string that specifies latitude/longitude coordinates e.g. (37.42307,-122.08427).nnn- The location parameter value identifies the point at the center of the area.n- The locationRadius parameter specifies the maximum distance that the location as",
+              "example": "<>"
+            },
+            {
+              "name": "locationRadius",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The locationRadius parameter, in conjunction with the location parameter, defines a circular geographic area.nnThe parameter value must be a floating point number followed by a measurement unit. Valid measurement units are m, km, ft, and mi. For example, valid parameter values include 1500m, 5km, 10000ft, and 0.75mi. The API does not support locationRadius parameter values larger than 1000 kilometers.nnNote: See the definition of the location parameter for more information.",
+              "example": "<>"
+            },
+            {
+              "name": "maxResults",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The maxResults parameter specifies the maximum number of items that should be returned in the result set.",
+              "example": "<>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "order",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The order parameter specifies the order in which the API response should list comment threads. Valid values are: n- time - Comment threads are ordered by time. This is the default behavior.n- relevance - Comment threads are ordered by relevance.Note: This parameter is not supported for use in conjunction with the id parameter.",
+              "example": "<>"
+            },
+            {
+              "name": "pageToken",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A token identifying a page of results the server should return. Typically,nthis is the value ofnListReportTypesResponse.next_page_tokennreturned in response to the previous call to the `ListJobs` method.",
+              "example": "<>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            },
+            {
+              "name": "publishedAfter",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The publishedAfter parameter specifies the earliest date and time that an activity could have occurred for that activity to be included in the API response. If the parameter value specifies a day, but not a time, then any activities that occurred that day will be included in the result set. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.",
+              "example": "<>"
+            },
+            {
+              "name": "publishedBefore",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The publishedBefore parameter specifies the date and time before which an activity must have occurred for that activity to be included in the API response. If the parameter value specifies a day, but not a time, then any activities that occurred that day will be excluded from the result set. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.",
+              "example": "<>"
+            },
+            {
+              "name": "q",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The q parameter specifies the query term to search for.nnYour request can also use the Boolean NOT (-) and OR (|) operators to exclude videos or to find videos that are associated with one of several search terms. For example, to search for videos matching either boating or sailing, set the q parameter value to boating|sailing. Similarly, to search for videos matching either boating or sailing but not fishing, set the q parameter value to boating|sailing -fishing. Note that the pipe ch",
+              "example": "<>"
+            },
+            {
+              "name": "regionCode",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The regionCode parameter instructs the API to return results for the specified country. The parameter value is an ISO 3166-1 alpha-2 country code. YouTube uses this value when the authorized user's previous activity on YouTube does not provide enough information to generate the activity feed.",
+              "example": "<post>"
+            },
+            {
+              "name": "relatedToVideoId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The relatedToVideoId parameter retrieves a list of videos that are related to the video that the parameter value identifies. The parameter value must be set to a YouTube video ID and, if you are using this parameter, the type parameter must be set to video.",
+              "example": "<>"
+            },
+            {
+              "name": "relevanceLanguage",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The relevanceLanguage parameter instructs the API to return search results that are most relevant to the specified language. The parameter value is typically an ISO 639-1 two-letter language code. However, you should use the values zh-Hans for simplified Chinese and zh-Hant for traditional Chinese. Please note that results in other languages will still be returned if they are highly relevant to the search query term.",
+              "example": "<>"
+            },
+            {
+              "name": "safeSearch",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The safeSearch parameter indicates whether the search results should include restricted content as well as standard content.",
+              "example": "<>"
+            },
+            {
+              "name": "topicId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The topicId parameter indicates that the API response should only contain resources associated with the specified topic. The value identifies a Freebase topic ID.",
+              "example": "<>"
+            },
+            {
+              "name": "type",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The type parameter restricts a search query to only retrieve a particular type of resource. The value is a comma-separated list of resource types.",
+              "example": "<post>"
+            },
+            {
+              "name": "videoCaption",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The videoCaption parameter indicates whether the API should filter video search results based on whether they have captions. If you specify a value for this parameter, you must also set the type parameter's value to video.",
+              "example": "<>"
+            },
+            {
+              "name": "videoCategoryId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The videoCategoryId parameter filters video search results based on their category. If you specify a value for this parameter, you must also set the type parameter's value to video.",
+              "example": "<>"
+            },
+            {
+              "name": "videoDefinition",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The videoDefinition parameter lets you restrict a search to only include either high definition (HD) or standard definition (SD) videos. HD videos are available for playback in at least 720p, though higher resolutions, like 1080p, might also be available. If you specify a value for this parameter, you must also set the type parameter's value to video.",
+              "example": "<>"
+            },
+            {
+              "name": "videoDimension",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The videoDimension parameter lets you restrict a search to only retrieve 2D or 3D videos. If you specify a value for this parameter, you must also set the type parameter's value to video.",
+              "example": "<>"
+            },
+            {
+              "name": "videoDuration",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The videoDuration parameter filters video search results based on their duration. If you specify a value for this parameter, you must also set the type parameter's value to video.",
+              "example": "<>"
+            },
+            {
+              "name": "videoEmbeddable",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The videoEmbeddable parameter lets you to restrict a search to only videos that can be embedded into a webpage. If you specify a value for this parameter, you must also set the type parameter's value to video.",
+              "example": "<>"
+            },
+            {
+              "name": "videoLicense",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The videoLicense parameter filters search results to only include videos with a particular license. YouTube lets video uploaders choose to attach either the Creative Commons license or the standard YouTube license to each of their videos. If you specify a value for this parameter, you must also set the type parameter's value to video.",
+              "example": "<>"
+            },
+            {
+              "name": "videoSyndicated",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The videoSyndicated parameter lets you to restrict a search to only videos that can be played outside youtube.com. If you specify a value for this parameter, you must also set the type parameter's value to video.",
+              "example": "<>"
+            },
+            {
+              "name": "videoType",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The videoType parameter lets you restrict a search to a particular type of videos. If you specify a value for this parameter, you must also set the type parameter's value to video.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/sponsors": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Sponsors",
+          "description": "Lists sponsors for a channel.",
+          "parameters": [
+            {
+              "name": "filter",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The filter parameter specifies which channel sponsors to return.",
+              "example": "<>"
+            },
+            {
+              "name": "maxResults",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The maxResults parameter specifies the maximum number of items that should be returned in the result set.",
+              "example": "<>"
+            },
+            {
+              "name": "pageToken",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A token identifying a page of results the server should return. Typically,nthis is the value ofnListReportTypesResponse.next_page_tokennreturned in response to the previous call to the `ListJobs` method.",
+              "example": "<>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/subscriptions": {
+        "delete": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Delete Subscriptions",
+          "description": "Deletes a subscription.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/superChatEvents": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Superchatevents",
+          "description": "Lists Super Chat events for a channel.",
+          "parameters": [
+            {
+              "name": "hl",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The hl parameter indicates that the snippet.localized property values in the returned channelSection resources should be in the specified language if localized values for that language are available. For example, if the API request specifies hl=de, the snippet.localized properties in the API response will contain German titles if German titles are available. Channel owners can provide localized channel section titles using either the channelSections.insert or channelSections.update method.",
+              "example": "<post>"
+            },
+            {
+              "name": "maxResults",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The maxResults parameter specifies the maximum number of items that should be returned in the result set.",
+              "example": "<>"
+            },
+            {
+              "name": "pageToken",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A token identifying a page of results the server should return. Typically,nthis is the value ofnListReportTypesResponse.next_page_tokennreturned in response to the previous call to the `ListJobs` method.",
+              "example": "<>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/thumbnails/set": {
+        "post": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Add Thumbnails Set",
+          "description": "Uploads a custom video thumbnail to YouTube and sets it for a video.",
+          "requestBody": {
+            "content": {}
+          },
+          "parameters": [
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            },
+            {
+              "name": "videoId",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The videoId parameter specifies the YouTube video ID of the video for which the API should return caption tracks.",
+              "example": "<post>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/videoAbuseReportReasons": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Video Abuse Report Reasons",
+          "description": "Returns a list of abuse reasons that can be used for reporting abusive videos.",
+          "parameters": [
+            {
+              "name": "hl",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The hl parameter indicates that the snippet.localized property values in the returned channelSection resources should be in the specified language if localized values for that language are available. For example, if the API request specifies hl=de, the snippet.localized properties in the API response will contain German titles if German titles are available. Channel owners can provide localized channel section titles using either the channelSections.insert or channelSections.update method.",
+              "example": "<post>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/videoCategories": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Veocategories",
+          "description": "Returns a list of categories that can be associated with YouTube videos.",
+          "parameters": [
+            {
+              "name": "hl",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The hl parameter indicates that the snippet.localized property values in the returned channelSection resources should be in the specified language if localized values for that language are available. For example, if the API request specifies hl=de, the snippet.localized properties in the API response will contain German titles if German titles are available. Channel owners can provide localized channel section titles using either the channelSections.insert or channelSections.update method.",
+              "example": "<post>"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "part",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.nnIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those",
+              "example": "<>"
+            },
+            {
+              "name": "regionCode",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The regionCode parameter instructs the API to return results for the specified country. The parameter value is an ISO 3166-1 alpha-2 country code. YouTube uses this value when the authorized user's previous activity on YouTube does not provide enough information to generate the activity feed.",
+              "example": "<post>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/groupItems": {
+        "delete": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Delete Groupitems",
+          "description": "Removes an item from a group.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/groups": {
+        "delete": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Delete Groups",
+          "description": "Deletes a group.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
+              "example": "<parameters>"
+            },
+            {
+              "name": "onBehalfOfContentOwner",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The content owner's external ID on which behalf the user is acting on. Ifnnot set, the user is acting for himself (his own channel).",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      },
+      "/reports": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "Get Reports",
+          "description": "Retrieve your YouTube Analytics reports.",
+          "parameters": [
+            {
+              "name": "currency",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The currency to which financial metrics should be converted. The default is US Dollar (USD). If the result contains no financial metrics, this flag will be ignored. Responds with an error if the specified currency is not recognized.",
+              "example": "<post>"
+            },
+            {
+              "name": "dimensions",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A comma-separated list of YouTube Analytics dimensions, such as views or ageGroup,gender. See the Available Reports document for a list of the reports that you can retrieve and the dimensions used for those reports. Also see the Dimensions document for definitions of those dimensions.",
+              "example": "<>"
+            },
+            {
+              "name": "end",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The end date for fetching YouTube Analytics data. The value should be in YYYY-MM-DD format.",
+              "example": "<>"
+            },
+            {
+              "name": "filters",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A list of filters that should be applied when retrieving YouTube Analytics data. The Available Reports document identifies the dimensions that can be used to filter each report, and the Dimensions document defines those dimensions. If a request uses multiple filters, join them together with a semicolon (;), and the returned result table will satisfy both filters. For example, a filters parameter value of video==dMH0bHeiRNg;country==IT restricts the result set to include data for the given video ",
+              "example": "<>"
+            },
+            {
+              "name": "ids",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Identifies the YouTube channel or content owner for which you are retrieving YouTube Analytics data.n- To request data for a YouTube user, set the ids parameter value to channel==CHANNEL_ID, where CHANNEL_ID specifies the unique YouTube channel ID.n- To request data for a YouTube CMS content owner, set the ids parameter value to contentOwner==OWNER_NAME, where OWNER_NAME is the CMS name of the content owner.",
+              "example": "<>"
+            },
+            {
+              "name": "include",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "If set to true historical data (i.e. channel data from before the linking of the channel to the content owner) will be retrieved.",
+              "example": "<>"
+            },
+            {
+              "name": "max",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The maximum number of rows to include in the response.",
+              "example": "<>"
+            },
+            {
+              "name": "metrics",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A comma-separated list of YouTube Analytics metrics, such as views or likes,dislikes. See the Available Reports document for a list of the reports that you can retrieve and the metrics available in each report, and see the Metrics document for definitions of those metrics.",
+              "example": "<>"
+            },
+            {
+              "name": "sort",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "A comma-separated list of dimensions or metrics that determine the sort order for YouTube Analytics data. By default the sort order is ascending. The '-' prefix causes descending sort order.",
+              "example": "<>"
+            },
+            {
+              "name": "start",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "The start date for fetching YouTube Analytics data. The value should be in YYYY-MM-DD format.",
+              "example": "<>"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
