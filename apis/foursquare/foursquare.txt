@@ -1,1 +1,0 @@
-https://docs.foursquare.com/developer/reference/places-api-usage

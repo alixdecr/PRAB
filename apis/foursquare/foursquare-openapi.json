@@ -1,1392 +1,1900 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-      "title": "Foursquare Places API",
-      "description": "## API Status\nStatus for the API can be found at [status.foursquare.com](http://status.foursquare.com)!\n\n## Getting Started\nUsing Foursquare's Places API, you can do just about anything you can do on foursquare.com, while using your programming language of choice. The Foursquare API is a RESTful API based on HTTP requests and JSON responses.\n\nThis version of the API, version 2, uses OAuth 2.0. This means that all requests will need to be encrypted and sent via HTTPS. It also means that you need to register your application, even if you aren't allowing users to login.\n\nWe highly encourage looking at the endpoints in the Popular Endpoints folder first to evaluate if they suit your needs, before exploring the others.",
-      "version": "1.0.0"
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Foursquare Places API",
+    "description": "## API Status\nStatus for the API can be found at [status.foursquare.com](http://status.foursquare.com)!\n\n## Getting Started\nUsing Foursquare's Places API, you can do just about anything you can do on foursquare.com, while using your programming language of choice. The Foursquare API is a RESTful API based on HTTP requests and JSON responses.\n\nThis version of the API, version 2, uses OAuth 2.0. This means that all requests will need to be encrypted and sent via HTTPS. It also means that you need to register your application, even if you aren't allowing users to login.\n\nWe highly encourage looking at the endpoints in the Popular Endpoints folder first to evaluate if they suit your needs, before exploring the others.",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "servers": [
+    {
+      "url": "https://api.foursquare.com"
     },
-    "servers": [
-      {
-        "url": "https://api.foursquare.com"
-      },
-      {
-        "url": "http://{{prefix_photo}}500x500{{suffix_photo}}"
-      }
-    ],
-    "components": {
-      "securitySchemes": {
-        "oauth2Auth": {
-          "type": "http",
-          "scheme": "oauth2"
-        }
-      }
-    },
-    "tags": [
-      {
-        "name": "Popular Endpoints"
-      },
-      {
-        "name": "Venues"
-      },
-      {
-        "name": "Photos"
-      },
-      {
-        "name": "Tips"
-      },
-      {
-        "name": "Lists"
-      },
-      {
-        "name": "Venue Edits (Exercise Caution)",
-        "description": "These endpoints make suggested changes directly to data that is publicly accessible to our data consumers. Test and use these endpoints with caution, and avoid editing data for popular venues or venues that you are unfamiliar with.\n\nIf found or reported, misuse of these endpoints will lead to immediate account restrictions and permanent account bans from future edits."
-      }
-    ],
-    "paths": {
-      "/v2/venues/search": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Search for Venues (intent: match)",
-          "description": "Returns a list of venues near the current location, optionally matching a search term.\n\nTo ensure the best possible results, pay attention to the intent parameter below.\n\nNote that most of the fields returned inside a venue can be optional. The user may create a venue that has no address, city, or state (the venue is created instead at the lat/long specified). Your client should handle these conditions safely. For more robust venue information (photos/tips/etc.), please see our venue details endpoint.\n\n#### Response Model: [Venues/Response Fields](https://developer.foursquare.com/docs/api/venues/search)",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "ll",
-              "in": "query",
-              "schema": {
-                "type": "number"
-              },
-              "description": "REQUIRED. Latitude and longitude of the user’s location",
+    {
+      "url": "500x500"
+    }
+  ],
+  "paths": {
+    "/v2/venues/search": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Search for Venues (intent: match)",
+        "description": "Returns a list of venues near the current location, optionally matching a search term.\n\nTo ensure the best possible results, pay attention to the intent parameter below.\n\nNote that most of the fields returned inside a venue can be optional. The user may create a venue that has no address, city, or state (the venue is created instead at the lat/long specified). Your client should handle these conditions safely. For more robust venue information (photos/tips/etc.), please see our venue details endpoint.\n\n#### Response Model: [Venues/Response Fields](https://developer.foursquare.com/docs/api/venues/search)",
+        "operationId": "searchForVenuesIntentMatch",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "ll",
+            "in": "query",
+            "schema": {
+              "type": "string",
               "example": "40.7099,-73.9622"
             },
-            {
-              "name": "name",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
+            "description": "REQUIRED. Latitude and longitude of the user’s location"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
               "example": "peter luger steakhouse"
-            },
-            {
-              "name": "intent",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "Finds a venue that is the near-exact match for the given parameters. This intent is primarily used when trying to harmonize an existing place database with Foursquare’s and is highly sensitive to the provided location. The result will take into account distance and spelling variations. name and ll are the only required parameters for this intent, but we also suggest sending phone, address, city, state, zip, and twitter for better results. There’s no specified format for these parameters—we do our best to normalize them and drop them from the search if unsuccessful.",
+            }
+          },
+          {
+            "name": "intent",
+            "in": "query",
+            "schema": {
+              "type": "string",
               "example": "match"
+            },
+            "description": "Finds a venue that is the near-exact match for the given parameters. This intent is primarily used when trying to harmonize an existing place database with Foursquare’s and is highly sensitive to the provided location. The result will take into account distance and spelling variations. name and ll are the only required parameters for this intent, but we also suggest sending phone, address, city, state, zip, and twitter for better results. There’s no specified format for these parameters—we do our best to normalize them and drop them from the search if unsuccessful."
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
             }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "zip",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "twitter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/v2/venues/{VENUE_ID}": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Suggest Completion",
+        "description": "Returns a list of mini-venues partially matching the search term, near the location.",
+        "operationId": "suggestCompletion1",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "ja"
+            },
+            "description": "Undocumented. Allows API consumers to pull relevant information (if available) in the specified  ISO 639-1 2-Letter Language Code. If langauge information is not available, response will be returned in English.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
           }
         }
       },
-      "/v2/venues/{VENUE_ID}": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Suggest Completion",
-          "description": "Returns a list of mini-venues partially matching the search term, near the location.",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
+      "parameters": [
+        {
+          "name": "VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
           }
         }
-      },
-      "/v2/venues/categories": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Get Venue Categories",
-          "description": "Returns a hierarchical list of categories applied to venues. This list is also available on our [categories](https://developer.foursquare.com/docs/resources/categories) page.\n\n#### Response Model: [Categories/Response Fields](https://developer.foursquare.com/docs/api/venues/categories)",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
+      ]
+    },
+    "/v2/venues/categories": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Get Venue Categories",
+        "description": "Returns a hierarchical list of categories applied to venues. This list is also available on our [categories](https://developer.foursquare.com/docs/resources/categories) page.\n\n#### Response Model: [Categories/Response Fields](https://developer.foursquare.com/docs/api/venues/categories)",
+        "operationId": "getVenueCategories1",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
             }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "es"
+            },
+            "description": "Undocumented. Allows API consumers to pull relevant information (if available) in the specified  ISO 639-1 2-Letter Language Code. If langauge information is not available, response will be returned in English. Supported locales can be found at https://developer.foursquare.com/docs/api/configuration/internationalization\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
           }
         }
-      },
-      "/v2/venues/explore": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Get Venue Recommendations",
-          "description": "Recommended only if you require the user to log into their Foursquare accounts for personalised recommendations. If not, consider \"Search for Venues (intent: browse)\" for a list of recommendations.\n\nReturns a list of recommended venues near the current location. For more robust information about the venues themselves (photos/tips/etc.), please see our venue details endpoint.\n\nIf authenticated, the method will personalize the ranking based on you and your friends.\n\n#### Response Model: [Venues/Response Fields](https://developer.foursquare.com/docs/api/venues/explore)",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "ll",
-              "in": "query",
-              "schema": {
-                "type": "number"
-              },
-              "description": "REQUIRED unless near is provided. Latitude and longitude of the user’s location.",
+      }
+    },
+    "/v2/venues/explore": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Get Venue Recommendations",
+        "description": "Recommended only if you require the user to log into their Foursquare accounts for personalised recommendations. If not, consider \"Search for Venues (intent: browse)\" for a list of recommendations.\n\nReturns a list of recommended venues near the current location. For more robust information about the venues themselves (photos/tips/etc.), please see our venue details endpoint.\n\nIf authenticated, the method will personalize the ranking based on you and your friends.\n\n#### Response Model: [Venues/Response Fields](https://developer.foursquare.com/docs/api/venues/explore)",
+        "operationId": "getVenueRecommendations",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "ll",
+            "in": "query",
+            "schema": {
+              "type": "string",
               "example": "1.283644,103.860753"
             },
-            {
-              "name": "query",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "A term to be searched against a venue’s tips, category, etc. The query parameter has no effect when a section is specified.",
+            "description": "REQUIRED unless near is provided. Latitude and longitude of the user’s location."
+          },
+          {
+            "name": "near",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "marina bay singapore"
+            },
+            "description": "REQUIRED unless ll is provided. A string naming a place in the world. If the near string is not geocodable, returns a failed_geocode error. Otherwise, searches within the bounds of the geocode and adds a geocode object to the response."
+          },
+          {
+            "name": "llAcc",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "10000.0"
+            },
+            "description": "Accuracy of latitude and longitude, in meters."
+          },
+          {
+            "name": "alt",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "0"
+            },
+            "description": "Altitude of the user’s location, in meters."
+          },
+          {
+            "name": "altAcc",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "10000.0"
+            },
+            "description": "Accuracy of the user’s altitude, in meters."
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "250"
+            },
+            "description": "Radius to search within, in meters. If radius is not specified, a suggested radius will be used based on the density of venues in the area. The maximum supported radius is currently 100,000 meters."
+          },
+          {
+            "name": "section",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "food"
+            },
+            "description": "One of food, drinks, coffee, shops, arts, outdoors, sights, trending, nextVenues (venues frequently visited after a given venue), or topPicks (a mix of recommendations generated without a query from the user). Choosing one of these limits results to venues with the specified category or property."
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string",
               "example": "steak"
             },
-            {
-              "name": "limit",
-              "in": "query",
-              "schema": {
-                "type": "integer"
-              },
-              "description": "Number of results to return, up to 50.\n",
+            "description": "A term to be searched against a venue’s tips, category, etc. The query parameter has no effect when a section is specified."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "string",
               "example": "10"
             },
-            {
-              "name": "offset",
-              "in": "query",
-              "schema": {
-                "type": "integer"
-              },
-              "description": "Used to page through results, up to 50.",
+            "description": "Number of results to return, up to 50.\n"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "string",
               "example": "5"
             },
-            {
-              "name": "price",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "Comma separated list of price points. Currently the valid range of price points are [1,2,3,4], 1 being the least expensive, 4 being the most expensive. For food venues, in the United States, 1 is < $10 an entree, 2 is $10-$20 an entree, 3 is $20-$30 an entree, 4 is > $30 an entree.",
-              "example": "2,3"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/{VENUE_ID}/select": {
-        "post": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Report Venue Selection",
-          "description": "Report the selection of a venue as the result of a search, explore, or suggestcompletion request.\n\nVenue selections or ‘pingbacks’ are used exclusively as inputs for training our underlying venue search model; this helps us improve accuracy at the places you and your users care about. \n\nNo personally identifiable information is collected at any point.\n\n",
-          "requestBody": {
-            "content": {}
+            "description": "Used to page through results, up to 50."
           },
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
+          {
+            "name": "novelty",
+            "in": "query",
+            "schema": {
+              "type": "string"
             },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "requestId",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "REQUIRED. The request ID returned in the search response leading to the venue selection.",
-              "example": "{{requestId_select}}"
-            },
-            {
-              "name": "type",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "REQUIRED. The type of selection the user has made. One of currentLocation, destination, or save.",
-              "example": "currentLocation"
-            },
-            {
-              "name": "visitSignature",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "REQUIRED. The HMAC hex digest of the message \"APP_USER_ID, VENUE_ID, CURRENT_YYYYMMDD\". This allows us to distinguish between three selections at a venue by a single user vs. by three distinct users while preserving user privacy.",
-              "example": "{{visitSignature_select}}"
-            },
-            {
-              "name": "VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/{VENUE_ID}/photos": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Get a Venue's Photos",
-          "description": "Returns photos for a specific venue. To assemble a photo URL, combine the response’s prefix + size + suffix. Ex: https://igx.4sqi.net/img/general/300x500/5163668_xXFcZo7sU8aa1ZMhiQ2kIP7NllD48m7qsSwr1mJnFj4.jpg\n\nsize can be one of the following, where XX or YY is one of 36, 100, 300, or 500.\n\nXXxYY\noriginal: the original photo’s size\ncapXX: cap the photo with a width or height of XX. (whichever is larger). Scales the other, smaller dimension proportionally\nwidthXX: forces the width to be XX and scales the height proportionally\nheightYY: forces the height to be YY and scales the width proportionally\n\n#### Response Model: [Photos/Response Fields](https://developer.foursquare.com/docs/api/venues/photos)",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "group",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "venue"
-            },
-            {
-              "name": "limit",
-              "in": "query",
-              "schema": {
-                "type": "integer"
-              },
-              "example": "10"
-            },
-            {
-              "name": "VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Show Venue Photo",
-          "description": "To assemble a photo URL, combine the response’s prefix + size + suffix. \nEx: https://igx.4sqi.net/img/general/300x500/5163668_xXFcZo7sU8aa1ZMhiQ2kIP7NllD48m7qsSwr1mJnFj4.jpg\n\nsize can be one of the following, where XX or YY is one of 36, 100, 300, or 500.\n\nXXxYY\noriginal: the original photo’s size\ncapXX: cap the photo with a width or height of XX. (whichever is larger). Scales the other, smaller dimension proportionally\nwidthXX: forces the width to be XX and scales the height proportionally\nheightYY: forces the height to be YY and scales the width proportionally",
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/{VENUE_ID}/tips": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Get a Venue's Tips",
-          "description": "Returns tips for a venue.\n#### Response Model: [Tips/Response Fields](https://developer.foursquare.com/docs/api/venues/tips)",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "sort",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "One of friends, recent, or popular.",
-              "example": "popular"
-            },
-            {
-              "name": "limit",
-              "in": "query",
-              "schema": {
-                "type": "integer"
-              },
-              "description": "Number of results to return, up to 500.",
-              "example": "10"
-            },
-            {
-              "name": "VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/{VENUE_ID}/hours": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Get a Venue's Hours",
-          "description": "Returns hours for a venue.\n#### Response Model: [Hours/Response Fields](https://developer.foursquare.com/docs/api/venues/hours)",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/{VENUE_ID}/menu": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Get a Venue's Menu",
-          "description": "Returns menu information for a venue.\n#### Response Model: [Menu/Response Fields](https://developer.foursquare.com/docs/api/venues/menu)",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/{VENUE_ID}/links": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Get a Venue's Links",
-          "description": "Returns URLs or identifiers from third parties that have been applied to this venue.\n\nUsed in conjunction with the \"Search for Venues\" endpoint to obtain relevant sources of information.",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/trending": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Get Trending Venues",
-          "description": "Returns a list of venues near the current location with the most people currently checked in. \n\nResults returned are trending venues based on real-local-time.\n\nFor more robust information about the venues themselves (photos/tips/etc.), please see our venue details endpoint.\n\n#### Response Model: [Trending Venues/Response Fields](https://developer.foursquare.com/docs/api/venues/trending)",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "ll",
-              "in": "query",
-              "schema": {
-                "type": "number"
-              },
-              "description": "REQUIRED unless near is provided. Latitude and longitude of the desired location.",
-              "example": "40.7099,-73.9622"
-            },
-            {
-              "name": "limit",
-              "in": "query",
-              "schema": {
-                "type": "integer"
-              },
-              "description": "Number of results to return, up to 50.",
-              "example": "10"
-            },
-            {
-              "name": "radius",
-              "in": "query",
-              "schema": {
-                "type": "integer"
-              },
-              "description": "Radius in meters, up to approximately 2000 meters.",
-              "example": "10000"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/{VENUE_ID}/likes": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Get Users Who Liked a Venue",
-          "description": "Returns friends and a total count of users who have liked this venue.\n\nCount for friends will only be applicable when you provide a Foursquare user's OAUTH2 token.",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/{VENUE_ID}/similar": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Get Similar Venues",
-          "description": "Returns a list of venues similar and near to the specified venue. For more robust information about the venues themselves (photos/tips/etc.), please see our venue details endpoint.",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/{VENUE_ID}/nextvenues": {
-        "get": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Get Next Venues",
-          "description": "Returns venues that people often check in to after the current venue. Up to 5 venues are returned in each query, and results are sorted by how many people have visited that venue after the current one. For more robust information about the venues themselves (photos/tips/etc.), please see our venue details endpoint.\n\n",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/{VENUE_ID}/like": {
-        "post": {
-          "tags": [
-            "Venues"
-          ],
-          "summary": "Like a Venue",
-          "description": "Allows the acting user to like or unlike a venue.",
-          "requestBody": {
-            "content": {}
+            "description": "Use only if you have user's Foursquare OAUTH token. \nPass new or old to limit results to places the acting user hasn’t been or has been, respectively. Omitting this parameter returns a mixture of old and new venues."
           },
-          "security": [
-            {
-              "oauth2Auth": []
-            }
-          ],
-          "parameters": [
-            {
-              "name": "oauth_token",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{oauth_token}}"
+          {
+            "name": "friendVisits",
+            "in": "query",
+            "schema": {
+              "type": "string"
             },
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
+            "description": "Use only if you have user's Foursquare OAUTH token. \nPass visited or notvisited to limit results to places the acting user’s friends have or haven’t been, respectively. Omitting this parameter returns a mixture of venues to which the user’s friends have or haven’t been."
+          },
+          {
+            "name": "time",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "any"
             },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
+            "description": "Pass any to retrieve results for any time of day. Omitting this parameter returns results targeted to the current time of day."
+          },
+          {
+            "name": "day",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "any"
             },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
+            "description": "Pass any to retrieve results for any day of the week. Omitting this parameter returns results targeted to the current day of the week."
+          },
+          {
+            "name": "lastVenue",
+            "in": "query",
+            "schema": {
+              "type": "string"
             },
-            {
-              "name": "set",
-              "in": "query",
-              "schema": {
-                "type": "integer"
-              },
-              "description": "If 1, like this venue. If 0 unlike (un-do a previous like) it. Default value is 1.",
+            "description": "Use only if you have user's Foursquare OAUTH token. \nA venue ID to use in combination with the intent=nextVenues parameter, which returns venues users often visit after a given venue. If intent=nextVenues is specified but lastVenue is not, the user’s last check-in will be used if it is within 2 hours. If the user has not checked in within the last 2 hours, no results will be returned."
+          },
+          {
+            "name": "intent",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "nextVenue"
+            },
+            "description": "Use only if you have user's Foursquare OAUTH token. \nUsed alongside the lastVenue parameter, and will tell you venues that the Foursquare user will often visit after the given lastVenue."
+          },
+          {
+            "name": "openNow",
+            "in": "query",
+            "schema": {
+              "type": "string",
               "example": "1"
             },
-            {
-              "name": "VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/photos/{PHOTO_ID}": {
-        "get": {
-          "tags": [
-            "Photos"
-          ],
-          "summary": "Get Details of a Photo",
-          "description": "Get details of a photo.\n\nTo assemble a photo URL, combine the response’sprefix + size + suffix. Ex: https://igx.4sqi.net/img/general/300x500/5163668_xXFcZo7sU8aa1ZMhiQ2kIP7NllD48m7qsSwr1mJnFj4.jpg\n\nsize can be one of the following, where XX or YY is one of 36, 100, 300, or 500.\n\nXXxYY\noriginal: the original photo’s size\ncapXX: cap the photo with a width or height of XX. (whichever is larger). Scales the other, smaller dimension proportionally\nwidthXX: forces the width to be XX and scales the height proportionally\nheightYY: forces the height to be YY and scales the width proportionally\n\n#### Response Model: [Photo Details/Response Fields](https://developer.foursquare.com/docs/api/photos/details)",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "PHOTO_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/tips/{TIP_ID}": {
-        "get": {
-          "tags": [
-            "Tips"
-          ],
-          "summary": "Get Details of a Tip",
-          "description": "Gives details about a tip, including which users (especially friends) have marked the tip to-do.",
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "TIP_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/lists/add": {
-        "post": {
-          "tags": [
-            "Lists"
-          ],
-          "summary": "Create a List",
-          "description": "Allows user to create a new list.",
-          "requestBody": {
-            "content": {}
+            "description": "Boolean flag to only include venues that are open now. This prefers official provider hours but falls back to popular check-in hours."
           },
-          "parameters": [
-            {
-              "name": "oauth_token",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{oauth_token}}"
+          {
+            "name": "sortByDistance",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "1"
             },
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "name",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "The name of the list.",
-              "example": "Test Venues"
-            },
-            {
-              "name": "description",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "The description of the list.",
-              "example": "List of Test Venues You Have Created"
-            },
-            {
-              "name": "collaborative",
-              "in": "query",
-              "schema": {
-                "type": "boolean"
-              },
-              "description": "Boolean indicating if this list can be edited by friends.",
-              "example": "true"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/add": {
-        "post": {
-          "tags": [
-            "Venue Edits (Exercise Caution)"
-          ],
-          "summary": "Add a Venue",
-          "description": "Allows Foursquare users to add a new venue. All fields are optional, except for ll, name, and primaryCategoryId.\n\nBefore adding a place, please make sure your data is properly formatted to adhere to our style guide [here](https://support.foursquare.com/hc/en-us/articles/201064960-What-is-the-style-guide-for-adding-and-editing-places-).\n\n",
-          "requestBody": {
-            "content": {}
+            "description": "Boolean flag to sort the results by distance instead of relevance."
           },
-          "parameters": [
-            {
-              "name": "Content-Type",
-              "in": "header",
-              "schema": {
-                "type": "string"
-              },
-              "example": "application/x-www-form-urlencoded"
+          {
+            "name": "price",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "2,3"
             },
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "name",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "REQUIRED. The name of the venue.",
-              "example": "Foursquare Asia Test Venue"
-            },
-            {
-              "name": "ll",
-              "in": "query",
-              "schema": {
-                "type": "number"
-              },
-              "description": "REQUIRED. Latitude and longitude of the venue, as accurate as is known.",
-              "example": "1.2787325314969156,103.8434731966384"
-            },
-            {
-              "name": "primaryCategoryId",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "REQUIRED. The ID of the category to which you want to assign this venue.",
-              "example": "4bf58dd8d48988d124941735"
-            },
-            {
-              "name": "oauth_token",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "Token obtained after you use a Foursquare account to login and obtain an OAUTH token. You may do so from the Authorization tab above, through Postman. You have to set the appropriate Callback URI from your Foursquare Developer console to include \"https://www.getpostman.com/oauth2/callback\".",
-              "example": "{{oauth_token}}"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
-          }
-        }
-      },
-      "/v2/venues/{EDIT_VENUE_ID}/flag": {
-        "post": {
-          "tags": [
-            "Venue Edits (Exercise Caution)"
-          ],
-          "summary": "Indicate a Venue is Incorrect",
-          "description": "Allows users to indicate a venue is incorrect in some way.\n\nFlags are pushed into a moderation queue. If a closed flag is approved, the venue will no longer show up in search results. Moderators will attempt to correct cases of mislocated or duplicate venues as appropriate. If the user has the correct address for a mislocated venue, use proposeedit instead.\n\n",
-          "requestBody": {
-            "content": {}
+            "description": "Comma separated list of price points. Currently the valid range of price points are [1,2,3,4], 1 being the least expensive, 4 being the most expensive. For food venues, in the United States, 1 is < $10 an entree, 2 is $10-$20 an entree, 3 is $20-$30 an entree, 4 is > $30 an entree."
           },
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
+          {
+            "name": "saved",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "1"
             },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "oauth_token",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "Token obtained after you use a Foursquare account to login and obtain an OAUTH token. You may do so from the Authorization tab above, through Postman. You have to set the appropriate Callback URI from your Foursquare Developer console to include \"https://www.getpostman.com/oauth2/callback\".",
-              "example": "{{oauth_token}}"
-            },
-            {
-              "name": "problem",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "REQUIRED. One of mislocated, closed, duplicate, inappropriate, doesnt_exist, private, or event_over.",
-              "example": "mislocated"
-            },
-            {
-              "name": "EDIT_VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
+            "description": "Use only if you have user's Foursquare OAUTH token. \nBoolean flag to only include venues that the user has saved on their To-Do list or to another list."
           }
-        }
-      },
-      "/v2/venues/{EDIT_VENUE_ID}/proposeedit": {
-        "post": {
-          "tags": [
-            "Venue Edits (Exercise Caution)"
-          ],
-          "summary": "Propose an Edit to a Venue",
-          "description": "Allows you to propose a change to a venue. Before editing, please make sure your fields are properly formatted to adhere to our style guide [here](https://support.foursquare.com/hc/en-us/articles/201064960-What-is-the-style-guide-for-adding-and-editing-places-).\n\nUsers with improper edits may see their edits “rolled back” or in some cases face a temporary ban on their account from our Super User community.",
-          "requestBody": {
-            "content": {}
-          },
-          "parameters": [
-            {
-              "name": "client_id",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_id}}"
-            },
-            {
-              "name": "client_secret",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{client_secret}}"
-            },
-            {
-              "name": "v",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "example": "{{v}}"
-            },
-            {
-              "name": "oauth_token",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              },
-              "description": "Token obtained after you use a Foursquare account to login and obtain an OAUTH token. You may do so from the Authorization tab above, through Postman. You have to set the appropriate Callback URI from your Foursquare Developer console to include \"https://www.getpostman.com/oauth2/callback\".",
-              "example": "{{oauth_token}}"
-            },
-            {
-              "name": "EDIT_VENUE_ID",
-              "in": "path",
-              "schema": {
-                "type": "string"
-              },
-              "required": true
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {}
-              }
-            }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
           }
         }
       }
+    },
+    "/v2/venues/{VENUE_ID}/select": {
+      "post": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Report Venue Selection",
+        "description": "Report the selection of a venue as the result of a search, explore, or suggestcompletion request.\n\nVenue selections or ‘pingbacks’ are used exclusively as inputs for training our underlying venue search model; this helps us improve accuracy at the places you and your users care about. \n\nNo personally identifiable information is collected at any point.\n\n",
+        "operationId": "reportVenueSelection",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "requestId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "REQUIRED. The request ID returned in the search response leading to the venue selection."
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "currentLocation"
+            },
+            "description": "REQUIRED. The type of selection the user has made. One of currentLocation, destination, or save."
+          },
+          {
+            "name": "visitSignature",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "REQUIRED. The HMAC hex digest of the message \"APP_USER_ID, VENUE_ID, CURRENT_YYYYMMDD\". This allows us to distinguish between three selections at a venue by a single user vs. by three distinct users while preserving user privacy."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/venues/{VENUE_ID}/photos": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Get a Venue's Photos",
+        "description": "Returns photos for a specific venue. To assemble a photo URL, combine the response’s prefix + size + suffix. Ex: https://igx.4sqi.net/img/general/300x500/5163668_xXFcZo7sU8aa1ZMhiQ2kIP7NllD48m7qsSwr1mJnFj4.jpg\n\nsize can be one of the following, where XX or YY is one of 36, 100, 300, or 500.\n\nXXxYY\noriginal: the original photo’s size\ncapXX: cap the photo with a width or height of XX. (whichever is larger). Scales the other, smaller dimension proportionally\nwidthXX: forces the width to be XX and scales the height proportionally\nheightYY: forces the height to be YY and scales the width proportionally\n\n#### Response Model: [Photos/Response Fields](https://developer.foursquare.com/docs/api/venues/photos)",
+        "operationId": "getAVenueSPhotos",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "group",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "venue"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "10"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/venues/{VENUE_ID}/tips": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Get a Venue's Tips",
+        "description": "Returns tips for a venue.\n#### Response Model: [Tips/Response Fields](https://developer.foursquare.com/docs/api/venues/tips)",
+        "operationId": "getAVenueSTips",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "popular"
+            },
+            "description": "One of friends, recent, or popular."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "10"
+            },
+            "description": "Number of results to return, up to 500."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "Used to page through results."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/venues/{VENUE_ID}/hours": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Get a Venue's Hours",
+        "description": "Returns hours for a venue.\n#### Response Model: [Hours/Response Fields](https://developer.foursquare.com/docs/api/venues/hours)",
+        "operationId": "getAVenueSHours",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/venues/{VENUE_ID}/menu": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Get a Venue's Menu",
+        "description": "Returns menu information for a venue.\n#### Response Model: [Menu/Response Fields](https://developer.foursquare.com/docs/api/venues/menu)",
+        "operationId": "getAVenueSMenu",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/venues/{VENUE_ID}/links": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Get a Venue's Links",
+        "description": "Returns URLs or identifiers from third parties that have been applied to this venue.\n\nUsed in conjunction with the \"Search for Venues\" endpoint to obtain relevant sources of information.",
+        "operationId": "getAVenueSLinks",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/venues/trending": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Get Trending Venues",
+        "description": "Returns a list of venues near the current location with the most people currently checked in. \n\nResults returned are trending venues based on real-local-time.\n\nFor more robust information about the venues themselves (photos/tips/etc.), please see our venue details endpoint.\n\n#### Response Model: [Trending Venues/Response Fields](https://developer.foursquare.com/docs/api/venues/trending)",
+        "operationId": "getTrendingVenues",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "ll",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "40.7099,-73.9622"
+            },
+            "description": "REQUIRED unless near is provided. Latitude and longitude of the desired location."
+          },
+          {
+            "name": "near",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "Brooklyn New York"
+            },
+            "description": "REQUIRED unless ll is provided. A string naming a place in the world. If the near string is not geocodable, returns a failed_geocode error. Otherwise, searches within the bounds of the geocode and adds a geocode object to the response."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "10"
+            },
+            "description": "Number of results to return, up to 50."
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "10000"
+            },
+            "description": "Radius in meters, up to approximately 2000 meters."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/v2/venues/{VENUE_ID}/likes": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Get Users Who Liked a Venue",
+        "description": "Returns friends and a total count of users who have liked this venue.\n\nCount for friends will only be applicable when you provide a Foursquare user's OAUTH2 token.",
+        "operationId": "getUsersWhoLikedAVenue",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "oauth_token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/venues/{VENUE_ID}/similar": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Get Similar Venues",
+        "description": "Returns a list of venues similar and near to the specified venue. For more robust information about the venues themselves (photos/tips/etc.), please see our venue details endpoint.",
+        "operationId": "getSimilarVenues",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/venues/{VENUE_ID}/nextvenues": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Get Next Venues",
+        "description": "Returns venues that people often check in to after the current venue. Up to 5 venues are returned in each query, and results are sorted by how many people have visited that venue after the current one. For more robust information about the venues themselves (photos/tips/etc.), please see our venue details endpoint.\n\n",
+        "operationId": "getNextVenues",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/venues/{VENUE_ID}/like": {
+      "post": {
+        "tags": [
+          "Venues"
+        ],
+        "summary": "Like a Venue",
+        "description": "Allows the acting user to like or unlike a venue.",
+        "operationId": "likeAVenue",
+        "parameters": [
+          {
+            "name": "oauth_token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "set",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            },
+            "description": "If 1, like this venue. If 0 unlike (un-do a previous like) it. Default value is 1."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/photos/{PHOTO_ID}": {
+      "get": {
+        "tags": [
+          "Photos"
+        ],
+        "summary": "Get Details of a Photo",
+        "description": "Get details of a photo.\n\nTo assemble a photo URL, combine the response’sprefix + size + suffix. Ex: https://igx.4sqi.net/img/general/300x500/5163668_xXFcZo7sU8aa1ZMhiQ2kIP7NllD48m7qsSwr1mJnFj4.jpg\n\nsize can be one of the following, where XX or YY is one of 36, 100, 300, or 500.\n\nXXxYY\noriginal: the original photo’s size\ncapXX: cap the photo with a width or height of XX. (whichever is larger). Scales the other, smaller dimension proportionally\nwidthXX: forces the width to be XX and scales the height proportionally\nheightYY: forces the height to be YY and scales the width proportionally\n\n#### Response Model: [Photo Details/Response Fields](https://developer.foursquare.com/docs/api/photos/details)",
+        "operationId": "getDetailsOfAPhoto",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "PHOTO_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/tips/{TIP_ID}": {
+      "get": {
+        "tags": [
+          "Tips"
+        ],
+        "summary": "Get Details of a Tip",
+        "description": "Gives details about a tip, including which users (especially friends) have marked the tip to-do.",
+        "operationId": "getDetailsOfATip",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "TIP_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/lists/add": {
+      "post": {
+        "tags": [
+          "Lists"
+        ],
+        "summary": "Create a List",
+        "description": "Allows user to create a new list.",
+        "operationId": "createAList",
+        "parameters": [
+          {
+            "name": "oauth_token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "Test Venues"
+            },
+            "description": "The name of the list."
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "List of Test Venues You Have Created"
+            },
+            "description": "The description of the list."
+          },
+          {
+            "name": "collaborative",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "true"
+            },
+            "description": "Boolean indicating if this list can be edited by friends."
+          },
+          {
+            "name": "photoId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The id of a photo that should be set as the list photo."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/v2/venues/add": {
+      "post": {
+        "tags": [
+          "Venue Edits (Exercise Caution)"
+        ],
+        "summary": "Add a Venue",
+        "description": "Allows Foursquare users to add a new venue. All fields are optional, except for ll, name, and primaryCategoryId.\n\nBefore adding a place, please make sure your data is properly formatted to adhere to our style guide [here](https://support.foursquare.com/hc/en-us/articles/201064960-What-is-the-style-guide-for-adding-and-editing-places-).\n\n",
+        "operationId": "addAVenue",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "Foursquare Asia Test Venue"
+            },
+            "description": "REQUIRED. The name of the venue."
+          },
+          {
+            "name": "ll",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "1.2787325314969156,103.8434731966384"
+            },
+            "description": "REQUIRED. Latitude and longitude of the venue, as accurate as is known."
+          },
+          {
+            "name": "primaryCategoryId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "4bf58dd8d48988d124941735"
+            },
+            "description": "REQUIRED. The ID of the category to which you want to assign this venue."
+          },
+          {
+            "name": "oauth_token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "Token obtained after you use a Foursquare account to login and obtain an OAUTH token. You may do so from the Authorization tab above, through Postman. You have to set the appropriate Callback URI from your Foursquare Developer console to include \"https://www.getpostman.com/oauth2/callback\"."
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The address of the venue."
+          },
+          {
+            "name": "crossStreet",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The nearest intersecting street or streets."
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The city name where this venue is."
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The nearest state or province to the venue."
+          },
+          {
+            "name": "zip",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The zip or postal code for the venue."
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The phone number of the venue."
+          },
+          {
+            "name": "allCategoryIds",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "Additional category IDs for the venue (up to two more, separated by a comma)."
+          },
+          {
+            "name": "parentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "If the venue is a subvenue of a larger venue (such as a coffee shop within a Target), set this attribute to the ID of the parent venue."
+          },
+          {
+            "name": "cc",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The country code of the venue. This is optional but we recommend sending this parameter if your venue borders another country and you are getting formatting errors for the zip and/or phone."
+          },
+          {
+            "name": "twitter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The twitter handle of the venue."
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "A freeform description of the venue, up to 160 characters."
+          },
+          {
+            "name": "chainIds",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "A comma-delimited string of chain ID(s) for the venue (each venue can have up to five chain IDs, if applicable)."
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The url of the homepage of the venue."
+          },
+          {
+            "name": "ignoreDuplicates",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "A boolean flag telling the server to ignore duplicates and force the addition of this venue."
+          },
+          {
+            "name": "ignoreDuplicatesKey",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "Required if ignoreDuplicates is true. This key will be available in the response of the HTTP 409 error of the first (failed) attempt to add venue."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/v2/venues/{EDIT_VENUE_ID}/flag": {
+      "post": {
+        "tags": [
+          "Venue Edits (Exercise Caution)"
+        ],
+        "summary": "Indicate a Venue is Incorrect",
+        "description": "Allows users to indicate a venue is incorrect in some way.\n\nFlags are pushed into a moderation queue. If a closed flag is approved, the venue will no longer show up in search results. Moderators will attempt to correct cases of mislocated or duplicate venues as appropriate. If the user has the correct address for a mislocated venue, use proposeedit instead.\n\n",
+        "operationId": "indicateAVenueIsIncorrect",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "oauth_token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "Token obtained after you use a Foursquare account to login and obtain an OAUTH token. You may do so from the Authorization tab above, through Postman. You have to set the appropriate Callback URI from your Foursquare Developer console to include \"https://www.getpostman.com/oauth2/callback\"."
+          },
+          {
+            "name": "problem",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "mislocated"
+            },
+            "description": "REQUIRED. One of mislocated, closed, duplicate, inappropriate, doesnt_exist, private, or event_over."
+          },
+          {
+            "name": "venueid",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "ID of the duplicated venue (for problem duplicate)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "EDIT_VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/v2/venues/{EDIT_VENUE_ID}/proposeedit": {
+      "post": {
+        "tags": [
+          "Venue Edits (Exercise Caution)"
+        ],
+        "summary": "Propose an Edit to a Venue",
+        "description": "Allows you to propose a change to a venue. Before editing, please make sure your fields are properly formatted to adhere to our style guide [here](https://support.foursquare.com/hc/en-us/articles/201064960-What-is-the-style-guide-for-adding-and-editing-places-).\n\nUsers with improper edits may see their edits “rolled back” or in some cases face a temporary ban on their account from our Super User community.",
+        "operationId": "proposeAnEditToAVenue",
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "name": "oauth_token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "Token obtained after you use a Foursquare account to login and obtain an OAUTH token. You may do so from the Authorization tab above, through Postman. You have to set the appropriate Callback URI from your Foursquare Developer console to include \"https://www.getpostman.com/oauth2/callback\"."
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The name of the venue.\n"
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The address of the venue.\n"
+          },
+          {
+            "name": "crossStreet",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The nearest intersecting street or streets.\n"
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The city name where this venue is."
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The nearest state or province to the venue."
+          },
+          {
+            "name": "zip",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The zip or postal code for the venue.\n"
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The phone number of the venue.\n"
+          },
+          {
+            "name": "twitter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The twitter handle of the venue.\n"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "A freeform description of the venue, up to 300 characters.\n"
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The url of the homepage of the venue.\n"
+          },
+          {
+            "name": "menuUrl",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "A url where the menu of the venue can be found.\n"
+          },
+          {
+            "name": "facebookUrl",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The url for this venue’s Facebook Page.\n"
+          },
+          {
+            "name": "venuell",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "Latitude and longitude at which the venue should be located.\n"
+          },
+          {
+            "name": "primaryCategoryId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The ID of the category to which you want to assign this venue.\n"
+          },
+          {
+            "name": "addCategoryIds",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "Comma-separated list of new category IDs to be assigned to this venue. If you are adding a new category to a venue and you want to make it primary, you should just use primaryCategoryId."
+          },
+          {
+            "name": "removeCategoryIds",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "Comma-separated list of new category IDs to be removed from this venue.\n"
+          },
+          {
+            "name": "hours",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": ""
+            },
+            "description": "The hours for the venue, as a semi-colon separated list of open segments and named segments (e.g., brunch or happy hour). Open segments are formatted as day,start,end. Named segments additionally have a label, formatted as day,start,end,label. Days are formatted as integers with Monday = 1,…,Sunday = 7. Start and End are formatted as [+]HHMM format. Use 24 hour format (no colon), prefix with 0 for HH or MM less than 10. Use ‘+’ prefix, i.e., +0230 to represent 2:30 am past midnight into the following day. To indicate that a venue is open 24/7, send this value with the hours attribute: 1,0000,2400;2,0000,2400;3,0000,2400;4,0000,2400;5,0000,2400;6,0000,2400;7,0000,2400"
+          },
+          {
+            "name": "creditCards",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "no"
+            },
+            "description": "Undocumented. Send yes or no to indicate if this place accepts credit cards."
+          },
+          {
+            "name": "americanExpress",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "no"
+            },
+            "description": "Undocumented. Send yes or no to indicate if this place accepts AMEX cards."
+          },
+          {
+            "name": "visa",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "no"
+            },
+            "description": "Undocumented. Send yes or no to indicate if this place accepts Visa."
+          },
+          {
+            "name": "mastercard",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "no"
+            },
+            "description": "Undocumented. Send yes or no to indicate if this place accepts Mastercard."
+          },
+          {
+            "name": "name:zh",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "四方辦公室"
+            },
+            "description": "Undocumented. Send the translated venue name for the venue in the language specified with the ISO 639-1 2-Letter Language Code."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "EDIT_VENUE_ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Popular Endpoints"
+    },
+    {
+      "name": "Venues"
+    },
+    {
+      "name": "Photos"
+    },
+    {
+      "name": "Tips"
+    },
+    {
+      "name": "Lists"
+    },
+    {
+      "name": "Venue Edits (Exercise Caution)",
+      "description": "These endpoints make suggested changes directly to data that is publicly accessible to our data consumers. Test and use these endpoints with caution, and avoid editing data for popular venues or venues that you are unfamiliar with.\n\nIf found or reported, misuse of these endpoints will lead to immediate account restrictions and permanent account bans from future edits."
+    }
+  ]
+}
