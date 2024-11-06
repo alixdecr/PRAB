@@ -1,6 +1,6 @@
 import json
 
-with open("apis/balldontlie/balldontlie-openapi.json", "r", encoding="utf-8") as openfile:
+with open("apis/cheapshark/cheapshark-openapi.json", "r", encoding="utf-8") as openfile:
     dic = json.load(openfile)
 
 structureDict = {
