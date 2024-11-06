@@ -1,0 +1,140 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Google Geocoding",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://maps.googleapis.com"
+      }
+    ],
+    "paths": {
+      "/maps/api/geocode/json": {
+        "get": {
+          "tags": [
+            "default"
+          ],
+          "summary": "geocode Copy",
+          "description": "The Geocoding API is a service that provides geocoding and reverse geocoding of addresses.\n\n**Geocoding** is the process of converting addresses (like a street address) into geographic coordinates (like latitude and longitude), which you can use to place markers on a map, or position the map.\n\n**Reverse geocoding** is the process of converting geographic coordinates into a human-readable address.\n\nYou can also use the Geocoding API to find the address for a given place ID.\n\nTo see countries currently supported by the Google Maps Platform Geocoding API, please consult the [Google Maps coverage data](https://developers.google.com/maps/coverage). The accuracy of geocoded locations may vary per country, so you should consider using the returned `location_type` field to determine if a good enough match has been found for the purposes of your application. Please note that the availability of geocoding data depends on our contracts with data providers, so it is subject to change.",
+          "parameters": [
+            {
+              "name": "Accept",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "example": "application/json"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": {
+                "Content-Type": {
+                  "schema": {
+                    "type": "string",
+                    "example": "application/json"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "example": {
+                    "results": [
+                      {
+                        "address_components": [
+                          {
+                            "long_name": "High Street",
+                            "short_name": "High St",
+                            "types": [
+                              "route"
+                            ]
+                          },
+                          {
+                            "long_name": "Hastings",
+                            "short_name": "Hastings",
+                            "types": [
+                              "postal_town"
+                            ]
+                          },
+                          {
+                            "long_name": "East Sussex",
+                            "short_name": "East Sussex",
+                            "types": [
+                              "administrative_area_level_2",
+                              "political"
+                            ]
+                          },
+                          {
+                            "long_name": "England",
+                            "short_name": "England",
+                            "types": [
+                              "administrative_area_level_1",
+                              "political"
+                            ]
+                          },
+                          {
+                            "long_name": "United Kingdom",
+                            "short_name": "GB",
+                            "types": [
+                              "country",
+                              "political"
+                            ]
+                          },
+                          {
+                            "long_name": "TN34",
+                            "short_name": "TN34",
+                            "types": [
+                              "postal_code",
+                              "postal_code_prefix"
+                            ]
+                          }
+                        ],
+                        "formatted_address": "High St, Hastings TN34, UK",
+                        "geometry": {
+                          "bounds": {
+                            "northeast": {
+                              "lat": 50.86038139999999,
+                              "lng": 0.596206
+                            },
+                            "southwest": {
+                              "lat": 50.8558471,
+                              "lng": 0.5904904
+                            }
+                          },
+                          "location": {
+                            "lat": 50.8584228,
+                            "lng": 0.5926006
+                          },
+                          "location_type": "GEOMETRIC_CENTER",
+                          "viewport": {
+                            "northeast": {
+                              "lat": 50.86038139999999,
+                              "lng": 0.596206
+                            },
+                            "southwest": {
+                              "lat": 50.8558471,
+                              "lng": 0.5904904
+                            }
+                          }
+                        },
+                        "place_id": "ChIJ-Ws929sa30cRKgsMNVkPyws",
+                        "types": [
+                          "route"
+                        ]
+                      }
+                    ],
+                    "status": "OK"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

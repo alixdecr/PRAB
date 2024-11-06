@@ -1,0 +1,1 @@
+This folder contains the complete Postman collection for all Google Map APIs. In this benchmark, we include the Google Geocoding API as an example of one of these APIs.
