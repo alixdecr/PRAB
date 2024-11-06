@@ -1,0 +1,1949 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "Game of Thrones",
+      "description": "For Game of Thrones fans.\r\nFor original documentation, go to https://www.anapioficeandfire.com/Documentation \r\n\r\n",
+      "version": "1.0.0",
+      "contact": {}
+    },
+    "servers": [
+      {
+        "url": "https://www.anapioficeandfire.com"
+      }
+    ],
+    "paths": {
+      "/api/characters": {
+        "get": {
+          "summary": "Characters",
+          "description": "Returns a list of Game of Thrones characters.\n\nWebsite - https://anapioficeandfire.com/Documentation",
+          "operationId": "characters",
+          "parameters": [
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "100"
+              }
+            },
+            {
+              "name": "name",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "Daenerys Targaryen"
+              },
+              "description": "Characters with the given name are included in the response. Exact values only."
+            },
+            {
+              "name": "gender",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              },
+              "description": "Characters with the given gender are included in the response."
+            },
+            {
+              "name": "culture",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              },
+              "description": "Characters with the given culture are included in the response."
+            },
+            {
+              "name": "born",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              },
+              "description": "Characters that were born this given year are included in the response."
+            },
+            {
+              "name": "died",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              },
+              "description": "Characters that died this given year are included in the response."
+            },
+            {
+              "name": "isAlive",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              },
+              "description": "Characters that are alive or dead (depending on the value) are included in the response."
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Aegon",
+              "headers": {
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "DYNAMIC"
+                  }
+                },
+                "CF-RAY": {
+                  "schema": {
+                    "type": "string",
+                    "example": "5d35996588909929-LAX"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "Content-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "br"
+                  }
+                },
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Tue, 15 Sep 2020 21:56:42 GMT"
+                  }
+                },
+                "Expect-CT": {
+                  "schema": {
+                    "type": "string",
+                    "example": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+                  }
+                },
+                "Link": {
+                  "schema": {
+                    "type": "string",
+                    "example": "<https://www.anapioficeandfire.com/api/characters?name=Aegon%20Targaryen&page=1&pageSize=10>; rel=\"first\", <https://www.anapioficeandfire.com/api/characters?name=Aegon%20Targaryen&page=1&pageSize=10>; rel=\"last\""
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                },
+                "Transfer-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "chunked"
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "X-Powered-By": {
+                  "schema": {
+                    "type": "string",
+                    "example": "ASP.NET"
+                  }
+                },
+                "cf-request-id": {
+                  "schema": {
+                    "type": "string",
+                    "example": "05355e337400009929b806e200000001"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "aliases": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "Young Griff"
+                          },
+                          "example": [
+                            "Young Griff"
+                          ]
+                        },
+                        "allegiances": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "https://www.anapioficeandfire.com/api/houses/378"
+                          },
+                          "example": [
+                            "https://www.anapioficeandfire.com/api/houses/378"
+                          ]
+                        },
+                        "books": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "https://www.anapioficeandfire.com/api/books/1"
+                          },
+                          "example": [
+                            "https://www.anapioficeandfire.com/api/books/1",
+                            "https://www.anapioficeandfire.com/api/books/2",
+                            "https://www.anapioficeandfire.com/api/books/3",
+                            "https://www.anapioficeandfire.com/api/books/5",
+                            "https://www.anapioficeandfire.com/api/books/8",
+                            "https://www.anapioficeandfire.com/api/books/11"
+                          ]
+                        },
+                        "born": {
+                          "type": "string",
+                          "example": "In 281 AC or 282 AC, at Dragonstone"
+                        },
+                        "culture": {
+                          "type": "string",
+                          "example": "Valyrian"
+                        },
+                        "died": {
+                          "type": "string",
+                          "example": "In 283 AC (Supposedly), at King's Landing"
+                        },
+                        "father": {
+                          "type": "string",
+                          "example": ""
+                        },
+                        "gender": {
+                          "type": "string",
+                          "example": "Male"
+                        },
+                        "mother": {
+                          "type": "string",
+                          "example": ""
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Aegon Targaryen"
+                        },
+                        "playedBy": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "example": [
+                            ""
+                          ]
+                        },
+                        "povBooks": {
+                          "type": "array",
+                          "items": {},
+                          "example": []
+                        },
+                        "spouse": {
+                          "type": "string",
+                          "example": ""
+                        },
+                        "titles": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "example": [
+                            ""
+                          ]
+                        },
+                        "tvSeries": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "example": [
+                            ""
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "example": "https://www.anapioficeandfire.com/api/characters/42"
+                        }
+                      }
+                    },
+                    "example": [
+                      {
+                        "aliases": [
+                          "Young Griff"
+                        ],
+                        "allegiances": [
+                          "https://www.anapioficeandfire.com/api/houses/378"
+                        ],
+                        "books": [
+                          "https://www.anapioficeandfire.com/api/books/1",
+                          "https://www.anapioficeandfire.com/api/books/2",
+                          "https://www.anapioficeandfire.com/api/books/3",
+                          "https://www.anapioficeandfire.com/api/books/5",
+                          "https://www.anapioficeandfire.com/api/books/8",
+                          "https://www.anapioficeandfire.com/api/books/11"
+                        ],
+                        "born": "In 281 AC or 282 AC, at Dragonstone",
+                        "culture": "Valyrian",
+                        "died": "In 283 AC (Supposedly), at King's Landing",
+                        "father": "",
+                        "gender": "Male",
+                        "mother": "",
+                        "name": "Aegon Targaryen",
+                        "playedBy": [
+                          ""
+                        ],
+                        "povBooks": [],
+                        "spouse": "",
+                        "titles": [
+                          ""
+                        ],
+                        "tvSeries": [
+                          ""
+                        ],
+                        "url": "https://www.anapioficeandfire.com/api/characters/42"
+                      },
+                      {
+                        "aliases": [
+                          ""
+                        ],
+                        "allegiances": [
+                          "https://www.anapioficeandfire.com/api/houses/378"
+                        ],
+                        "books": [
+                          "https://www.anapioficeandfire.com/api/books/11"
+                        ],
+                        "born": "In 26 AC",
+                        "culture": "Valyrian",
+                        "died": "In 43 AC, at Gods Eye",
+                        "father": "",
+                        "gender": "Male",
+                        "mother": "",
+                        "name": "Aegon Targaryen",
+                        "playedBy": [
+                          ""
+                        ],
+                        "povBooks": [],
+                        "spouse": "https://www.anapioficeandfire.com/api/characters/873",
+                        "titles": [
+                          "Prince"
+                        ],
+                        "tvSeries": [
+                          ""
+                        ],
+                        "url": "https://www.anapioficeandfire.com/api/characters/43"
+                      },
+                      {
+                        "aliases": [
+                          ""
+                        ],
+                        "allegiances": [
+                          "https://www.anapioficeandfire.com/api/houses/378"
+                        ],
+                        "books": [
+                          "https://www.anapioficeandfire.com/api/books/11"
+                        ],
+                        "born": "",
+                        "culture": "Valyrian",
+                        "died": "",
+                        "father": "",
+                        "gender": "Male",
+                        "mother": "",
+                        "name": "Aegon Targaryen",
+                        "playedBy": [
+                          ""
+                        ],
+                        "povBooks": [],
+                        "spouse": "",
+                        "titles": [
+                          "Prince"
+                        ],
+                        "tvSeries": [
+                          ""
+                        ],
+                        "url": "https://www.anapioficeandfire.com/api/characters/44"
+                      },
+                      {
+                        "aliases": [
+                          ""
+                        ],
+                        "allegiances": [
+                          "https://www.anapioficeandfire.com/api/houses/378"
+                        ],
+                        "books": [
+                          "https://www.anapioficeandfire.com/api/books/11"
+                        ],
+                        "born": "In or between 50 AC and 59 AC",
+                        "culture": "Valyrian",
+                        "died": "",
+                        "father": "",
+                        "gender": "Male",
+                        "mother": "",
+                        "name": "Aegon Targaryen",
+                        "playedBy": [
+                          ""
+                        ],
+                        "povBooks": [],
+                        "spouse": "",
+                        "titles": [
+                          "Prince"
+                        ],
+                        "tvSeries": [
+                          ""
+                        ],
+                        "url": "https://www.anapioficeandfire.com/api/characters/45"
+                      }
+                    ]
+                  },
+                  "examples": {
+                    "Aegon": {
+                      "value": [
+                        {
+                          "aliases": [
+                            "Young Griff"
+                          ],
+                          "allegiances": [
+                            "https://www.anapioficeandfire.com/api/houses/378"
+                          ],
+                          "books": [
+                            "https://www.anapioficeandfire.com/api/books/1",
+                            "https://www.anapioficeandfire.com/api/books/2",
+                            "https://www.anapioficeandfire.com/api/books/3",
+                            "https://www.anapioficeandfire.com/api/books/5",
+                            "https://www.anapioficeandfire.com/api/books/8",
+                            "https://www.anapioficeandfire.com/api/books/11"
+                          ],
+                          "born": "In 281 AC or 282 AC, at Dragonstone",
+                          "culture": "Valyrian",
+                          "died": "In 283 AC (Supposedly), at King's Landing",
+                          "father": "",
+                          "gender": "Male",
+                          "mother": "",
+                          "name": "Aegon Targaryen",
+                          "playedBy": [
+                            ""
+                          ],
+                          "povBooks": [],
+                          "spouse": "",
+                          "titles": [
+                            ""
+                          ],
+                          "tvSeries": [
+                            ""
+                          ],
+                          "url": "https://www.anapioficeandfire.com/api/characters/42"
+                        },
+                        {
+                          "aliases": [
+                            ""
+                          ],
+                          "allegiances": [
+                            "https://www.anapioficeandfire.com/api/houses/378"
+                          ],
+                          "books": [
+                            "https://www.anapioficeandfire.com/api/books/11"
+                          ],
+                          "born": "In 26 AC",
+                          "culture": "Valyrian",
+                          "died": "In 43 AC, at Gods Eye",
+                          "father": "",
+                          "gender": "Male",
+                          "mother": "",
+                          "name": "Aegon Targaryen",
+                          "playedBy": [
+                            ""
+                          ],
+                          "povBooks": [],
+                          "spouse": "https://www.anapioficeandfire.com/api/characters/873",
+                          "titles": [
+                            "Prince"
+                          ],
+                          "tvSeries": [
+                            ""
+                          ],
+                          "url": "https://www.anapioficeandfire.com/api/characters/43"
+                        },
+                        {
+                          "aliases": [
+                            ""
+                          ],
+                          "allegiances": [
+                            "https://www.anapioficeandfire.com/api/houses/378"
+                          ],
+                          "books": [
+                            "https://www.anapioficeandfire.com/api/books/11"
+                          ],
+                          "born": "",
+                          "culture": "Valyrian",
+                          "died": "",
+                          "father": "",
+                          "gender": "Male",
+                          "mother": "",
+                          "name": "Aegon Targaryen",
+                          "playedBy": [
+                            ""
+                          ],
+                          "povBooks": [],
+                          "spouse": "",
+                          "titles": [
+                            "Prince"
+                          ],
+                          "tvSeries": [
+                            ""
+                          ],
+                          "url": "https://www.anapioficeandfire.com/api/characters/44"
+                        },
+                        {
+                          "aliases": [
+                            ""
+                          ],
+                          "allegiances": [
+                            "https://www.anapioficeandfire.com/api/houses/378"
+                          ],
+                          "books": [
+                            "https://www.anapioficeandfire.com/api/books/11"
+                          ],
+                          "born": "In or between 50 AC and 59 AC",
+                          "culture": "Valyrian",
+                          "died": "",
+                          "father": "",
+                          "gender": "Male",
+                          "mother": "",
+                          "name": "Aegon Targaryen",
+                          "playedBy": [
+                            ""
+                          ],
+                          "povBooks": [],
+                          "spouse": "",
+                          "titles": [
+                            "Prince"
+                          ],
+                          "tvSeries": [
+                            ""
+                          ],
+                          "url": "https://www.anapioficeandfire.com/api/characters/45"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/books": {
+        "get": {
+          "summary": "Books",
+          "description": "Returns a list of Game of Thrones books.\n\nWebsite - https://anapioficeandfire.com/Documentation",
+          "operationId": "books",
+          "parameters": [
+            {
+              "name": "name",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Books with the given name are included in the response"
+            },
+            {
+              "name": "fromReleaseDate",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Books that were released after, or on, the given date are included in the response."
+            },
+            {
+              "name": "toReleaseDate",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              },
+              "description": "Books that were released before, or on, the given date are included in the response."
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The World of Ice and Fire",
+              "headers": {
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "DYNAMIC"
+                  }
+                },
+                "CF-RAY": {
+                  "schema": {
+                    "type": "string",
+                    "example": "5d35a3f5a93e9929-LAX"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "Content-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "br"
+                  }
+                },
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Tue, 15 Sep 2020 22:03:55 GMT"
+                  }
+                },
+                "Expect-CT": {
+                  "schema": {
+                    "type": "string",
+                    "example": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+                  }
+                },
+                "Link": {
+                  "schema": {
+                    "type": "string",
+                    "example": "<https://www.anapioficeandfire.com/api/books?name=The%20World%20of%20Ice%20and%20Fire&page=1&pageSize=10>; rel=\"first\", <https://www.anapioficeandfire.com/api/books?name=The%20World%20of%20Ice%20and%20Fire&page=1&pageSize=10>; rel=\"last\""
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                },
+                "Transfer-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "chunked"
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "X-Powered-By": {
+                  "schema": {
+                    "type": "string",
+                    "example": "ASP.NET"
+                  }
+                },
+                "cf-request-id": {
+                  "schema": {
+                    "type": "string",
+                    "example": "053564cd8d00009929b835e200000001"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "authors": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "Elio Garcia"
+                          },
+                          "example": [
+                            "Elio Garcia",
+                            "Linda Antonsson",
+                            "George R. R. Martin"
+                          ]
+                        },
+                        "characters": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "https://www.anapioficeandfire.com/api/characters/27"
+                          },
+                          "example": [
+                            "https://www.anapioficeandfire.com/api/characters/27",
+                            "https://www.anapioficeandfire.com/api/characters/33",
+                            "https://www.anapioficeandfire.com/api/characters/34",
+                            "https://www.anapioficeandfire.com/api/characters/38",
+                            "https://www.anapioficeandfire.com/api/characters/39",
+                            "https://www.anapioficeandfire.com/api/characters/40",
+                            "https://www.anapioficeandfire.com/api/characters/41",
+                            "https://www.anapioficeandfire.com/api/characters/42",
+                            "https://www.anapioficeandfire.com/api/characters/43",
+                            "https://www.anapioficeandfire.com/api/characters/44",
+                            "https://www.anapioficeandfire.com/api/characters/45",
+                            "https://www.anapioficeandfire.com/api/characters/46",
+                            "https://www.anapioficeandfire.com/api/characters/47",
+                            "https://www.anapioficeandfire.com/api/characters/48",
+                            "https://www.anapioficeandfire.com/api/characters/49",
+                            "https://www.anapioficeandfire.com/api/characters/55",
+                            "https://www.anapioficeandfire.com/api/characters/57",
+                            "https://www.anapioficeandfire.com/api/characters/58",
+                            "https://www.anapioficeandfire.com/api/characters/59",
+                            "https://www.anapioficeandfire.com/api/characters/61",
+                            "https://www.anapioficeandfire.com/api/characters/62",
+                            "https://www.anapioficeandfire.com/api/characters/65",
+                            "https://www.anapioficeandfire.com/api/characters/75",
+                            "https://www.anapioficeandfire.com/api/characters/76",
+                            "https://www.anapioficeandfire.com/api/characters/83",
+                            "https://www.anapioficeandfire.com/api/characters/90",
+                            "https://www.anapioficeandfire.com/api/characters/91",
+                            "https://www.anapioficeandfire.com/api/characters/93",
+                            "https://www.anapioficeandfire.com/api/characters/97",
+                            "https://www.anapioficeandfire.com/api/characters/98",
+                            "https://www.anapioficeandfire.com/api/characters/101",
+                            "https://www.anapioficeandfire.com/api/characters/105",
+                            "https://www.anapioficeandfire.com/api/characters/109",
+                            "https://www.anapioficeandfire.com/api/characters/110",
+                            "https://www.anapioficeandfire.com/api/characters/128",
+                            "https://www.anapioficeandfire.com/api/characters/129",
+                            "https://www.anapioficeandfire.com/api/characters/136",
+                            "https://www.anapioficeandfire.com/api/characters/137",
+                            "https://www.anapioficeandfire.com/api/characters/142",
+                            "https://www.anapioficeandfire.com/api/characters/143",
+                            "https://www.anapioficeandfire.com/api/characters/144",
+                            "https://www.anapioficeandfire.com/api/characters/154",
+                            "https://www.anapioficeandfire.com/api/characters/155",
+                            "https://www.anapioficeandfire.com/api/characters/157",
+                            "https://www.anapioficeandfire.com/api/characters/160",
+                            "https://www.anapioficeandfire.com/api/characters/161",
+                            "https://www.anapioficeandfire.com/api/characters/165",
+                            "https://www.anapioficeandfire.com/api/characters/168",
+                            "https://www.anapioficeandfire.com/api/characters/169",
+                            "https://www.anapioficeandfire.com/api/characters/170",
+                            "https://www.anapioficeandfire.com/api/characters/178",
+                            "https://www.anapioficeandfire.com/api/characters/192",
+                            "https://www.anapioficeandfire.com/api/characters/195",
+                            "https://www.anapioficeandfire.com/api/characters/197",
+                            "https://www.anapioficeandfire.com/api/characters/207",
+                            "https://www.anapioficeandfire.com/api/characters/209",
+                            "https://www.anapioficeandfire.com/api/characters/226",
+                            "https://www.anapioficeandfire.com/api/characters/231",
+                            "https://www.anapioficeandfire.com/api/characters/235",
+                            "https://www.anapioficeandfire.com/api/characters/236",
+                            "https://www.anapioficeandfire.com/api/characters/239",
+                            "https://www.anapioficeandfire.com/api/characters/244",
+                            "https://www.anapioficeandfire.com/api/characters/253",
+                            "https://www.anapioficeandfire.com/api/characters/255",
+                            "https://www.anapioficeandfire.com/api/characters/256",
+                            "https://www.anapioficeandfire.com/api/characters/257",
+                            "https://www.anapioficeandfire.com/api/characters/259",
+                            "https://www.anapioficeandfire.com/api/characters/265",
+                            "https://www.anapioficeandfire.com/api/characters/266",
+                            "https://www.anapioficeandfire.com/api/characters/267",
+                            "https://www.anapioficeandfire.com/api/characters/268",
+                            "https://www.anapioficeandfire.com/api/characters/269",
+                            "https://www.anapioficeandfire.com/api/characters/270",
+                            "https://www.anapioficeandfire.com/api/characters/271",
+                            "https://www.anapioficeandfire.com/api/characters/272",
+                            "https://www.anapioficeandfire.com/api/characters/273",
+                            "https://www.anapioficeandfire.com/api/characters/274",
+                            "https://www.anapioficeandfire.com/api/characters/275",
+                            "https://www.anapioficeandfire.com/api/characters/276",
+                            "https://www.anapioficeandfire.com/api/characters/282",
+                            "https://www.anapioficeandfire.com/api/characters/284",
+                            "https://www.anapioficeandfire.com/api/characters/289",
+                            "https://www.anapioficeandfire.com/api/characters/324",
+                            "https://www.anapioficeandfire.com/api/characters/329",
+                            "https://www.anapioficeandfire.com/api/characters/330",
+                            "https://www.anapioficeandfire.com/api/characters/333",
+                            "https://www.anapioficeandfire.com/api/characters/334",
+                            "https://www.anapioficeandfire.com/api/characters/339",
+                            "https://www.anapioficeandfire.com/api/characters/347",
+                            "https://www.anapioficeandfire.com/api/characters/349",
+                            "https://www.anapioficeandfire.com/api/characters/351",
+                            "https://www.anapioficeandfire.com/api/characters/363",
+                            "https://www.anapioficeandfire.com/api/characters/366",
+                            "https://www.anapioficeandfire.com/api/characters/367",
+                            "https://www.anapioficeandfire.com/api/characters/391",
+                            "https://www.anapioficeandfire.com/api/characters/395",
+                            "https://www.anapioficeandfire.com/api/characters/410",
+                            "https://www.anapioficeandfire.com/api/characters/418",
+                            "https://www.anapioficeandfire.com/api/characters/422",
+                            "https://www.anapioficeandfire.com/api/characters/425",
+                            "https://www.anapioficeandfire.com/api/characters/431",
+                            "https://www.anapioficeandfire.com/api/characters/457",
+                            "https://www.anapioficeandfire.com/api/characters/460",
+                            "https://www.anapioficeandfire.com/api/characters/467",
+                            "https://www.anapioficeandfire.com/api/characters/471",
+                            "https://www.anapioficeandfire.com/api/characters/472",
+                            "https://www.anapioficeandfire.com/api/characters/475",
+                            "https://www.anapioficeandfire.com/api/characters/481",
+                            "https://www.anapioficeandfire.com/api/characters/484",
+                            "https://www.anapioficeandfire.com/api/characters/487",
+                            "https://www.anapioficeandfire.com/api/characters/488",
+                            "https://www.anapioficeandfire.com/api/characters/492",
+                            "https://www.anapioficeandfire.com/api/characters/497",
+                            "https://www.anapioficeandfire.com/api/characters/525",
+                            "https://www.anapioficeandfire.com/api/characters/526",
+                            "https://www.anapioficeandfire.com/api/characters/527",
+                            "https://www.anapioficeandfire.com/api/characters/538",
+                            "https://www.anapioficeandfire.com/api/characters/546",
+                            "https://www.anapioficeandfire.com/api/characters/548",
+                            "https://www.anapioficeandfire.com/api/characters/554",
+                            "https://www.anapioficeandfire.com/api/characters/556",
+                            "https://www.anapioficeandfire.com/api/characters/560",
+                            "https://www.anapioficeandfire.com/api/characters/570",
+                            "https://www.anapioficeandfire.com/api/characters/572",
+                            "https://www.anapioficeandfire.com/api/characters/576",
+                            "https://www.anapioficeandfire.com/api/characters/584",
+                            "https://www.anapioficeandfire.com/api/characters/589",
+                            "https://www.anapioficeandfire.com/api/characters/610",
+                            "https://www.anapioficeandfire.com/api/characters/611",
+                            "https://www.anapioficeandfire.com/api/characters/615",
+                            "https://www.anapioficeandfire.com/api/characters/616",
+                            "https://www.anapioficeandfire.com/api/characters/623",
+                            "https://www.anapioficeandfire.com/api/characters/648",
+                            "https://www.anapioficeandfire.com/api/characters/656",
+                            "https://www.anapioficeandfire.com/api/characters/662",
+                            "https://www.anapioficeandfire.com/api/characters/668",
+                            "https://www.anapioficeandfire.com/api/characters/679",
+                            "https://www.anapioficeandfire.com/api/characters/685",
+                            "https://www.anapioficeandfire.com/api/characters/694",
+                            "https://www.anapioficeandfire.com/api/characters/695",
+                            "https://www.anapioficeandfire.com/api/characters/696",
+                            "https://www.anapioficeandfire.com/api/characters/697",
+                            "https://www.anapioficeandfire.com/api/characters/698",
+                            "https://www.anapioficeandfire.com/api/characters/709",
+                            "https://www.anapioficeandfire.com/api/characters/716",
+                            "https://www.anapioficeandfire.com/api/characters/719",
+                            "https://www.anapioficeandfire.com/api/characters/729",
+                            "https://www.anapioficeandfire.com/api/characters/737",
+                            "https://www.anapioficeandfire.com/api/characters/744",
+                            "https://www.anapioficeandfire.com/api/characters/749",
+                            "https://www.anapioficeandfire.com/api/characters/759",
+                            "https://www.anapioficeandfire.com/api/characters/767",
+                            "https://www.anapioficeandfire.com/api/characters/773",
+                            "https://www.anapioficeandfire.com/api/characters/777",
+                            "https://www.anapioficeandfire.com/api/characters/778",
+                            "https://www.anapioficeandfire.com/api/characters/779",
+                            "https://www.anapioficeandfire.com/api/characters/782",
+                            "https://www.anapioficeandfire.com/api/characters/794",
+                            "https://www.anapioficeandfire.com/api/characters/797",
+                            "https://www.anapioficeandfire.com/api/characters/803",
+                            "https://www.anapioficeandfire.com/api/characters/805",
+                            "https://www.anapioficeandfire.com/api/characters/808",
+                            "https://www.anapioficeandfire.com/api/characters/813",
+                            "https://www.anapioficeandfire.com/api/characters/833",
+                            "https://www.anapioficeandfire.com/api/characters/836",
+                            "https://www.anapioficeandfire.com/api/characters/841",
+                            "https://www.anapioficeandfire.com/api/characters/859",
+                            "https://www.anapioficeandfire.com/api/characters/865",
+                            "https://www.anapioficeandfire.com/api/characters/868",
+                            "https://www.anapioficeandfire.com/api/characters/869",
+                            "https://www.anapioficeandfire.com/api/characters/870",
+                            "https://www.anapioficeandfire.com/api/characters/871",
+                            "https://www.anapioficeandfire.com/api/characters/872",
+                            "https://www.anapioficeandfire.com/api/characters/873",
+                            "https://www.anapioficeandfire.com/api/characters/874",
+                            "https://www.anapioficeandfire.com/api/characters/875",
+                            "https://www.anapioficeandfire.com/api/characters/878",
+                            "https://www.anapioficeandfire.com/api/characters/886",
+                            "https://www.anapioficeandfire.com/api/characters/887",
+                            "https://www.anapioficeandfire.com/api/characters/888",
+                            "https://www.anapioficeandfire.com/api/characters/901",
+                            "https://www.anapioficeandfire.com/api/characters/911",
+                            "https://www.anapioficeandfire.com/api/characters/916",
+                            "https://www.anapioficeandfire.com/api/characters/917",
+                            "https://www.anapioficeandfire.com/api/characters/918",
+                            "https://www.anapioficeandfire.com/api/characters/920",
+                            "https://www.anapioficeandfire.com/api/characters/945",
+                            "https://www.anapioficeandfire.com/api/characters/951",
+                            "https://www.anapioficeandfire.com/api/characters/969",
+                            "https://www.anapioficeandfire.com/api/characters/971",
+                            "https://www.anapioficeandfire.com/api/characters/986",
+                            "https://www.anapioficeandfire.com/api/characters/1014",
+                            "https://www.anapioficeandfire.com/api/characters/1023",
+                            "https://www.anapioficeandfire.com/api/characters/1026",
+                            "https://www.anapioficeandfire.com/api/characters/1032",
+                            "https://www.anapioficeandfire.com/api/characters/1034",
+                            "https://www.anapioficeandfire.com/api/characters/1040",
+                            "https://www.anapioficeandfire.com/api/characters/1048",
+                            "https://www.anapioficeandfire.com/api/characters/1050",
+                            "https://www.anapioficeandfire.com/api/characters/1052",
+                            "https://www.anapioficeandfire.com/api/characters/1057",
+                            "https://www.anapioficeandfire.com/api/characters/1070",
+                            "https://www.anapioficeandfire.com/api/characters/1072",
+                            "https://www.anapioficeandfire.com/api/characters/1076",
+                            "https://www.anapioficeandfire.com/api/characters/1077",
+                            "https://www.anapioficeandfire.com/api/characters/1078",
+                            "https://www.anapioficeandfire.com/api/characters/1079",
+                            "https://www.anapioficeandfire.com/api/characters/1099",
+                            "https://www.anapioficeandfire.com/api/characters/1111",
+                            "https://www.anapioficeandfire.com/api/characters/1149",
+                            "https://www.anapioficeandfire.com/api/characters/1169",
+                            "https://www.anapioficeandfire.com/api/characters/1175",
+                            "https://www.anapioficeandfire.com/api/characters/1181",
+                            "https://www.anapioficeandfire.com/api/characters/1202",
+                            "https://www.anapioficeandfire.com/api/characters/1239",
+                            "https://www.anapioficeandfire.com/api/characters/1242",
+                            "https://www.anapioficeandfire.com/api/characters/1286",
+                            "https://www.anapioficeandfire.com/api/characters/1354",
+                            "https://www.anapioficeandfire.com/api/characters/1358",
+                            "https://www.anapioficeandfire.com/api/characters/1375",
+                            "https://www.anapioficeandfire.com/api/characters/1388",
+                            "https://www.anapioficeandfire.com/api/characters/1398",
+                            "https://www.anapioficeandfire.com/api/characters/1399",
+                            "https://www.anapioficeandfire.com/api/characters/1406",
+                            "https://www.anapioficeandfire.com/api/characters/1411",
+                            "https://www.anapioficeandfire.com/api/characters/1417",
+                            "https://www.anapioficeandfire.com/api/characters/1435",
+                            "https://www.anapioficeandfire.com/api/characters/1444",
+                            "https://www.anapioficeandfire.com/api/characters/1458",
+                            "https://www.anapioficeandfire.com/api/characters/1462",
+                            "https://www.anapioficeandfire.com/api/characters/1513",
+                            "https://www.anapioficeandfire.com/api/characters/1514",
+                            "https://www.anapioficeandfire.com/api/characters/1527",
+                            "https://www.anapioficeandfire.com/api/characters/1539",
+                            "https://www.anapioficeandfire.com/api/characters/1545",
+                            "https://www.anapioficeandfire.com/api/characters/1558",
+                            "https://www.anapioficeandfire.com/api/characters/1561",
+                            "https://www.anapioficeandfire.com/api/characters/1589",
+                            "https://www.anapioficeandfire.com/api/characters/1608",
+                            "https://www.anapioficeandfire.com/api/characters/1631",
+                            "https://www.anapioficeandfire.com/api/characters/1650",
+                            "https://www.anapioficeandfire.com/api/characters/1672",
+                            "https://www.anapioficeandfire.com/api/characters/1690",
+                            "https://www.anapioficeandfire.com/api/characters/1718",
+                            "https://www.anapioficeandfire.com/api/characters/1725",
+                            "https://www.anapioficeandfire.com/api/characters/1739",
+                            "https://www.anapioficeandfire.com/api/characters/1746",
+                            "https://www.anapioficeandfire.com/api/characters/1756",
+                            "https://www.anapioficeandfire.com/api/characters/1786",
+                            "https://www.anapioficeandfire.com/api/characters/1862",
+                            "https://www.anapioficeandfire.com/api/characters/1866",
+                            "https://www.anapioficeandfire.com/api/characters/1874",
+                            "https://www.anapioficeandfire.com/api/characters/1884",
+                            "https://www.anapioficeandfire.com/api/characters/1891",
+                            "https://www.anapioficeandfire.com/api/characters/1905",
+                            "https://www.anapioficeandfire.com/api/characters/1908",
+                            "https://www.anapioficeandfire.com/api/characters/1944",
+                            "https://www.anapioficeandfire.com/api/characters/1976",
+                            "https://www.anapioficeandfire.com/api/characters/1989",
+                            "https://www.anapioficeandfire.com/api/characters/2048",
+                            "https://www.anapioficeandfire.com/api/characters/2056",
+                            "https://www.anapioficeandfire.com/api/characters/2059",
+                            "https://www.anapioficeandfire.com/api/characters/2071",
+                            "https://www.anapioficeandfire.com/api/characters/2075",
+                            "https://www.anapioficeandfire.com/api/characters/2138"
+                          ]
+                        },
+                        "country": {
+                          "type": "string",
+                          "example": "United States"
+                        },
+                        "isbn": {
+                          "type": "string",
+                          "example": "978-0553805444"
+                        },
+                        "mediaType": {
+                          "type": "string",
+                          "example": "Hardcover"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "The World of Ice and Fire"
+                        },
+                        "numberOfPages": {
+                          "type": "number",
+                          "example": 336
+                        },
+                        "povCharacters": {
+                          "type": "array",
+                          "items": {},
+                          "example": []
+                        },
+                        "publisher": {
+                          "type": "string",
+                          "example": "Bantam Books"
+                        },
+                        "released": {
+                          "type": "string",
+                          "example": "2014-10-28T00:00:00"
+                        },
+                        "url": {
+                          "type": "string",
+                          "example": "https://www.anapioficeandfire.com/api/books/11"
+                        }
+                      }
+                    },
+                    "example": [
+                      {
+                        "authors": [
+                          "Elio Garcia",
+                          "Linda Antonsson",
+                          "George R. R. Martin"
+                        ],
+                        "characters": [
+                          "https://www.anapioficeandfire.com/api/characters/27",
+                          "https://www.anapioficeandfire.com/api/characters/33",
+                          "https://www.anapioficeandfire.com/api/characters/34",
+                          "https://www.anapioficeandfire.com/api/characters/38",
+                          "https://www.anapioficeandfire.com/api/characters/39",
+                          "https://www.anapioficeandfire.com/api/characters/40",
+                          "https://www.anapioficeandfire.com/api/characters/41",
+                          "https://www.anapioficeandfire.com/api/characters/42",
+                          "https://www.anapioficeandfire.com/api/characters/43",
+                          "https://www.anapioficeandfire.com/api/characters/44",
+                          "https://www.anapioficeandfire.com/api/characters/45",
+                          "https://www.anapioficeandfire.com/api/characters/46",
+                          "https://www.anapioficeandfire.com/api/characters/47",
+                          "https://www.anapioficeandfire.com/api/characters/48",
+                          "https://www.anapioficeandfire.com/api/characters/49",
+                          "https://www.anapioficeandfire.com/api/characters/55",
+                          "https://www.anapioficeandfire.com/api/characters/57",
+                          "https://www.anapioficeandfire.com/api/characters/58",
+                          "https://www.anapioficeandfire.com/api/characters/59",
+                          "https://www.anapioficeandfire.com/api/characters/61",
+                          "https://www.anapioficeandfire.com/api/characters/62",
+                          "https://www.anapioficeandfire.com/api/characters/65",
+                          "https://www.anapioficeandfire.com/api/characters/75",
+                          "https://www.anapioficeandfire.com/api/characters/76",
+                          "https://www.anapioficeandfire.com/api/characters/83",
+                          "https://www.anapioficeandfire.com/api/characters/90",
+                          "https://www.anapioficeandfire.com/api/characters/91",
+                          "https://www.anapioficeandfire.com/api/characters/93",
+                          "https://www.anapioficeandfire.com/api/characters/97",
+                          "https://www.anapioficeandfire.com/api/characters/98",
+                          "https://www.anapioficeandfire.com/api/characters/101",
+                          "https://www.anapioficeandfire.com/api/characters/105",
+                          "https://www.anapioficeandfire.com/api/characters/109",
+                          "https://www.anapioficeandfire.com/api/characters/110",
+                          "https://www.anapioficeandfire.com/api/characters/128",
+                          "https://www.anapioficeandfire.com/api/characters/129",
+                          "https://www.anapioficeandfire.com/api/characters/136",
+                          "https://www.anapioficeandfire.com/api/characters/137",
+                          "https://www.anapioficeandfire.com/api/characters/142",
+                          "https://www.anapioficeandfire.com/api/characters/143",
+                          "https://www.anapioficeandfire.com/api/characters/144",
+                          "https://www.anapioficeandfire.com/api/characters/154",
+                          "https://www.anapioficeandfire.com/api/characters/155",
+                          "https://www.anapioficeandfire.com/api/characters/157",
+                          "https://www.anapioficeandfire.com/api/characters/160",
+                          "https://www.anapioficeandfire.com/api/characters/161",
+                          "https://www.anapioficeandfire.com/api/characters/165",
+                          "https://www.anapioficeandfire.com/api/characters/168",
+                          "https://www.anapioficeandfire.com/api/characters/169",
+                          "https://www.anapioficeandfire.com/api/characters/170",
+                          "https://www.anapioficeandfire.com/api/characters/178",
+                          "https://www.anapioficeandfire.com/api/characters/192",
+                          "https://www.anapioficeandfire.com/api/characters/195",
+                          "https://www.anapioficeandfire.com/api/characters/197",
+                          "https://www.anapioficeandfire.com/api/characters/207",
+                          "https://www.anapioficeandfire.com/api/characters/209",
+                          "https://www.anapioficeandfire.com/api/characters/226",
+                          "https://www.anapioficeandfire.com/api/characters/231",
+                          "https://www.anapioficeandfire.com/api/characters/235",
+                          "https://www.anapioficeandfire.com/api/characters/236",
+                          "https://www.anapioficeandfire.com/api/characters/239",
+                          "https://www.anapioficeandfire.com/api/characters/244",
+                          "https://www.anapioficeandfire.com/api/characters/253",
+                          "https://www.anapioficeandfire.com/api/characters/255",
+                          "https://www.anapioficeandfire.com/api/characters/256",
+                          "https://www.anapioficeandfire.com/api/characters/257",
+                          "https://www.anapioficeandfire.com/api/characters/259",
+                          "https://www.anapioficeandfire.com/api/characters/265",
+                          "https://www.anapioficeandfire.com/api/characters/266",
+                          "https://www.anapioficeandfire.com/api/characters/267",
+                          "https://www.anapioficeandfire.com/api/characters/268",
+                          "https://www.anapioficeandfire.com/api/characters/269",
+                          "https://www.anapioficeandfire.com/api/characters/270",
+                          "https://www.anapioficeandfire.com/api/characters/271",
+                          "https://www.anapioficeandfire.com/api/characters/272",
+                          "https://www.anapioficeandfire.com/api/characters/273",
+                          "https://www.anapioficeandfire.com/api/characters/274",
+                          "https://www.anapioficeandfire.com/api/characters/275",
+                          "https://www.anapioficeandfire.com/api/characters/276",
+                          "https://www.anapioficeandfire.com/api/characters/282",
+                          "https://www.anapioficeandfire.com/api/characters/284",
+                          "https://www.anapioficeandfire.com/api/characters/289",
+                          "https://www.anapioficeandfire.com/api/characters/324",
+                          "https://www.anapioficeandfire.com/api/characters/329",
+                          "https://www.anapioficeandfire.com/api/characters/330",
+                          "https://www.anapioficeandfire.com/api/characters/333",
+                          "https://www.anapioficeandfire.com/api/characters/334",
+                          "https://www.anapioficeandfire.com/api/characters/339",
+                          "https://www.anapioficeandfire.com/api/characters/347",
+                          "https://www.anapioficeandfire.com/api/characters/349",
+                          "https://www.anapioficeandfire.com/api/characters/351",
+                          "https://www.anapioficeandfire.com/api/characters/363",
+                          "https://www.anapioficeandfire.com/api/characters/366",
+                          "https://www.anapioficeandfire.com/api/characters/367",
+                          "https://www.anapioficeandfire.com/api/characters/391",
+                          "https://www.anapioficeandfire.com/api/characters/395",
+                          "https://www.anapioficeandfire.com/api/characters/410",
+                          "https://www.anapioficeandfire.com/api/characters/418",
+                          "https://www.anapioficeandfire.com/api/characters/422",
+                          "https://www.anapioficeandfire.com/api/characters/425",
+                          "https://www.anapioficeandfire.com/api/characters/431",
+                          "https://www.anapioficeandfire.com/api/characters/457",
+                          "https://www.anapioficeandfire.com/api/characters/460",
+                          "https://www.anapioficeandfire.com/api/characters/467",
+                          "https://www.anapioficeandfire.com/api/characters/471",
+                          "https://www.anapioficeandfire.com/api/characters/472",
+                          "https://www.anapioficeandfire.com/api/characters/475",
+                          "https://www.anapioficeandfire.com/api/characters/481",
+                          "https://www.anapioficeandfire.com/api/characters/484",
+                          "https://www.anapioficeandfire.com/api/characters/487",
+                          "https://www.anapioficeandfire.com/api/characters/488",
+                          "https://www.anapioficeandfire.com/api/characters/492",
+                          "https://www.anapioficeandfire.com/api/characters/497",
+                          "https://www.anapioficeandfire.com/api/characters/525",
+                          "https://www.anapioficeandfire.com/api/characters/526",
+                          "https://www.anapioficeandfire.com/api/characters/527",
+                          "https://www.anapioficeandfire.com/api/characters/538",
+                          "https://www.anapioficeandfire.com/api/characters/546",
+                          "https://www.anapioficeandfire.com/api/characters/548",
+                          "https://www.anapioficeandfire.com/api/characters/554",
+                          "https://www.anapioficeandfire.com/api/characters/556",
+                          "https://www.anapioficeandfire.com/api/characters/560",
+                          "https://www.anapioficeandfire.com/api/characters/570",
+                          "https://www.anapioficeandfire.com/api/characters/572",
+                          "https://www.anapioficeandfire.com/api/characters/576",
+                          "https://www.anapioficeandfire.com/api/characters/584",
+                          "https://www.anapioficeandfire.com/api/characters/589",
+                          "https://www.anapioficeandfire.com/api/characters/610",
+                          "https://www.anapioficeandfire.com/api/characters/611",
+                          "https://www.anapioficeandfire.com/api/characters/615",
+                          "https://www.anapioficeandfire.com/api/characters/616",
+                          "https://www.anapioficeandfire.com/api/characters/623",
+                          "https://www.anapioficeandfire.com/api/characters/648",
+                          "https://www.anapioficeandfire.com/api/characters/656",
+                          "https://www.anapioficeandfire.com/api/characters/662",
+                          "https://www.anapioficeandfire.com/api/characters/668",
+                          "https://www.anapioficeandfire.com/api/characters/679",
+                          "https://www.anapioficeandfire.com/api/characters/685",
+                          "https://www.anapioficeandfire.com/api/characters/694",
+                          "https://www.anapioficeandfire.com/api/characters/695",
+                          "https://www.anapioficeandfire.com/api/characters/696",
+                          "https://www.anapioficeandfire.com/api/characters/697",
+                          "https://www.anapioficeandfire.com/api/characters/698",
+                          "https://www.anapioficeandfire.com/api/characters/709",
+                          "https://www.anapioficeandfire.com/api/characters/716",
+                          "https://www.anapioficeandfire.com/api/characters/719",
+                          "https://www.anapioficeandfire.com/api/characters/729",
+                          "https://www.anapioficeandfire.com/api/characters/737",
+                          "https://www.anapioficeandfire.com/api/characters/744",
+                          "https://www.anapioficeandfire.com/api/characters/749",
+                          "https://www.anapioficeandfire.com/api/characters/759",
+                          "https://www.anapioficeandfire.com/api/characters/767",
+                          "https://www.anapioficeandfire.com/api/characters/773",
+                          "https://www.anapioficeandfire.com/api/characters/777",
+                          "https://www.anapioficeandfire.com/api/characters/778",
+                          "https://www.anapioficeandfire.com/api/characters/779",
+                          "https://www.anapioficeandfire.com/api/characters/782",
+                          "https://www.anapioficeandfire.com/api/characters/794",
+                          "https://www.anapioficeandfire.com/api/characters/797",
+                          "https://www.anapioficeandfire.com/api/characters/803",
+                          "https://www.anapioficeandfire.com/api/characters/805",
+                          "https://www.anapioficeandfire.com/api/characters/808",
+                          "https://www.anapioficeandfire.com/api/characters/813",
+                          "https://www.anapioficeandfire.com/api/characters/833",
+                          "https://www.anapioficeandfire.com/api/characters/836",
+                          "https://www.anapioficeandfire.com/api/characters/841",
+                          "https://www.anapioficeandfire.com/api/characters/859",
+                          "https://www.anapioficeandfire.com/api/characters/865",
+                          "https://www.anapioficeandfire.com/api/characters/868",
+                          "https://www.anapioficeandfire.com/api/characters/869",
+                          "https://www.anapioficeandfire.com/api/characters/870",
+                          "https://www.anapioficeandfire.com/api/characters/871",
+                          "https://www.anapioficeandfire.com/api/characters/872",
+                          "https://www.anapioficeandfire.com/api/characters/873",
+                          "https://www.anapioficeandfire.com/api/characters/874",
+                          "https://www.anapioficeandfire.com/api/characters/875",
+                          "https://www.anapioficeandfire.com/api/characters/878",
+                          "https://www.anapioficeandfire.com/api/characters/886",
+                          "https://www.anapioficeandfire.com/api/characters/887",
+                          "https://www.anapioficeandfire.com/api/characters/888",
+                          "https://www.anapioficeandfire.com/api/characters/901",
+                          "https://www.anapioficeandfire.com/api/characters/911",
+                          "https://www.anapioficeandfire.com/api/characters/916",
+                          "https://www.anapioficeandfire.com/api/characters/917",
+                          "https://www.anapioficeandfire.com/api/characters/918",
+                          "https://www.anapioficeandfire.com/api/characters/920",
+                          "https://www.anapioficeandfire.com/api/characters/945",
+                          "https://www.anapioficeandfire.com/api/characters/951",
+                          "https://www.anapioficeandfire.com/api/characters/969",
+                          "https://www.anapioficeandfire.com/api/characters/971",
+                          "https://www.anapioficeandfire.com/api/characters/986",
+                          "https://www.anapioficeandfire.com/api/characters/1014",
+                          "https://www.anapioficeandfire.com/api/characters/1023",
+                          "https://www.anapioficeandfire.com/api/characters/1026",
+                          "https://www.anapioficeandfire.com/api/characters/1032",
+                          "https://www.anapioficeandfire.com/api/characters/1034",
+                          "https://www.anapioficeandfire.com/api/characters/1040",
+                          "https://www.anapioficeandfire.com/api/characters/1048",
+                          "https://www.anapioficeandfire.com/api/characters/1050",
+                          "https://www.anapioficeandfire.com/api/characters/1052",
+                          "https://www.anapioficeandfire.com/api/characters/1057",
+                          "https://www.anapioficeandfire.com/api/characters/1070",
+                          "https://www.anapioficeandfire.com/api/characters/1072",
+                          "https://www.anapioficeandfire.com/api/characters/1076",
+                          "https://www.anapioficeandfire.com/api/characters/1077",
+                          "https://www.anapioficeandfire.com/api/characters/1078",
+                          "https://www.anapioficeandfire.com/api/characters/1079",
+                          "https://www.anapioficeandfire.com/api/characters/1099",
+                          "https://www.anapioficeandfire.com/api/characters/1111",
+                          "https://www.anapioficeandfire.com/api/characters/1149",
+                          "https://www.anapioficeandfire.com/api/characters/1169",
+                          "https://www.anapioficeandfire.com/api/characters/1175",
+                          "https://www.anapioficeandfire.com/api/characters/1181",
+                          "https://www.anapioficeandfire.com/api/characters/1202",
+                          "https://www.anapioficeandfire.com/api/characters/1239",
+                          "https://www.anapioficeandfire.com/api/characters/1242",
+                          "https://www.anapioficeandfire.com/api/characters/1286",
+                          "https://www.anapioficeandfire.com/api/characters/1354",
+                          "https://www.anapioficeandfire.com/api/characters/1358",
+                          "https://www.anapioficeandfire.com/api/characters/1375",
+                          "https://www.anapioficeandfire.com/api/characters/1388",
+                          "https://www.anapioficeandfire.com/api/characters/1398",
+                          "https://www.anapioficeandfire.com/api/characters/1399",
+                          "https://www.anapioficeandfire.com/api/characters/1406",
+                          "https://www.anapioficeandfire.com/api/characters/1411",
+                          "https://www.anapioficeandfire.com/api/characters/1417",
+                          "https://www.anapioficeandfire.com/api/characters/1435",
+                          "https://www.anapioficeandfire.com/api/characters/1444",
+                          "https://www.anapioficeandfire.com/api/characters/1458",
+                          "https://www.anapioficeandfire.com/api/characters/1462",
+                          "https://www.anapioficeandfire.com/api/characters/1513",
+                          "https://www.anapioficeandfire.com/api/characters/1514",
+                          "https://www.anapioficeandfire.com/api/characters/1527",
+                          "https://www.anapioficeandfire.com/api/characters/1539",
+                          "https://www.anapioficeandfire.com/api/characters/1545",
+                          "https://www.anapioficeandfire.com/api/characters/1558",
+                          "https://www.anapioficeandfire.com/api/characters/1561",
+                          "https://www.anapioficeandfire.com/api/characters/1589",
+                          "https://www.anapioficeandfire.com/api/characters/1608",
+                          "https://www.anapioficeandfire.com/api/characters/1631",
+                          "https://www.anapioficeandfire.com/api/characters/1650",
+                          "https://www.anapioficeandfire.com/api/characters/1672",
+                          "https://www.anapioficeandfire.com/api/characters/1690",
+                          "https://www.anapioficeandfire.com/api/characters/1718",
+                          "https://www.anapioficeandfire.com/api/characters/1725",
+                          "https://www.anapioficeandfire.com/api/characters/1739",
+                          "https://www.anapioficeandfire.com/api/characters/1746",
+                          "https://www.anapioficeandfire.com/api/characters/1756",
+                          "https://www.anapioficeandfire.com/api/characters/1786",
+                          "https://www.anapioficeandfire.com/api/characters/1862",
+                          "https://www.anapioficeandfire.com/api/characters/1866",
+                          "https://www.anapioficeandfire.com/api/characters/1874",
+                          "https://www.anapioficeandfire.com/api/characters/1884",
+                          "https://www.anapioficeandfire.com/api/characters/1891",
+                          "https://www.anapioficeandfire.com/api/characters/1905",
+                          "https://www.anapioficeandfire.com/api/characters/1908",
+                          "https://www.anapioficeandfire.com/api/characters/1944",
+                          "https://www.anapioficeandfire.com/api/characters/1976",
+                          "https://www.anapioficeandfire.com/api/characters/1989",
+                          "https://www.anapioficeandfire.com/api/characters/2048",
+                          "https://www.anapioficeandfire.com/api/characters/2056",
+                          "https://www.anapioficeandfire.com/api/characters/2059",
+                          "https://www.anapioficeandfire.com/api/characters/2071",
+                          "https://www.anapioficeandfire.com/api/characters/2075",
+                          "https://www.anapioficeandfire.com/api/characters/2138"
+                        ],
+                        "country": "United States",
+                        "isbn": "978-0553805444",
+                        "mediaType": "Hardcover",
+                        "name": "The World of Ice and Fire",
+                        "numberOfPages": 336,
+                        "povCharacters": [],
+                        "publisher": "Bantam Books",
+                        "released": "2014-10-28T00:00:00",
+                        "url": "https://www.anapioficeandfire.com/api/books/11"
+                      }
+                    ]
+                  },
+                  "examples": {
+                    "The World of Ice and Fire": {
+                      "value": [
+                        {
+                          "authors": [
+                            "Elio Garcia",
+                            "Linda Antonsson",
+                            "George R. R. Martin"
+                          ],
+                          "characters": [
+                            "https://www.anapioficeandfire.com/api/characters/27",
+                            "https://www.anapioficeandfire.com/api/characters/33",
+                            "https://www.anapioficeandfire.com/api/characters/34",
+                            "https://www.anapioficeandfire.com/api/characters/38",
+                            "https://www.anapioficeandfire.com/api/characters/39",
+                            "https://www.anapioficeandfire.com/api/characters/40",
+                            "https://www.anapioficeandfire.com/api/characters/41",
+                            "https://www.anapioficeandfire.com/api/characters/42",
+                            "https://www.anapioficeandfire.com/api/characters/43",
+                            "https://www.anapioficeandfire.com/api/characters/44",
+                            "https://www.anapioficeandfire.com/api/characters/45",
+                            "https://www.anapioficeandfire.com/api/characters/46",
+                            "https://www.anapioficeandfire.com/api/characters/47",
+                            "https://www.anapioficeandfire.com/api/characters/48",
+                            "https://www.anapioficeandfire.com/api/characters/49",
+                            "https://www.anapioficeandfire.com/api/characters/55",
+                            "https://www.anapioficeandfire.com/api/characters/57",
+                            "https://www.anapioficeandfire.com/api/characters/58",
+                            "https://www.anapioficeandfire.com/api/characters/59",
+                            "https://www.anapioficeandfire.com/api/characters/61",
+                            "https://www.anapioficeandfire.com/api/characters/62",
+                            "https://www.anapioficeandfire.com/api/characters/65",
+                            "https://www.anapioficeandfire.com/api/characters/75",
+                            "https://www.anapioficeandfire.com/api/characters/76",
+                            "https://www.anapioficeandfire.com/api/characters/83",
+                            "https://www.anapioficeandfire.com/api/characters/90",
+                            "https://www.anapioficeandfire.com/api/characters/91",
+                            "https://www.anapioficeandfire.com/api/characters/93",
+                            "https://www.anapioficeandfire.com/api/characters/97",
+                            "https://www.anapioficeandfire.com/api/characters/98",
+                            "https://www.anapioficeandfire.com/api/characters/101",
+                            "https://www.anapioficeandfire.com/api/characters/105",
+                            "https://www.anapioficeandfire.com/api/characters/109",
+                            "https://www.anapioficeandfire.com/api/characters/110",
+                            "https://www.anapioficeandfire.com/api/characters/128",
+                            "https://www.anapioficeandfire.com/api/characters/129",
+                            "https://www.anapioficeandfire.com/api/characters/136",
+                            "https://www.anapioficeandfire.com/api/characters/137",
+                            "https://www.anapioficeandfire.com/api/characters/142",
+                            "https://www.anapioficeandfire.com/api/characters/143",
+                            "https://www.anapioficeandfire.com/api/characters/144",
+                            "https://www.anapioficeandfire.com/api/characters/154",
+                            "https://www.anapioficeandfire.com/api/characters/155",
+                            "https://www.anapioficeandfire.com/api/characters/157",
+                            "https://www.anapioficeandfire.com/api/characters/160",
+                            "https://www.anapioficeandfire.com/api/characters/161",
+                            "https://www.anapioficeandfire.com/api/characters/165",
+                            "https://www.anapioficeandfire.com/api/characters/168",
+                            "https://www.anapioficeandfire.com/api/characters/169",
+                            "https://www.anapioficeandfire.com/api/characters/170",
+                            "https://www.anapioficeandfire.com/api/characters/178",
+                            "https://www.anapioficeandfire.com/api/characters/192",
+                            "https://www.anapioficeandfire.com/api/characters/195",
+                            "https://www.anapioficeandfire.com/api/characters/197",
+                            "https://www.anapioficeandfire.com/api/characters/207",
+                            "https://www.anapioficeandfire.com/api/characters/209",
+                            "https://www.anapioficeandfire.com/api/characters/226",
+                            "https://www.anapioficeandfire.com/api/characters/231",
+                            "https://www.anapioficeandfire.com/api/characters/235",
+                            "https://www.anapioficeandfire.com/api/characters/236",
+                            "https://www.anapioficeandfire.com/api/characters/239",
+                            "https://www.anapioficeandfire.com/api/characters/244",
+                            "https://www.anapioficeandfire.com/api/characters/253",
+                            "https://www.anapioficeandfire.com/api/characters/255",
+                            "https://www.anapioficeandfire.com/api/characters/256",
+                            "https://www.anapioficeandfire.com/api/characters/257",
+                            "https://www.anapioficeandfire.com/api/characters/259",
+                            "https://www.anapioficeandfire.com/api/characters/265",
+                            "https://www.anapioficeandfire.com/api/characters/266",
+                            "https://www.anapioficeandfire.com/api/characters/267",
+                            "https://www.anapioficeandfire.com/api/characters/268",
+                            "https://www.anapioficeandfire.com/api/characters/269",
+                            "https://www.anapioficeandfire.com/api/characters/270",
+                            "https://www.anapioficeandfire.com/api/characters/271",
+                            "https://www.anapioficeandfire.com/api/characters/272",
+                            "https://www.anapioficeandfire.com/api/characters/273",
+                            "https://www.anapioficeandfire.com/api/characters/274",
+                            "https://www.anapioficeandfire.com/api/characters/275",
+                            "https://www.anapioficeandfire.com/api/characters/276",
+                            "https://www.anapioficeandfire.com/api/characters/282",
+                            "https://www.anapioficeandfire.com/api/characters/284",
+                            "https://www.anapioficeandfire.com/api/characters/289",
+                            "https://www.anapioficeandfire.com/api/characters/324",
+                            "https://www.anapioficeandfire.com/api/characters/329",
+                            "https://www.anapioficeandfire.com/api/characters/330",
+                            "https://www.anapioficeandfire.com/api/characters/333",
+                            "https://www.anapioficeandfire.com/api/characters/334",
+                            "https://www.anapioficeandfire.com/api/characters/339",
+                            "https://www.anapioficeandfire.com/api/characters/347",
+                            "https://www.anapioficeandfire.com/api/characters/349",
+                            "https://www.anapioficeandfire.com/api/characters/351",
+                            "https://www.anapioficeandfire.com/api/characters/363",
+                            "https://www.anapioficeandfire.com/api/characters/366",
+                            "https://www.anapioficeandfire.com/api/characters/367",
+                            "https://www.anapioficeandfire.com/api/characters/391",
+                            "https://www.anapioficeandfire.com/api/characters/395",
+                            "https://www.anapioficeandfire.com/api/characters/410",
+                            "https://www.anapioficeandfire.com/api/characters/418",
+                            "https://www.anapioficeandfire.com/api/characters/422",
+                            "https://www.anapioficeandfire.com/api/characters/425",
+                            "https://www.anapioficeandfire.com/api/characters/431",
+                            "https://www.anapioficeandfire.com/api/characters/457",
+                            "https://www.anapioficeandfire.com/api/characters/460",
+                            "https://www.anapioficeandfire.com/api/characters/467",
+                            "https://www.anapioficeandfire.com/api/characters/471",
+                            "https://www.anapioficeandfire.com/api/characters/472",
+                            "https://www.anapioficeandfire.com/api/characters/475",
+                            "https://www.anapioficeandfire.com/api/characters/481",
+                            "https://www.anapioficeandfire.com/api/characters/484",
+                            "https://www.anapioficeandfire.com/api/characters/487",
+                            "https://www.anapioficeandfire.com/api/characters/488",
+                            "https://www.anapioficeandfire.com/api/characters/492",
+                            "https://www.anapioficeandfire.com/api/characters/497",
+                            "https://www.anapioficeandfire.com/api/characters/525",
+                            "https://www.anapioficeandfire.com/api/characters/526",
+                            "https://www.anapioficeandfire.com/api/characters/527",
+                            "https://www.anapioficeandfire.com/api/characters/538",
+                            "https://www.anapioficeandfire.com/api/characters/546",
+                            "https://www.anapioficeandfire.com/api/characters/548",
+                            "https://www.anapioficeandfire.com/api/characters/554",
+                            "https://www.anapioficeandfire.com/api/characters/556",
+                            "https://www.anapioficeandfire.com/api/characters/560",
+                            "https://www.anapioficeandfire.com/api/characters/570",
+                            "https://www.anapioficeandfire.com/api/characters/572",
+                            "https://www.anapioficeandfire.com/api/characters/576",
+                            "https://www.anapioficeandfire.com/api/characters/584",
+                            "https://www.anapioficeandfire.com/api/characters/589",
+                            "https://www.anapioficeandfire.com/api/characters/610",
+                            "https://www.anapioficeandfire.com/api/characters/611",
+                            "https://www.anapioficeandfire.com/api/characters/615",
+                            "https://www.anapioficeandfire.com/api/characters/616",
+                            "https://www.anapioficeandfire.com/api/characters/623",
+                            "https://www.anapioficeandfire.com/api/characters/648",
+                            "https://www.anapioficeandfire.com/api/characters/656",
+                            "https://www.anapioficeandfire.com/api/characters/662",
+                            "https://www.anapioficeandfire.com/api/characters/668",
+                            "https://www.anapioficeandfire.com/api/characters/679",
+                            "https://www.anapioficeandfire.com/api/characters/685",
+                            "https://www.anapioficeandfire.com/api/characters/694",
+                            "https://www.anapioficeandfire.com/api/characters/695",
+                            "https://www.anapioficeandfire.com/api/characters/696",
+                            "https://www.anapioficeandfire.com/api/characters/697",
+                            "https://www.anapioficeandfire.com/api/characters/698",
+                            "https://www.anapioficeandfire.com/api/characters/709",
+                            "https://www.anapioficeandfire.com/api/characters/716",
+                            "https://www.anapioficeandfire.com/api/characters/719",
+                            "https://www.anapioficeandfire.com/api/characters/729",
+                            "https://www.anapioficeandfire.com/api/characters/737",
+                            "https://www.anapioficeandfire.com/api/characters/744",
+                            "https://www.anapioficeandfire.com/api/characters/749",
+                            "https://www.anapioficeandfire.com/api/characters/759",
+                            "https://www.anapioficeandfire.com/api/characters/767",
+                            "https://www.anapioficeandfire.com/api/characters/773",
+                            "https://www.anapioficeandfire.com/api/characters/777",
+                            "https://www.anapioficeandfire.com/api/characters/778",
+                            "https://www.anapioficeandfire.com/api/characters/779",
+                            "https://www.anapioficeandfire.com/api/characters/782",
+                            "https://www.anapioficeandfire.com/api/characters/794",
+                            "https://www.anapioficeandfire.com/api/characters/797",
+                            "https://www.anapioficeandfire.com/api/characters/803",
+                            "https://www.anapioficeandfire.com/api/characters/805",
+                            "https://www.anapioficeandfire.com/api/characters/808",
+                            "https://www.anapioficeandfire.com/api/characters/813",
+                            "https://www.anapioficeandfire.com/api/characters/833",
+                            "https://www.anapioficeandfire.com/api/characters/836",
+                            "https://www.anapioficeandfire.com/api/characters/841",
+                            "https://www.anapioficeandfire.com/api/characters/859",
+                            "https://www.anapioficeandfire.com/api/characters/865",
+                            "https://www.anapioficeandfire.com/api/characters/868",
+                            "https://www.anapioficeandfire.com/api/characters/869",
+                            "https://www.anapioficeandfire.com/api/characters/870",
+                            "https://www.anapioficeandfire.com/api/characters/871",
+                            "https://www.anapioficeandfire.com/api/characters/872",
+                            "https://www.anapioficeandfire.com/api/characters/873",
+                            "https://www.anapioficeandfire.com/api/characters/874",
+                            "https://www.anapioficeandfire.com/api/characters/875",
+                            "https://www.anapioficeandfire.com/api/characters/878",
+                            "https://www.anapioficeandfire.com/api/characters/886",
+                            "https://www.anapioficeandfire.com/api/characters/887",
+                            "https://www.anapioficeandfire.com/api/characters/888",
+                            "https://www.anapioficeandfire.com/api/characters/901",
+                            "https://www.anapioficeandfire.com/api/characters/911",
+                            "https://www.anapioficeandfire.com/api/characters/916",
+                            "https://www.anapioficeandfire.com/api/characters/917",
+                            "https://www.anapioficeandfire.com/api/characters/918",
+                            "https://www.anapioficeandfire.com/api/characters/920",
+                            "https://www.anapioficeandfire.com/api/characters/945",
+                            "https://www.anapioficeandfire.com/api/characters/951",
+                            "https://www.anapioficeandfire.com/api/characters/969",
+                            "https://www.anapioficeandfire.com/api/characters/971",
+                            "https://www.anapioficeandfire.com/api/characters/986",
+                            "https://www.anapioficeandfire.com/api/characters/1014",
+                            "https://www.anapioficeandfire.com/api/characters/1023",
+                            "https://www.anapioficeandfire.com/api/characters/1026",
+                            "https://www.anapioficeandfire.com/api/characters/1032",
+                            "https://www.anapioficeandfire.com/api/characters/1034",
+                            "https://www.anapioficeandfire.com/api/characters/1040",
+                            "https://www.anapioficeandfire.com/api/characters/1048",
+                            "https://www.anapioficeandfire.com/api/characters/1050",
+                            "https://www.anapioficeandfire.com/api/characters/1052",
+                            "https://www.anapioficeandfire.com/api/characters/1057",
+                            "https://www.anapioficeandfire.com/api/characters/1070",
+                            "https://www.anapioficeandfire.com/api/characters/1072",
+                            "https://www.anapioficeandfire.com/api/characters/1076",
+                            "https://www.anapioficeandfire.com/api/characters/1077",
+                            "https://www.anapioficeandfire.com/api/characters/1078",
+                            "https://www.anapioficeandfire.com/api/characters/1079",
+                            "https://www.anapioficeandfire.com/api/characters/1099",
+                            "https://www.anapioficeandfire.com/api/characters/1111",
+                            "https://www.anapioficeandfire.com/api/characters/1149",
+                            "https://www.anapioficeandfire.com/api/characters/1169",
+                            "https://www.anapioficeandfire.com/api/characters/1175",
+                            "https://www.anapioficeandfire.com/api/characters/1181",
+                            "https://www.anapioficeandfire.com/api/characters/1202",
+                            "https://www.anapioficeandfire.com/api/characters/1239",
+                            "https://www.anapioficeandfire.com/api/characters/1242",
+                            "https://www.anapioficeandfire.com/api/characters/1286",
+                            "https://www.anapioficeandfire.com/api/characters/1354",
+                            "https://www.anapioficeandfire.com/api/characters/1358",
+                            "https://www.anapioficeandfire.com/api/characters/1375",
+                            "https://www.anapioficeandfire.com/api/characters/1388",
+                            "https://www.anapioficeandfire.com/api/characters/1398",
+                            "https://www.anapioficeandfire.com/api/characters/1399",
+                            "https://www.anapioficeandfire.com/api/characters/1406",
+                            "https://www.anapioficeandfire.com/api/characters/1411",
+                            "https://www.anapioficeandfire.com/api/characters/1417",
+                            "https://www.anapioficeandfire.com/api/characters/1435",
+                            "https://www.anapioficeandfire.com/api/characters/1444",
+                            "https://www.anapioficeandfire.com/api/characters/1458",
+                            "https://www.anapioficeandfire.com/api/characters/1462",
+                            "https://www.anapioficeandfire.com/api/characters/1513",
+                            "https://www.anapioficeandfire.com/api/characters/1514",
+                            "https://www.anapioficeandfire.com/api/characters/1527",
+                            "https://www.anapioficeandfire.com/api/characters/1539",
+                            "https://www.anapioficeandfire.com/api/characters/1545",
+                            "https://www.anapioficeandfire.com/api/characters/1558",
+                            "https://www.anapioficeandfire.com/api/characters/1561",
+                            "https://www.anapioficeandfire.com/api/characters/1589",
+                            "https://www.anapioficeandfire.com/api/characters/1608",
+                            "https://www.anapioficeandfire.com/api/characters/1631",
+                            "https://www.anapioficeandfire.com/api/characters/1650",
+                            "https://www.anapioficeandfire.com/api/characters/1672",
+                            "https://www.anapioficeandfire.com/api/characters/1690",
+                            "https://www.anapioficeandfire.com/api/characters/1718",
+                            "https://www.anapioficeandfire.com/api/characters/1725",
+                            "https://www.anapioficeandfire.com/api/characters/1739",
+                            "https://www.anapioficeandfire.com/api/characters/1746",
+                            "https://www.anapioficeandfire.com/api/characters/1756",
+                            "https://www.anapioficeandfire.com/api/characters/1786",
+                            "https://www.anapioficeandfire.com/api/characters/1862",
+                            "https://www.anapioficeandfire.com/api/characters/1866",
+                            "https://www.anapioficeandfire.com/api/characters/1874",
+                            "https://www.anapioficeandfire.com/api/characters/1884",
+                            "https://www.anapioficeandfire.com/api/characters/1891",
+                            "https://www.anapioficeandfire.com/api/characters/1905",
+                            "https://www.anapioficeandfire.com/api/characters/1908",
+                            "https://www.anapioficeandfire.com/api/characters/1944",
+                            "https://www.anapioficeandfire.com/api/characters/1976",
+                            "https://www.anapioficeandfire.com/api/characters/1989",
+                            "https://www.anapioficeandfire.com/api/characters/2048",
+                            "https://www.anapioficeandfire.com/api/characters/2056",
+                            "https://www.anapioficeandfire.com/api/characters/2059",
+                            "https://www.anapioficeandfire.com/api/characters/2071",
+                            "https://www.anapioficeandfire.com/api/characters/2075",
+                            "https://www.anapioficeandfire.com/api/characters/2138"
+                          ],
+                          "country": "United States",
+                          "isbn": "978-0553805444",
+                          "mediaType": "Hardcover",
+                          "name": "The World of Ice and Fire",
+                          "numberOfPages": 336,
+                          "povCharacters": [],
+                          "publisher": "Bantam Books",
+                          "released": "2014-10-28T00:00:00",
+                          "url": "https://www.anapioficeandfire.com/api/books/11"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/houses": {
+        "get": {
+          "summary": "Houses",
+          "description": "Returns a list of Game of Thrones houses.\n\nWebsite - https://anapioficeandfire.com/Documentation",
+          "operationId": "houses",
+          "parameters": [
+            {
+              "name": "name",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              },
+              "description": "Houses with the given name are included in the response"
+            },
+            {
+              "name": "region",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              },
+              "description": "Houses that belong in the given region are included in the response."
+            },
+            {
+              "name": "words",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              },
+              "description": "Houses that has the given words are included in the response."
+            },
+            {
+              "name": "hasWords",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              },
+              "description": "Houses that have words (or not) are included in the response.\n"
+            },
+            {
+              "name": "hasTitles",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              },
+              "description": "Houses that have titles (or not) are included in the response.\n"
+            },
+            {
+              "name": "hasSeats",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              },
+              "description": "Houses that have seats (or not) are included in the response.\n"
+            },
+            {
+              "name": "hasDiedOut",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": ""
+              },
+              "description": "Houses that are extinct are included in the response."
+            },
+            {
+              "name": "hasAncestralWeapons",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "House Clegane",
+              "headers": {
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "DYNAMIC"
+                  }
+                },
+                "CF-RAY": {
+                  "schema": {
+                    "type": "string",
+                    "example": "5d359e20e8499929-LAX"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "Content-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "br"
+                  }
+                },
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Tue, 15 Sep 2020 21:59:56 GMT"
+                  }
+                },
+                "Expect-CT": {
+                  "schema": {
+                    "type": "string",
+                    "example": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+                  }
+                },
+                "Link": {
+                  "schema": {
+                    "type": "string",
+                    "example": "<https://www.anapioficeandfire.com/api/houses?name=House%20Clegane&page=1&pageSize=10>; rel=\"first\", <https://www.anapioficeandfire.com/api/houses?name=House%20Clegane&page=1&pageSize=10>; rel=\"last\""
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                },
+                "Transfer-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "chunked"
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "X-Powered-By": {
+                  "schema": {
+                    "type": "string",
+                    "example": "ASP.NET"
+                  }
+                },
+                "cf-request-id": {
+                  "schema": {
+                    "type": "string",
+                    "example": "053561288e00009929b802d200000001"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "ancestralWeapons": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "example": [
+                            ""
+                          ]
+                        },
+                        "cadetBranches": {
+                          "type": "array",
+                          "items": {},
+                          "example": []
+                        },
+                        "coatOfArms": {
+                          "type": "string",
+                          "example": "Three dogs on a yellow field(Or, three dogs courant in pale sable)"
+                        },
+                        "currentLord": {
+                          "type": "string",
+                          "example": ""
+                        },
+                        "diedOut": {
+                          "type": "string",
+                          "example": ""
+                        },
+                        "founded": {
+                          "type": "string",
+                          "example": ""
+                        },
+                        "founder": {
+                          "type": "string",
+                          "example": "https://www.anapioficeandfire.com/api/characters/1272"
+                        },
+                        "heir": {
+                          "type": "string",
+                          "example": ""
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "House Clegane"
+                        },
+                        "overlord": {
+                          "type": "string",
+                          "example": "https://www.anapioficeandfire.com/api/houses/229"
+                        },
+                        "region": {
+                          "type": "string",
+                          "example": "The Westerlands"
+                        },
+                        "seats": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "Clegane's Keep"
+                          },
+                          "example": [
+                            "Clegane's Keep"
+                          ]
+                        },
+                        "swornMembers": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "https://www.anapioficeandfire.com/api/characters/955"
+                          },
+                          "example": [
+                            "https://www.anapioficeandfire.com/api/characters/955",
+                            "https://www.anapioficeandfire.com/api/characters/1270",
+                            "https://www.anapioficeandfire.com/api/characters/1272",
+                            "https://www.anapioficeandfire.com/api/characters/1350",
+                            "https://www.anapioficeandfire.com/api/characters/1356",
+                            "https://www.anapioficeandfire.com/api/characters/1442",
+                            "https://www.anapioficeandfire.com/api/characters/1568",
+                            "https://www.anapioficeandfire.com/api/characters/1814",
+                            "https://www.anapioficeandfire.com/api/characters/1852",
+                            "https://www.anapioficeandfire.com/api/characters/1994",
+                            "https://www.anapioficeandfire.com/api/characters/2012"
+                          ]
+                        },
+                        "titles": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "Ser"
+                          },
+                          "example": [
+                            "Ser"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "example": "https://www.anapioficeandfire.com/api/houses/72"
+                        },
+                        "words": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    "example": [
+                      {
+                        "ancestralWeapons": [
+                          ""
+                        ],
+                        "cadetBranches": [],
+                        "coatOfArms": "Three dogs on a yellow field(Or, three dogs courant in pale sable)",
+                        "currentLord": "",
+                        "diedOut": "",
+                        "founded": "",
+                        "founder": "https://www.anapioficeandfire.com/api/characters/1272",
+                        "heir": "",
+                        "name": "House Clegane",
+                        "overlord": "https://www.anapioficeandfire.com/api/houses/229",
+                        "region": "The Westerlands",
+                        "seats": [
+                          "Clegane's Keep"
+                        ],
+                        "swornMembers": [
+                          "https://www.anapioficeandfire.com/api/characters/955",
+                          "https://www.anapioficeandfire.com/api/characters/1270",
+                          "https://www.anapioficeandfire.com/api/characters/1272",
+                          "https://www.anapioficeandfire.com/api/characters/1350",
+                          "https://www.anapioficeandfire.com/api/characters/1356",
+                          "https://www.anapioficeandfire.com/api/characters/1442",
+                          "https://www.anapioficeandfire.com/api/characters/1568",
+                          "https://www.anapioficeandfire.com/api/characters/1814",
+                          "https://www.anapioficeandfire.com/api/characters/1852",
+                          "https://www.anapioficeandfire.com/api/characters/1994",
+                          "https://www.anapioficeandfire.com/api/characters/2012"
+                        ],
+                        "titles": [
+                          "Ser"
+                        ],
+                        "url": "https://www.anapioficeandfire.com/api/houses/72",
+                        "words": ""
+                      }
+                    ]
+                  },
+                  "examples": {
+                    "House Clegane": {
+                      "value": [
+                        {
+                          "ancestralWeapons": [
+                            ""
+                          ],
+                          "cadetBranches": [],
+                          "coatOfArms": "Three dogs on a yellow field(Or, three dogs courant in pale sable)",
+                          "currentLord": "",
+                          "diedOut": "",
+                          "founded": "",
+                          "founder": "https://www.anapioficeandfire.com/api/characters/1272",
+                          "heir": "",
+                          "name": "House Clegane",
+                          "overlord": "https://www.anapioficeandfire.com/api/houses/229",
+                          "region": "The Westerlands",
+                          "seats": [
+                            "Clegane's Keep"
+                          ],
+                          "swornMembers": [
+                            "https://www.anapioficeandfire.com/api/characters/955",
+                            "https://www.anapioficeandfire.com/api/characters/1270",
+                            "https://www.anapioficeandfire.com/api/characters/1272",
+                            "https://www.anapioficeandfire.com/api/characters/1350",
+                            "https://www.anapioficeandfire.com/api/characters/1356",
+                            "https://www.anapioficeandfire.com/api/characters/1442",
+                            "https://www.anapioficeandfire.com/api/characters/1568",
+                            "https://www.anapioficeandfire.com/api/characters/1814",
+                            "https://www.anapioficeandfire.com/api/characters/1852",
+                            "https://www.anapioficeandfire.com/api/characters/1994",
+                            "https://www.anapioficeandfire.com/api/characters/2012"
+                          ],
+                          "titles": [
+                            "Ser"
+                          ],
+                          "url": "https://www.anapioficeandfire.com/api/houses/72",
+                          "words": ""
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": []
+  }

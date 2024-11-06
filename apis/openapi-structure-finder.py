@@ -1,6 +1,6 @@
 import json
 
-with open("apis/senzing/senzing-openapi.json", "r", encoding="utf-8") as openfile:
+with open("apis/an-api-of-ice-and-fire/an-api-of-ice-and-fire-openapi.json", "r", encoding="utf-8") as openfile:
     dic = json.load(openfile)
 
 structureDict = {
