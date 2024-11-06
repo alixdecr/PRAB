@@ -1,0 +1,957 @@
+{
+	"info": {
+		"_postman_id": "1e32a6e3-e820-4779-a61c-9d7c455f7f5d",
+		"name": "ReqRes API",
+		"description": "Fake data CRUD API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31389332"
+	},
+	"item": [
+		{
+			"name": "{resource}",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Fetches an unknown resource",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/:resource/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										":resource",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "37298670"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/:resource/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												":resource",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "37298670"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"data\": {\n    \"id\": -16235227,\n    \"name\": \"veniam nostrud\",\n    \"year\": 79193270,\n    \"color\": \"minim\",\n    \"pantone_value\": \"Ut Lorem\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Updates an unknown resource",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/:resource/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										":resource",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "resource"
+										},
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/:resource/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												":resource",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "resource"
+												},
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"updatedAt\": \"consequat in Duis\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Updates an unknown resource",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/:resource/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										":resource",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "resource"
+										},
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/:resource/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												":resource",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "resource"
+												},
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"updatedAt\": \"consequat in Duis\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Deletes an unknown resource",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/:resource/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										":resource",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "resource"
+										},
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/:resource/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												":resource",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "resource"
+												},
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Fetches a resource list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/:resource?page=37298670&per_page=37298670",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								":resource"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "37298670"
+								},
+								{
+									"key": "per_page",
+									"value": "37298670"
+								}
+							],
+							"variable": [
+								{
+									"key": "resource"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/:resource?page=37298670&per_page=37298670",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										":resource"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "37298670"
+										},
+										{
+											"key": "per_page",
+											"value": "37298670"
+										}
+									],
+									"variable": [
+										{
+											"key": "resource"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"page\": 53307193,\n  \"per_page\": 80736211,\n  \"total\": 81049647,\n  \"total_pages\": -1714474,\n  \"data\": [\n    {\n      \"id\": -94428572,\n      \"name\": \"sunt\",\n      \"year\": 41768830,\n      \"color\": \"in adipisicing quis dolore labore\",\n      \"pantone_value\": \"nisi nulla adipisicing Ut irure\"\n    },\n    {\n      \"id\": 17513176,\n      \"name\": \"dolor in\",\n      \"year\": 60925147,\n      \"color\": \"occaecat proident deserunt cillum\",\n      \"pantone_value\": \"laborum adipisicing minim nulla in\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Fetches a user",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "37298670"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "37298670"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"data\": {\n    \"id\": -17180205,\n    \"email\": \"reprehenderit laboris c\",\n    \"first_name\": \"consectetur eiusmod\",\n    \"last_name\": \"cupidatat eu nisi sed officia\",\n    \"avatar\": \"ad mollit sunt\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Updates a user",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"updatedAt\": \"consequat in Duis\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Updates a user",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"updatedAt\": \"consequat in Duis\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Deletes a user",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Fetches a user list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users?page=37298670&per_page=37298670",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "37298670"
+								},
+								{
+									"key": "per_page",
+									"value": "37298670"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users?page=37298670&per_page=37298670",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "37298670"
+										},
+										{
+											"key": "per_page",
+											"value": "37298670"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"page\": 23355876,\n  \"per_page\": 77853441,\n  \"total\": -41757218,\n  \"total_pages\": -28195710,\n  \"data\": [\n    {\n      \"id\": 84840977,\n      \"email\": \"et amet irure esse\",\n      \"first_name\": \"proident mollit\",\n      \"last_name\": \"occaecat enim Duis\",\n      \"avatar\": \"deserunt ipsum minim\"\n    },\n    {\n      \"id\": -1292845,\n      \"email\": \"ullamco minim\",\n      \"first_name\": \"mollit dolor et\",\n      \"last_name\": \"occaecat sit ut officia anim\",\n      \"avatar\": \"u\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Creates a session",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"tempor dolor nisi\",\n  \"email\": \"officia incididunt enim\",\n  \"password\": \"deserunt laboris\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"tempor dolor nisi\",\n  \"email\": \"officia incididunt enim\",\n  \"password\": \"deserunt laboris\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"token\": \"i\"\n}"
+				},
+				{
+					"name": "Login error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"tempor dolor nisi\",\n  \"email\": \"officia incididunt enim\",\n  \"password\": \"deserunt laboris\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"error\": \"occaecat\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Creates a user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"tempor dolor nisi\",\n  \"email\": \"officia incididunt enim\",\n  \"password\": \"deserunt laboris\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/register",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"tempor dolor nisi\",\n  \"email\": \"officia incididunt enim\",\n  \"password\": \"deserunt laboris\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"non\",\n  \"token\": \"est fugiat\"\n}"
+				},
+				{
+					"name": "Register error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"tempor dolor nisi\",\n  \"email\": \"officia incididunt enim\",\n  \"password\": \"deserunt laboris\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"error\": \"occaecat\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Ends a session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/logout",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/logout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://reqres.in/api",
+			"type": "string"
+		}
+	]
+}

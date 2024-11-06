@@ -1,0 +1,824 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "ReqRes API",
+      "description": "Fake data CRUD API",
+      "version": "1.0.0",
+      "contact": {}
+    },
+    "servers": [
+      {
+        "url": "https://reqres.in/api"
+      }
+    ],
+    "paths": {
+      "/{resource}/{id}": {
+        "get": {
+          "tags": [
+            "{resource}",
+            "{id}"
+          ],
+          "summary": "Fetches an unknown resource",
+          "description": "Fetches an unknown resource",
+          "operationId": "fetchesAnUnknownResource",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "color": {
+                            "type": "string",
+                            "example": "minim"
+                          },
+                          "id": {
+                            "type": "number",
+                            "example": -16235227
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "veniam nostrud"
+                          },
+                          "pantone_value": {
+                            "type": "string",
+                            "example": "Ut Lorem"
+                          },
+                          "year": {
+                            "type": "number",
+                            "example": 79193270
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Success": {
+                      "value": {
+                        "data": {
+                          "color": "minim",
+                          "id": -16235227,
+                          "name": "veniam nostrud",
+                          "pantone_value": "Ut Lorem",
+                          "year": 79193270
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "{resource}",
+            "{id}"
+          ],
+          "summary": "Updates an unknown resource",
+          "description": "Updates an unknown resource",
+          "operationId": "updatesAnUnknownResource",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "consequat in Duis"
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Success": {
+                      "value": {
+                        "updatedAt": "consequat in Duis"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "{resource}",
+            "{id}"
+          ],
+          "summary": "Deletes an unknown resource",
+          "description": "Deletes an unknown resource",
+          "operationId": "deletesAnUnknownResource",
+          "responses": {
+            "204": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "examples": {
+                    "Success": {
+                      "value": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "{resource}",
+            "{id}"
+          ],
+          "summary": "Updates an unknown resource",
+          "description": "Updates an unknown resource",
+          "operationId": "updatesAnUnknownResource1",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "consequat in Duis"
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Success": {
+                      "value": {
+                        "updatedAt": "consequat in Duis"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "resource",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "/{resource}": {
+        "get": {
+          "tags": [
+            "{resource}"
+          ],
+          "summary": "Fetches a resource list",
+          "description": "Fetches a resource list",
+          "operationId": "fetchesAResourceList",
+          "parameters": [
+            {
+              "name": "page",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "37298670"
+              }
+            },
+            {
+              "name": "per_page",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "37298670"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "color": {
+                              "type": "string",
+                              "example": "in adipisicing quis dolore labore"
+                            },
+                            "id": {
+                              "type": "number",
+                              "example": -94428572
+                            },
+                            "name": {
+                              "type": "string",
+                              "example": "sunt"
+                            },
+                            "pantone_value": {
+                              "type": "string",
+                              "example": "nisi nulla adipisicing Ut irure"
+                            },
+                            "year": {
+                              "type": "number",
+                              "example": 41768830
+                            }
+                          }
+                        },
+                        "example": [
+                          {
+                            "color": "in adipisicing quis dolore labore",
+                            "id": -94428572,
+                            "name": "sunt",
+                            "pantone_value": "nisi nulla adipisicing Ut irure",
+                            "year": 41768830
+                          },
+                          {
+                            "color": "occaecat proident deserunt cillum",
+                            "id": 17513176,
+                            "name": "dolor in",
+                            "pantone_value": "laborum adipisicing minim nulla in",
+                            "year": 60925147
+                          }
+                        ]
+                      },
+                      "page": {
+                        "type": "number",
+                        "example": 53307193
+                      },
+                      "per_page": {
+                        "type": "number",
+                        "example": 80736211
+                      },
+                      "total": {
+                        "type": "number",
+                        "example": 81049647
+                      },
+                      "total_pages": {
+                        "type": "number",
+                        "example": -1714474
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Success": {
+                      "value": {
+                        "data": [
+                          {
+                            "color": "in adipisicing quis dolore labore",
+                            "id": -94428572,
+                            "name": "sunt",
+                            "pantone_value": "nisi nulla adipisicing Ut irure",
+                            "year": 41768830
+                          },
+                          {
+                            "color": "occaecat proident deserunt cillum",
+                            "id": 17513176,
+                            "name": "dolor in",
+                            "pantone_value": "laborum adipisicing minim nulla in",
+                            "year": 60925147
+                          }
+                        ],
+                        "page": 53307193,
+                        "per_page": 80736211,
+                        "total": 81049647,
+                        "total_pages": -1714474
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "resource",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "/users/{id}": {
+        "get": {
+          "tags": [
+            "users",
+            "{id}1"
+          ],
+          "summary": "Fetches a user",
+          "description": "Fetches a user",
+          "operationId": "fetchesAUser",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "avatar": {
+                            "type": "string",
+                            "example": "ad mollit sunt"
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "reprehenderit laboris c"
+                          },
+                          "first_name": {
+                            "type": "string",
+                            "example": "consectetur eiusmod"
+                          },
+                          "id": {
+                            "type": "number",
+                            "example": -17180205
+                          },
+                          "last_name": {
+                            "type": "string",
+                            "example": "cupidatat eu nisi sed officia"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Success": {
+                      "value": {
+                        "data": {
+                          "avatar": "ad mollit sunt",
+                          "email": "reprehenderit laboris c",
+                          "first_name": "consectetur eiusmod",
+                          "id": -17180205,
+                          "last_name": "cupidatat eu nisi sed officia"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "users",
+            "{id}1"
+          ],
+          "summary": "Updates a user",
+          "description": "Updates a user",
+          "operationId": "updatesAUser",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "consequat in Duis"
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Success": {
+                      "value": {
+                        "updatedAt": "consequat in Duis"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "users",
+            "{id}1"
+          ],
+          "summary": "Deletes a user",
+          "description": "Deletes a user",
+          "operationId": "deletesAUser",
+          "responses": {
+            "204": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "examples": {
+                    "Success": {
+                      "value": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "users",
+            "{id}1"
+          ],
+          "summary": "Updates a user",
+          "description": "Updates a user",
+          "operationId": "updatesAUser1",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "consequat in Duis"
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Success": {
+                      "value": {
+                        "updatedAt": "consequat in Duis"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "/users": {
+        "get": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Fetches a user list",
+          "description": "Fetches a user list",
+          "operationId": "fetchesAUserList",
+          "parameters": [
+            {
+              "name": "page",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "37298670"
+              }
+            },
+            {
+              "name": "per_page",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "37298670"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "avatar": {
+                              "type": "string",
+                              "example": "deserunt ipsum minim"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "et amet irure esse"
+                            },
+                            "first_name": {
+                              "type": "string",
+                              "example": "proident mollit"
+                            },
+                            "id": {
+                              "type": "number",
+                              "example": 84840977
+                            },
+                            "last_name": {
+                              "type": "string",
+                              "example": "occaecat enim Duis"
+                            }
+                          }
+                        },
+                        "example": [
+                          {
+                            "avatar": "deserunt ipsum minim",
+                            "email": "et amet irure esse",
+                            "first_name": "proident mollit",
+                            "id": 84840977,
+                            "last_name": "occaecat enim Duis"
+                          },
+                          {
+                            "avatar": "u",
+                            "email": "ullamco minim",
+                            "first_name": "mollit dolor et",
+                            "id": -1292845,
+                            "last_name": "occaecat sit ut officia anim"
+                          }
+                        ]
+                      },
+                      "page": {
+                        "type": "number",
+                        "example": 23355876
+                      },
+                      "per_page": {
+                        "type": "number",
+                        "example": 77853441
+                      },
+                      "total": {
+                        "type": "number",
+                        "example": -41757218
+                      },
+                      "total_pages": {
+                        "type": "number",
+                        "example": -28195710
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Success": {
+                      "value": {
+                        "data": [
+                          {
+                            "avatar": "deserunt ipsum minim",
+                            "email": "et amet irure esse",
+                            "first_name": "proident mollit",
+                            "id": 84840977,
+                            "last_name": "occaecat enim Duis"
+                          },
+                          {
+                            "avatar": "u",
+                            "email": "ullamco minim",
+                            "first_name": "mollit dolor et",
+                            "id": -1292845,
+                            "last_name": "occaecat sit ut officia anim"
+                          }
+                        ],
+                        "page": 23355876,
+                        "per_page": 77853441,
+                        "total": -41757218,
+                        "total_pages": -28195710
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/login": {
+        "post": {
+          "summary": "Creates a session",
+          "description": "Creates a session",
+          "operationId": "createsASession",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "example": "officia incididunt enim"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "deserunt laboris"
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "tempor dolor nisi"
+                    }
+                  }
+                },
+                "example": {
+                  "email": "officia incididunt enim",
+                  "password": "deserunt laboris",
+                  "username": "tempor dolor nisi"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "token": {
+                        "type": "string",
+                        "example": "i"
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Success": {
+                      "value": {
+                        "token": "i"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Login error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "error": {
+                        "type": "string",
+                        "example": "occaecat"
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Login error": {
+                      "value": {
+                        "error": "occaecat"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/register": {
+        "post": {
+          "summary": "Creates a user",
+          "description": "Creates a user",
+          "operationId": "createsAUser",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "example": "officia incididunt enim"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "deserunt laboris"
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "tempor dolor nisi"
+                    }
+                  }
+                },
+                "example": {
+                  "email": "officia incididunt enim",
+                  "password": "deserunt laboris",
+                  "username": "tempor dolor nisi"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "non"
+                      },
+                      "token": {
+                        "type": "string",
+                        "example": "est fugiat"
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Success": {
+                      "value": {
+                        "id": "non",
+                        "token": "est fugiat"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Register error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "error": {
+                        "type": "string",
+                        "example": "occaecat"
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Register error": {
+                      "value": {
+                        "error": "occaecat"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/logout": {
+        "post": {
+          "summary": "Ends a session",
+          "description": "Ends a session",
+          "operationId": "endsASession",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "examples": {
+                    "Success": {
+                      "value": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "{resource}"
+      },
+      {
+        "name": "{id}"
+      },
+      {
+        "name": "users"
+      },
+      {
+        "name": "{id}1"
+      }
+    ]
+  }

@@ -1,6 +1,6 @@
 import json
 
-with open("apis/google-geocoding/google-geocoding-openapi.json", "r", encoding="utf-8") as openfile:
+with open("apis/reqres/reqres-openapi.json", "r", encoding="utf-8") as openfile:
     dic = json.load(openfile)
 
 structureDict = {
