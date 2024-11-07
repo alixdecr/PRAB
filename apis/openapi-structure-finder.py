@@ -1,6 +1,6 @@
 import json
 
-with open("apis/paypal/paypal-invoices-openapi.json", "r", encoding="utf-8") as openfile:
+with open("apis/ohsome/ohsome-openapi.json", "r", encoding="utf-8") as openfile:
     dic = json.load(openfile)
 
 structureDict = {
