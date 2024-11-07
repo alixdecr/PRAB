@@ -1,6 +1,6 @@
 import json
 
-with open("apis/quartz-manager/quartz-manager-openapi.json", "r", encoding="utf-8") as openfile:
+with open("apis/dhl-shipment-tracking/dhl-shipment-tracking-openapi.json", "r", encoding="utf-8") as openfile:
     dic = json.load(openfile)
 
 structureDict = {

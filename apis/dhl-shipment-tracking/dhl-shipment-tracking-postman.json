@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "e7dd3c86-f857-4c07-9538-0c68fd4656db",
+		"name": "Group Shipment Tracking Request",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14448171"
+	},
+	"item": [
+		{
+			"name": "Retrieve Tracking Information",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							" <style type=\"text/css\">\r",
+							"        .tftable {font-size:14px;color:#000000;width:100%;border-width: 1px;border-color: #000000;border-collapse: collapse;}\r",
+							"        .tftable th {font-size:18px;background-color:#FFFFFF;border-width: 1px;padding: 8px;border-style: solid;border-color: #000000;text-align:left;}\r",
+							"        .tftable tr {background-color:#ffffff;}\r",
+							"        .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #000000;}\r",
+							"        .tftable tr:hover {background-color:#FFCC00;}\r",
+							"    </style>\r",
+							"    \r",
+							"    <table class=\"tftable\" border=\"1\">\r",
+							"        <tr>\r",
+							"            <th>ID</th>\r",
+							"            <th>Service</th>\r",
+							"            <th>Status</th>\r",
+							"            <th>Timestamp</th>\r",
+							"            <th>Description</th>\r",
+							"        </tr>\r",
+							"        \r",
+							"        {{#each response.shipments}}\r",
+							"            <tr id=row_{{@key}} onClick=\"handleClick(this.id)\">\r",
+							"                <td id={{@key}}>{{id}}</td>\r",
+							"                <td>{{service}}</td>\r",
+							"                <td>{{status.statusCode}}</td>\r",
+							"                <td>{{status.timestamp}}</td>\r",
+							"                <td>{{status.description}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"pm.visualizer.set(template, {\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "DHL-API-Key",
+						"value": "{{API_KEY}}",
+						"description": "https://developer.dhl.com > User Dashboard to retieve your API key",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api-eu.dhl.com/track/shipments?trackingNumber=00340434292135100162",
+					"protocol": "https",
+					"host": [
+						"api-eu",
+						"dhl",
+						"com"
+					],
+					"path": [
+						"track",
+						"shipments"
+					],
+					"query": [
+						{
+							"key": "trackingNumber",
+							"value": "00340434292135100162",
+							"description": "The tracking number of the shipment for which to return the information."
+						},
+						{
+							"key": "service",
+							"value": "express",
+							"description": "Optional, which service (provider) should be used to resolve the tracking number. Available values : express, parcel-de, ecommerce, dgf, parcel-uk, post-de, sameday, freight, parcel-nl, parcel-pl, dsc",
+							"disabled": true
+						},
+						{
+							"key": "requesterCountryCode",
+							"value": "DE",
+							"description": "Optional, ISO 3166-1 alpha-2 country code represents country of the consumer of the API response. It optimizes the return of the API response.",
+							"disabled": true
+						},
+						{
+							"key": "originCountryCode",
+							"value": "DE",
+							"description": "Optional, ISO 3166-1 alpha-2 country code of the shipment origin to further qualify the shipment tracking number (trackingNumber) parameter of the request. This parameter is necessary to search for the shipment in dsc service.",
+							"disabled": true
+						},
+						{
+							"key": "recipientPostalCode",
+							"value": "12345",
+							"description": "Optional, Postal code of the destination address to 1) further qualify the shipment tracking number (trackingNumber) parameter of the request or 2) parcel-nl and parcel-de services to display full set of data in the response.",
+							"disabled": true
+						},
+						{
+							"key": "language",
+							"value": "en",
+							"description": "Optional, ISO 639-1 2-character language code for the response. This parameter serves as an indication of the client preferences ONLY. Language availability depends on the service used. The actual response language is indicated by the Content-Language header.",
+							"disabled": true
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"description": "Optional, Pagination parameter. Offset from the start of the result set at which to retrieve the remainder of the results (if any).",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "5",
+							"description": "Optional, Pagination parameter. Maximal number of results to retireve.",
+							"disabled": true
+						}
+					]
+				},
+				"description": "The Shipment Tracking API provides up-to-the-minute shipment status reports. Users of this API can:\n\n*   Retrieve tracking information for shipments. \n*   Identify the Deutsche Post DHL (DPDHL) service provider involved with the shipment.\n*   Verify DPDHL is using the correct delivery address. This can reduce the number of misdelivered shipments."
+			},
+			"response": []
+		}
+	]
+}
