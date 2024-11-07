@@ -1,6 +1,6 @@
 import json
 
-with open("apis/dhl-shipment-tracking/dhl-shipment-tracking-openapi.json", "r", encoding="utf-8") as openfile:
+with open("apis/paypal/paypal-invoices-openapi.json", "r", encoding="utf-8") as openfile:
     dic = json.load(openfile)
 
 structureDict = {
@@ -29,6 +29,7 @@ for route in structureDict["routes"]["list"]:
         structureDict[method]["total"] += 1
         if "parameters" in dic["paths"][route][method]:
             for param in dic["paths"][route][method]["parameters"]:
+                print(param)
                 if "name" in param and "in" in param:
                     if param["name"] not in structureDict["parameters"]["list"] and param["in"] == "query":
                         structureDict["parameters"]["list"].append(param["name"])
