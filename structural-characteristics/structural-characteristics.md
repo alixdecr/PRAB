@@ -1,0 +1,1 @@
+### Structural Characteristics of the REST APIs of the Benchmark 
