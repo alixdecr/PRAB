@@ -1,6 +1,6 @@
 # PRAB
 
-Public REST API Benchmark (PRAB). This GitHub repository contains the OpenAPI Specification (OAS) / Postman collections of over 60 publicly available REST APIs.
+Public REST API Benchmark (PRAB). This GitHub repository contains the OpenAPI Specification (OAS) / Postman collection of over 60 publicly available REST APIs.
 
 ## Main Goal
 
