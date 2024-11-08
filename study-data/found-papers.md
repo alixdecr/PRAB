@@ -8,6 +8,20 @@ This file contains the research papers that were found with our search string. E
 
 "(rest OR restful) api (test OR testing OR specification OR documentation OR openapi OR swagger) (set OR benchmark OR evaluation)"
 
+### Exclusion Criteria
+
+Below, you can find details regarding the different exclusion criteria:
+
+- `no api set`: The research paper does not contain an API set in its evaluation.
+
+- `invalid api set`: The research paper contains an invalid API set. An invalid API set is when:
+    - The research paper does not explicitly state the APIs that were used in the evaluation. For instance, if a paper states that ``200 APIs were used", however not presenting the APIs explicitly, then the paper will be rejected.
+    - The research paper utilizes private REST APIs.
+
+- `not accessible`: The complete reference (paper, book, etc.) is not accessible.
+
+- `duplicate`: The paper is a duplicate/very similar to a paper already accepted; We only keep the most recent work.
+
 ### Found Papers
 
 RESTful API testing methodologies: Rationale, challenges, and solution directions | rejected | no api set
