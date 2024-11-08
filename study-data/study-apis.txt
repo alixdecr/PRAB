@@ -1,5 +1,10 @@
+-------
+README:
+-------
+This file contains the REST APIs that were found in the research papers of the systematic mapping study. Each API contains the references for the research papers where it is utilized in the evaluation.
+
 -----
-APIs:
+APIS:
 -----
 An API of Ice and Fire | [16]
 Amadeus Hotel | [6][17][19]
@@ -82,35 +87,35 @@ Ur-Codebin | [12]
 Yelp | [5][6][8][10][17][19][24]
 YouTube | [5][6][8][13][17][19][24][26]
 
------
-Used:
------
-[1] combinatorialtestingofrestfulapis
-[2] restfulapiautomatedtestcasegenerationwithevomaster
-[3] automatedtestgenerationforrestapis:notimetorestyet
-[4] morest:model-basedrestfulapitestingwithexecutionfeedback
-[5] restest:automatedblack-boxtestingofrestfulwebapis
-[6] onlinetestingofrestfulapis:promisesandchallenges
-[7] testcoveragecriteriaforrestfulwebapis
-[8] restest:black-boxconstraint-basedtestingofrestfulwebapis
-[9] onthefaultsfoundinrestapisbyautomatedtestgeneration
-[10] enhancingrestapitestingwithnlptechniques
-[11] openproblemsinfuzzingrestfulapis:acomparisonoftools
-[12] generatingrestapispecificationsthroughstaticanalysis
-[13] leveraginglargelanguagemodelstoimproverestapitesting
-[14] example-drivenwebapispecificationdiscovery
-[15] adiscretedynamicartificialbeecolonywithhyper-scoutforrestfulwebserviceapitestsuitegeneration
-[16] youcanrestnow:automatedspecificationinferenceandblack-boxtestingofrestfulapiswithlargelanguagemodels
-[17] agora:automatedgenerationoftestoraclesforrestapis
-[18] exploringbehavioursofrestfulapisinanindustrialsetting
-[19] automatedgenerationoftestoraclesforrestfulapis
-[20] cots:connectedopenapitestsynthesisforrestfulapplications
-[21] securitytestingofrestfulapiswithtestcasemutation
-[22] Empirical comparison of black-box test case generation tools for RESTful APIs
-[23] Restats: A test coverage tool for RESTful APIs
-[24] Deep learning-based prediction of test input validity for restful apis
-[25] Improving test case generation for rest apis through hierarchical clustering
-[26] Black-box and white-box test case generation for RESTful APIs: Enemies or allies?
-[27] Automated specification-based testing of REST APIs -> NO APIS SELECTED AS THEY ONLY OCCUR IN THIS PAPER
-[28] Evaluating fuzzing tools for automated testing of REST APIs using OpenAPI specification
-[29] Automatic Test Generation of REST APIs
+-----------
+REFERENCES:
+-----------
+[1] combinatorial testing of restful apis
+[2] restful api automated testcase generation with evomaster
+[3] automated test generation for rest apis: no time to rest yet
+[4] morest: model-based restful api testing with execution feedback
+[5] restest: automated black-box testing of restful web apis
+[6] online testing of restful apis: promises and challenges
+[7] test coverage criteria for restful web apis
+[8] restest: black-box constraint-based testing of restful web apis
+[9] on the faults found in rest apis by automated test generation
+[10] enhancing rest api testing with nlp techniques
+[11] open problems in fuzzing restful apis: a comparison of tools
+[12] generating rest api specifications through static analysis
+[13] leveraging large language models to improve rest api testing
+[14] example-driven web api specification discovery
+[15] a discrete dynamic artificial bee colony with hyper-scout for restful web service api test suite generation
+[16] you can rest now: automated specification inference and black-box testing of restful apis with large language models
+[17] agora: automated generation of test oracles for rest apis
+[18] exploring behaviours of restful apis in an industrial setting
+[19] automated generation of test oracles for restful apis
+[20] cots: connected openapi test synthesis for restful applications
+[21] security testing of restful apis with test case mutation
+[22] empirical comparison of black-box test case generation tools for restful apis
+[23] restats: a test coverage tool for restful apis
+[24] deep learning-based prediction of test input validity for restful apis
+[25] improving test case generation for rest apis through hierarchical clustering
+[26] black-box and white-box test case generation for restful apis: enemies or allies?
+[27] automated specification-based testing of rest apis
+[28] evaluating fuzzing tools for automated testing of rest apis using openapi specification
+[29] automatic test generation of rest apis
