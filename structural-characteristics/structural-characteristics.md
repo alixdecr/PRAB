@@ -1,6 +1,10 @@
-### Structural Characteristics of the REST APIs from the Benchmark
+## Structural Characteristics of the REST APIs from the Benchmark
+
+### Introduction
 
 This folder contains the structural characteristics of the REST APIs from the benchmark (in the `structural-characteristics.pdf` file).
+
+### Structural Characteristics
 
 Below, you can find additional information regarding the structural characteristics found in the file :
 
@@ -43,6 +47,8 @@ Below, you can find additional information regarding the structural characterist
 - `OpenAPI URL`: The URL leading to the reference that was used to find/generate the OpenAPI specification.
 
 - `Chart Number`: The number associated with the API name in the research paper.
+
+### Cell Colors
 
 Additionally, cells in the table are highlighted with different colors:
 

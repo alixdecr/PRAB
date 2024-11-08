@@ -1,16 +1,15 @@
--------
-README:
--------
+## Research Papers Found with the Search String
+
+### Introduction
+
 This file contains the research papers that were found with our search string. Each paper is either accepted/rejected based on our inclusion/exclusion criteria, and if it is rejected, the reason is indicated.
 
----------
-KEYWORDS:
----------
+### Search String
+
 "(rest OR restful) api (test OR testing OR specification OR documentation OR openapi OR swagger) (set OR benchmark OR evaluation)"
 
--------
-PAPERS:
--------
+### Found Papers
+
 RESTful API testing methodologies: Rationale, challenges, and solution directions | rejected | no api set
 
 Combinatorial testing of restful apis | accepted

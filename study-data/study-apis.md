@@ -1,11 +1,11 @@
--------
-README:
--------
+## REST APIs Found in the Selected Research Papers
+
+### Introduction
+
 This file contains the REST APIs that were found in the research papers of the systematic mapping study. Each API contains the references for the research papers where it is utilized in the evaluation.
 
------
-APIS:
------
+### APIs
+
 An API of Ice and Fire | [16]
 Amadeus Hotel | [6][17][19]
 Balldontlie | [16]
@@ -87,9 +87,8 @@ Ur-Codebin | [12]
 Yelp | [5][6][8][10][17][19][24]
 YouTube | [5][6][8][13][17][19][24][26]
 
------------
-REFERENCES:
------------
+### References
+
 [1] combinatorial testing of restful apis
 [2] restful api automated testcase generation with evomaster
 [3] automated test generation for rest apis: no time to rest yet
