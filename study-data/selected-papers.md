@@ -1,11 +1,11 @@
--------
-README:
--------
+## Selected Research Papers and their Data
+
+### Introduction
+
 This file contains the research papers that were accepted in our systematic mapping study. Each paper contains its authors, its keywords, and the conference/journal/database where it was published.
 
--------
-PAPERS:
--------
+### Papers
+
 Combinatorial Testing of RESTful APIs | H Wu, L Xu, X Niu, C Nie | RESTful API, Combinatorial Testing, Test Case Generation | ICSE
 
 RESTful API Automated Test Case Generation with EvoMaster | A Arcuri | Software Engineering, REST, Web Service, Testing | TOSEM

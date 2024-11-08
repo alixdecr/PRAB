@@ -1,6 +1,6 @@
 ### Structural Characteristics of the REST APIs from the Benchmark
 
-This folder contains the structural characteristics of the REST APIs from the benchmark (in the structural-characteristics.pdf file).
+This folder contains the structural characteristics of the REST APIs from the benchmark (in the `structural-characteristics.pdf` file).
 
 Below, you can find additional information regarding the structural characteristics found in the file :
 
