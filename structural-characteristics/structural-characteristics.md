@@ -8,4 +8,7 @@ Below, you can find additional information regarding the structural characterist
 
 - `Reference`: The URL leading to the reference that was used to analyze the structural characteristics of the REST API. This can be the official website of the API, its GitHub repository, a Postman collection, etc.
 
-- `Availability`: 
+- `Availability`: The availability of the API:
+    - `LOCAL`: The API has to be deployed locally.
+    - `ONLINE`: The API is hosted on a web server online.
+    - `BOTH`: The API can be used locally or online.
