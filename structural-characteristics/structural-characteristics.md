@@ -4,7 +4,7 @@ This folder contains the structural characteristics of the REST APIs from the be
 
 Below, you can find additional information regarding the structural characteristics found in the file :
 
-- `API Name`: The name of the REST API from the benchmark.
+- `API Name`: The name of the REST API from the benchmark. This column also contains the references for the research papers where the API was used, which can be linked with the `/study-data/study-apis.md` file.
 
 - `Reference`: The URL leading to the reference that was used to analyze the structural characteristics of the REST API. This can be the official website of the API, its GitHub repository, a Postman collection, etc.
 
@@ -43,3 +43,11 @@ Below, you can find additional information regarding the structural characterist
 - `OpenAPI URL`: The URL leading to the reference that was used to find/generate the OpenAPI specification.
 
 - `Chart Number`: The number associated with the API name in the research paper.
+
+Additionally, cells in the table are highlighted with different colors:
+
+- `GREEN`: The API is valid (exists, contains a reference, etc.) and contains an OpenAPI specification.
+
+- `ORANGE`: The API is valid, but no OpenAPI specification was found. Certain orange APIs are still analyzed regarding the structural characteristics (see column `Chart Number`).
+
+- `RED`: The API is is invalid (does not exist, was not found, was anonymized, etc.).
