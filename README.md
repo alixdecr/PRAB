@@ -4,7 +4,7 @@ Public REST API Benchmark (PRAB). This GitHub repository contains the OpenAPI Sp
 
 ## Related Research Paper
 
-PRAB was created in parallel to the research paper "A Public Benchmark of REST APIs", which was accepted for inclusion in the 22nd International Conference on Mining Software Repositories (MSR 2025). **When using our benchmark, please refer to this research paper for citation.**
+PRAB was created in parallel to the research paper *A Public Benchmark of REST APIs* (A. Decrop, S. Eraso, X. Devroey, G. Perrouin), which was accepted for inclusion in the 22nd International Conference on Mining Software Repositories (MSR 2025). **When using our benchmark, please refer to this research paper for citation.**
 
 ## Main Goal
 
