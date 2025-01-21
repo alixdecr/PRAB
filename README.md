@@ -6,13 +6,13 @@ Public REST API Benchmark (PRAB). This GitHub repository contains the OpenAPI Sp
 
 The main goal of this repository is to provide a public benchmark of REST APIs, for the evaluation of research related to REST APIs. For instance, a new testing tool can leverage the OpenAPI specifications provided in this repository.
 
+## Related Research Paper
+
+PRAB was created in parallel to the research paper "A Public Benchmark of REST APIs", which was accepted at the 22nd International Conference on Mining Software Repositories (MSR 2025). When using our benchmark, please refer to the research paper for citation.
+
 ## Main Content
 
 The main content of the benchmark can be found in the `/apis` folder. At the moment, each REST API of the benchmark has its sub-folder, containing an available (and up-to-date) OpenAPI specification / Postman collection (in the JSON format).
-
-## Associated Research Paper
-
-PRAB was created in parallel to the research paper "A Public Benchmark of REST APIs".
 
 ## Additional Content
 
