@@ -8,7 +8,7 @@ The main goal of this repository is to provide a public benchmark of REST APIs, 
 
 ## Related Research Paper
 
-PRAB was created in parallel to the research paper "A Public Benchmark of REST APIs", which was accepted at the 22nd International Conference on Mining Software Repositories (MSR 2025). When using our benchmark, please refer to the research paper for citation.
+PRAB was created in parallel to the research paper "A Public Benchmark of REST APIs", which was accepted for inclusion in the 22nd International Conference on Mining Software Repositories (MSR 2025). **When using our benchmark, please refer to this research paper for citation.**
 
 ## Main Content
 
