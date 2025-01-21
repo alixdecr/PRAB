@@ -2,13 +2,13 @@
 
 Public REST API Benchmark (PRAB). This GitHub repository contains the OpenAPI Specification (OAS) / Postman collection of over 60 publicly available REST APIs.
 
-## Main Goal
-
-The main goal of this repository is to provide a public benchmark of REST APIs, for the evaluation of research related to REST APIs. For instance, a new testing tool can leverage the OpenAPI specifications provided in this repository.
-
 ## Related Research Paper
 
 PRAB was created in parallel to the research paper "A Public Benchmark of REST APIs", which was accepted for inclusion in the 22nd International Conference on Mining Software Repositories (MSR 2025). **When using our benchmark, please refer to this research paper for citation.**
+
+## Main Goal
+
+The main goal of this repository is to provide a public benchmark of REST APIs, for the evaluation of research related to REST APIs. For instance, a new testing tool can leverage the OpenAPI specifications provided in this repository.
 
 ## Main Content
 
