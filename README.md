@@ -1,6 +1,6 @@
 # PRAB
 
-![alt text](https://img.shields.io/badge/Benchmark_Contains-60_REST_APIs-brightgreen.svg) ![alt text](https://img.shields.io/badge/OpenAPI_Specification_Coverage-100%25-brightgreen.svg)
+![alt text](https://img.shields.io/badge/Benchmark_Contains-60_REST_APIs-blue.svg) ![alt text](https://img.shields.io/badge/OpenAPI_Specification_Coverage-100%25-brightgreen.svg) ![alt text](https://img.shields.io/badge/Postman_Collection_Coverage-27%25-green.svg)
 
 Public REST API Benchmark (PRAB). This GitHub repository contains the OpenAPI Specification (OAS) / Postman Collection of over 60 publicly available REST APIs.
 
