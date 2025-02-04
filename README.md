@@ -2,17 +2,13 @@
 
 ![alt text](https://img.shields.io/badge/Benchmark_Contains-62_REST_APIs-blue.svg)
 
-This GitHub repository contains a Public REST API Benchmark (PRAB). The benchmark contains the OpenAPI Specification (OAS), Postman Collection (when applicable), and various structural characteristics (HTTP method distribution, authentication method, routes and query parameters, etc.) of over 60 publicly available REST APIs. It is aimed to be used by researchers, testers, developers, and users alike, to assist in the REST API domain/literature.
+This GitHub repository contains a Public REST API Benchmark (PRAB). The benchmark contains the OpenAPI Specification (OAS), Postman Collection (when applicable), and various structural characteristics (HTTP method distribution, authentication method, routes and query parameters, etc.) of over 60 publicly available REST APIs. It is aimed to be used by researchers, testers, developers, and users alike, to assist in the REST API domain/literature. For instance, a new testing tool can leverage the OpenAPI Specifications provided in this repository.
 
 The repository was created by [Alix Decrop](https://orcid.org/0009-0007-2641-5983) and [Sara Eraso](https://orcid.org/0009-0002-7637-3869).
 
 ## Related Research Paper
 
 PRAB was created in parallel to the research paper *A Public Benchmark of REST APIs (A. Decrop, S. Eraso, X. Devroey, G. Perrouin)*, which was accepted for inclusion in the *22nd International Conference on Mining Software Repositories (MSR 2025)*. **When using our benchmark, please refer to this research paper for citation purposes.**
-
-## Main Goal
-
-The main goal of this repository is to provide a public benchmark of REST APIs, for the evaluation of research related to REST APIs. For instance, a new testing tool can leverage the OpenAPI specifications provided in this repository.
 
 ## Main Content
 
