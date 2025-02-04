@@ -1,0 +1,30 @@
+## Ohsome: Structural Characteristics
+
+### General Information
+
+- Identifier: ohsome
+
+- Name: Ohsome
+
+- Cited By: [6][12][13][26]
+
+- References: [API Website](https://docs.ohsome.org/ohsome-api) | [OpenAPI Specification](https://github.com/GIScience/ohsome-api/blob/main/docs/_static/swagger-aggregation.json)
+
+- Availability: Online
+
+- Authentication Method: No
+
+- Pricing: No
+
+- Rate Limiting: No
+
+### HTTP Method Distribution
+
+| Method | Amount | Percentage |
+|--------|--------|------------|
+| GET | 61 | 50% |
+| POST | 61 | 50% |
+| PUT | 0 | 0% |
+| PATCH | 0 | 0% |
+| DELETE | 0 | 0% |
+| TOTAL | 122 | 100% |

@@ -1,14 +1,14 @@
-## Datamuse: Structural Characteristics
+## CheapShark: Structural Characteristics
 
 ### General Information
 
-- Identifier: datamuse
+- Identifier: cheapshark
 
-- Name: Datamuse
+- Name: CheapShark
 
 - Cited By: [16]
 
-- References: [API Website](https://www.datamuse.com/api) | OpenAPI Specification (WIP)
+- References: [API Website](https://apidocs.cheapshark.com) | [OpenAPI Specification](https://apidocs.cheapshark.com)
 
 - Availability: Online
 
@@ -16,15 +16,15 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Rate Limiting: Yes
 
 ### HTTP Method Distribution
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 2 | 100% |
+| GET | 4 | 100% |
 | POST | 0 | 0% |
 | PUT | 0 | 0% |
 | PATCH | 0 | 0% |
 | DELETE | 0 | 0% |
-| TOTAL | 2 | 100% |
+| TOTAL | 4 | 100% |

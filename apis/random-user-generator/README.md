@@ -1,14 +1,14 @@
-## Datamuse: Structural Characteristics
+## Random User Generator: Structural Characteristics
 
 ### General Information
 
-- Identifier: datamuse
+- Identifier: random-user-generator
 
-- Name: Datamuse
+- Name: Random User Generator
 
 - Cited By: [16]
 
-- References: [API Website](https://www.datamuse.com/api) | OpenAPI Specification (WIP)
+- References: [API Website](https://randomuser.me) | [OpenAPI Specification](http://documenter.getpostman.com/view/19878710/2s93Jrwk3R)
 
 - Availability: Online
 
@@ -22,9 +22,9 @@
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 2 | 100% |
+| GET | 1 | 100% |
 | POST | 0 | 0% |
 | PUT | 0 | 0% |
 | PATCH | 0 | 0% |
 | DELETE | 0 | 0% |
-| TOTAL | 2 | 100% |
+| TOTAL | 1 | 100% |

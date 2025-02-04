@@ -1,14 +1,14 @@
-## Datamuse: Structural Characteristics
+## Open Brewery DB: Structural Characteristics
 
 ### General Information
 
-- Identifier: datamuse
+- Identifier: open-brewery-db
 
-- Name: Datamuse
+- Name: Open Brewery DB
 
 - Cited By: [16]
 
-- References: [API Website](https://www.datamuse.com/api) | OpenAPI Specification (WIP)
+- References: [API Website](https://www.openbrewerydb.org) | [OpenAPI Specification](https://github.com/openbrewerydb/openbrewerydb)
 
 - Availability: Online
 
@@ -22,9 +22,9 @@
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 2 | 100% |
+| GET | 5 | 100% |
 | POST | 0 | 0% |
 | PUT | 0 | 0% |
 | PATCH | 0 | 0% |
 | DELETE | 0 | 0% |
-| TOTAL | 2 | 100% |
+| TOTAL | 5 | 100% |
