@@ -28,3 +28,9 @@
 | PATCH | 0 | 0% |
 | DELETE | 0 | 0% |
 | TOTAL | 7 | 100% |
+
+### Other Information
+
+- Number of Unique Routes: 6
+
+- Number of Unique Query Parameters: 2
