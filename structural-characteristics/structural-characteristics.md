@@ -2,7 +2,10 @@
 
 ### Introduction
 
-This folder contains the structural characteristics of the REST APIs from the benchmark (in the `structural-characteristics.pdf` file).
+This folder contains the structural characteristics of the REST APIs from the benchmark:
+
+- `structural-characteristics.pdf` is a PDF version, which is user-readable
+- `structural-characteristics.json` is a JSON version, which is machine-readable
 
 ### Structural Characteristics
 
