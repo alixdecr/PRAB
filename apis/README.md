@@ -6,7 +6,7 @@ This folder contains all REST APIs of the benchmark. Each API has a folder, cont
 
 - An OpenAPI Specification, in the JSON format.
 - A Postman Collection, in the JSON format (not always available).
-- Additional information regarding the REST API and its documentation (when required).
+- A README document, containing information regarding the REST API.
 
 ### Additional Information
 
