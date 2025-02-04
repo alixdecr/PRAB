@@ -9,6 +9,11 @@
       "title" : "Management API for Apache Cassandra™",
       "version" : "0.1"
     },
+    "servers": [
+      {
+        "url": "http://localhost:8080"
+      }
+    ],
     "paths" : {
       "/api/v0/lifecycle/configure" : {
         "post" : {

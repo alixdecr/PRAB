@@ -18,6 +18,11 @@
         "url": "https://github.com/WordPress/openverse/blob/main/LICENSE"
       }
     },
+    "servers": [
+    {
+      "url": "https://api.openverse.org"
+    }
+    ],
     "paths": {
       "/v1/audio/": {
         "get": {

@@ -6,7 +6,7 @@
     },
     "servers": [
       {
-        "url": "http://{{baseurl}}"
+        "url": "https://randomuser.me"
       }
     ],
     "tags": [

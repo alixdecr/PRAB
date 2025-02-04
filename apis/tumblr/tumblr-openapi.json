@@ -7,7 +7,7 @@
     },
     "servers": [
       {
-        "url": "http://{{baseurl}}"
+        "url": "https://api.tumblr.com/v2"
       }
     ],
     "tags": [

@@ -7,7 +7,7 @@
     },
     "servers": [
       {
-        "url": "http://{{baseurl}}"
+        "url": "https://api.yelp.com/v3"
       }
     ],
     "tags": [

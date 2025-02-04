@@ -7,7 +7,7 @@
     },
     "servers": [
       {
-        "url": "http://{{host}}"
+        "url": "https://api.coincap.io"
       }
     ],
     "tags": [

@@ -5,6 +5,11 @@
       "version": "0.10.0",
       "title": "Digdag"
     },
+    "servers": [
+      {
+        "url": "http://localhost:8080"
+      }
+    ],
     "tags": [
       {
         "name": "Workflow"

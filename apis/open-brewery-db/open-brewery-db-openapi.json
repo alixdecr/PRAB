@@ -7,7 +7,7 @@
     },
     "servers": [
       {
-        "url": "http://{{openbrewerydb_host}}"
+        "url": "https://api.openbrewerydb.org/v1"
       }
     ],
     "tags": [
