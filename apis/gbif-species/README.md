@@ -6,7 +6,7 @@
 
 - Name: GBIF Species
 
-- Cited By: [16]
+- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://techdocs.gbif.org/en/openapi/v1/species) | [OpenAPI Specification](https://techdocs.gbif.org/openapi/checklistbank.json)
 

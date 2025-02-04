@@ -6,7 +6,7 @@
 
 - Name: Magento
 
-- Cited By: [4]
+- Cited By: [4] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://developer.adobe.com/commerce/webapi/rest) | [OpenAPI Specification](https://developer.adobe.com/commerce/webapi/rest/quick-reference/)
 

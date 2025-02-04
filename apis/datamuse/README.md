@@ -6,9 +6,9 @@
 
 - Name: Datamuse
 
-- Cited By: [16]
+- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
 
-- References: [API Website](https://www.datamuse.com/api) | OpenAPI Specification (WIP)
+- References: [API Website](https://www.datamuse.com/api) | [OpenAPI Specification](NO OPENAPI OR POSTMAN)
 
 - Availability: Online
 

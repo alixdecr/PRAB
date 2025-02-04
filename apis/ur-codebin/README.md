@@ -6,7 +6,7 @@
 
 - Name: Ur-Codebin
 
-- Cited By: [12]
+- Cited By: [12] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://mathew.stoplight.io/docs/ur-codebin-api) | [OpenAPI Specification](https://mathew.stoplight.io/docs/ur-codebin-api)
 

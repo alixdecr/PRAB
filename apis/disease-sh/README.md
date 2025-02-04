@@ -6,7 +6,7 @@
 
 - Name: Disease SH
 
-- Cited By: [11]
+- Cited By: [11] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://disease.sh) | [OpenAPI Specification](https://disease.sh/apidocs/swagger_v3.json)
 

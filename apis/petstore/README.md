@@ -6,7 +6,7 @@
 
 - Name: PetStore
 
-- Cited By: [4][14][20][23][28][29]
+- Cited By: [4][14][20][23][28][29] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/swagger-api/swagger-petstore) | [OpenAPI Specification](https://petstore3.swagger.io/api/v3/openapi.json)
 

@@ -6,7 +6,7 @@
 
 - Name: SpaceX API
 
-- Cited By: [11]
+- Cited By: [11] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/r-spacex/SpaceX-API) | [OpenAPI Specification](https://github.com/r-spacex/SpaceX-API/blob/master/docs/README.md)
 

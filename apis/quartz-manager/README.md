@@ -6,7 +6,7 @@
 
 - Name: Quartz Manager
 
-- Cited By: [12]
+- Cited By: [12] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/fabioformosa/quartz-manager) | [OpenAPI Specification](https://github.com/pranaybathini/quartz-scheduler/blob/main/Quartz-Scheduler.postman_collection.json)
 

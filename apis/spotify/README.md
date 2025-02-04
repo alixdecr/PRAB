@@ -6,7 +6,7 @@
 
 - Name: Spotify
 
-- Cited By: [6][13][17][19]
+- Cited By: [6][13][17][19] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://developer.spotify.com) | [OpenAPI Specification](https://github.com/sonallux/spotify-web-api/tree/main)
 

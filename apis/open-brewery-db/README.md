@@ -6,7 +6,7 @@
 
 - Name: Open Brewery DB
 
-- Cited By: [16]
+- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://www.openbrewerydb.org) | [OpenAPI Specification](https://github.com/openbrewerydb/openbrewerydb)
 

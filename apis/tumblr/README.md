@@ -6,7 +6,7 @@
 
 - Name: Tumblr
 
-- Cited By: [8][10]
+- Cited By: [8][10] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://www.tumblr.com/docs/en/api) | [OpenAPI Specification](https://www.postman.com/api-evangelist/tumblr/collection/wa7adwz/tumblr)
 

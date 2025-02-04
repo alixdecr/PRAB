@@ -6,7 +6,7 @@
 
 - Name: OCVN
 
-- Cited By: [3][11][12][13][18][25]
+- Cited By: [3][11][12][13][18][25] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/devgateway/ocvn) | [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/ocvn-rest.json)
 

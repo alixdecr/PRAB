@@ -6,7 +6,7 @@
 
 - Name: LanguageTool
 
-- Cited By: [3][4][6][11][13][18][20][24][26]
+- Cited By: [3][4][6][11][13][18][20][24][26] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://languagetool.org/http-api) | [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/languagetool.json)
 

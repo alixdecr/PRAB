@@ -6,7 +6,7 @@
 
 - Name: PayPal
 
-- Cited By: [10]
+- Cited By: [10] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://developer.paypal.com/api/rest) | [OpenAPI Specification](https://github.com/paypal/paypal-rest-api-specifications)
 

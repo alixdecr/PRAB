@@ -6,7 +6,7 @@
 
 - Name: REST SCS
 
-- Cited By: [3][9][11][15][18][25]
+- Cited By: [3][9][11][15][18][25] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/WebFuzzing/EMB/tree/master/jdk_8_maven/cs/rest/artificial/scs) | [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/rest-scs.json)
 

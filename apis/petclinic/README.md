@@ -6,7 +6,7 @@
 
 - Name: PetClinic
 
-- Cited By: [16][20][22]
+- Cited By: [16][20][22] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/spring-petclinic/spring-petclinic-rest) | [OpenAPI Specification](https://github.com/spring-petclinic/spring-petclinic-rest/blob/master/src/main/resources/openapi.yml)
 

@@ -6,7 +6,7 @@
 
 - Name: CheapShark
 
-- Cited By: [16]
+- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://apidocs.cheapshark.com) | [OpenAPI Specification](https://apidocs.cheapshark.com)
 

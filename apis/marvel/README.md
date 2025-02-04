@@ -6,7 +6,7 @@
 
 - Name: Marvel
 
-- Cited By: [6][17]
+- Cited By: [6][17] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://developer.marvel.com) | [OpenAPI Specification](https://gateway.marvel.com/docs/public)
 

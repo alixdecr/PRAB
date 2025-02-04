@@ -6,7 +6,7 @@
 
 - Name: FDIC
 
-- Cited By: [6][13]
+- Cited By: [6][13] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/ContinuityControl/fdic) | [OpenAPI Specification](https://www.postman.com/api-evangelist/federal-deposit-insurance-corporation-fdic/collection/ddi8s3a/fdic-bank-data-api-beta)
 

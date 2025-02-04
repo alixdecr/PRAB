@@ -6,7 +6,7 @@
 
 - Name: ReqRes
 
-- Cited By: [16]
+- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://reqres.in) | [OpenAPI Specification](https://www.postman.com/reqresapi/reqres/collection/rli8ped/reqres-api)
 

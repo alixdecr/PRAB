@@ -6,7 +6,7 @@
 
 - Name: CoinCap
 
-- Cited By: [16]
+- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://docs.coincap.io) | [OpenAPI Specification](https://docs.coincap.io/)
 

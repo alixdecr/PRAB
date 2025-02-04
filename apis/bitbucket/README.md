@@ -6,7 +6,7 @@
 
 - Name: BitBucket
 
-- Cited By: [4]
+- Cited By: [4] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://developer.atlassian.com/cloud/bitbucket/rest) | [OpenAPI Specification](https://dac-static.atlassian.com/cloud/bitbucket/swagger.v3.json)
 

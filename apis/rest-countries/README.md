@@ -6,7 +6,7 @@
 
 - Name: REST Countries
 
-- Cited By: [3][6][11][12][13][16][20][26]
+- Cited By: [3][6][11][12][13][16][20][26] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://restcountries.com) | [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/restcountries.yaml)
 

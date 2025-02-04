@@ -6,7 +6,7 @@
 
 - Name: Graphhopper
 
-- Cited By: [14]
+- Cited By: [14] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://docs.graphhopper.com) | [OpenAPI Specification](https://docs.graphhopper.com/)
 

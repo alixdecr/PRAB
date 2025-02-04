@@ -6,7 +6,7 @@
 
 - Name: GitHub
 
-- Cited By: [8][10][17][19][24]
+- Cited By: [8][10][17][19][24] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://docs.github.com/en/rest) | [OpenAPI Specification](https://github.com/github/rest-api-description)
 

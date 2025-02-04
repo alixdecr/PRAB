@@ -6,7 +6,7 @@
 
 - Name: Balldontlie
 
-- Cited By: [16]
+- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://www.balldontlie.io) | [OpenAPI Specification](https://www.postman.com/grandios/public/collection/lcm3za0/balldontlie)
 

@@ -6,7 +6,7 @@
 
 - Name: Random User Generator
 
-- Cited By: [16]
+- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://randomuser.me) | [OpenAPI Specification](http://documenter.getpostman.com/view/19878710/2s93Jrwk3R)
 

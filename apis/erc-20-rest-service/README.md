@@ -6,7 +6,7 @@
 
 - Name: ERC-20 REST Service
 
-- Cited By: [3]
+- Cited By: [3] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/web3labs/erc20-rest-service) | [OpenAPI Specification](https://github.com/web3labs/erc20-rest-service/blob/master/images/full-swagger-ui.png)
 

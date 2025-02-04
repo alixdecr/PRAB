@@ -6,7 +6,7 @@
 
 - Name: Refuge Restrooms
 
-- Cited By: [14]
+- Cited By: [14] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://www.refugerestrooms.org/api/docs) | [OpenAPI Specification](https://www.refugerestrooms.org/api/swagger_doc.json)
 

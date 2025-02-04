@@ -6,7 +6,7 @@
 
 - Name: Openverse
 
-- Cited By: [20]
+- Cited By: [20] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://api.openverse.org) | [OpenAPI Specification](https://api.openverse.org/v1/schema)
 

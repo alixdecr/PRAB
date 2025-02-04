@@ -6,7 +6,7 @@
 
 - Name: Genome Nexus
 
-- Cited By: [3][13]
+- Cited By: [3][13] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://docs.genomenexus.org/api) | [OpenAPI Specification](https://www.genomenexus.org/swagger-ui.html)
 

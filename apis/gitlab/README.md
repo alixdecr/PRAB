@@ -6,7 +6,7 @@
 
 - Name: GitLab
 
-- Cited By: [1]
+- Cited By: [1] (the citation references can be found in `study-data/study-apis.md`)
 
 - References: [API Website](https://docs.gitlab.com/ee/api/rest) | [OpenAPI Specification](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/api/openapi/openapi.yaml)
 
