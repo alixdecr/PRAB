@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: cwa-verification-server
+- Identifier: cwa-verification-server | N°9 in `/structural-characteristics/visualisation`
 
 - Name: CWA Verification Server
 
-- Cited By: [3][11][12] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [3][11][12] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/corona-warn-app/cwa-verification-server) | [OpenAPI Specification](https://github.com/corona-warn-app/cwa-verification-server/blob/master/api-docs.json)
 

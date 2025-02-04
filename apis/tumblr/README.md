@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: tumblr
+- Identifier: tumblr | N°57 in `/structural-characteristics/visualisation`
 
 - Name: Tumblr
 
-- Cited By: [8][10] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [8][10] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://www.tumblr.com/docs/en/api) | [OpenAPI Specification](https://www.postman.com/api-evangelist/tumblr/collection/wa7adwz/tumblr)
 

@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: proxyprint
+- Identifier: proxyprint | N°41 in `/structural-characteristics/visualisation`
 
 - Name: ProxyPrint
 
-- Cited By: [2][3][9][11][12][15][18][25] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [2][3][9][11][12][15][18][25] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/ProxyPrint/proxyprint-kitchen) | [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/proxyprint.json)
 

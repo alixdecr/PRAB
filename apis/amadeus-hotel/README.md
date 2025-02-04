@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: amadeus-hotel
+- Identifier: amadeus-hotel | N°1 in `/structural-characteristics/visualisation`
 
 - Name: Amadeus Hotel
 
-- Cited By: [6][17][19] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [6][17][19] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://developers.amadeus.com/self-service/category/hotels) | [OpenAPI Specification](https://www.postman.com/amadeus4dev/amadeus-for-developers-s-public-workspace/collection/kquqijj/amadeus-for-developers)
 

@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: graphhopper
+- Identifier: graphhopper | N°26 in `/structural-characteristics/visualisation`
 
 - Name: Graphhopper
 
-- Cited By: [14] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [14] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://docs.graphhopper.com) | [OpenAPI Specification](https://docs.graphhopper.com/)
 

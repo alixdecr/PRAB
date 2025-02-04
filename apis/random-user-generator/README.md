@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: random-user-generator
+- Identifier: random-user-generator | N°43 in `/structural-characteristics/visualisation`
 
 - Name: Random User Generator
 
-- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [16] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://randomuser.me) | [OpenAPI Specification](http://documenter.getpostman.com/view/19878710/2s93Jrwk3R)
 

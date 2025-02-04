@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: datamuse
+- Identifier: datamuse | N°11 in `/structural-characteristics/visualisation`
 
 - Name: Datamuse
 
-- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [16] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://www.datamuse.com/api) | [OpenAPI Specification](NO OPENAPI OR POSTMAN)
 

@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: open-brewery-db
+- Identifier: open-brewery-db | N°35 in `/structural-characteristics/visualisation`
 
 - Name: Open Brewery DB
 
-- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [16] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://www.openbrewerydb.org) | [OpenAPI Specification](https://github.com/openbrewerydb/openbrewerydb)
 

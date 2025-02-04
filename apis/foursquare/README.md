@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: foursquare
+- Identifier: foursquare | N°19 in `/structural-characteristics/visualisation`
 
 - Name: Foursquare
 
-- Cited By: [6][8][10] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [6][8][10] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://docs.foursquare.com/developer) | [OpenAPI Specification](https://www.postman.com/foursquare-places-api/foursquare-s-public-workspace/collection/qjus7hq/foursquare-places-api)
 

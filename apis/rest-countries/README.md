@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: rest-countries
+- Identifier: rest-countries | N°47 in `/structural-characteristics/visualisation`
 
 - Name: REST Countries
 
-- Cited By: [3][6][11][12][13][16][20][26] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [3][6][11][12][13][16][20][26] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://restcountries.com) | [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/restcountries.yaml)
 

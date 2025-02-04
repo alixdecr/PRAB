@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: genome-nexus
+- Identifier: genome-nexus | N°21 in `/structural-characteristics/visualisation`
 
 - Name: Genome Nexus
 
-- Cited By: [3][13] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [3][13] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://docs.genomenexus.org/api) | [OpenAPI Specification](https://www.genomenexus.org/swagger-ui.html)
 

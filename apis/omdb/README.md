@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: omdb
+- Identifier: omdb | N°34 in `/structural-characteristics/visualisation`
 
 - Name: OMDb
 
-- Cited By: [6][13][14][16][17][19] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [6][13][14][16][17][19] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://www.omdbapi.com) | [OpenAPI Specification](https://github.com/Mermade/openapi-definitions/blob/master/OMDb/swagger.json)
 

@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: balldontlie
+- Identifier: balldontlie | N°3 in `/structural-characteristics/visualisation`
 
 - Name: Balldontlie
 
-- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [16] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://www.balldontlie.io) | [OpenAPI Specification](https://www.postman.com/grandios/public/collection/lcm3za0/balldontlie)
 

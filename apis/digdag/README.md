@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: digdag
+- Identifier: digdag | N°13 in `/structural-characteristics/visualisation`
 
 - Name: DigDag
 
-- Cited By: [12] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [12] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://docs.digdag.io) | [OpenAPI Specification](https://github.com/treasure-data/digdag/blob/master/digdag-docs/src/_extra/api/swagger.yaml)
 

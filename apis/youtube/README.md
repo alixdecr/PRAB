@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: youtube
+- Identifier: youtube | N°60 in `/structural-characteristics/visualisation`
 
 - Name: YouTube
 
-- Cited By: [5][6][8][13][17][19][24][26] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [5][6][8][13][17][19][24][26] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://developers.google.com/youtube) | [OpenAPI Specification](https://www.postman.com/api-evangelist/youtube/overview)
 

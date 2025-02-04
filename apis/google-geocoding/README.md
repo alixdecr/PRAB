@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: google-geocoding
+- Identifier: google-geocoding | N°25 in `/structural-characteristics/visualisation`
 
 - Name: Google Geocoding
 
-- Cited By: [10] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [10] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://developers.google.com/maps/documentation/geocoding) | [OpenAPI Specification](https://www.postman.com/google-maps-platform/google-maps-platform/collection/c4xo2u9/google-maps-platform-core-apis)
 

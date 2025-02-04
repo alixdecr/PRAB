@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: an-api-of-ice-and-fire
+- Identifier: an-api-of-ice-and-fire | N°2 in `/structural-characteristics/visualisation`
 
 - Name: An API of Ice and Fire
 
-- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [16] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://anapioficeandfire.com) | [OpenAPI Specification](https://www.postman.com/postman/postman-team-collections/documentation/4dugaxo/game-of-thrones)
 

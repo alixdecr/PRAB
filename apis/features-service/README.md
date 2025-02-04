@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: features-service
+- Identifier: features-service | N°18 in `/structural-characteristics/visualisation`
 
 - Name: Features Service
 
-- Cited By: [2][3][4][7][9][11][12][15][18][20][25] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [2][3][4][7][9][11][12][15][18][20][25] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/JavierMF/features-service) | [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/features-service.json)
 

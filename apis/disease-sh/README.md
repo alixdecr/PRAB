@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: disease-sh
+- Identifier: disease-sh | N°14 in `/structural-characteristics/visualisation`
 
 - Name: Disease SH
 
-- Cited By: [11] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [11] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://disease.sh) | [OpenAPI Specification](https://disease.sh/apidocs/swagger_v3.json)
 

@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: stripe
+- Identifier: stripe | N°56 in `/structural-characteristics/visualisation`
 
 - Name: Stripe
 
-- Cited By: [5][6][8][10][24] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [5][6][8][10][24] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://docs.stripe.com/api) | [OpenAPI Specification](https://github.com/stripe/openapi)
 

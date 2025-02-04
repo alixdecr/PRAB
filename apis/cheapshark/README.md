@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: cheapshark
+- Identifier: cheapshark | N°7 in `/structural-characteristics/visualisation`
 
 - Name: CheapShark
 
-- Cited By: [16] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [16] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://apidocs.cheapshark.com) | [OpenAPI Specification](https://apidocs.cheapshark.com)
 

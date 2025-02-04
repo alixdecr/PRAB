@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: bitbucket
+- Identifier: bitbucket | N°5 in `/structural-characteristics/visualisation`
 
 - Name: BitBucket
 
-- Cited By: [4] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [4] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://developer.atlassian.com/cloud/bitbucket/rest) | [OpenAPI Specification](https://dac-static.atlassian.com/cloud/bitbucket/swagger.v3.json)
 

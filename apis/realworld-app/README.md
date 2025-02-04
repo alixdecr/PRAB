@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: realworld-app
+- Identifier: realworld-app | N°44 in `/structural-characteristics/visualisation`
 
 - Name: Realworld App
 
-- Cited By: [11][22] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [11][22] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/lujakob/nestjs-realworld-example-app) | [OpenAPI Specification](https://github.com/gothinkster/realworld/blob/main/api/openapi.yml)
 

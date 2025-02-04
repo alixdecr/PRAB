@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: gestao-hospital
+- Identifier: gestao-hospital | N°22 in `/structural-characteristics/visualisation`
 
 - Name: Gestao Hospital
 
-- Cited By: [11][20] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [11][20] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/ValchanOficial/GestaoHospital) | [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/gestaohospital-rest.json)
 

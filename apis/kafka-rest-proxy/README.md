@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: kafka-rest-proxy
+- Identifier: kafka-rest-proxy | N°27 in `/structural-characteristics/visualisation`
 
 - Name: Kafka REST Proxy
 
-- Cited By: [12] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [12] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/confluentinc/kafka-rest) | [OpenAPI Specification](https://github.com/confluentinc/kafka-rest/blob/master/api/v3/openapi.yaml)
 

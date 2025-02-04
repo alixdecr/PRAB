@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: rest-ncs
+- Identifier: rest-ncs | N°49 in `/structural-characteristics/visualisation`
 
 - Name: REST NCS
 
-- Cited By: [3][9][11][15][18][25] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [3][9][11][15][18][25] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/WebFuzzing/EMB/tree/master/jdk_8_maven/cs/rest/artificial/ncs) | [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/rest-ncs.json)
 

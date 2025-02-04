@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: dhl-shipment-tracking
+- Identifier: dhl-shipment-tracking | N°12 in `/structural-characteristics/visualisation`
 
 - Name: DHL Shipment Tracking
 
-- Cited By: [6] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [6] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://developer.dhl.com/api-reference/shipment-tracking) | [OpenAPI Specification](https://developer.dhl.com/api-reference/shipment-tracking#downloads-section)
 

@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: rest-news
+- Identifier: rest-news | N°50 in `/structural-characteristics/visualisation`
 
 - Name: REST News
 
-- Cited By: [2][3][9][11][15][18] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [2][3][9][11][15][18] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/WebFuzzing/EMB/tree/master/jdk_8_maven/cs/rest/artificial/news) | [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/rest-news.json)
 

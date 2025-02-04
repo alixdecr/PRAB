@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: senzing
+- Identifier: senzing | N°53 in `/structural-characteristics/visualisation`
 
 - Name: Senzing
 
-- Cited By: [12] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [12] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://senzing.zendesk.com/hc/en-us/categories/360000120514-Senzing-API-for-Developers) | [OpenAPI Specification](https://github.com/senzing-garage/senzing-rest-api-specification/blob/main/senzing-rest-api.yaml)
 

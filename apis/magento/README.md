@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: magento
+- Identifier: magento | N°29 in `/structural-characteristics/visualisation`
 
 - Name: Magento
 
-- Cited By: [4] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [4] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://developer.adobe.com/commerce/webapi/rest) | [OpenAPI Specification](https://developer.adobe.com/commerce/webapi/rest/quick-reference/)
 

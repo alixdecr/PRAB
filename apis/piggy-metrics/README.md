@@ -2,11 +2,11 @@
 
 ### General Information
 
-- Identifier: piggy-metrics
+- Identifier: piggy-metrics | N°40 in `/structural-characteristics/visualisation`
 
 - Name: Piggy Metrics
 
-- Cited By: [21] (the citation references can be found in `study-data/study-apis.md`)
+- Cited By: [21] (the citation references can be found in `/study-data/study-apis.md`)
 
 - References: [API Website](https://github.com/sqshq/piggymetrics) | [OpenAPI Specification](NO OPENAPI OR POSTMAN)
 
