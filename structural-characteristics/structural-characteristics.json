@@ -14,8 +14,8 @@
         "nb-get": 37,
         "nb-post": 13,
         "nb-put": 0,
-        "nb-patch": 1,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 1
     },
     "2": {
         "id": "an-api-of-ice-and-fire",
@@ -86,8 +86,8 @@
         "nb-get": 171,
         "nb-post": 48,
         "nb-put": 47,
-        "nb-patch": 53,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 53
     },
     "6": {
         "id": "catwatch",
@@ -176,8 +176,8 @@
         "nb-get": 29,
         "nb-post": 14,
         "nb-put": 4,
-        "nb-patch": 3,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 3
     },
     "11": {
         "id": "datamuse",
@@ -230,8 +230,8 @@
         "nb-get": 29,
         "nb-post": 5,
         "nb-put": 3,
-        "nb-patch": 2,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 2
     },
     "14": {
         "id": "disease-sh",
@@ -266,8 +266,8 @@
         "nb-get": 52,
         "nb-post": 15,
         "nb-put": 4,
-        "nb-patch": 8,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 8
     },
     "16": {
         "id": "erc-20-restful-service",
@@ -320,8 +320,8 @@
         "nb-get": 6,
         "nb-post": 6,
         "nb-put": 1,
-        "nb-patch": 5,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 5
     },
     "19": {
         "id": "foursquare",
@@ -392,8 +392,8 @@
         "nb-get": 10,
         "nb-post": 10,
         "nb-put": 3,
-        "nb-patch": 2,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 2
     },
     "23": {
         "id": "github",
@@ -410,8 +410,8 @@
         "nb-get": 510,
         "nb-post": 154,
         "nb-put": 91,
-        "nb-patch": 154,
-        "nb-delete": 56
+        "nb-patch": 56,
+        "nb-delete": 154
     },
     "24": {
         "id": "gitlab",
@@ -428,8 +428,8 @@
         "nb-get": 33,
         "nb-post": 14,
         "nb-put": 14,
-        "nb-patch": 11,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 11
     },
     "25": {
         "id": "google-geocoding",
@@ -464,8 +464,8 @@
         "nb-get": 8,
         "nb-post": 9,
         "nb-put": 0,
-        "nb-patch": 1,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 1
     },
     "27": {
         "id": "kafka-rest-proxy",
@@ -482,8 +482,8 @@
         "nb-get": 32,
         "nb-post": 8,
         "nb-put": 3,
-        "nb-patch": 5,
-        "nb-delete": 1
+        "nb-patch": 1,
+        "nb-delete": 5
     },
     "28": {
         "id": "languagetool",
@@ -518,8 +518,8 @@
         "nb-get": 234,
         "nb-post": 190,
         "nb-put": 79,
-        "nb-patch": 53,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 53
     },
     "30": {
         "id": "management-api-for-apache-cassandra",
@@ -536,8 +536,8 @@
         "nb-get": 19,
         "nb-post": 38,
         "nb-put": 1,
-        "nb-patch": 2,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 2
     },
     "31": {
         "id": "marvel",
@@ -662,8 +662,8 @@
         "nb-get": 4,
         "nb-post": 10,
         "nb-put": 2,
-        "nb-patch": 4,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 4
     },
     "38": {
         "id": "petclinic",
@@ -680,8 +680,8 @@
         "nb-get": 14,
         "nb-post": 9,
         "nb-put": 7,
-        "nb-patch": 6,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 6
     },
     "39": {
         "id": "petstore",
@@ -698,8 +698,8 @@
         "nb-get": 8,
         "nb-post": 6,
         "nb-put": 2,
-        "nb-patch": 3,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 3
     },
     "40": {
         "id": "piggy-metrics",
@@ -734,8 +734,8 @@
         "nb-get": 48,
         "nb-post": 30,
         "nb-put": 14,
-        "nb-patch": 10,
-        "nb-delete": 4
+        "nb-patch": 4,
+        "nb-delete": 10
     },
     "42": {
         "id": "quartz-manager",
@@ -752,8 +752,8 @@
         "nb-get": 2,
         "nb-post": 2,
         "nb-put": 0,
-        "nb-patch": 1,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 1
     },
     "43": {
         "id": "random-user-generator",
@@ -788,8 +788,8 @@
         "nb-get": 7,
         "nb-post": 6,
         "nb-put": 2,
-        "nb-patch": 4,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 4
     },
     "45": {
         "id": "refuge-restrooms",
@@ -860,8 +860,8 @@
         "nb-get": 4,
         "nb-post": 1,
         "nb-put": 2,
-        "nb-patch": 1,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 1
     },
     "49": {
         "id": "rest-ncs",
@@ -932,8 +932,8 @@
         "nb-get": 21,
         "nb-post": 10,
         "nb-put": 7,
-        "nb-patch": 9,
-        "nb-delete": 2
+        "nb-patch": 2,
+        "nb-delete": 9
     },
     "53": {
         "id": "senzing",
@@ -950,8 +950,8 @@
         "nb-get": 25,
         "nb-post": 7,
         "nb-put": 1,
-        "nb-patch": 1,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 1
     },
     "54": {
         "id": "spacex-api",
@@ -968,8 +968,8 @@
         "nb-get": 29,
         "nb-post": 21,
         "nb-put": 0,
-        "nb-patch": 11,
-        "nb-delete": 13
+        "nb-patch": 13,
+        "nb-delete": 11
     },
     "55": {
         "id": "spotify",
@@ -986,8 +986,8 @@
         "nb-get": 59,
         "nb-post": 5,
         "nb-put": 17,
-        "nb-patch": 8,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 8
     },
     "56": {
         "id": "stripe",
@@ -1004,8 +1004,8 @@
         "nb-get": 257,
         "nb-post": 271,
         "nb-put": 0,
-        "nb-patch": 32,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 32
     },
     "57": {
         "id": "tumblr",
@@ -1040,8 +1040,8 @@
         "nb-get": 3,
         "nb-post": 3,
         "nb-put": 0,
-        "nb-patch": 1,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 1
     },
     "59": {
         "id": "yelp",
@@ -1076,7 +1076,7 @@
         "nb-get": 20,
         "nb-post": 11,
         "nb-put": 0,
-        "nb-patch": 15,
-        "nb-delete": 0
+        "nb-patch": 0,
+        "nb-delete": 15
     }
 }
