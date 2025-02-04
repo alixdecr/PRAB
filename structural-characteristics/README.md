@@ -61,3 +61,7 @@ Additionally, cells in the table are highlighted with different colors:
 - `ORANGE`: The API is valid, but no OpenAPI specification was found. Certain orange APIs are still analyzed regarding the structural characteristics (see column `Chart Number`).
 
 - `RED`: The API is is invalid (does not exist, was not found, was anonymized, etc.).
+
+### Extra Notes
+
+- If you are trying to open the OpenAPI Specifications with `json.load()` in Python, do not forget to add the parameter `encoding="utf-8-sig"` when opening the file. This increases the reliability of UTF-8 encoding detection, as some specifications can contain specific characters.
