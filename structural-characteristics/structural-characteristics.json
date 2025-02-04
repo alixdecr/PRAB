@@ -270,8 +270,8 @@
         "nb-delete": 8
     },
     "16": {
-        "id": "erc-20-restful-service",
-        "name": "ERC-20 RESTful Service",
+        "id": "erc-20-rest-service",
+        "name": "ERC-20 REST Service",
         "citations": "[3]",
         "reference-website": "https://github.com/web3labs/erc20-rest-service",
         "reference-openapi": "https://github.com/web3labs/erc20-rest-service/blob/master/images/full-swagger-ui.png",
@@ -648,8 +648,8 @@
         "nb-delete": 0
     },
     "37": {
-        "id": "paypal-(invoices)",
-        "name": "PayPal (Invoices)",
+        "id": "paypal",
+        "name": "PayPal",
         "citations": "[10]",
         "reference-website": "https://developer.paypal.com/api/rest",
         "reference-openapi": "https://github.com/paypal/paypal-rest-api-specifications",

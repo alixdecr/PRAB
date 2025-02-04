@@ -1,0 +1,1 @@
+The Forte REST API is included in a Postman Collection file. However, the OpenAPI translation tool does not work on this file. It is still included in the benchmark if a user wishes to leverage the Postman Collection.

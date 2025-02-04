@@ -1,3 +1,0 @@
-For the ERC-20 RESTful Service API, the build failed and thus the OpenAPI specification could not be generated (available at http://localhost:8080/swagger-ui.html, but not on the GitHub repository of the API). Thus, the folder for this API contains a PNG image of the complete OpenAPI specification, which was available on the GitHub repository.
-
-The repository of ERC-20 RESTful Service is available here: https://github.com/web3labs/erc20-rest-service
