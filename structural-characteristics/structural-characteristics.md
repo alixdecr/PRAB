@@ -4,8 +4,9 @@
 
 This folder contains the structural characteristics of the REST APIs from the benchmark:
 
-- `structural-characteristics.pdf` is a PDF version, which is user-readable
-- `structural-characteristics.json` is a JSON version, which is machine-readable
+- `structural-characteristics.pdf` is a PDF version, which is user-readable.
+- `structural-characteristics.json` is a JSON version, which is machine-readable.
+- `visualisation` is a folder containing various visualisations (HTTP method distribution, route to query parameter ratio) for the benchmark, in PDF files.
 
 ### Structural Characteristics
 
