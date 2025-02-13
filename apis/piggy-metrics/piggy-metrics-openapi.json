@@ -1,0 +1,242 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Piggy Metrics",
+      "version": "1.0.0",
+      "description": "OpenAPI Specification for Piggy Metrics, a simple financial advisor app built to demonstrate the Microservice Architecture Pattern using Spring Boot, Spring Cloud and Docker. This file was created by the PRAB (Public REST API Benchmark) developers."
+    },
+    "servers": [
+        {
+        "url": "http://localhost:8000",
+        "description": "Local Production Server for Piggy Metrics."
+        }
+    ],
+    "paths": {
+        "/accounts/{account}": {
+            "get": {
+                "description": "Get specified account data.",
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "The account string.",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Valid request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Invalid request."
+                    }
+                }
+            }
+        },
+        "/accounts/current": {
+            "get": {
+                "description": "Get current account data.",
+                "responses": {
+                    "200": {
+                        "description": "Valid request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Invalid request."
+                    }
+                }
+            },
+            "put": {
+                "description": "Save current account data.",
+                "responses": {
+                    "200": {
+                        "description": "Valid request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Invalid request."
+                    }
+                }
+            }
+        },
+        "/accounts/demo": {
+            "get": {
+                "description": "Get demo account data (pre-filled incomes/expenses items, etc).",
+                "responses": {
+                    "200": {
+                        "description": "Valid request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Invalid request."
+                    }
+                }
+            }
+        },
+        "/accounts/": {
+            "post": {
+                "description": "Register new account.",
+                "responses": {
+                    "200": {
+                        "description": "Valid request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Invalid request."
+                    }
+                }
+            }
+        },
+        "/statistics/{account}": {
+            "get": {
+                "description": "Get specified account statistics.",
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "The account string.",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Valid request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Invalid request."
+                    }
+                }
+            },
+            "put": {
+                "description": "Create or update time series datapoint for specified account.",
+                "parameters": [
+                    {
+                        "name": "account",
+                        "description": "The account string.",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Valid request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Invalid request."
+                    }
+                }
+            }
+        },
+        "/statistics/current": {
+            "get": {
+                "description": "Get current account statistics.",
+                "responses": {
+                    "200": {
+                        "description": "Valid request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Invalid request."
+                    }
+                }
+            }
+        },
+        "/statistics/demo": {
+            "get": {
+                "description": "Get demo account statistics.",
+                "responses": {
+                    "200": {
+                        "description": "Valid request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Invalid request."
+                    }
+                }
+            }
+        },
+        "/notifications/settings/current": {
+            "get": {
+                "description": "Get current account notification settings.",
+                "responses": {
+                    "200": {
+                        "description": "Valid request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Invalid request."
+                    }
+                }
+            },
+            "put": {
+                "description": "Save current account notification settings.",
+                "responses": {
+                    "200": {
+                        "description": "Valid request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Invalid request."
+                    }
+                }
+            }
+        }
+    }
+  }
+  

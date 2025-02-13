@@ -8,7 +8,7 @@
 
 - Cited By: [21] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://github.com/sqshq/piggymetrics) | [OpenAPI Specification](NO OPENAPI OR POSTMAN)
+- References: [API Website](https://github.com/sqshq/piggymetrics) | OpenAPI Specification (Generated)
 
 - Availability: Local
 
