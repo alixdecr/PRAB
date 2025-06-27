@@ -9,7 +9,14 @@ def filter_apis(filter_data):
     selected_apis = []
 
     for api_data in api_dict.values():
-        if all(api_data.get(key) == value for key, value in filter_data.items()):
+
+        canAdd = True
+
+        for filter in filter_data:
+            if api_data[filter] != filter_data[filter]:
+                canAdd = False
+
+        if canAdd:
             selected_apis.append(api_data["id"])
             
     return selected_apis
