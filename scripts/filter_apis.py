@@ -24,6 +24,7 @@ def filter_apis(filter_data):
     return selected_apis
 
 
+# THIS IS A TEST TO DEMONSTRATE HOW THE FILTERING FUNCTION WORKS
 print(filter_apis({
     "availability": "online",
     "authentication": "no"
