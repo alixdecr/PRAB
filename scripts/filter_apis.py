@@ -3,22 +3,13 @@ import json
 
 def filter_apis(filter_data):
 
-    selected_apis = []
-    api_dict = {}
-
     with open("./structural-characteristics/structural-characteristics.json", "r") as openfile:
         api_dict = json.load(openfile)
 
-    for api in api_dict:
-        api_data = api_dict[api]
+    selected_apis = []
 
-        canAdd = True
-
-        for filter in filter_data:
-            if api_data[filter] != filter_data[filter]:
-                canAdd = False
-
-        if canAdd:
+    for api_data in api_dict.values():
+        if all(api_data.get(key) == value for key, value in filter_data.items()):
             selected_apis.append(api_data["id"])
             
     return selected_apis
