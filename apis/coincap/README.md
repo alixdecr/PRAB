@@ -8,13 +8,13 @@
 
 - Cited By: [16] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://docs.coincap.io) | [OpenAPI Specification](https://docs.coincap.io/)
+- References: [API Website](https://pro.coincap.io/api-docs) | [OpenAPI Specification](https://rest.coincap.io/api-docs.json)
 
 - Availability: Online
 
-- Authentication Method: No
+- Authentication Method: Key
 
-- Pricing: No
+- Pricing: Optional
 
 - Rate Limiting: Yes
 
@@ -22,15 +22,15 @@
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 10 | 100% |
+| GET | 9 | 100% |
 | POST | 0 | 0% |
 | PUT | 0 | 0% |
 | PATCH | 0 | 0% |
 | DELETE | 0 | 0% |
-| TOTAL | 10 | 100% |
+| TOTAL | 9 | 100% |
 
 ### Other Information
 
-- Number of Unique Routes: 10
+- Number of Unique Routes: 9
 
-- Number of Unique Query Parameters: 4
+- Number of Unique Query Parameters: 13
