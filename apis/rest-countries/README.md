@@ -22,15 +22,15 @@
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 22 | 100% |
+| GET | 11 | 100% |
 | POST | 0 | 0% |
 | PUT | 0 | 0% |
 | PATCH | 0 | 0% |
 | DELETE | 0 | 0% |
-| TOTAL | 22 | 100% |
+| TOTAL | 11 | 100% |
 
 ### Other Information
 
-- Number of Unique Routes: 22
+- Number of Unique Routes: 11
 
-- Number of Unique Query Parameters: 16
+- Number of Unique Query Parameters: 4
