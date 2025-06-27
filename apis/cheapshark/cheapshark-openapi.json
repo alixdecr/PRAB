@@ -22,13 +22,167 @@
         "operationId": "dealLookup",
         "parameters": [
           {
+            "name": "storeID",
+            "in": "query",
+            "description": "Comma separated list of store ID's to filter on. If not set, all stores will be shown.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "The requested page number, value is 0 indexed.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of deals per page, max value of 60.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Criteria to sort the list by, possible values - DealRating, Title, Savings, Price, Metacritic, Reviews, Release, Store, Recent.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "desc",
+            "in": "query",
+            "description": "Determines sort direction.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "lowerPrice",
+            "in": "query",
+            "description": "Only returns deals with a price greater than this value.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "upperPrice",
+            "in": "query",
+            "description": "Only returns deals with a price less than or equal to this value (50 acts the same as no limit).",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "metacritic",
+            "in": "query",
+            "description": "Minimum Metacritic rating for a game.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "steamRating",
+            "in": "query",
+            "description": "Minimum Steam reviews rating for a game.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "maxAge",
+            "in": "query",
+            "description": "Filters to deals found within the specified number of hours (value between 1 and 2500).",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "steamAppID",
+            "in": "query",
+            "description": "Look for deals on specific games, comma separated list of Steam App ID (still bound by pageSize).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Looks for the string contained anywhere in the game name.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "exact",
+            "in": "query",
+            "description": "Flag to allow only exact string match for title parameter.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "AAA",
+            "in": "query",
+            "description": "Flag to include only deals with retail price > $29.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "steamworks",
+            "in": "query",
+            "description": "Flag to include only deals that redeem on Steam (best guess, depends on store support).",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "onSale",
+            "in": "query",
+            "description": "Flag to include only games that are currently on sale.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "output",
+            "in": "query",
+            "description": "Option to output deals in RSS format (overrides page number/size to 0/100).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "id",
             "in": "query",
+            "description": "An Encoded Deal ID.",
+            "required": false,
             "schema": {
               "type": "string",
               "example": "X8sebHhbc1Ga0dTkgg59WgyM506af9oNZZJLU9uSrX8%3D"
-            },
-            "description": "`(required, string)`\n\n An Encoded Deal ID"
+            }
           }
         ],
         "responses": {
@@ -448,6 +602,56 @@
               "example": "array"
             },
             "description": "`(optional, string)`\n\nSet a value of `array` if you prefer the response in array format (instead of key-value object)"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "An existing gameID. Required for game lookup.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "612"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Search for a game by title, case insensitive (required when not specifying steamAppID).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "batman"
+            }
+          },
+          {
+            "name": "steamAppID",
+            "in": "query",
+            "description": "Instead of using title, you can search for a game by Steam's AppID - e.g. http://store.steampowered.com/app/35140/.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "35140"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The maximum number of games to return, up to 60.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "60"
+            }
+          },
+          {
+            "name": "exact",
+            "in": "query",
+            "description": "Flag to allow only exact string match for title parameter.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "example": "0"
+            }
           }
         ],
         "responses": {
@@ -1308,7 +1512,8 @@
               "type": "string",
               "example": "get"
             },
-            "description": "`(required, string)`\nThe action to take on the price alert"
+            "description": "`(required, string)`\nThe action to take on the price alert",
+            "required": true
           },
           {
             "name": "key",
@@ -1318,6 +1523,36 @@
               "example": "example-key-value"
             },
             "description": "`(required, string)`\nThe key parameter from your manage link (received via email)"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Any valid email address. Required when editing or managing an alert.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "someone@example.org"
+            }
+          },
+          {
+            "name": "gameID",
+            "in": "query",
+            "description": "An existing gameID. Required when editing an alert.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "59"
+            }
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "description": "The price to wait for, only required when using set value for action parameter.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": "14"
+            }
           }
         ],
         "responses": {

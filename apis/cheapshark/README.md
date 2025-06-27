@@ -33,4 +33,4 @@
 
 - Number of Unique Routes: 4
 
-- Number of Unique Query Parameters: 6
+- Number of Unique Query Parameters: 27
