@@ -13,7 +13,7 @@ def filter_apis(filter_data):
         canAdd = True
 
         for filter in filter_data:
-            if api_data[filter] != filter_data[filter]:
+            if api_data[filter] != filter_data[filter] and api_data[filter] != "both":
                 canAdd = False
 
         if canAdd:
