@@ -12,11 +12,11 @@
 
 - Availability: Online
 
-- Authentication Method: No
+- Authentication Method: Key
 
-- Pricing: No
+- Pricing: Optional
 
-- Rate Limiting: No
+- Rate Limiting: Yes (100 requests per day with the free plan)
 
 ### HTTP Method Distribution
 
