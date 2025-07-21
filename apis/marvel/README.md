@@ -34,3 +34,5 @@
 - Number of Unique Routes: 39
 
 - Number of Unique Query Parameters: 38
+
+**Warning**: The documentation for this REST API is written in Swagger 1.0, which is outdated and does not have the same structure as modern OpenAPI Specifications.
