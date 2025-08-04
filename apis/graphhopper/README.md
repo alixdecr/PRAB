@@ -1,6 +1,6 @@
-![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-green.svg)
+![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-brightgreen.svg)
 
-Last Checked: 2025-08-04 13:17:21
+Last Checked: 2025-08-04 13:20:16
 
 ## Graphhopper API: Structural Characteristics
 

@@ -21,7 +21,7 @@ def update_apis():
         if oas_data == {}:
             badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Invalid-red.svg)"
         else:
-            badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-green.svg)"
+            badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-brightgreen.svg)"
 
         badges += "\n\n"
 

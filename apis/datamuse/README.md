@@ -1,6 +1,6 @@
 ![alt text](https://img.shields.io/badge/OpenAPI_Specification-Invalid-red.svg)
 
-Last Checked: 2025-08-04 13:17:21
+Last Checked: 2025-08-04 13:20:16
 
 ## Datamuse API: Structural Characteristics
 
