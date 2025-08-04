@@ -10,7 +10,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 48,
             "query-parameters": 47,
@@ -58,7 +58,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 10,
             "query-parameters": 5,
@@ -82,7 +82,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 1,
             "query-parameters": 13,
@@ -106,7 +106,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 185,
             "query-parameters": 163,
@@ -178,7 +178,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 9,
             "query-parameters": 13,
@@ -442,7 +442,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 21,
             "query-parameters": 78,
@@ -538,7 +538,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 638,
             "query-parameters": 76,
@@ -562,7 +562,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 48,
             "query-parameters": 18,
@@ -586,7 +586,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 1,
             "query-parameters": 10,
@@ -610,7 +610,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 14,
             "query-parameters": 40,
@@ -658,7 +658,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 5,
             "query-parameters": 0,
@@ -802,7 +802,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 1,
             "query-parameters": 11,
@@ -1090,7 +1090,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 7,
             "query-parameters": 5,
@@ -1402,7 +1402,7 @@
         "characteristics": {
             "availability": "online",
             "authentication": "key",
-            "pricing": "opt",
+            "pricing": "optional",
             "request-limits": "yes",
             "routes": 6,
             "query-parameters": 3,

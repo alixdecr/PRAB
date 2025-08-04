@@ -28,7 +28,7 @@ Below, you can find additional information regarding the structural characterist
 - `Pricing`: The pricing required to use the API:
     - `YES`: The API has a mandatory pricing plan.
     - `NO`: The API does not have any pricing plan, and is entirely free to use.
-    - `OPT`: The API has an optional pricing plan, yet can still be used freely.
+    - `OPTIONAL`: The API has an optional pricing plan, yet can still be used freely.
 
 - `Limits`: The request rate limits and/or quotas when using the API:
     - `YES`: The API has a rate limit and/or a quota per minute, hour, or day.
