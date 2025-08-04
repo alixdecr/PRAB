@@ -16,27 +16,14 @@ def update_apis():
 
         print(f"Updating {api_id}...")
 
-        badges = ""
-
         oas_data = get_oas_data(api_id)
 
-        if oas_data != {}:
-            badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-brightgreen.svg) "
-        else:
-            badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Invalid-red.svg) "
+        oas_badge = generate_oas_badge(oas_data)
+        server_badge = generate_server_badge(oas_data)
 
-        server_url = get_server_url(oas_data)
-
-        if is_valid_server_url(server_url):
-            badges += f"![alt text](https://img.shields.io/badge/Server_URL-Valid-brightgreen.svg) "
-        else:
-            badges += f"![alt text](https://img.shields.io/badge/Server_URL-Invalid-red.svg) "
-
-        badges += "\n\n"
-
-        markdown_readme = generate_markdown_readme(api_id, data)
-
+        badges = f"{oas_badge} {server_badge}\n\n"
         last_check = f"Last Checked: {date}\n\n"
+        markdown_readme = generate_markdown_readme(api_id, data)
 
         content = badges + last_check + markdown_readme
 
@@ -98,6 +85,46 @@ def generate_markdown_readme(api_id, data):
         content += f"| `{method.upper()}` | {count} | {percent:.2f}% |\n"
 
     return content
+
+
+"""
+Function which generates a markdown string for the OAS badge of a benchmark REST API.
+"""
+def generate_oas_badge(oas_data):
+
+    badge = "![alt text](https://img.shields.io/badge/OpenAPI_Specification-"
+
+    if oas_data == {}:
+        badge += "Invalid-red"
+    elif "openapi" not in oas_data:
+        badge += "Oudated-orange"
+    else:
+        badge += "Valid-brightgreen"
+
+    badge += ".svg)"
+
+    return badge
+
+
+"""
+Function which generates a markdown string for the server badge of a benchmark REST API.
+"""
+def generate_server_badge(oas_data):
+
+    badge = "![alt text](https://img.shields.io/badge/Server_URL-"
+
+    server_url = get_server_url(oas_data)
+
+    if server_url is None:
+        badge += "Missing-orange"
+    elif not is_valid_server_url(server_url):
+        badge += "Invalid-red"
+    else:
+        badge += "Valid-brightgreen"
+
+    badge += ".svg)"
+
+    return badge
 
 
 """

@@ -1,6 +1,6 @@
-![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-brightgreen.svg) ![alt text](https://img.shields.io/badge/Server_URL-Invalid-red.svg) 
+![alt text](https://img.shields.io/badge/OpenAPI_Specification-Oudated-orange.svg) ![alt text](https://img.shields.io/badge/Server_URL-Missing-orange.svg)
 
-Last Checked: 2025-08-04 13:37:56
+Last Checked: 2025-08-04 16:43:26
 
 ## REST News API: Structural Characteristics
 
