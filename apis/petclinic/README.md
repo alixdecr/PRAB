@@ -1,14 +1,16 @@
-## PetClinic: Structural Characteristics
+## PetClinic API: Structural Characteristics
 
 ### General Information
 
-- Identifier: petclinic | N°38 in `/structural-characteristics/visualisation`
+- Identifier: petclinic
 
 - Name: PetClinic
 
-- Cited By: [16][20][22] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [16][20][22] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://github.com/spring-petclinic/spring-petclinic-rest) | [OpenAPI Specification](https://github.com/spring-petclinic/spring-petclinic-rest/blob/master/src/main/resources/openapi.yml)
+- References: [API Website](https://github.com/spring-petclinic/spring-petclinic-rest), [OpenAPI Specification](https://github.com/spring-petclinic/spring-petclinic-rest/blob/master/src/main/resources/openapi.yml)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 17
+
+- Number of Query Parameters: 1
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 14 | 39% |
-| POST | 9 | 25% |
-| PUT | 7 | 19% |
-| PATCH | 0 | 0% |
-| DELETE | 6 | 17% |
-| TOTAL | 36 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 17
-
-- Number of Unique Query Parameters: 1
+| `GET` | 14 | 38.89% |
+| `POST` | 9 | 25.00% |
+| `PUT` | 7 | 19.44% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 6 | 16.67% |

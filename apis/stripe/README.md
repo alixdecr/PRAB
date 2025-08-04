@@ -1,14 +1,16 @@
-## Stripe: Structural Characteristics
+## Stripe API: Structural Characteristics
 
 ### General Information
 
-- Identifier: stripe | N°56 in `/structural-characteristics/visualisation`
+- Identifier: stripe
 
 - Name: Stripe
 
-- Cited By: [5][6][8][10][24] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [5][6][8][10][24] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://docs.stripe.com/api) | [OpenAPI Specification](https://github.com/stripe/openapi)
+- References: [API Website](https://docs.stripe.com/api), [OpenAPI Specification](https://github.com/stripe/openapi)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 388
+
+- Number of Query Parameters: 138
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 257 | 46% |
-| POST | 271 | 48% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 32 | 6% |
-| TOTAL | 560 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 388
-
-- Number of Unique Query Parameters: 138
+| `GET` | 257 | 45.89% |
+| `POST` | 271 | 48.39% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 32 | 5.71% |

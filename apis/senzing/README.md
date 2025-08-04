@@ -1,14 +1,16 @@
-## Senzing: Structural Characteristics
+## Senzing API: Structural Characteristics
 
 ### General Information
 
-- Identifier: senzing | N°53 in `/structural-characteristics/visualisation`
+- Identifier: senzing
 
 - Name: Senzing
 
-- Cited By: [12] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [12] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://senzing.zendesk.com/hc/en-us/categories/360000120514-Senzing-API-for-Developers) | [OpenAPI Specification](https://github.com/senzing-garage/senzing-rest-api-specification/blob/main/senzing-rest-api.yaml)
+- References: [API Website](https://senzing.zendesk.com/hc/en-us/categories/360000120514-Senzing-API-for-Developers), [OpenAPI Specification](https://github.com/senzing-garage/senzing-rest-api-specification/blob/main/senzing-rest-api.yaml)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 31
+
+- Number of Query Parameters: 29
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 25 | 74% |
-| POST | 7 | 21% |
-| PUT | 1 | 3% |
-| PATCH | 0 | 0% |
-| DELETE | 1 | 3% |
-| TOTAL | 34 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 31
-
-- Number of Unique Query Parameters: 29
+| `GET` | 25 | 73.53% |
+| `POST` | 7 | 20.59% |
+| `PUT` | 1 | 2.94% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 1 | 2.94% |

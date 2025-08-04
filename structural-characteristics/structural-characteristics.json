@@ -1,1082 +1,1442 @@
 {
-    "1": {
-        "id": "amadeus-hotel",
+    "amadeus-hotel": {
         "name": "Amadeus Hotel",
-        "citations": "[6][17][19]",
-        "reference-website": "https://developers.amadeus.com/self-service/category/hotels",
-        "reference-openapi": "https://www.postman.com/amadeus4dev/amadeus-for-developers-s-public-workspace/collection/kquqijj/amadeus-for-developers",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 48,
-        "nb-query-parameters": 47,
-        "nb-get": 37,
-        "nb-post": 13,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 1
+        "openapi-path": "apis/amadeus-hotel",
+        "used-by": "[6][17][19]",
+        "references": {
+            "website": "https://developers.amadeus.com/self-service/category/hotels",
+            "openapi": "https://www.postman.com/amadeus4dev/amadeus-for-developers-s-public-workspace/collection/kquqijj/amadeus-for-developers"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 48,
+            "query-parameters": 47,
+            "http-methods": {
+                "get": 37,
+                "post": 13,
+                "put": 0,
+                "patch": 0,
+                "delete": 1
+            }
+        }
     },
-    "2": {
-        "id": "an-api-of-ice-and-fire",
+    "an-api-of-ice-and-fire": {
         "name": "An API of Ice and Fire",
-        "citations": "[16]",
-        "reference-website": "https://anapioficeandfire.com",
-        "reference-openapi": "https://www.postman.com/postman/postman-team-collections/documentation/4dugaxo/game-of-thrones",
-        "availability": "online",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "yes",
-        "nb-routes": 3,
-        "nb-query-parameters": 17,
-        "nb-get": 3,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/an-api-of-ice-and-fire",
+        "used-by": "[16]",
+        "references": {
+            "website": "https://anapioficeandfire.com",
+            "openapi": "https://www.postman.com/postman/postman-team-collections/documentation/4dugaxo/game-of-thrones"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "yes",
+            "routes": 3,
+            "query-parameters": 17,
+            "http-methods": {
+                "get": 3,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "3": {
-        "id": "balldontlie",
+    "balldontlie": {
         "name": "Balldontlie",
-        "citations": "[16]",
-        "reference-website": "https://www.balldontlie.io",
-        "reference-openapi": "https://www.postman.com/grandios/public/collection/lcm3za0/balldontlie",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 10,
-        "nb-query-parameters": 5,
-        "nb-get": 10,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/balldontlie",
+        "used-by": "[16]",
+        "references": {
+            "website": "https://www.balldontlie.io",
+            "openapi": "https://www.postman.com/grandios/public/collection/lcm3za0/balldontlie"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 10,
+            "query-parameters": 5,
+            "http-methods": {
+                "get": 10,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "4": {
-        "id": "bing-web-search",
+    "bing-web-search": {
         "name": "Bing Web Search",
-        "citations": "[10]",
-        "reference-website": "https://www.microsoft.com/en-us/bing/apis/bing-web-search-api",
-        "reference-openapi": "https://github.com/microsoft/bing-search-specs/blob/master/WebSearch/stable/v1.0/WebSearch.json",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 1,
-        "nb-query-parameters": 13,
-        "nb-get": 1,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/bing-web-search",
+        "used-by": "[10]",
+        "references": {
+            "website": "https://www.microsoft.com/en-us/bing/apis/bing-web-search-api",
+            "openapi": "https://github.com/microsoft/bing-search-specs/blob/master/WebSearch/stable/v1.0/WebSearch.json"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 1,
+            "query-parameters": 13,
+            "http-methods": {
+                "get": 1,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "5": {
-        "id": "bitbucket",
+    "bitbucket": {
         "name": "BitBucket",
-        "citations": "[4]",
-        "reference-website": "https://developer.atlassian.com/cloud/bitbucket/rest",
-        "reference-openapi": "https://dac-static.atlassian.com/cloud/bitbucket/swagger.v3.json",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 185,
-        "nb-query-parameters": 163,
-        "nb-get": 171,
-        "nb-post": 48,
-        "nb-put": 47,
-        "nb-patch": 0,
-        "nb-delete": 53
+        "openapi-path": "apis/bitbucket",
+        "used-by": "[4]",
+        "references": {
+            "website": "https://developer.atlassian.com/cloud/bitbucket/rest",
+            "openapi": "https://dac-static.atlassian.com/cloud/bitbucket/swagger.v3.json"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 185,
+            "query-parameters": 163,
+            "http-methods": {
+                "get": 171,
+                "post": 48,
+                "put": 47,
+                "patch": 0,
+                "delete": 53
+            }
+        }
     },
-    "6": {
-        "id": "catwatch",
+    "catwatch": {
         "name": "Catwatch",
-        "citations": "[2][9][11][12][15][25]",
-        "reference-website": "https://github.com/zalando-incubator/catwatch",
-        "reference-openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/catwatch.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 6,
-        "nb-query-parameters": 8,
-        "nb-get": 6,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/catwatch",
+        "used-by": "[2][9][11][12][15][25]",
+        "references": {
+            "website": "https://github.com/zalando-incubator/catwatch",
+            "openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/catwatch.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 6,
+            "query-parameters": 8,
+            "http-methods": {
+                "get": 6,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "7": {
-        "id": "cheapshark",
+    "cheapshark": {
         "name": "CheapShark",
-        "citations": "[16]",
-        "reference-website": "https://apidocs.cheapshark.com",
-        "reference-openapi": "https://apidocs.cheapshark.com",
-        "availability": "online",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "yes",
-        "nb-routes": 4,
-        "nb-query-parameters": 27,
-        "nb-get": 4,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/cheapshark",
+        "used-by": "[16]",
+        "references": {
+            "website": "https://apidocs.cheapshark.com",
+            "openapi": "https://apidocs.cheapshark.com"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "yes",
+            "routes": 4,
+            "query-parameters": 27,
+            "http-methods": {
+                "get": 4,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "8": {
-        "id": "coincap",
+    "coincap": {
         "name": "CoinCap",
-        "citations": "[16]",
-        "reference-website": "https://pro.coincap.io/api-docs",
-        "reference-openapi": "https://rest.coincap.io/api-docs.json",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 9,
-        "nb-query-parameters": 13,
-        "nb-get": 9,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/coincap",
+        "used-by": "[16]",
+        "references": {
+            "website": "https://pro.coincap.io/api-docs",
+            "openapi": "https://rest.coincap.io/api-docs.json"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 9,
+            "query-parameters": 13,
+            "http-methods": {
+                "get": 9,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "9": {
-        "id": "cwa-verification-server",
+    "cwa-verification-server": {
         "name": "CWA Verification Server",
-        "citations": "[3][11][12]",
-        "reference-website": "https://github.com/corona-warn-app/cwa-verification-server",
-        "reference-openapi": "https://github.com/corona-warn-app/cwa-verification-server/blob/master/api-docs.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 5,
-        "nb-query-parameters": 0,
-        "nb-get": 0,
-        "nb-post": 5,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/cwa-verification-server",
+        "used-by": "[3][11][12]",
+        "references": {
+            "website": "https://github.com/corona-warn-app/cwa-verification-server",
+            "openapi": "https://github.com/corona-warn-app/cwa-verification-server/blob/master/api-docs.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 5,
+            "query-parameters": 0,
+            "http-methods": {
+                "get": 0,
+                "post": 5,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "10": {
-        "id": "cyclotron",
+    "cyclotron": {
         "name": "Cyclotron",
-        "citations": "[11]",
-        "reference-website": "https://github.com/ExpediaGroup/cyclotron",
-        "reference-openapi": "https://github.com/ExpediaGroup/cyclotron/blob/master/cyclotron-svc/swagger.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 40,
-        "nb-query-parameters": 7,
-        "nb-get": 29,
-        "nb-post": 14,
-        "nb-put": 4,
-        "nb-patch": 0,
-        "nb-delete": 3
+        "openapi-path": "apis/cyclotron",
+        "used-by": "[11]",
+        "references": {
+            "website": "https://github.com/ExpediaGroup/cyclotron",
+            "openapi": "https://github.com/ExpediaGroup/cyclotron/blob/master/cyclotron-svc/swagger.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 40,
+            "query-parameters": 7,
+            "http-methods": {
+                "get": 29,
+                "post": 14,
+                "put": 4,
+                "patch": 0,
+                "delete": 3
+            }
+        }
     },
-    "11": {
-        "id": "datamuse",
+    "datamuse": {
         "name": "Datamuse",
-        "citations": "[16]",
-        "reference-website": "https://www.datamuse.com/api",
-        "reference-openapi": "NO OPENAPI OR POSTMAN",
-        "availability": "online",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 2,
-        "nb-query-parameters": 25,
-        "nb-get": 2,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/datamuse",
+        "used-by": "[16]",
+        "references": {
+            "website": "https://www.datamuse.com/api",
+            "openapi": "NO OPENAPI OR POSTMAN"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 2,
+            "query-parameters": 25,
+            "http-methods": {
+                "get": 2,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "12": {
-        "id": "dhl-shipment-tracking",
+    "dhl-shipment-tracking": {
         "name": "DHL Shipment Tracking",
-        "citations": "[6]",
-        "reference-website": "https://developer.dhl.com/api-reference/shipment-tracking",
-        "reference-openapi": "https://developer.dhl.com/api-reference/shipment-tracking#downloads-section",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 1,
-        "nb-query-parameters": 8,
-        "nb-get": 1,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/dhl-shipment-tracking",
+        "used-by": "[6]",
+        "references": {
+            "website": "https://developer.dhl.com/api-reference/shipment-tracking",
+            "openapi": "https://developer.dhl.com/api-reference/shipment-tracking#downloads-section"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 1,
+            "query-parameters": 8,
+            "http-methods": {
+                "get": 1,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "13": {
-        "id": "digdag",
+    "digdag": {
         "name": "DigDag",
-        "citations": "[12]",
-        "reference-website": "https://docs.digdag.io",
-        "reference-openapi": "https://github.com/treasure-data/digdag/blob/master/digdag-docs/src/_extra/api/swagger.yaml",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 35,
-        "nb-query-parameters": 14,
-        "nb-get": 29,
-        "nb-post": 5,
-        "nb-put": 3,
-        "nb-patch": 0,
-        "nb-delete": 2
+        "openapi-path": "apis/digdag",
+        "used-by": "[12]",
+        "references": {
+            "website": "https://docs.digdag.io",
+            "openapi": "https://github.com/treasure-data/digdag/blob/master/digdag-docs/src/_extra/api/swagger.yaml"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 35,
+            "query-parameters": 14,
+            "http-methods": {
+                "get": 29,
+                "post": 5,
+                "put": 3,
+                "patch": 0,
+                "delete": 2
+            }
+        }
     },
-    "14": {
-        "id": "disease-sh",
+    "disease-sh": {
         "name": "Disease SH",
-        "citations": "[11]",
-        "reference-website": "https://disease.sh",
-        "reference-openapi": "https://disease.sh/apidocs/swagger_v3.json",
-        "availability": "both",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 41,
-        "nb-query-parameters": 7,
-        "nb-get": 41,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/disease-sh",
+        "used-by": "[11]",
+        "references": {
+            "website": "https://disease.sh",
+            "openapi": "https://disease.sh/apidocs/swagger_v3.json"
+        },
+        "characteristics": {
+            "availability": "both",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 41,
+            "query-parameters": 7,
+            "http-methods": {
+                "get": 41,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "15": {
-        "id": "envirocar",
+    "envirocar": {
         "name": "EnviroCar",
-        "citations": "[12]",
-        "reference-website": "https://envirocar.github.io/enviroCar-server/api",
-        "reference-openapi": "https://envirocar.org/api/stable/api-docs.json",
-        "availability": "both",
-        "authentication": "key",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 53,
-        "nb-query-parameters": 40,
-        "nb-get": 52,
-        "nb-post": 15,
-        "nb-put": 4,
-        "nb-patch": 0,
-        "nb-delete": 8
+        "openapi-path": "apis/envirocar",
+        "used-by": "[12]",
+        "references": {
+            "website": "https://envirocar.github.io/enviroCar-server/api",
+            "openapi": "https://envirocar.org/api/stable/api-docs.json"
+        },
+        "characteristics": {
+            "availability": "both",
+            "authentication": "key",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 53,
+            "query-parameters": 40,
+            "http-methods": {
+                "get": 52,
+                "post": 15,
+                "put": 4,
+                "patch": 0,
+                "delete": 8
+            }
+        }
     },
-    "16": {
-        "id": "erc-20-rest-service",
+    "erc-20-rest-service": {
         "name": "ERC-20 REST Service",
-        "citations": "[3]",
-        "reference-website": "https://github.com/web3labs/erc20-rest-service",
-        "reference-openapi": "https://github.com/web3labs/erc20-rest-service/blob/master/images/full-swagger-ui.png",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 13,
-        "nb-query-parameters": 0,
-        "nb-get": 8,
-        "nb-post": 5,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/erc-20-rest-service",
+        "used-by": "[3]",
+        "references": {
+            "website": "https://github.com/web3labs/erc20-rest-service",
+            "openapi": "https://github.com/web3labs/erc20-rest-service/blob/master/images/full-swagger-ui.png"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 13,
+            "query-parameters": 0,
+            "http-methods": {
+                "get": 8,
+                "post": 5,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "17": {
-        "id": "fdic",
+    "fdic": {
         "name": "FDIC",
-        "citations": "[6][13]",
-        "reference-website": "https://github.com/ContinuityControl/fdic",
-        "reference-openapi": "https://www.postman.com/api-evangelist/federal-deposit-insurance-corporation-fdic/collection/ddi8s3a/fdic-bank-data-api-beta",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 8,
-        "nb-query-parameters": 15,
-        "nb-get": 8,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/fdic",
+        "used-by": "[6][13]",
+        "references": {
+            "website": "https://github.com/ContinuityControl/fdic",
+            "openapi": "https://www.postman.com/api-evangelist/federal-deposit-insurance-corporation-fdic/collection/ddi8s3a/fdic-bank-data-api-beta"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 8,
+            "query-parameters": 15,
+            "http-methods": {
+                "get": 8,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "18": {
-        "id": "features-service",
+    "features-service": {
         "name": "Features Service",
-        "citations": "[2][3][4][7][9][11][12][15][18][20][25]",
-        "reference-website": "https://github.com/JavierMF/features-service",
-        "reference-openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/features-service.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 11,
-        "nb-query-parameters": 0,
-        "nb-get": 6,
-        "nb-post": 6,
-        "nb-put": 1,
-        "nb-patch": 0,
-        "nb-delete": 5
+        "openapi-path": "apis/features-service",
+        "used-by": "[2][3][4][7][9][11][12][15][18][20][25]",
+        "references": {
+            "website": "https://github.com/JavierMF/features-service",
+            "openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/features-service.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 11,
+            "query-parameters": 0,
+            "http-methods": {
+                "get": 6,
+                "post": 6,
+                "put": 1,
+                "patch": 0,
+                "delete": 5
+            }
+        }
     },
-    "19": {
-        "id": "foursquare",
+    "foursquare": {
         "name": "Foursquare",
-        "citations": "[6][8][10]",
-        "reference-website": "https://docs.foursquare.com/developer",
-        "reference-openapi": "https://www.postman.com/foursquare-places-api/foursquare-s-public-workspace/collection/qjus7hq/foursquare-places-api",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 21,
-        "nb-query-parameters": 78,
-        "nb-get": 15,
-        "nb-post": 6,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/foursquare",
+        "used-by": "[6][8][10]",
+        "references": {
+            "website": "https://docs.foursquare.com/developer",
+            "openapi": "https://www.postman.com/foursquare-places-api/foursquare-s-public-workspace/collection/qjus7hq/foursquare-places-api"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 21,
+            "query-parameters": 78,
+            "http-methods": {
+                "get": 15,
+                "post": 6,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "20": {
-        "id": "gbif-species",
+    "gbif-species": {
         "name": "GBIF Species",
-        "citations": "[16]",
-        "reference-website": "https://techdocs.gbif.org/en/openapi/v1/species",
-        "reference-openapi": "https://techdocs.gbif.org/openapi/checklistbank.json",
-        "availability": "online",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 26,
-        "nb-query-parameters": 37,
-        "nb-get": 26,
-        "nb-post": 1,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/gbif-species",
+        "used-by": "[16]",
+        "references": {
+            "website": "https://techdocs.gbif.org/en/openapi/v1/species",
+            "openapi": "https://techdocs.gbif.org/openapi/checklistbank.json"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 26,
+            "query-parameters": 37,
+            "http-methods": {
+                "get": 26,
+                "post": 1,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "21": {
-        "id": "genome-nexus",
+    "genome-nexus": {
         "name": "Genome Nexus",
-        "citations": "[3][13]",
-        "reference-website": "https://docs.genomenexus.org/api",
-        "reference-openapi": "https://www.genomenexus.org/swagger-ui.html",
-        "availability": "both",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 22,
-        "nb-query-parameters": 6,
-        "nb-get": 13,
-        "nb-post": 10,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/genome-nexus",
+        "used-by": "[3][13]",
+        "references": {
+            "website": "https://docs.genomenexus.org/api",
+            "openapi": "https://www.genomenexus.org/swagger-ui.html"
+        },
+        "characteristics": {
+            "availability": "both",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 22,
+            "query-parameters": 6,
+            "http-methods": {
+                "get": 13,
+                "post": 10,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "22": {
-        "id": "gestao-hospital",
+    "gestao-hospital": {
         "name": "Gestao Hospital",
-        "citations": "[11][20]",
-        "reference-website": "https://github.com/ValchanOficial/GestaoHospital",
-        "reference-openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/gestaohospital-rest.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 13,
-        "nb-query-parameters": 4,
-        "nb-get": 10,
-        "nb-post": 10,
-        "nb-put": 3,
-        "nb-patch": 0,
-        "nb-delete": 2
+        "openapi-path": "apis/gestao-hospital",
+        "used-by": "[11][20]",
+        "references": {
+            "website": "https://github.com/ValchanOficial/GestaoHospital",
+            "openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/gestaohospital-rest.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 13,
+            "query-parameters": 4,
+            "http-methods": {
+                "get": 10,
+                "post": 10,
+                "put": 3,
+                "patch": 0,
+                "delete": 2
+            }
+        }
     },
-    "23": {
-        "id": "github",
+    "github": {
         "name": "GitHub",
-        "citations": "[8][10][17][19][24]",
-        "reference-website": "https://docs.github.com/en/rest",
-        "reference-openapi": "https://github.com/github/rest-api-description",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 638,
-        "nb-query-parameters": 76,
-        "nb-get": 510,
-        "nb-post": 154,
-        "nb-put": 91,
-        "nb-patch": 56,
-        "nb-delete": 154
+        "openapi-path": "apis/github",
+        "used-by": "[8][10][17][19][24]",
+        "references": {
+            "website": "https://docs.github.com/en/rest",
+            "openapi": "https://github.com/github/rest-api-description"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 638,
+            "query-parameters": 76,
+            "http-methods": {
+                "get": 510,
+                "post": 154,
+                "put": 91,
+                "patch": 56,
+                "delete": 154
+            }
+        }
     },
-    "24": {
-        "id": "gitlab",
+    "gitlab": {
         "name": "GitLab",
-        "citations": "[1]",
-        "reference-website": "https://docs.gitlab.com/ee/api/rest",
-        "reference-openapi": "https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/api/openapi/openapi.yaml",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 48,
-        "nb-query-parameters": 18,
-        "nb-get": 33,
-        "nb-post": 14,
-        "nb-put": 14,
-        "nb-patch": 0,
-        "nb-delete": 11
+        "openapi-path": "apis/gitlab",
+        "used-by": "[1]",
+        "references": {
+            "website": "https://docs.gitlab.com/ee/api/rest",
+            "openapi": "https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/api/openapi/openapi.yaml"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 48,
+            "query-parameters": 18,
+            "http-methods": {
+                "get": 33,
+                "post": 14,
+                "put": 14,
+                "patch": 0,
+                "delete": 11
+            }
+        }
     },
-    "25": {
-        "id": "google-geocoding",
+    "google-geocoding": {
         "name": "Google Geocoding",
-        "citations": "[10]",
-        "reference-website": "https://developers.google.com/maps/documentation/geocoding",
-        "reference-openapi": "https://www.postman.com/google-maps-platform/google-maps-platform/collection/c4xo2u9/google-maps-platform-core-apis",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 1,
-        "nb-query-parameters": 10,
-        "nb-get": 1,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/google-geocoding",
+        "used-by": "[10]",
+        "references": {
+            "website": "https://developers.google.com/maps/documentation/geocoding",
+            "openapi": "https://www.postman.com/google-maps-platform/google-maps-platform/collection/c4xo2u9/google-maps-platform-core-apis"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 1,
+            "query-parameters": 10,
+            "http-methods": {
+                "get": 1,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "26": {
-        "id": "graphhopper",
+    "graphhopper": {
         "name": "Graphhopper",
-        "citations": "[14]",
-        "reference-website": "https://docs.graphhopper.com",
-        "reference-openapi": "https://docs.graphhopper.com/",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 14,
-        "nb-query-parameters": 40,
-        "nb-get": 8,
-        "nb-post": 9,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 1
+        "openapi-path": "apis/graphhopper",
+        "used-by": "[14]",
+        "references": {
+            "website": "https://docs.graphhopper.com",
+            "openapi": "https://docs.graphhopper.com/"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 14,
+            "query-parameters": 40,
+            "http-methods": {
+                "get": 8,
+                "post": 9,
+                "put": 0,
+                "patch": 0,
+                "delete": 1
+            }
+        }
     },
-    "27": {
-        "id": "kafka-rest-proxy",
+    "kafka-rest-proxy": {
         "name": "Kafka REST Proxy",
-        "citations": "[12]",
-        "reference-website": "https://github.com/confluentinc/kafka-rest",
-        "reference-openapi": "https://github.com/confluentinc/kafka-rest/blob/master/api/v3/openapi.yaml",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 38,
-        "nb-query-parameters": 37,
-        "nb-get": 32,
-        "nb-post": 8,
-        "nb-put": 3,
-        "nb-patch": 1,
-        "nb-delete": 5
+        "openapi-path": "apis/kafka-rest-proxy",
+        "used-by": "[12]",
+        "references": {
+            "website": "https://github.com/confluentinc/kafka-rest",
+            "openapi": "https://github.com/confluentinc/kafka-rest/blob/master/api/v3/openapi.yaml"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 38,
+            "query-parameters": 37,
+            "http-methods": {
+                "get": 32,
+                "post": 8,
+                "put": 3,
+                "patch": 1,
+                "delete": 5
+            }
+        }
     },
-    "28": {
-        "id": "languagetool",
+    "languagetool": {
         "name": "LanguageTool",
-        "citations": "[3][4][6][11][13][18][20][24][26]",
-        "reference-website": "https://languagetool.org/http-api",
-        "reference-openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/languagetool.json",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 5,
-        "nb-query-parameters": 0,
-        "nb-get": 2,
-        "nb-post": 3,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/languagetool",
+        "used-by": "[3][4][6][11][13][18][20][24][26]",
+        "references": {
+            "website": "https://languagetool.org/http-api",
+            "openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/languagetool.json"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 5,
+            "query-parameters": 0,
+            "http-methods": {
+                "get": 2,
+                "post": 3,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "29": {
-        "id": "magento",
+    "magento": {
         "name": "Magento",
-        "citations": "[4]",
-        "reference-website": "https://developer.adobe.com/commerce/webapi/rest",
-        "reference-openapi": "https://developer.adobe.com/commerce/webapi/rest/quick-reference/",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 446,
-        "nb-query-parameters": 63,
-        "nb-get": 234,
-        "nb-post": 190,
-        "nb-put": 79,
-        "nb-patch": 0,
-        "nb-delete": 53
+        "openapi-path": "apis/magento",
+        "used-by": "[4]",
+        "references": {
+            "website": "https://developer.adobe.com/commerce/webapi/rest",
+            "openapi": "https://developer.adobe.com/commerce/webapi/rest/quick-reference/"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 446,
+            "query-parameters": 63,
+            "http-methods": {
+                "get": 234,
+                "post": 190,
+                "put": 79,
+                "patch": 0,
+                "delete": 53
+            }
+        }
     },
-    "30": {
-        "id": "management-api-for-apache-cassandra",
+    "management-api-for-apache-cassandra": {
         "name": "Management API for Apache Cassandra",
-        "citations": "[12]",
-        "reference-website": "https://github.com/k8ssandra/management-api-for-apache-cassandra",
-        "reference-openapi": "https://raw.githubusercontent.com/k8ssandra/management-api-for-apache-cassandra/master/management-api-server/doc/openapi.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 56,
-        "nb-query-parameters": 25,
-        "nb-get": 19,
-        "nb-post": 38,
-        "nb-put": 1,
-        "nb-patch": 0,
-        "nb-delete": 2
+        "openapi-path": "apis/management-api-for-apache-cassandra",
+        "used-by": "[12]",
+        "references": {
+            "website": "https://github.com/k8ssandra/management-api-for-apache-cassandra",
+            "openapi": "https://raw.githubusercontent.com/k8ssandra/management-api-for-apache-cassandra/master/management-api-server/doc/openapi.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 56,
+            "query-parameters": 25,
+            "http-methods": {
+                "get": 19,
+                "post": 38,
+                "put": 1,
+                "patch": 0,
+                "delete": 2
+            }
+        }
     },
-    "31": {
-        "id": "marvel",
+    "marvel": {
         "name": "Marvel",
-        "citations": "[6][17]",
-        "reference-website": "https://developer.marvel.com",
-        "reference-openapi": "https://gateway.marvel.com/docs/public",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "no",
-        "limits": "yes",
-        "nb-routes": 39,
-        "nb-query-parameters": 38,
-        "nb-get": 39,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/marvel",
+        "used-by": "[6][17]",
+        "references": {
+            "website": "https://developer.marvel.com",
+            "openapi": "https://gateway.marvel.com/docs/public"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "no",
+            "request-limits": "yes",
+            "routes": 39,
+            "query-parameters": 38,
+            "http-methods": {
+                "get": 39,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "32": {
-        "id": "ocvn",
+    "ocvn": {
         "name": "OCVN",
-        "citations": "[3][11][12][13][18][25]",
-        "reference-website": "https://github.com/devgateway/ocvn",
-        "reference-openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/ocvn-rest.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 96,
-        "nb-query-parameters": 26,
-        "nb-get": 96,
-        "nb-post": 96,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/ocvn",
+        "used-by": "[3][11][12][13][18][25]",
+        "references": {
+            "website": "https://github.com/devgateway/ocvn",
+            "openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/ocvn-rest.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 96,
+            "query-parameters": 26,
+            "http-methods": {
+                "get": 96,
+                "post": 96,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "33": {
-        "id": "ohsome",
+    "ohsome": {
         "name": "Ohsome",
-        "citations": "[6][12][13][26]",
-        "reference-website": "https://docs.ohsome.org/ohsome-api",
-        "reference-openapi": "https://github.com/GIScience/ohsome-api/blob/main/docs/_static/swagger-aggregation.json",
-        "availability": "online",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 61,
-        "nb-query-parameters": 18,
-        "nb-get": 61,
-        "nb-post": 61,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/ohsome",
+        "used-by": "[6][12][13][26]",
+        "references": {
+            "website": "https://docs.ohsome.org/ohsome-api",
+            "openapi": "https://github.com/GIScience/ohsome-api/blob/main/docs/_static/swagger-aggregation.json"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 61,
+            "query-parameters": 18,
+            "http-methods": {
+                "get": 61,
+                "post": 61,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "34": {
-        "id": "omdb",
+    "omdb": {
         "name": "OMDb",
-        "citations": "[6][13][14][16][17][19]",
-        "reference-website": "https://www.omdbapi.com",
-        "reference-openapi": "https://github.com/Mermade/openapi-definitions/blob/master/OMDb/swagger.json",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 1,
-        "nb-query-parameters": 11,
-        "nb-get": 1,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/omdb",
+        "used-by": "[6][13][14][16][17][19]",
+        "references": {
+            "website": "https://www.omdbapi.com",
+            "openapi": "https://github.com/Mermade/openapi-definitions/blob/master/OMDb/swagger.json"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 1,
+            "query-parameters": 11,
+            "http-methods": {
+                "get": 1,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "35": {
-        "id": "open-brewery-db",
+    "open-brewery-db": {
         "name": "Open Brewery DB",
-        "citations": "[16]",
-        "reference-website": "https://www.openbrewerydb.org",
-        "reference-openapi": "https://github.com/openbrewerydb/openbrewerydb",
-        "availability": "online",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 5,
-        "nb-query-parameters": 8,
-        "nb-get": 5,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/open-brewery-db",
+        "used-by": "[16]",
+        "references": {
+            "website": "https://www.openbrewerydb.org",
+            "openapi": "https://github.com/openbrewerydb/openbrewerydb"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 5,
+            "query-parameters": 8,
+            "http-methods": {
+                "get": 5,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "36": {
-        "id": "openverse",
+    "openverse": {
         "name": "Openverse",
-        "citations": "[20]",
-        "reference-website": "https://api.openverse.org",
-        "reference-openapi": "https://api.openverse.org/v1/schema",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "no",
-        "limits": "yes",
-        "nb-routes": 18,
-        "nb-query-parameters": 28,
-        "nb-get": 14,
-        "nb-post": 4,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/openverse",
+        "used-by": "[20]",
+        "references": {
+            "website": "https://api.openverse.org",
+            "openapi": "https://api.openverse.org/v1/schema"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "no",
+            "request-limits": "yes",
+            "routes": 18,
+            "query-parameters": 28,
+            "http-methods": {
+                "get": 14,
+                "post": 4,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "37": {
-        "id": "paypal",
+    "paypal": {
         "name": "PayPal",
-        "citations": "[10]",
-        "reference-website": "https://developer.paypal.com/api/rest",
-        "reference-openapi": "https://github.com/paypal/paypal-rest-api-specifications",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 14,
-        "nb-query-parameters": 6,
-        "nb-get": 4,
-        "nb-post": 10,
-        "nb-put": 2,
-        "nb-patch": 0,
-        "nb-delete": 4
+        "openapi-path": "apis/paypal",
+        "used-by": "[10]",
+        "references": {
+            "website": "https://developer.paypal.com/api/rest",
+            "openapi": "https://github.com/paypal/paypal-rest-api-specifications"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 14,
+            "query-parameters": 6,
+            "http-methods": {
+                "get": 4,
+                "post": 10,
+                "put": 2,
+                "patch": 0,
+                "delete": 4
+            }
+        }
     },
-    "38": {
-        "id": "petclinic",
+    "petclinic": {
         "name": "PetClinic",
-        "citations": "[16][20][22]",
-        "reference-website": "https://github.com/spring-petclinic/spring-petclinic-rest",
-        "reference-openapi": "https://github.com/spring-petclinic/spring-petclinic-rest/blob/master/src/main/resources/openapi.yml",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 17,
-        "nb-query-parameters": 1,
-        "nb-get": 14,
-        "nb-post": 9,
-        "nb-put": 7,
-        "nb-patch": 0,
-        "nb-delete": 6
+        "openapi-path": "apis/petclinic",
+        "used-by": "[16][20][22]",
+        "references": {
+            "website": "https://github.com/spring-petclinic/spring-petclinic-rest",
+            "openapi": "https://github.com/spring-petclinic/spring-petclinic-rest/blob/master/src/main/resources/openapi.yml"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 17,
+            "query-parameters": 1,
+            "http-methods": {
+                "get": 14,
+                "post": 9,
+                "put": 7,
+                "patch": 0,
+                "delete": 6
+            }
+        }
     },
-    "39": {
-        "id": "petstore",
+    "petstore": {
         "name": "PetStore",
-        "citations": "[4][14][20][23][28][29]",
-        "reference-website": "https://github.com/swagger-api/swagger-petstore",
-        "reference-openapi": "https://petstore3.swagger.io/api/v3/openapi.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 13,
-        "nb-query-parameters": 6,
-        "nb-get": 8,
-        "nb-post": 6,
-        "nb-put": 2,
-        "nb-patch": 0,
-        "nb-delete": 3
+        "openapi-path": "apis/petstore",
+        "used-by": "[4][14][20][23][28][29]",
+        "references": {
+            "website": "https://github.com/swagger-api/swagger-petstore",
+            "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 13,
+            "query-parameters": 6,
+            "http-methods": {
+                "get": 8,
+                "post": 6,
+                "put": 2,
+                "patch": 0,
+                "delete": 3
+            }
+        }
     },
-    "40": {
-        "id": "piggy-metrics",
+    "piggy-metrics": {
         "name": "Piggy Metrics",
-        "citations": "[21]",
-        "reference-website": "https://github.com/sqshq/piggymetrics",
-        "reference-openapi": "NO OPENAPI OR POSTMAN",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 11,
-        "nb-query-parameters": 0,
-        "nb-get": 7,
-        "nb-post": 1,
-        "nb-put": 3,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/piggy-metrics",
+        "used-by": "[21]",
+        "references": {
+            "website": "https://github.com/sqshq/piggymetrics",
+            "openapi": "NO OPENAPI OR POSTMAN"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 11,
+            "query-parameters": 0,
+            "http-methods": {
+                "get": 7,
+                "post": 1,
+                "put": 3,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "41": {
-        "id": "proxyprint",
+    "proxyprint": {
         "name": "ProxyPrint",
-        "citations": "[2][3][9][11][12][15][18][25]",
-        "reference-website": "https://github.com/ProxyPrint/proxyprint-kitchen",
-        "reference-openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/proxyprint.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 79,
-        "nb-query-parameters": 0,
-        "nb-get": 48,
-        "nb-post": 30,
-        "nb-put": 14,
-        "nb-patch": 4,
-        "nb-delete": 10
+        "openapi-path": "apis/proxyprint",
+        "used-by": "[2][3][9][11][12][15][18][25]",
+        "references": {
+            "website": "https://github.com/ProxyPrint/proxyprint-kitchen",
+            "openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/proxyprint.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 79,
+            "query-parameters": 0,
+            "http-methods": {
+                "get": 48,
+                "post": 30,
+                "put": 14,
+                "patch": 4,
+                "delete": 10
+            }
+        }
     },
-    "42": {
-        "id": "quartz-manager",
+    "quartz-manager": {
         "name": "Quartz Manager",
-        "citations": "[12]",
-        "reference-website": "https://github.com/fabioformosa/quartz-manager",
-        "reference-openapi": "https://github.com/pranaybathini/quartz-scheduler/blob/main/Quartz-Scheduler.postman_collection.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 5,
-        "nb-query-parameters": 4,
-        "nb-get": 2,
-        "nb-post": 2,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 1
+        "openapi-path": "apis/quartz-manager",
+        "used-by": "[12]",
+        "references": {
+            "website": "https://github.com/fabioformosa/quartz-manager",
+            "openapi": "https://github.com/pranaybathini/quartz-scheduler/blob/main/Quartz-Scheduler.postman_collection.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 5,
+            "query-parameters": 4,
+            "http-methods": {
+                "get": 2,
+                "post": 2,
+                "put": 0,
+                "patch": 0,
+                "delete": 1
+            }
+        }
     },
-    "43": {
-        "id": "random-user-generator",
+    "random-user-generator": {
         "name": "Random User Generator",
-        "citations": "[16]",
-        "reference-website": "https://randomuser.me",
-        "reference-openapi": "http://documenter.getpostman.com/view/19878710/2s93Jrwk3R",
-        "availability": "online",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 1,
-        "nb-query-parameters": 12,
-        "nb-get": 1,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/random-user-generator",
+        "used-by": "[16]",
+        "references": {
+            "website": "https://randomuser.me",
+            "openapi": "http://documenter.getpostman.com/view/19878710/2s93Jrwk3R"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 1,
+            "query-parameters": 12,
+            "http-methods": {
+                "get": 1,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "44": {
-        "id": "realworld-app",
+    "realworld-app": {
         "name": "Realworld App",
-        "citations": "[11][22]",
-        "reference-website": "https://github.com/lujakob/nestjs-realworld-example-app",
-        "reference-openapi": "https://github.com/gothinkster/realworld/blob/main/api/openapi.yml",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 12,
-        "nb-query-parameters": 3,
-        "nb-get": 7,
-        "nb-post": 6,
-        "nb-put": 2,
-        "nb-patch": 0,
-        "nb-delete": 4
+        "openapi-path": "apis/realworld-app",
+        "used-by": "[11][22]",
+        "references": {
+            "website": "https://github.com/lujakob/nestjs-realworld-example-app",
+            "openapi": "https://github.com/gothinkster/realworld/blob/main/api/openapi.yml"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 12,
+            "query-parameters": 3,
+            "http-methods": {
+                "get": 7,
+                "post": 6,
+                "put": 2,
+                "patch": 0,
+                "delete": 4
+            }
+        }
     },
-    "45": {
-        "id": "refuge-restrooms",
+    "refuge-restrooms": {
         "name": "Refuge Restrooms",
-        "citations": "[14]",
-        "reference-website": "https://www.refugerestrooms.org/api/docs",
-        "reference-openapi": "https://www.refugerestrooms.org/api/swagger_doc.json",
-        "availability": "online",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 4,
-        "nb-query-parameters": 12,
-        "nb-get": 4,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/refuge-restrooms",
+        "used-by": "[14]",
+        "references": {
+            "website": "https://www.refugerestrooms.org/api/docs",
+            "openapi": "https://www.refugerestrooms.org/api/swagger_doc.json"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 4,
+            "query-parameters": 12,
+            "http-methods": {
+                "get": 4,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "46": {
-        "id": "reqres",
+    "reqres": {
         "name": "ReqRes",
-        "citations": "[16]",
-        "reference-website": "https://reqres.in",
-        "reference-openapi": "https://www.postman.com/reqresapi/reqres/collection/rli8ped/reqres-api",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 7,
-        "nb-query-parameters": 5,
-        "nb-get": 4,
-        "nb-post": 3,
-        "nb-put": 2,
-        "nb-patch": 2,
-        "nb-delete": 2
+        "openapi-path": "apis/reqres",
+        "used-by": "[16]",
+        "references": {
+            "website": "https://reqres.in",
+            "openapi": "https://www.postman.com/reqresapi/reqres/collection/rli8ped/reqres-api"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 7,
+            "query-parameters": 5,
+            "http-methods": {
+                "get": 4,
+                "post": 3,
+                "put": 2,
+                "patch": 2,
+                "delete": 2
+            }
+        }
     },
-    "47": {
-        "id": "rest-countries",
+    "rest-countries": {
         "name": "REST Countries",
-        "citations": "[3][6][11][12][13][16][20][26]",
-        "reference-website": "https://restcountries.com",
-        "reference-openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/restcountries.yaml",
-        "availability": "online",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 11,
-        "nb-query-parameters": 4,
-        "nb-get": 11,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/rest-countries",
+        "used-by": "[3][6][11][12][13][16][20][26]",
+        "references": {
+            "website": "https://restcountries.com",
+            "openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/restcountries.yaml"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 11,
+            "query-parameters": 4,
+            "http-methods": {
+                "get": 11,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "48": {
-        "id": "rest-faults",
+    "rest-faults": {
         "name": "REST Faults",
-        "citations": "[11]",
-        "reference-website": "https://github.com/WebFuzzing/rest-faults",
-        "reference-openapi": "https://github.com/WebFuzzing/rest-faults/blob/master/src/main/resources/schema.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 4,
-        "nb-query-parameters": 0,
-        "nb-get": 4,
-        "nb-post": 1,
-        "nb-put": 2,
-        "nb-patch": 0,
-        "nb-delete": 1
+        "openapi-path": "apis/rest-faults",
+        "used-by": "[11]",
+        "references": {
+            "website": "https://github.com/WebFuzzing/rest-faults",
+            "openapi": "https://github.com/WebFuzzing/rest-faults/blob/master/src/main/resources/schema.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 4,
+            "query-parameters": 0,
+            "http-methods": {
+                "get": 4,
+                "post": 1,
+                "put": 2,
+                "patch": 0,
+                "delete": 1
+            }
+        }
     },
-    "49": {
-        "id": "rest-ncs",
+    "rest-ncs": {
         "name": "REST NCS",
-        "citations": "[3][9][11][15][18][25]",
-        "reference-website": "https://github.com/WebFuzzing/EMB/tree/master/jdk_8_maven/cs/rest/artificial/ncs",
-        "reference-openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/rest-ncs.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 6,
-        "nb-query-parameters": 0,
-        "nb-get": 6,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/rest-ncs",
+        "used-by": "[3][9][11][15][18][25]",
+        "references": {
+            "website": "https://github.com/WebFuzzing/EMB/tree/master/jdk_8_maven/cs/rest/artificial/ncs",
+            "openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/rest-ncs.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 6,
+            "query-parameters": 0,
+            "http-methods": {
+                "get": 6,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "50": {
-        "id": "rest-news",
+    "rest-news": {
         "name": "REST News",
-        "citations": "[2][3][9][11][15][18]",
-        "reference-website": "https://github.com/WebFuzzing/EMB/tree/master/jdk_8_maven/cs/rest/artificial/news",
-        "reference-openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/rest-news.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 6,
-        "nb-query-parameters": 2,
-        "nb-get": 3,
-        "nb-post": 1,
-        "nb-put": 3,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/rest-news",
+        "used-by": "[2][3][9][11][15][18]",
+        "references": {
+            "website": "https://github.com/WebFuzzing/EMB/tree/master/jdk_8_maven/cs/rest/artificial/news",
+            "openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/rest-news.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 6,
+            "query-parameters": 2,
+            "http-methods": {
+                "get": 3,
+                "post": 1,
+                "put": 3,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "51": {
-        "id": "rest-scs",
+    "rest-scs": {
         "name": "REST SCS",
-        "citations": "[3][9][11][15][18][25]",
-        "reference-website": "https://github.com/WebFuzzing/EMB/tree/master/jdk_8_maven/cs/rest/artificial/scs",
-        "reference-openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/rest-scs.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 11,
-        "nb-query-parameters": 0,
-        "nb-get": 11,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/rest-scs",
+        "used-by": "[3][9][11][15][18][25]",
+        "references": {
+            "website": "https://github.com/WebFuzzing/EMB/tree/master/jdk_8_maven/cs/rest/artificial/scs",
+            "openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/rest-scs.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 11,
+            "query-parameters": 0,
+            "http-methods": {
+                "get": 11,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "52": {
-        "id": "scout-api",
+    "scout-api": {
         "name": "Scout API",
-        "citations": "[2][3][7][9][11][15][18][25]",
-        "reference-website": "https://github.com/WebFuzzing/EMB/tree/master/jdk_8_maven/cs/rest/original/scout-api",
-        "reference-openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/scout-api.json",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 21,
-        "nb-query-parameters": 25,
-        "nb-get": 21,
-        "nb-post": 10,
-        "nb-put": 7,
-        "nb-patch": 2,
-        "nb-delete": 9
+        "openapi-path": "apis/scout-api",
+        "used-by": "[2][3][7][9][11][15][18][25]",
+        "references": {
+            "website": "https://github.com/WebFuzzing/EMB/tree/master/jdk_8_maven/cs/rest/original/scout-api",
+            "openapi": "https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/scout-api.json"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 21,
+            "query-parameters": 25,
+            "http-methods": {
+                "get": 21,
+                "post": 10,
+                "put": 7,
+                "patch": 2,
+                "delete": 9
+            }
+        }
     },
-    "53": {
-        "id": "senzing",
+    "senzing": {
         "name": "Senzing",
-        "citations": "[12]",
-        "reference-website": "https://senzing.zendesk.com/hc/en-us/categories/360000120514-Senzing-API-for-Developers",
-        "reference-openapi": "https://github.com/senzing-garage/senzing-rest-api-specification/blob/main/senzing-rest-api.yaml",
-        "availability": "local",
-        "authentication": "no",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 31,
-        "nb-query-parameters": 29,
-        "nb-get": 25,
-        "nb-post": 7,
-        "nb-put": 1,
-        "nb-patch": 0,
-        "nb-delete": 1
+        "openapi-path": "apis/senzing",
+        "used-by": "[12]",
+        "references": {
+            "website": "https://senzing.zendesk.com/hc/en-us/categories/360000120514-Senzing-API-for-Developers",
+            "openapi": "https://github.com/senzing-garage/senzing-rest-api-specification/blob/main/senzing-rest-api.yaml"
+        },
+        "characteristics": {
+            "availability": "local",
+            "authentication": "no",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 31,
+            "query-parameters": 29,
+            "http-methods": {
+                "get": 25,
+                "post": 7,
+                "put": 1,
+                "patch": 0,
+                "delete": 1
+            }
+        }
     },
-    "54": {
-        "id": "spacex-api",
+    "spacex-api": {
         "name": "SpaceX API",
-        "citations": "[11]",
-        "reference-website": "https://github.com/r-spacex/SpaceX-API",
-        "reference-openapi": "https://github.com/r-spacex/SpaceX-API/blob/master/docs/README.md",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 41,
-        "nb-query-parameters": 0,
-        "nb-get": 29,
-        "nb-post": 21,
-        "nb-put": 0,
-        "nb-patch": 13,
-        "nb-delete": 11
+        "openapi-path": "apis/spacex-api",
+        "used-by": "[11]",
+        "references": {
+            "website": "https://github.com/r-spacex/SpaceX-API",
+            "openapi": "https://github.com/r-spacex/SpaceX-API/blob/master/docs/README.md"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 41,
+            "query-parameters": 0,
+            "http-methods": {
+                "get": 29,
+                "post": 21,
+                "put": 0,
+                "patch": 13,
+                "delete": 11
+            }
+        }
     },
-    "55": {
-        "id": "spotify",
+    "spotify": {
         "name": "Spotify",
-        "citations": "[6][13][17][19]",
-        "reference-website": "https://developer.spotify.com",
-        "reference-openapi": "https://github.com/sonallux/spotify-web-api/tree/main",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "no",
-        "limits": "yes",
-        "nb-routes": 68,
-        "nb-query-parameters": 63,
-        "nb-get": 59,
-        "nb-post": 5,
-        "nb-put": 17,
-        "nb-patch": 0,
-        "nb-delete": 8
+        "openapi-path": "apis/spotify",
+        "used-by": "[6][13][17][19]",
+        "references": {
+            "website": "https://developer.spotify.com",
+            "openapi": "https://github.com/sonallux/spotify-web-api/tree/main"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "no",
+            "request-limits": "yes",
+            "routes": 68,
+            "query-parameters": 63,
+            "http-methods": {
+                "get": 59,
+                "post": 5,
+                "put": 17,
+                "patch": 0,
+                "delete": 8
+            }
+        }
     },
-    "56": {
-        "id": "stripe",
+    "stripe": {
         "name": "Stripe",
-        "citations": "[5][6][8][10][24]",
-        "reference-website": "https://docs.stripe.com/api",
-        "reference-openapi": "https://github.com/stripe/openapi",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "no",
-        "limits": "yes",
-        "nb-routes": 388,
-        "nb-query-parameters": 138,
-        "nb-get": 257,
-        "nb-post": 271,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 32
+        "openapi-path": "apis/stripe",
+        "used-by": "[5][6][8][10][24]",
+        "references": {
+            "website": "https://docs.stripe.com/api",
+            "openapi": "https://github.com/stripe/openapi"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "no",
+            "request-limits": "yes",
+            "routes": 388,
+            "query-parameters": 138,
+            "http-methods": {
+                "get": 257,
+                "post": 271,
+                "put": 0,
+                "patch": 0,
+                "delete": 32
+            }
+        }
     },
-    "57": {
-        "id": "tumblr",
+    "tumblr": {
         "name": "Tumblr",
-        "citations": "[8][10]",
-        "reference-website": "https://www.tumblr.com/docs/en/api",
-        "reference-openapi": "https://www.postman.com/api-evangelist/tumblr/collection/wa7adwz/tumblr",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "no",
-        "limits": "yes",
-        "nb-routes": 16,
-        "nb-query-parameters": 19,
-        "nb-get": 10,
-        "nb-post": 6,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/tumblr",
+        "used-by": "[8][10]",
+        "references": {
+            "website": "https://www.tumblr.com/docs/en/api",
+            "openapi": "https://www.postman.com/api-evangelist/tumblr/collection/wa7adwz/tumblr"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "no",
+            "request-limits": "yes",
+            "routes": 16,
+            "query-parameters": 19,
+            "http-methods": {
+                "get": 10,
+                "post": 6,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "58": {
-        "id": "ur-codebin",
+    "ur-codebin": {
         "name": "Ur-Codebin",
-        "citations": "[12]",
-        "reference-website": "https://mathew.stoplight.io/docs/ur-codebin-api",
-        "reference-openapi": "https://mathew.stoplight.io/docs/ur-codebin-api",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "no",
-        "limits": "no",
-        "nb-routes": 6,
-        "nb-query-parameters": 6,
-        "nb-get": 3,
-        "nb-post": 3,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 1
+        "openapi-path": "apis/ur-codebin",
+        "used-by": "[12]",
+        "references": {
+            "website": "https://mathew.stoplight.io/docs/ur-codebin-api",
+            "openapi": "https://mathew.stoplight.io/docs/ur-codebin-api"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "no",
+            "request-limits": "no",
+            "routes": 6,
+            "query-parameters": 6,
+            "http-methods": {
+                "get": 3,
+                "post": 3,
+                "put": 0,
+                "patch": 0,
+                "delete": 1
+            }
+        }
     },
-    "59": {
-        "id": "yelp",
+    "yelp": {
         "name": "Yelp",
-        "citations": "[5][6][8][10][17][19][24]",
-        "reference-website": "https://docs.developer.yelp.com",
-        "reference-openapi": "https://www.postman.com/api-evangelist/yelp/collection/27ym6ew/yelp-v3",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "opt",
-        "limits": "yes",
-        "nb-routes": 6,
-        "nb-query-parameters": 3,
-        "nb-get": 6,
-        "nb-post": 0,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 0
+        "openapi-path": "apis/yelp",
+        "used-by": "[5][6][8][10][17][19][24]",
+        "references": {
+            "website": "https://docs.developer.yelp.com",
+            "openapi": "https://www.postman.com/api-evangelist/yelp/collection/27ym6ew/yelp-v3"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "opt",
+            "request-limits": "yes",
+            "routes": 6,
+            "query-parameters": 3,
+            "http-methods": {
+                "get": 6,
+                "post": 0,
+                "put": 0,
+                "patch": 0,
+                "delete": 0
+            }
+        }
     },
-    "60": {
-        "id": "youtube",
+    "youtube": {
         "name": "YouTube",
-        "citations": "[5][6][8][13][17][19][24][26]",
-        "reference-website": "https://developers.google.com/youtube",
-        "reference-openapi": "https://www.postman.com/api-evangelist/youtube/overview",
-        "availability": "online",
-        "authentication": "key",
-        "pricing": "no",
-        "limits": "yes",
-        "nb-routes": 46,
-        "nb-query-parameters": 71,
-        "nb-get": 20,
-        "nb-post": 11,
-        "nb-put": 0,
-        "nb-patch": 0,
-        "nb-delete": 15
+        "openapi-path": "apis/youtube",
+        "used-by": "[5][6][8][13][17][19][24][26]",
+        "references": {
+            "website": "https://developers.google.com/youtube",
+            "openapi": "https://www.postman.com/api-evangelist/youtube/overview"
+        },
+        "characteristics": {
+            "availability": "online",
+            "authentication": "key",
+            "pricing": "no",
+            "request-limits": "yes",
+            "routes": 46,
+            "query-parameters": 71,
+            "http-methods": {
+                "get": 20,
+                "post": 11,
+                "put": 0,
+                "patch": 0,
+                "delete": 15
+            }
+        }
     }
 }

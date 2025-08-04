@@ -1,36 +1,37 @@
-## BitBucket: Structural Characteristics
+## BitBucket API: Structural Characteristics
 
 ### General Information
 
-- Identifier: bitbucket | N°5 in `/structural-characteristics/visualisation`
+- Identifier: bitbucket
 
 - Name: BitBucket
 
-- Cited By: [4] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [4] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://developer.atlassian.com/cloud/bitbucket/rest) | [OpenAPI Specification](https://dac-static.atlassian.com/cloud/bitbucket/swagger.v3.json)
+- References: [API Website](https://developer.atlassian.com/cloud/bitbucket/rest), [OpenAPI Specification](https://dac-static.atlassian.com/cloud/bitbucket/swagger.v3.json)
+
+### Usage Information
 
 - Availability: Online
 
 - Authentication Method: Key
 
-- Pricing: Optional
+- Pricing: Opt
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 185
+
+- Number of Query Parameters: 163
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 171 | 54% |
-| POST | 48 | 15% |
-| PUT | 47 | 15% |
-| PATCH | 0 | 0% |
-| DELETE | 53 | 17% |
-| TOTAL | 319 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 185
-
-- Number of Unique Query Parameters: 163
+| `GET` | 171 | 53.61% |
+| `POST` | 48 | 15.05% |
+| `PUT` | 47 | 14.73% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 53 | 16.61% |

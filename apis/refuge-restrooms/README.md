@@ -1,14 +1,16 @@
-## Refuge Restrooms: Structural Characteristics
+## Refuge Restrooms API: Structural Characteristics
 
 ### General Information
 
-- Identifier: refuge-restrooms | N°45 in `/structural-characteristics/visualisation`
+- Identifier: refuge-restrooms
 
 - Name: Refuge Restrooms
 
-- Cited By: [14] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [14] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://www.refugerestrooms.org/api/docs) | [OpenAPI Specification](https://www.refugerestrooms.org/api/swagger_doc.json)
+- References: [API Website](https://www.refugerestrooms.org/api/docs), [OpenAPI Specification](https://www.refugerestrooms.org/api/swagger_doc.json)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 4
+
+- Number of Query Parameters: 12
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 4 | 100% |
-| POST | 0 | 0% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 4 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 4
-
-- Number of Unique Query Parameters: 12
+| `GET` | 4 | 100.00% |
+| `POST` | 0 | 0.00% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

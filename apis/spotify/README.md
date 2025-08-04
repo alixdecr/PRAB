@@ -1,14 +1,16 @@
-## Spotify: Structural Characteristics
+## Spotify API: Structural Characteristics
 
 ### General Information
 
-- Identifier: spotify | N°55 in `/structural-characteristics/visualisation`
+- Identifier: spotify
 
 - Name: Spotify
 
-- Cited By: [6][13][17][19] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [6][13][17][19] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://developer.spotify.com) | [OpenAPI Specification](https://github.com/sonallux/spotify-web-api/tree/main)
+- References: [API Website](https://developer.spotify.com), [OpenAPI Specification](https://github.com/sonallux/spotify-web-api/tree/main)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 68
+
+- Number of Query Parameters: 63
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 59 | 66% |
-| POST | 5 | 6% |
-| PUT | 17 | 19% |
-| PATCH | 0 | 0% |
-| DELETE | 8 | 9% |
-| TOTAL | 89 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 68
-
-- Number of Unique Query Parameters: 63
+| `GET` | 59 | 66.29% |
+| `POST` | 5 | 5.62% |
+| `PUT` | 17 | 19.10% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 8 | 8.99% |

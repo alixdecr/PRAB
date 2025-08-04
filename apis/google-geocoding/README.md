@@ -1,36 +1,37 @@
-## Google Geocoding: Structural Characteristics
+## Google Geocoding API: Structural Characteristics
 
 ### General Information
 
-- Identifier: google-geocoding | N°25 in `/structural-characteristics/visualisation`
+- Identifier: google-geocoding
 
 - Name: Google Geocoding
 
-- Cited By: [10] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [10] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://developers.google.com/maps/documentation/geocoding) | [OpenAPI Specification](https://www.postman.com/google-maps-platform/google-maps-platform/collection/c4xo2u9/google-maps-platform-core-apis)
+- References: [API Website](https://developers.google.com/maps/documentation/geocoding), [OpenAPI Specification](https://www.postman.com/google-maps-platform/google-maps-platform/collection/c4xo2u9/google-maps-platform-core-apis)
+
+### Usage Information
 
 - Availability: Online
 
 - Authentication Method: Key
 
-- Pricing: Optional
+- Pricing: Opt
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 1
+
+- Number of Query Parameters: 10
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 1 | 100% |
-| POST | 0 | 0% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 1 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 1
-
-- Number of Unique Query Parameters: 10
+| `GET` | 1 | 100.00% |
+| `POST` | 0 | 0.00% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

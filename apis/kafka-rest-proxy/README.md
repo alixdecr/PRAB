@@ -1,14 +1,16 @@
-## Kafka REST Proxy: Structural Characteristics
+## Kafka REST Proxy API: Structural Characteristics
 
 ### General Information
 
-- Identifier: kafka-rest-proxy | N°27 in `/structural-characteristics/visualisation`
+- Identifier: kafka-rest-proxy
 
 - Name: Kafka REST Proxy
 
-- Cited By: [12] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [12] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://github.com/confluentinc/kafka-rest) | [OpenAPI Specification](https://github.com/confluentinc/kafka-rest/blob/master/api/v3/openapi.yaml)
+- References: [API Website](https://github.com/confluentinc/kafka-rest), [OpenAPI Specification](https://github.com/confluentinc/kafka-rest/blob/master/api/v3/openapi.yaml)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 38
+
+- Number of Query Parameters: 37
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 32 | 65% |
-| POST | 8 | 16% |
-| PUT | 3 | 6% |
-| PATCH | 1 | 2% |
-| DELETE | 5 | 10% |
-| TOTAL | 49 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 38
-
-- Number of Unique Query Parameters: 37
+| `GET` | 32 | 65.31% |
+| `POST` | 8 | 16.33% |
+| `PUT` | 3 | 6.12% |
+| `PATCH` | 1 | 2.04% |
+| `DELETE` | 5 | 10.20% |

@@ -1,14 +1,16 @@
-## PayPal: Structural Characteristics
+## PayPal API: Structural Characteristics
 
 ### General Information
 
-- Identifier: paypal | N°37 in `/structural-characteristics/visualisation`
+- Identifier: paypal
 
 - Name: PayPal
 
-- Cited By: [10] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [10] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://developer.paypal.com/api/rest) | [OpenAPI Specification](https://github.com/paypal/paypal-rest-api-specifications)
+- References: [API Website](https://developer.paypal.com/api/rest), [OpenAPI Specification](https://github.com/paypal/paypal-rest-api-specifications)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 14
+
+- Number of Query Parameters: 6
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 4 | 20% |
-| POST | 10 | 50% |
-| PUT | 2 | 10% |
-| PATCH | 0 | 0% |
-| DELETE | 4 | 20% |
-| TOTAL | 20 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 14
-
-- Number of Unique Query Parameters: 6
+| `GET` | 4 | 20.00% |
+| `POST` | 10 | 50.00% |
+| `PUT` | 2 | 10.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 4 | 20.00% |

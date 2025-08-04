@@ -1,14 +1,16 @@
-## Realworld App: Structural Characteristics
+## Realworld App API: Structural Characteristics
 
 ### General Information
 
-- Identifier: realworld-app | N°44 in `/structural-characteristics/visualisation`
+- Identifier: realworld-app
 
 - Name: Realworld App
 
-- Cited By: [11][22] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [11][22] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://github.com/lujakob/nestjs-realworld-example-app) | [OpenAPI Specification](https://github.com/gothinkster/realworld/blob/main/api/openapi.yml)
+- References: [API Website](https://github.com/lujakob/nestjs-realworld-example-app), [OpenAPI Specification](https://github.com/gothinkster/realworld/blob/main/api/openapi.yml)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 12
+
+- Number of Query Parameters: 3
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 7 | 37% |
-| POST | 6 | 32% |
-| PUT | 2 | 11% |
-| PATCH | 0 | 0% |
-| DELETE | 4 | 21% |
-| TOTAL | 19 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 12
-
-- Number of Unique Query Parameters: 3
+| `GET` | 7 | 36.84% |
+| `POST` | 6 | 31.58% |
+| `PUT` | 2 | 10.53% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 4 | 21.05% |

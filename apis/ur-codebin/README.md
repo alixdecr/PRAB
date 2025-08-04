@@ -1,14 +1,16 @@
-## Ur-Codebin: Structural Characteristics
+## Ur-Codebin API: Structural Characteristics
 
 ### General Information
 
-- Identifier: ur-codebin | N°58 in `/structural-characteristics/visualisation`
+- Identifier: ur-codebin
 
 - Name: Ur-Codebin
 
-- Cited By: [12] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [12] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://mathew.stoplight.io/docs/ur-codebin-api) | [OpenAPI Specification](https://mathew.stoplight.io/docs/ur-codebin-api)
+- References: [API Website](https://mathew.stoplight.io/docs/ur-codebin-api), [OpenAPI Specification](https://mathew.stoplight.io/docs/ur-codebin-api)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 6
+
+- Number of Query Parameters: 6
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 3 | 43% |
-| POST | 3 | 43% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 1 | 14% |
-| TOTAL | 7 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 6
-
-- Number of Unique Query Parameters: 6
+| `GET` | 3 | 42.86% |
+| `POST` | 3 | 42.86% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 1 | 14.29% |

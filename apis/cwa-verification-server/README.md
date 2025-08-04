@@ -1,14 +1,16 @@
-## CWA Verification Server: Structural Characteristics
+## CWA Verification Server API: Structural Characteristics
 
 ### General Information
 
-- Identifier: cwa-verification-server | N°9 in `/structural-characteristics/visualisation`
+- Identifier: cwa-verification-server
 
 - Name: CWA Verification Server
 
-- Cited By: [3][11][12] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [3][11][12] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://github.com/corona-warn-app/cwa-verification-server) | [OpenAPI Specification](https://github.com/corona-warn-app/cwa-verification-server/blob/master/api-docs.json)
+- References: [API Website](https://github.com/corona-warn-app/cwa-verification-server), [OpenAPI Specification](https://github.com/corona-warn-app/cwa-verification-server/blob/master/api-docs.json)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 5
+
+- Number of Query Parameters: 0
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 0 | 0% |
-| POST | 5 | 100% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 5 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 5
-
-- Number of Unique Query Parameters: 0
+| `GET` | 0 | 0.00% |
+| `POST` | 5 | 100.00% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

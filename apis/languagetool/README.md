@@ -1,36 +1,37 @@
-## LanguageTool: Structural Characteristics
+## LanguageTool API: Structural Characteristics
 
 ### General Information
 
-- Identifier: languagetool | N°28 in `/structural-characteristics/visualisation`
+- Identifier: languagetool
 
 - Name: LanguageTool
 
-- Cited By: [3][4][6][11][13][18][20][24][26] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [3][4][6][11][13][18][20][24][26] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://languagetool.org/http-api) | [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/languagetool.json)
+- References: [API Website](https://languagetool.org/http-api), [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/languagetool.json)
+
+### Usage Information
 
 - Availability: Online
 
 - Authentication Method: Key
 
-- Pricing: Optional
+- Pricing: Opt
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 5
+
+- Number of Query Parameters: 0
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 2 | 40% |
-| POST | 3 | 60% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 5 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 5
-
-- Number of Unique Query Parameters: 0
+| `GET` | 2 | 40.00% |
+| `POST` | 3 | 60.00% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

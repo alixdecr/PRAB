@@ -1,9 +1,12 @@
 import json
 
 
+"""
+Function used to filter REST APIs from the benchmark.
+"""
 def filter_apis(filter_data):
 
-    with open("./structural-characteristics/structural-characteristics.json", "r") as openfile:
+    with open("structural-characteristics/structural-characteristics.json", "r") as openfile:
         api_dict = json.load(openfile)
 
     selected_apis = []

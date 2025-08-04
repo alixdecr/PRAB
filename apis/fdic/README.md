@@ -1,14 +1,16 @@
-## FDIC: Structural Characteristics
+## FDIC API: Structural Characteristics
 
 ### General Information
 
-- Identifier: fdic | N°17 in `/structural-characteristics/visualisation`
+- Identifier: fdic
 
 - Name: FDIC
 
-- Cited By: [6][13] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [6][13] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://github.com/ContinuityControl/fdic) | [OpenAPI Specification](https://www.postman.com/api-evangelist/federal-deposit-insurance-corporation-fdic/collection/ddi8s3a/fdic-bank-data-api-beta)
+- References: [API Website](https://github.com/ContinuityControl/fdic), [OpenAPI Specification](https://www.postman.com/api-evangelist/federal-deposit-insurance-corporation-fdic/collection/ddi8s3a/fdic-bank-data-api-beta)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 8
+
+- Number of Query Parameters: 15
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 8 | 100% |
-| POST | 0 | 0% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 8 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 8
-
-- Number of Unique Query Parameters: 15
+| `GET` | 8 | 100.00% |
+| `POST` | 0 | 0.00% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

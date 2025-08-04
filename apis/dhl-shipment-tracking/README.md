@@ -1,14 +1,16 @@
-## DHL Shipment Tracking: Structural Characteristics
+## DHL Shipment Tracking API: Structural Characteristics
 
 ### General Information
 
-- Identifier: dhl-shipment-tracking | N°12 in `/structural-characteristics/visualisation`
+- Identifier: dhl-shipment-tracking
 
 - Name: DHL Shipment Tracking
 
-- Cited By: [6] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [6] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://developer.dhl.com/api-reference/shipment-tracking) | [OpenAPI Specification](https://developer.dhl.com/api-reference/shipment-tracking#downloads-section)
+- References: [API Website](https://developer.dhl.com/api-reference/shipment-tracking), [OpenAPI Specification](https://developer.dhl.com/api-reference/shipment-tracking#downloads-section)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 1
+
+- Number of Query Parameters: 8
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 1 | 100% |
-| POST | 0 | 0% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 1 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 1
-
-- Number of Unique Query Parameters: 8
+| `GET` | 1 | 100.00% |
+| `POST` | 0 | 0.00% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

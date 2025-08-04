@@ -1,14 +1,16 @@
-## EnviroCar: Structural Characteristics
+## EnviroCar API: Structural Characteristics
 
 ### General Information
 
-- Identifier: envirocar | N°15 in `/structural-characteristics/visualisation`
+- Identifier: envirocar
 
 - Name: EnviroCar
 
-- Cited By: [12] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [12] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://envirocar.github.io/enviroCar-server/api) | [OpenAPI Specification](https://envirocar.org/api/stable/api-docs.json)
+- References: [API Website](https://envirocar.github.io/enviroCar-server/api), [OpenAPI Specification](https://envirocar.org/api/stable/api-docs.json)
+
+### Usage Information
 
 - Availability: Both
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 53
+
+- Number of Query Parameters: 40
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 52 | 66% |
-| POST | 15 | 19% |
-| PUT | 4 | 5% |
-| PATCH | 0 | 0% |
-| DELETE | 8 | 10% |
-| TOTAL | 79 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 53
-
-- Number of Unique Query Parameters: 40
+| `GET` | 52 | 65.82% |
+| `POST` | 15 | 18.99% |
+| `PUT` | 4 | 5.06% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 8 | 10.13% |

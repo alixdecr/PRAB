@@ -1,14 +1,16 @@
-## Random User Generator: Structural Characteristics
+## Random User Generator API: Structural Characteristics
 
 ### General Information
 
-- Identifier: random-user-generator | N°43 in `/structural-characteristics/visualisation`
+- Identifier: random-user-generator
 
 - Name: Random User Generator
 
-- Cited By: [16] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [16] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://randomuser.me) | [OpenAPI Specification](http://documenter.getpostman.com/view/19878710/2s93Jrwk3R)
+- References: [API Website](https://randomuser.me), [OpenAPI Specification](http://documenter.getpostman.com/view/19878710/2s93Jrwk3R)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 1
+
+- Number of Query Parameters: 12
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 1 | 100% |
-| POST | 0 | 0% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 1 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 1
-
-- Number of Unique Query Parameters: 12
+| `GET` | 1 | 100.00% |
+| `POST` | 0 | 0.00% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

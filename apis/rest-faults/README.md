@@ -1,14 +1,16 @@
-## REST Faults: Structural Characteristics
+## REST Faults API: Structural Characteristics
 
 ### General Information
 
-- Identifier: rest-faults | N°48 in `/structural-characteristics/visualisation`
+- Identifier: rest-faults
 
 - Name: REST Faults
 
-- Cited By: [11] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [11] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://github.com/WebFuzzing/rest-faults) | [OpenAPI Specification](https://github.com/WebFuzzing/rest-faults/blob/master/src/main/resources/schema.json)
+- References: [API Website](https://github.com/WebFuzzing/rest-faults), [OpenAPI Specification](https://github.com/WebFuzzing/rest-faults/blob/master/src/main/resources/schema.json)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 4
+
+- Number of Query Parameters: 0
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 4 | 50% |
-| POST | 1 | 12% |
-| PUT | 2 | 25% |
-| PATCH | 0 | 0% |
-| DELETE | 1 | 12% |
-| TOTAL | 8 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 4
-
-- Number of Unique Query Parameters: 0
+| `GET` | 4 | 50.00% |
+| `POST` | 1 | 12.50% |
+| `PUT` | 2 | 25.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 1 | 12.50% |

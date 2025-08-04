@@ -1,14 +1,16 @@
-## Genome Nexus: Structural Characteristics
+## Genome Nexus API: Structural Characteristics
 
 ### General Information
 
-- Identifier: genome-nexus | N°21 in `/structural-characteristics/visualisation`
+- Identifier: genome-nexus
 
 - Name: Genome Nexus
 
-- Cited By: [3][13] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [3][13] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://docs.genomenexus.org/api) | [OpenAPI Specification](https://www.genomenexus.org/swagger-ui.html)
+- References: [API Website](https://docs.genomenexus.org/api), [OpenAPI Specification](https://www.genomenexus.org/swagger-ui.html)
+
+### Usage Information
 
 - Availability: Both
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 22
+
+- Number of Query Parameters: 6
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 13 | 57% |
-| POST | 10 | 43% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 23 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 22
-
-- Number of Unique Query Parameters: 6
+| `GET` | 13 | 56.52% |
+| `POST` | 10 | 43.48% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

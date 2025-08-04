@@ -1,14 +1,16 @@
-## Cyclotron: Structural Characteristics
+## Cyclotron API: Structural Characteristics
 
 ### General Information
 
-- Identifier: cyclotron | N°10 in `/structural-characteristics/visualisation`
+- Identifier: cyclotron
 
 - Name: Cyclotron
 
-- Cited By: [11] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [11] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://github.com/ExpediaGroup/cyclotron) | [OpenAPI Specification](https://github.com/ExpediaGroup/cyclotron/blob/master/cyclotron-svc/swagger.json)
+- References: [API Website](https://github.com/ExpediaGroup/cyclotron), [OpenAPI Specification](https://github.com/ExpediaGroup/cyclotron/blob/master/cyclotron-svc/swagger.json)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 40
+
+- Number of Query Parameters: 7
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 29 | 58% |
-| POST | 14 | 28% |
-| PUT | 4 | 8% |
-| PATCH | 0 | 0% |
-| DELETE | 3 | 6% |
-| TOTAL | 50 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 40
-
-- Number of Unique Query Parameters: 7
+| `GET` | 29 | 58.00% |
+| `POST` | 14 | 28.00% |
+| `PUT` | 4 | 8.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 3 | 6.00% |

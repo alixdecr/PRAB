@@ -1,14 +1,16 @@
-## Management API for Apache Cassandra: Structural Characteristics
+## Management API for Apache Cassandra API: Structural Characteristics
 
 ### General Information
 
-- Identifier: management-api-for-apache-cassandra | N°30 in `/structural-characteristics/visualisation`
+- Identifier: management-api-for-apache-cassandra
 
 - Name: Management API for Apache Cassandra
 
-- Cited By: [12] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [12] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://github.com/k8ssandra/management-api-for-apache-cassandra) | [OpenAPI Specification](https://raw.githubusercontent.com/k8ssandra/management-api-for-apache-cassandra/master/management-api-server/doc/openapi.json)
+- References: [API Website](https://github.com/k8ssandra/management-api-for-apache-cassandra), [OpenAPI Specification](https://raw.githubusercontent.com/k8ssandra/management-api-for-apache-cassandra/master/management-api-server/doc/openapi.json)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 56
+
+- Number of Query Parameters: 25
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 19 | 32% |
-| POST | 38 | 63% |
-| PUT | 1 | 2% |
-| PATCH | 0 | 0% |
-| DELETE | 2 | 3% |
-| TOTAL | 60 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 56
-
-- Number of Unique Query Parameters: 25
+| `GET` | 19 | 31.67% |
+| `POST` | 38 | 63.33% |
+| `PUT` | 1 | 1.67% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 2 | 3.33% |

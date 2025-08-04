@@ -1,14 +1,16 @@
-## Magento: Structural Characteristics
+## Magento API: Structural Characteristics
 
 ### General Information
 
-- Identifier: magento | N°29 in `/structural-characteristics/visualisation`
+- Identifier: magento
 
 - Name: Magento
 
-- Cited By: [4] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [4] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://developer.adobe.com/commerce/webapi/rest) | [OpenAPI Specification](https://developer.adobe.com/commerce/webapi/rest/quick-reference/)
+- References: [API Website](https://developer.adobe.com/commerce/webapi/rest), [OpenAPI Specification](https://developer.adobe.com/commerce/webapi/rest/quick-reference/)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 446
+
+- Number of Query Parameters: 63
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 234 | 42% |
-| POST | 190 | 34% |
-| PUT | 79 | 14% |
-| PATCH | 0 | 0% |
-| DELETE | 53 | 10% |
-| TOTAL | 556 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 446
-
-- Number of Unique Query Parameters: 63
+| `GET` | 234 | 42.09% |
+| `POST` | 190 | 34.17% |
+| `PUT` | 79 | 14.21% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 53 | 9.53% |

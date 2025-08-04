@@ -1,14 +1,16 @@
-## Gestao Hospital: Structural Characteristics
+## Gestao Hospital API: Structural Characteristics
 
 ### General Information
 
-- Identifier: gestao-hospital | N°22 in `/structural-characteristics/visualisation`
+- Identifier: gestao-hospital
 
 - Name: Gestao Hospital
 
-- Cited By: [11][20] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [11][20] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://github.com/ValchanOficial/GestaoHospital) | [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/gestaohospital-rest.json)
+- References: [API Website](https://github.com/ValchanOficial/GestaoHospital), [OpenAPI Specification](https://github.com/WebFuzzing/EMB/blob/master/openapi-swagger/gestaohospital-rest.json)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 13
+
+- Number of Query Parameters: 4
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 10 | 40% |
-| POST | 10 | 40% |
-| PUT | 3 | 12% |
-| PATCH | 0 | 0% |
-| DELETE | 2 | 8% |
-| TOTAL | 25 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 13
-
-- Number of Unique Query Parameters: 4
+| `GET` | 10 | 40.00% |
+| `POST` | 10 | 40.00% |
+| `PUT` | 3 | 12.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 2 | 8.00% |

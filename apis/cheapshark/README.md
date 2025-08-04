@@ -1,14 +1,16 @@
-## CheapShark: Structural Characteristics
+## CheapShark API: Structural Characteristics
 
 ### General Information
 
-- Identifier: cheapshark | N°7 in `/structural-characteristics/visualisation`
+- Identifier: cheapshark
 
 - Name: CheapShark
 
-- Cited By: [16] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [16] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://apidocs.cheapshark.com) | [OpenAPI Specification](https://apidocs.cheapshark.com)
+- References: [API Website](https://apidocs.cheapshark.com), [OpenAPI Specification](https://apidocs.cheapshark.com)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 4
+
+- Number of Query Parameters: 27
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 4 | 100% |
-| POST | 0 | 0% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 4 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 4
-
-- Number of Unique Query Parameters: 27
+| `GET` | 4 | 100.00% |
+| `POST` | 0 | 0.00% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

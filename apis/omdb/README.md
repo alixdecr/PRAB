@@ -1,36 +1,37 @@
-## OMDb: Structural Characteristics
+## OMDb API: Structural Characteristics
 
 ### General Information
 
-- Identifier: omdb | N°34 in `/structural-characteristics/visualisation`
+- Identifier: omdb
 
 - Name: OMDb
 
-- Cited By: [6][13][14][16][17][19] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [6][13][14][16][17][19] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://www.omdbapi.com) | [OpenAPI Specification](https://github.com/Mermade/openapi-definitions/blob/master/OMDb/swagger.json)
+- References: [API Website](https://www.omdbapi.com), [OpenAPI Specification](https://github.com/Mermade/openapi-definitions/blob/master/OMDb/swagger.json)
+
+### Usage Information
 
 - Availability: Online
 
 - Authentication Method: Key
 
-- Pricing: Optional
+- Pricing: Opt
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 1
+
+- Number of Query Parameters: 11
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 1 | 100% |
-| POST | 0 | 0% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 1 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 1
-
-- Number of Unique Query Parameters: 11
+| `GET` | 1 | 100.00% |
+| `POST` | 0 | 0.00% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

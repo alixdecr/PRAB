@@ -1,36 +1,37 @@
-## Graphhopper: Structural Characteristics
+## Graphhopper API: Structural Characteristics
 
 ### General Information
 
-- Identifier: graphhopper | N°26 in `/structural-characteristics/visualisation`
+- Identifier: graphhopper
 
 - Name: Graphhopper
 
-- Cited By: [14] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [14] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://docs.graphhopper.com) | [OpenAPI Specification](https://docs.graphhopper.com/)
+- References: [API Website](https://docs.graphhopper.com), [OpenAPI Specification](https://docs.graphhopper.com/)
+
+### Usage Information
 
 - Availability: Online
 
 - Authentication Method: Key
 
-- Pricing: Optional
+- Pricing: Opt
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 14
+
+- Number of Query Parameters: 40
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 8 | 44% |
-| POST | 9 | 50% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 1 | 6% |
-| TOTAL | 18 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 14
-
-- Number of Unique Query Parameters: 40
+| `GET` | 8 | 44.44% |
+| `POST` | 9 | 50.00% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 1 | 5.56% |

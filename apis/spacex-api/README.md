@@ -1,14 +1,16 @@
-## SpaceX API: Structural Characteristics
+## SpaceX API API: Structural Characteristics
 
 ### General Information
 
-- Identifier: spacex-api | N°54 in `/structural-characteristics/visualisation`
+- Identifier: spacex-api
 
 - Name: SpaceX API
 
-- Cited By: [11] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [11] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://github.com/r-spacex/SpaceX-API) | [OpenAPI Specification](https://github.com/r-spacex/SpaceX-API/blob/master/docs/README.md)
+- References: [API Website](https://github.com/r-spacex/SpaceX-API), [OpenAPI Specification](https://github.com/r-spacex/SpaceX-API/blob/master/docs/README.md)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 41
+
+- Number of Query Parameters: 0
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 29 | 39% |
-| POST | 21 | 28% |
-| PUT | 0 | 0% |
-| PATCH | 13 | 18% |
-| DELETE | 11 | 15% |
-| TOTAL | 74 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 41
-
-- Number of Unique Query Parameters: 0
+| `GET` | 29 | 39.19% |
+| `POST` | 21 | 28.38% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 13 | 17.57% |
+| `DELETE` | 11 | 14.86% |

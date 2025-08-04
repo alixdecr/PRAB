@@ -1,14 +1,16 @@
-## YouTube: Structural Characteristics
+## YouTube API: Structural Characteristics
 
 ### General Information
 
-- Identifier: youtube | N°60 in `/structural-characteristics/visualisation`
+- Identifier: youtube
 
 - Name: YouTube
 
-- Cited By: [5][6][8][13][17][19][24][26] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [5][6][8][13][17][19][24][26] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://developers.google.com/youtube) | [OpenAPI Specification](https://www.postman.com/api-evangelist/youtube/overview)
+- References: [API Website](https://developers.google.com/youtube), [OpenAPI Specification](https://www.postman.com/api-evangelist/youtube/overview)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 46
+
+- Number of Query Parameters: 71
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 20 | 43% |
-| POST | 11 | 24% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 15 | 33% |
-| TOTAL | 46 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 46
-
-- Number of Unique Query Parameters: 71
+| `GET` | 20 | 43.48% |
+| `POST` | 11 | 23.91% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 15 | 32.61% |

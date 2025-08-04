@@ -1,14 +1,16 @@
-## GBIF Species: Structural Characteristics
+## GBIF Species API: Structural Characteristics
 
 ### General Information
 
-- Identifier: gbif-species | N°20 in `/structural-characteristics/visualisation`
+- Identifier: gbif-species
 
 - Name: GBIF Species
 
-- Cited By: [16] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [16] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://techdocs.gbif.org/en/openapi/v1/species) | [OpenAPI Specification](https://techdocs.gbif.org/openapi/checklistbank.json)
+- References: [API Website](https://techdocs.gbif.org/en/openapi/v1/species), [OpenAPI Specification](https://techdocs.gbif.org/openapi/checklistbank.json)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 26
+
+- Number of Query Parameters: 37
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 26 | 96% |
-| POST | 1 | 4% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 27 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 26
-
-- Number of Unique Query Parameters: 37
+| `GET` | 26 | 96.30% |
+| `POST` | 1 | 3.70% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

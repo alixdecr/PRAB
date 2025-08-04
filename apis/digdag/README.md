@@ -1,14 +1,16 @@
-## DigDag: Structural Characteristics
+## DigDag API: Structural Characteristics
 
 ### General Information
 
-- Identifier: digdag | N°13 in `/structural-characteristics/visualisation`
+- Identifier: digdag
 
 - Name: DigDag
 
-- Cited By: [12] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [12] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://docs.digdag.io) | [OpenAPI Specification](https://github.com/treasure-data/digdag/blob/master/digdag-docs/src/_extra/api/swagger.yaml)
+- References: [API Website](https://docs.digdag.io), [OpenAPI Specification](https://github.com/treasure-data/digdag/blob/master/digdag-docs/src/_extra/api/swagger.yaml)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 35
+
+- Number of Query Parameters: 14
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 29 | 74% |
-| POST | 5 | 13% |
-| PUT | 3 | 8% |
-| PATCH | 0 | 0% |
-| DELETE | 2 | 5% |
-| TOTAL | 39 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 35
-
-- Number of Unique Query Parameters: 14
+| `GET` | 29 | 74.36% |
+| `POST` | 5 | 12.82% |
+| `PUT` | 3 | 7.69% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 2 | 5.13% |

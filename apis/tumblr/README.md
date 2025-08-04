@@ -1,14 +1,16 @@
-## Tumblr: Structural Characteristics
+## Tumblr API: Structural Characteristics
 
 ### General Information
 
-- Identifier: tumblr | N°57 in `/structural-characteristics/visualisation`
+- Identifier: tumblr
 
 - Name: Tumblr
 
-- Cited By: [8][10] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [8][10] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://www.tumblr.com/docs/en/api) | [OpenAPI Specification](https://www.postman.com/api-evangelist/tumblr/collection/wa7adwz/tumblr)
+- References: [API Website](https://www.tumblr.com/docs/en/api), [OpenAPI Specification](https://www.postman.com/api-evangelist/tumblr/collection/wa7adwz/tumblr)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 16
+
+- Number of Query Parameters: 19
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 10 | 62% |
-| POST | 6 | 38% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 16 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 16
-
-- Number of Unique Query Parameters: 19
+| `GET` | 10 | 62.50% |
+| `POST` | 6 | 37.50% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

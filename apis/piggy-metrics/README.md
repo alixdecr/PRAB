@@ -1,14 +1,16 @@
-## Piggy Metrics: Structural Characteristics
+## Piggy Metrics API: Structural Characteristics
 
 ### General Information
 
-- Identifier: piggy-metrics | N°40 in `/structural-characteristics/visualisation`
+- Identifier: piggy-metrics
 
 - Name: Piggy Metrics
 
-- Cited By: [21] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [21] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://github.com/sqshq/piggymetrics) | OpenAPI Specification (Generated)
+- References: [API Website](https://github.com/sqshq/piggymetrics), [OpenAPI Specification](NO OPENAPI OR POSTMAN)
+
+### Usage Information
 
 - Availability: Local
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 11
+
+- Number of Query Parameters: 0
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 7 | 64% |
-| POST | 1 | 9% |
-| PUT | 3 | 27% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 11 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 11
-
-- Number of Unique Query Parameters: 0
+| `GET` | 7 | 63.64% |
+| `POST` | 1 | 9.09% |
+| `PUT` | 3 | 27.27% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

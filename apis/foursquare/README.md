@@ -1,36 +1,37 @@
-## Foursquare: Structural Characteristics
+## Foursquare API: Structural Characteristics
 
 ### General Information
 
-- Identifier: foursquare | N°19 in `/structural-characteristics/visualisation`
+- Identifier: foursquare
 
 - Name: Foursquare
 
-- Cited By: [6][8][10] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [6][8][10] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://docs.foursquare.com/developer) | [OpenAPI Specification](https://www.postman.com/foursquare-places-api/foursquare-s-public-workspace/collection/qjus7hq/foursquare-places-api)
+- References: [API Website](https://docs.foursquare.com/developer), [OpenAPI Specification](https://www.postman.com/foursquare-places-api/foursquare-s-public-workspace/collection/qjus7hq/foursquare-places-api)
+
+### Usage Information
 
 - Availability: Online
 
 - Authentication Method: Key
 
-- Pricing: Optional
+- Pricing: Opt
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 21
+
+- Number of Query Parameters: 78
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 15 | 71% |
-| POST | 6 | 29% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 21 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 21
-
-- Number of Unique Query Parameters: 78
+| `GET` | 15 | 71.43% |
+| `POST` | 6 | 28.57% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

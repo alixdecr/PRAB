@@ -1,14 +1,16 @@
-## Ohsome: Structural Characteristics
+## Ohsome API: Structural Characteristics
 
 ### General Information
 
-- Identifier: ohsome | N°33 in `/structural-characteristics/visualisation`
+- Identifier: ohsome
 
 - Name: Ohsome
 
-- Cited By: [6][12][13][26] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [6][12][13][26] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://docs.ohsome.org/ohsome-api) | [OpenAPI Specification](https://github.com/GIScience/ohsome-api/blob/main/docs/_static/swagger-aggregation.json)
+- References: [API Website](https://docs.ohsome.org/ohsome-api), [OpenAPI Specification](https://github.com/GIScience/ohsome-api/blob/main/docs/_static/swagger-aggregation.json)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: No
+- Request Limits: No
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 61
+
+- Number of Query Parameters: 18
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 61 | 50% |
-| POST | 61 | 50% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 122 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 61
-
-- Number of Unique Query Parameters: 18
+| `GET` | 61 | 50.00% |
+| `POST` | 61 | 50.00% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |

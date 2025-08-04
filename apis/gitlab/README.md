@@ -1,36 +1,37 @@
-## GitLab: Structural Characteristics
+## GitLab API: Structural Characteristics
 
 ### General Information
 
-- Identifier: gitlab | N°24 in `/structural-characteristics/visualisation`
+- Identifier: gitlab
 
 - Name: GitLab
 
-- Cited By: [1] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [1] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://docs.gitlab.com/ee/api/rest) | [OpenAPI Specification](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/api/openapi/openapi.yaml)
+- References: [API Website](https://docs.gitlab.com/ee/api/rest), [OpenAPI Specification](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/api/openapi/openapi.yaml)
+
+### Usage Information
 
 - Availability: Online
 
 - Authentication Method: Key
 
-- Pricing: Optional
+- Pricing: Opt
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 48
+
+- Number of Query Parameters: 18
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 33 | 46% |
-| POST | 14 | 19% |
-| PUT | 14 | 19% |
-| PATCH | 0 | 0% |
-| DELETE | 11 | 15% |
-| TOTAL | 72 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 48
-
-- Number of Unique Query Parameters: 18
+| `GET` | 33 | 45.83% |
+| `POST` | 14 | 19.44% |
+| `PUT` | 14 | 19.44% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 11 | 15.28% |

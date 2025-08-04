@@ -1,14 +1,16 @@
-## Openverse: Structural Characteristics
+## Openverse API: Structural Characteristics
 
 ### General Information
 
-- Identifier: openverse | N°36 in `/structural-characteristics/visualisation`
+- Identifier: openverse
 
 - Name: Openverse
 
-- Cited By: [20] (the citation references can be found in `/study-data/study-apis.md`)
+- Used By: [20] (the citation references can be found in `/study-data/study-apis.md`)
 
-- References: [API Website](https://api.openverse.org) | [OpenAPI Specification](https://api.openverse.org/v1/schema)
+- References: [API Website](https://api.openverse.org), [OpenAPI Specification](https://api.openverse.org/v1/schema)
+
+### Usage Information
 
 - Availability: Online
 
@@ -16,21 +18,20 @@
 
 - Pricing: No
 
-- Rate Limiting: Yes
+- Request Limits: Yes
 
-### HTTP Method Distribution
+### Routes and Query Parameters Information
+
+- Number of Routes: 18
+
+- Number of Query Parameters: 28
+
+### HTTP Method Information
 
 | Method | Amount | Percentage |
 |--------|--------|------------|
-| GET | 14 | 78% |
-| POST | 4 | 22% |
-| PUT | 0 | 0% |
-| PATCH | 0 | 0% |
-| DELETE | 0 | 0% |
-| TOTAL | 18 | 100% |
-
-### Other Information
-
-- Number of Unique Routes: 18
-
-- Number of Unique Query Parameters: 28
+| `GET` | 14 | 77.78% |
+| `POST` | 4 | 22.22% |
+| `PUT` | 0 | 0.00% |
+| `PATCH` | 0 | 0.00% |
+| `DELETE` | 0 | 0.00% |
