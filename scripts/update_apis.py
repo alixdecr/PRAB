@@ -1,5 +1,5 @@
 from datetime import datetime
-import json
+import json, requests
 
 
 """
@@ -14,14 +14,23 @@ def update_apis():
 
     for api_id, data in api_dict.items():
 
+        print(f"Updating {api_id}...")
+
         badges = ""
 
         oas_data = get_oas_data(api_id)
 
-        if oas_data == {}:
-            badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Invalid-red.svg)"
-        else:
+        if oas_data != {}:
             badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-brightgreen.svg)"
+        else:
+            badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Invalid-red.svg)"
+
+        server_url = get_server_url(oas_data)
+
+        if is_valid_server_url(server_url):
+            badges += f"![alt text](https://img.shields.io/badge/Server_URL-Valid-brightgreen.svg)"
+        else:
+            badges += f"![alt text](https://img.shields.io/badge/Server_URL-Invalid-red.svg)"
 
         badges += "\n\n"
 
@@ -33,6 +42,8 @@ def update_apis():
 
         with open(f"apis/{api_id}/README.md", "w") as file:
             file.write(content)
+
+        print(f"Finished updating {api_id}.")
 
 
 """
@@ -104,6 +115,32 @@ def get_oas_data(api_id):
 
     except:
         return {}
+    
+
+"""
+Function used to get the server URL from OAS data for a REST API of the benchmark.
+"""
+def get_server_url(oas_data):
+
+    try:
+        server_url = oas_data["servers"][0]["url"]
+        return server_url
+    
+    except:
+        return None
+
+
+"""
+Function used to check if a server URL is still valid for a REST API of the benchmark.
+"""
+def is_valid_server_url(server_url):
+
+    try:
+        response = requests.get(server_url, timeout=10)
+        return True
+    
+    except:
+        return False
 
     
 update_apis()
