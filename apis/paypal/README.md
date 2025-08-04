@@ -1,6 +1,6 @@
 ![alt text](https://img.shields.io/badge/OpenAPI_Specification-Invalid-red.svg) ![alt text](https://img.shields.io/badge/Server_URL-Missing-orange.svg)
 
-Last Checked: 2025-08-04 16:43:26
+Last Checked: 2025-08-04
 
 ## PayPal API: Structural Characteristics
 

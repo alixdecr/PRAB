@@ -7,7 +7,7 @@ Function used to update REST APIs of the benchmark.
 """
 def update_apis():
 
-    date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    date = datetime.now().strftime("%Y-%m-%d")
 
     with open("structural-characteristics/structural-characteristics.json", "r") as file:
         api_dict = json.load(file)
@@ -17,9 +17,10 @@ def update_apis():
         print(f"Updating {api_id}...")
 
         oas_data = get_oas_data(api_id)
+        is_local = data["characteristics"]["availability"] == "local"
 
         oas_badge = generate_oas_badge(oas_data)
-        server_badge = generate_server_badge(oas_data)
+        server_badge = generate_server_badge(oas_data, is_local)
 
         badges = f"{oas_badge} {server_badge}\n\n"
         last_check = f"Last Checked: {date}\n\n"
@@ -109,7 +110,7 @@ def generate_oas_badge(oas_data):
 """
 Function which generates a markdown string for the server badge of a benchmark REST API.
 """
-def generate_server_badge(oas_data):
+def generate_server_badge(oas_data, is_local):
 
     badge = "![alt text](https://img.shields.io/badge/Server_URL-"
 
@@ -117,6 +118,8 @@ def generate_server_badge(oas_data):
 
     if server_url is None:
         badge += "Missing-orange"
+    elif is_local:
+        badge += "Local-green"
     elif not is_valid_server_url(server_url):
         badge += "Invalid-red"
     else:
