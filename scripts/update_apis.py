@@ -1,3 +1,4 @@
+from datetime import datetime
 import json
 
 
@@ -6,19 +7,38 @@ Function used to update REST APIs of the benchmark.
 """
 def update_apis():
 
-    with open("structural-characteristics/structural-characteristics.json", "r") as openfile:
-        api_dict = json.load(openfile)
+    date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    for id, data in api_dict.items():
-        markdown_readme = generate_markdown_readme(id, data)
+    with open("structural-characteristics/structural-characteristics.json", "r") as file:
+        api_dict = json.load(file)
 
-        with open(f"apis/{id}/README.md", "w") as file:
-            file.write(markdown_readme)
+    for api_id, data in api_dict.items():
+
+        badges = ""
+
+        oas_data = get_oas_data(api_id)
+
+        if oas_data == {}:
+            badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Invalid-red.svg)"
+        else:
+            badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-green.svg)"
+
+        badges += "\n\n"
+
+        markdown_readme = generate_markdown_readme(api_id, data)
+
+        last_check = f"Last Checked: {date}\n\n"
+
+        content = badges + last_check + markdown_readme
+
+        with open(f"apis/{api_id}/README.md", "w") as file:
+            file.write(content)
+
 
 """
 Function used to generate a markdown readme string for a REST API of the benchmark.
 """
-def generate_markdown_readme(id, data):
+def generate_markdown_readme(api_id, data):
 
     name = data["name"]
     used_by = data["used-by"]
@@ -40,7 +60,7 @@ def generate_markdown_readme(id, data):
 
     content += "### General Information\n\n"
 
-    content += f"- Identifier: {id}\n\n"
+    content += f"- Identifier: {api_id}\n\n"
     content += f"- Name: {name}\n\n"
     content += f"- Used By: {used_by} (the citation references can be found in `/study-data/study-apis.md`)\n\n"
     content += f"- References: [API Website]({website_reference}), [OpenAPI Specification]({openapi_reference})\n\n"
@@ -69,4 +89,21 @@ def generate_markdown_readme(id, data):
     return content
 
 
+"""
+Function used to get OAS file data for a REST API of the benchmark.
+"""
+def get_oas_data(api_id):
+
+    oas_path = f"apis/{api_id}/{api_id}-openapi.json"
+
+    try:
+        with open(oas_path, "r", encoding="utf-8-sig") as file:
+            oas_data = json.load(file)
+
+        return oas_data
+
+    except:
+        return {}
+
+    
 update_apis()

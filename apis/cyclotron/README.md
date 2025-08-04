@@ -1,3 +1,7 @@
+![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-green.svg)
+
+Last Checked: 2025-08-04 13:17:21
+
 ## Cyclotron API: Structural Characteristics
 
 ### General Information
