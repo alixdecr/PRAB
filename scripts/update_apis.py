@@ -21,16 +21,16 @@ def update_apis():
         oas_data = get_oas_data(api_id)
 
         if oas_data != {}:
-            badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-brightgreen.svg)"
+            badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-brightgreen.svg) "
         else:
-            badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Invalid-red.svg)"
+            badges += f"![alt text](https://img.shields.io/badge/OpenAPI_Specification-Invalid-red.svg) "
 
         server_url = get_server_url(oas_data)
 
         if is_valid_server_url(server_url):
-            badges += f"![alt text](https://img.shields.io/badge/Server_URL-Valid-brightgreen.svg)"
+            badges += f"![alt text](https://img.shields.io/badge/Server_URL-Valid-brightgreen.svg) "
         else:
-            badges += f"![alt text](https://img.shields.io/badge/Server_URL-Invalid-red.svg)"
+            badges += f"![alt text](https://img.shields.io/badge/Server_URL-Invalid-red.svg) "
 
         badges += "\n\n"
 
