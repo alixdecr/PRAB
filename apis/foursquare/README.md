@@ -1,6 +1,6 @@
 ![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-brightgreen.svg) ![alt text](https://img.shields.io/badge/Server_URL-Valid-brightgreen.svg)
 
-Last Checked: 2025-08-04
+Last Checked: 2025-09-12
 
 ## Foursquare API: Structural Characteristics
 
