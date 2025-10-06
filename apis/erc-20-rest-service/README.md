@@ -1,6 +1,6 @@
 ![alt text](https://img.shields.io/badge/OpenAPI_Specification-Invalid-red.svg) ![alt text](https://img.shields.io/badge/Server_URL-Missing-orange.svg)
 
-Last Checked: 2025-09-12
+Last Checked: 2025-10-06
 
 ## ERC-20 REST Service API: Structural Characteristics
 
