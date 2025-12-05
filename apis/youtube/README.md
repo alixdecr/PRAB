@@ -1,6 +1,6 @@
 ![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-brightgreen.svg) ![alt text](https://img.shields.io/badge/Server_URL-Valid-brightgreen.svg)
 
-Last Checked: 2025-09-12
+Last Checked: 2025-12-05
 
 ## YouTube API: Structural Characteristics
 
