@@ -1,6 +1,10 @@
 ![alt text](https://img.shields.io/badge/OpenAPI_Specification-Oudated-orange.svg) ![alt text](https://img.shields.io/badge/Server_URL-Missing-orange.svg)
 
+<<<<<<< HEAD
 Last Checked: 2025-12-05
+=======
+Last Checked: 2025-10-06
+>>>>>>> b3f80ccaf28d1f5f1b3f527882da49aa5aa533df
 
 ## Ohsome API: Structural Characteristics
 
