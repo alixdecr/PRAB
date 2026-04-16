@@ -6,9 +6,22 @@ This GitHub repository contains a Public REST API Benchmark (PRAB). The benchmar
 
 The repository was created by [Alix Decrop](https://orcid.org/0009-0007-2641-5983) and [Sara Eraso](https://orcid.org/0009-0002-7637-3869).
 
-## Related Research Paper
+## Citation
 
-PRAB was created in parallel to the research paper *A Public Benchmark of REST APIs (A. Decrop, S. Eraso, X. Devroey, G. Perrouin)*, which was accepted for inclusion in the *22nd International Conference on Mining Software Repositories (MSR 2025)*. **When using our benchmark, please refer to this research paper for citation purposes.**
+If you use this tool in your research or find it useful in your work, please cite our paper:
+
+Decrop, A., Eraso, S., Devroey, X. and Perrouin, G., 2025. A Public Benchmark of REST APIs. In 2025 IEEE/ACM 22nd International Conference on Mining Software Repositories (MSR) (pp. 421-433). IEEE.
+
+```bibtex
+@inproceedings{decrop2025public,
+    title={A Public Benchmark of REST APIs},
+    author={Decrop, Alix and Eraso, Sara and Devroey, Xavier and Perrouin, Gilles},
+    booktitle={2025 IEEE/ACM 22nd International Conference on Mining Software Repositories (MSR)},
+    pages={421--433},
+    year={2025},
+    organization={IEEE}
+}
+```
 
 ## Main Content
 
