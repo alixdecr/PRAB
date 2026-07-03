@@ -1,6 +1,6 @@
 ![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-brightgreen.svg) ![alt text](https://img.shields.io/badge/Server_URL-Invalid-red.svg)
 
-Last Checked: 2026-05-12
+Last Checked: 2026-07-03
 
 ## REST Countries API: Structural Characteristics
 
