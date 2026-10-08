@@ -1,6 +1,6 @@
 ![alt text](https://img.shields.io/badge/OpenAPI_Specification-Valid-brightgreen.svg) ![alt text](https://img.shields.io/badge/Server_URL-Local-green.svg)
 
-Last Checked: 2026-07-03
+Last Checked: 2026-10-08
 
 ## Magento API: Structural Characteristics
 
